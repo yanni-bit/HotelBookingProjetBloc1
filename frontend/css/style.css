@@ -228,14 +228,20 @@
 
 .hotel-carousel {
   position: relative;
+  max-height: 640px;      /* ⬅️ Hauteur maximale */
+  overflow: hidden;        /* ⬅️ Cache le dépassement */
 }
 
 .hotel-slide {
   display: none;
+  max-height: 640px;      /* ⬅️ Hauteur max des slides */
 }
 
 .hotel-slide img {
   width: 100%;
+  height: 100%;
+  max-height: 640px;      /* ⬅️ Hauteur max des images */
+  object-fit: cover;      /* ⬅️ Recadre l'image sans déformer */
 }
 
 /* Boutons flèches */
@@ -779,66 +785,135 @@
    STYLES SPÉCIFIQUES À ROOM.HTML (Menu Latéral & Onglets)
    ---------------------------------------------------------- */
 
+.room-page {
+  background-color: var(--marron-clair);
+}
+
+.room-details, #roomDetailsContent {
+  background-color: var(--marron-clair);
+}
+
+.flatpickr-calendar.inline{
+  background-color: var(--gris-clair);
+}
+
+.time-selectors-row {
+  background-color: var(--gris-clair);
+}
+
+/* Enlever l'ombre et Agrandir le calendrier Flatpickr */
+.flatpickr-calendar {
+  box-shadow: none !important;
+  border: solid 1px var(--marron);
+}
+
+.flatpickr-day.today{
+  border-color: var(--turquoise-hover) !important;
+}
+
+.flatpickr-day.today:hover {
+  background-color: var(--turquoise-hover) !important;
+  color: #fff !important;
+}
+
+.flatpickr-day:hover {
+  background-color: rgba(95, 200, 194, 0.4) !important;
+}
+
+.flatpickr-day.startRange, .flatpickr-day.endRange.endRange {
+  background-color: var(--turquoise) !important;
+  border-color: var(--turquoise) !important;
+}
+
+.flatpickr-day.inRange {
+  background-color: var(--turquoise-clair);
+  border-color: var(--turquoise-clair);
+}
+
+.info-line {
+  border-left: none!important;
+  background-color: rgba(95, 200, 194, 0.4) !important;
+}
+#nightsCount {
+  background-color: rgba(95, 200, 194, 0.4) !important;
+}
+
+#confirmBtn:not(:disabled) {
+  background-color: var(--turquoise) !important;
+  border-color: var(--turquoise) !important;
+  color: #fff !important;
+  opacity: 1 !important; /* éviter l’opacité Bootstrap */
+}
+
 /* Conteneur du menu latéral dans la page room.html */
+/* Onglets */
 .sidebar-nav {
-  /* Assure un espacement cohérent */
-  padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1px;
 }
 
-/* Style général des liens du menu latéral */
-.sidebar-nav .nav-link {
-  /* Réinitialise le style du nav-link de la navbar principale */
-  color: var(--gris-fonce);
-  font-family: var(--font-principale);
-  font-weight: 600;
-  text-transform: none;
-  letter-spacing: normal;
-  padding: 10px 15px; /* Augmente la zone de clic */
-  margin-bottom: 5px;
-  border-radius: 8px; /* Adoucit les coins */
-  transition: background-color 0.3s, color 0.3s;
-  display: flex;
-  align-items: center;
+/* Tous les liens */
+.sidebar-nav a.nav-link {
+    background: var(--marron);
+    color: #555;
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    transition: all 0.15s ease-in-out;
 }
 
-/* Icônes dans le menu */
-.sidebar-nav .nav-link i {
-  font-size: 16px;
-  min-width: 20px; /* Assure un alignement parfait du texte */
-  margin-right: 8px;
-  color: var(--marron); /* Couleur d'icône par défaut (marron) */
+/* Icône */
+.sidebar-nav a.nav-link i {
+    font-size: 18px;
 }
 
-/* État survol (hover) */
-.sidebar-nav .nav-link:hover {
-  color: var(--gris-fonce); /* Texte reste sombre */
-  background-color: var(--marron-clair); /* Fond marron clair au survol */
+/* Hover */
+.sidebar-nav a.nav-link:hover {
+    opacity: 0.9;
 }
 
-/* État actif (onglet sélectionné) */
-.sidebar-nav .nav-link.active {
-  color: var(--blanc); /* Texte blanc */
-  background-color: var(--marron); /* Fond marron */
-  box-shadow: 0 2px 8px rgba(105, 87, 74, 0.2); /* Légère ombre pour le faire ressortir */
+/* Onglet actif turquoise */
+.sidebar-nav a.nav-link.active {
+    background-color: var(--turquoise);
+    border-radius: 4px 0 0 4px;
+    position: relative;
 }
 
-/* Icône dans l'état actif */
-.sidebar-nav .nav-link.active i {
-  color: var(--turquoise); /* Icône turquoise dans l'état actif */
+/* Flèche turquoise à droite de l'onglet actif */
+.sidebar-nav a.nav-link.active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -32px;
+    width: 0;
+    height: 100%;
+    border-style: solid;
+    border-width: 29px 0px 29px 32px;
+    border-color: transparent transparent transparent var(--turquoise);
+    z-index: 5;
 }
 
-/* Contenu des onglets (pour une meilleure lisibilité) */
-.tab-content .tab-pane {
-    background-color: var(--blanc);
+/* Contenu de l'onglet */
+#roomDetailsContent .tab-pane {
     padding: 20px;
-    border-radius: 10px;
-    margin-top: 15px;
-    border: 1px solid #e9e9e9;
+    background: #fff;
+    border-radius: 4px;
 }
 
-/* Titres dans le sidebar */
-.sidebar h3 {
-    color: var(--marron); /* Met les titres de section en marron */
+/* La colonne des onglets doit passer au-dessus du contenu central */
+.room-page .row > .col-md-3 {
+    position: relative;
+    z-index: 10;
+}
+
+.room-page .row > .col-md-9 {
+    position: relative;
+    z-index: 1;
 }
 
 /* Ligne de séparation sous les titres (déjà présente dans le HTML, on lui donne une couleur) */
@@ -870,7 +945,7 @@
 footer.container-fluid {
   padding: 0 5%;
   background-color: var(--blanc);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--gris-moyen);
   text-align: center;
   font-weight: 700;
@@ -1008,4 +1083,200 @@ footer .bottom nav li:not(:first-child) {
 
 footer .bottom nav li {
   padding: 0 0 0 12px;
+}
+
+.bottom{
+  font-size: 13px;
+}
+
+.copy{
+  text-align: center;
+}
+/* ==========================================================
+   PAGE ROOM - Lignes d'info avec icône
+   ---------------------------------------------------------- */
+
+.info-line {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--gris-clair);
+  border-left: 3px solid var(--turquoise);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--gris-fonce);
+}
+
+.info-line i {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.info-line span {
+  font-weight: 500;
+}
+/* ==========================================================
+   CAROUSEL ROOM - Galerie d'images
+   ---------------------------------------------------------- */
+
+/* Hauteur fixe pour les images du carousel */
+.carousel-image {
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Carousel container */
+.carousel {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Miniatures */
+.carousel-thumbnail {
+  height: 80px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  padding: 0;
+}
+
+.carousel-thumbnail:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.carousel-thumbnail.active {
+  border-color: var(--turquoise);
+  opacity: 1;
+}
+
+/* Contrôles du carousel */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  opacity: 0.7;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Indicateurs */
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-indicators .active {
+  background-color: var(--turquoise);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 300px;
+  }
+  
+  .carousel-thumbnail {
+    height: 60px;
+  }
+}
+/* ==========================================================
+   MINIATURES SCROLLABLES
+   ---------------------------------------------------------- */
+
+.thumbnails-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.thumbnails-wrapper {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.thumbnails-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 5px 0;
+  
+  /* Cacher la scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.thumbnails-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.carousel-thumbnail {
+  flex-shrink: 0;
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.carousel-thumbnail:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.carousel-thumbnail.active {
+  border-color: var(--turquoise);
+  opacity: 1;
+}
+
+/* Boutons de navigation des miniatures */
+.thumbnail-nav {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.thumbnail-nav:hover {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  color: white;
+}
+
+.thumbnail-nav i {
+  font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-thumbnail {
+    width: 80px;
+    height: 60px;
+  }
+  
+  .thumbnail-nav {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .thumbnail-nav i {
+    font-size: 16px;
+  }
 }

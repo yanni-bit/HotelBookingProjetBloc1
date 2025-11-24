@@ -8,15 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const PRIX_PAR_NUIT = 120;
 
   // Éléments DOM
-  const checkInDisplay = document.getElementById('checkInDisplay');
-  const checkOutDisplay = document.getElementById('checkOutDisplay');
+  const checkInInfo = document.getElementById('checkInInfo');
+  const checkOutInfo = document.getElementById('checkOutInfo');
+  const checkInText = document.getElementById('checkInText');
+  const checkOutText = document.getElementById('checkOutText');
+  const checkInTimeInput = document.getElementById('checkInTime');
+  const checkOutTimeInput = document.getElementById('checkOutTime');
   const nightsCount = document.getElementById('nightsCount');
   const nightsNumber = document.getElementById('nightsNumber');
   const totalPrice = document.getElementById('totalPrice');
   const confirmBtn = document.getElementById('confirmBtn');
   const resetBtn = document.getElementById('resetBtn');
-  const timeInfo = document.getElementById('timeInfo');
-  const timeInfoText = document.getElementById('timeInfoText');
 
   // Variables pour stocker les dates
   let checkInDate = null;
@@ -52,21 +54,18 @@ document.addEventListener('DOMContentLoaded', function() {
         checkOutDate = null;
         
         // Afficher seulement le check-in
-        if (checkInDisplay) {
-          checkInDisplay.innerHTML = `
-            <div class="datetime-value-compact">${formatDate(checkInDate)}</div>
-          `;
+        const checkInTime = checkInTimeInput ? checkInTimeInput.value : '15:00';
+        const checkInDateLong = formatDateLong(checkInDate);
+        
+        if (checkInInfo && checkInText) {
+          checkInText.textContent = `Arrivée : ${checkInDateLong} à ${checkInTime}`;
+          checkInInfo.style.display = 'block';
         }
         
-        if (checkOutDisplay) {
-          checkOutDisplay.innerHTML = `
-            <div class="datetime-value-compact text-muted">Sélectionnez la date de départ</div>
-          `;
-        }
+        if (checkOutInfo) checkOutInfo.style.display = 'none';
         
         // Cacher les infos et désactiver le bouton
         if (nightsCount) nightsCount.style.display = 'none';
-        if (timeInfo) timeInfo.style.display = 'none';
         confirmBtn.disabled = true;
       } else {
         // Réinitialiser si aucune date
@@ -88,6 +87,14 @@ document.addEventListener('DOMContentLoaded', function() {
     return date.toLocaleDateString('fr-FR', options);
   }
 
+  // Fonction pour formater la date complète (Mardi 25 novembre 2025)
+  function formatDateLong(date) {
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const formatted = date.toLocaleDateString('fr-FR', options);
+    // Capitaliser la première lettre
+    return formatted.charAt(0).toUpperCase() + formatted.slice(1);
+  }
+
   // Fonction pour formater l'heure
   function formatTime(date) {
     return date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
@@ -95,24 +102,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Mise à jour de l'affichage
   function updateDisplay(checkIn, checkOut, nights) {
-    // Check-in
-    if (checkInDisplay) {
-      checkInDisplay.innerHTML = `
-        <div class="datetime-value-compact">${formatDate(checkIn)}</div>
-      `;
+    // Récupérer les heures
+    const checkInTime = checkInTimeInput ? checkInTimeInput.value : '15:00';
+    const checkOutTime = checkOutTimeInput ? checkOutTimeInput.value : '11:00';
+    
+    // Formater les dates complètes
+    const checkInDateLong = formatDateLong(checkIn);
+    const checkOutDateLong = formatDateLong(checkOut);
+    
+    // Afficher les infos d'arrivée
+    if (checkInInfo && checkInText) {
+      checkInText.textContent = `Arrivée : ${checkInDateLong} à ${checkInTime}`;
+      checkInInfo.style.display = 'block';
     }
 
-    // Check-out
-    if (checkOutDisplay) {
-      checkOutDisplay.innerHTML = `
-        <div class="datetime-value-compact">${formatDate(checkOut)}</div>
-      `;
-    }
-
-    // Infos horaires
-    if (timeInfo && timeInfoText) {
-      timeInfoText.textContent = `Arrivée: 15:00 • Départ: 11:00`;
-      timeInfo.style.display = 'block';
+    // Afficher les infos de départ
+    if (checkOutInfo && checkOutText) {
+      checkOutText.textContent = `Départ : ${checkOutDateLong} à ${checkOutTime}`;
+      checkOutInfo.style.display = 'block';
     }
 
     // Nombre de nuits et prix total
@@ -126,20 +133,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Réinitialiser l'affichage
   function resetDisplay() {
-    if (checkInDisplay) {
-      checkInDisplay.innerHTML = `
-        <div class="datetime-value-compact text-muted">Sélectionnez une date</div>
-      `;
-    }
-    
-    if (checkOutDisplay) {
-      checkOutDisplay.innerHTML = `
-        <div class="datetime-value-compact text-muted">Sélectionnez une date</div>
-      `;
-    }
-    
+    if (checkInInfo) checkInInfo.style.display = 'none';
+    if (checkOutInfo) checkOutInfo.style.display = 'none';
     if (nightsCount) nightsCount.style.display = 'none';
-    if (timeInfo) timeInfo.style.display = 'none';
     confirmBtn.disabled = true;
   }
 
@@ -172,4 +168,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialiser l'affichage au chargement
   resetDisplay();
+
+  // Écouter les changements d'heures
+  if (checkInTimeInput) {
+    checkInTimeInput.addEventListener('change', function() {
+      if (checkInDate && checkOutDate) {
+        const diffTime = Math.abs(checkOutDate - checkInDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        updateDisplay(checkInDate, checkOutDate, diffDays);
+      }
+    });
+  }
+
+  if (checkOutTimeInput) {
+    checkOutTimeInput.addEventListener('change', function() {
+      if (checkInDate && checkOutDate) {
+        const diffTime = Math.abs(checkOutDate - checkInDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        updateDisplay(checkInDate, checkOutDate, diffDays);
+      }
+    });
+  }
 });

@@ -24,13 +24,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Gestion du carrousel
+// Gestion du carrousel Index
 //-------------------------------------
 let slideIndex = 0;
 let timer = null;
 
-showSlides(slideIndex);
-resetTimer();
+// Initialiser seulement si le carousel index existe
+const indexCarousel = document.getElementById('hotelCarousel');
+if (indexCarousel) {
+  showSlides(slideIndex);
+  resetTimer();
+}
 
 function plusSlides(n) {
   slideIndex += n;
@@ -48,6 +52,9 @@ function showSlides(n) {
   const slides = document.getElementsByClassName("hotel-slide");
   const dots = document.getElementsByClassName("dot");
 
+  // Si pas de slides, on sort
+  if (slides.length === 0) return;
+
   if (n >= slides.length) slideIndex = 0;
   if (n < 0) slideIndex = slides.length - 1;
 
@@ -63,15 +70,19 @@ function showSlides(n) {
   }
 
   // Afficher la slide courante immédiatement
-  slides[slideIndex].style.display = "block";
+  if (slides[slideIndex]) {
+    slides[slideIndex].style.display = "block";
 
-  // Ajouter un petit délai pour que la transition opacity démarre sans flash
-  setTimeout(function () {
-    slides[slideIndex].style.transition = "opacity 0.8s ease";
-    slides[slideIndex].style.opacity = "1";
-  }, 50);
+    // Ajouter un petit délai pour que la transition opacity démarre sans flash
+    setTimeout(function () {
+      slides[slideIndex].style.transition = "opacity 0.8s ease";
+      slides[slideIndex].style.opacity = "1";
+    }, 50);
+  }
 
-  dots[slideIndex].className += " dotActive";
+  if (dots[slideIndex]) {
+    dots[slideIndex].className += " dotActive";
+  }
 }
 
 function autoSlides() {
@@ -80,9 +91,107 @@ function autoSlides() {
 }
 
 function resetTimer() {
-  clearInterval(timer);
-  timer = setInterval(autoSlides, 4500);
+  if (document.getElementById('hotelCarousel')) {
+    clearInterval(timer);
+    timer = setInterval(autoSlides, 4500);
+  }
 }
+
+// ==========================================================
+// GESTION CAROUSEL ROOM avec miniatures scrollables
+// ==========================================================
+document.addEventListener("DOMContentLoaded", function () {
+  const carousel = document.getElementById('roomCarousel');
+  
+  if (!carousel) {
+    console.log('Carousel non trouvé');
+    return;
+  }
+  
+  console.log('Carousel trouvé');
+  
+  const thumbnails = document.querySelectorAll('.carousel-thumbnail');
+  const thumbnailsScroll = document.getElementById('thumbnailsScroll');
+  const scrollLeftBtn = document.getElementById('scrollLeft');
+  const scrollRightBtn = document.getElementById('scrollRight');
+  
+  console.log('Nombre de miniatures:', thumbnails.length);
+  
+  // Attendre que Bootstrap soit prêt
+  setTimeout(function() {
+    // Récupérer l'instance Bootstrap du carousel
+    let bsCarousel = bootstrap.Carousel.getInstance(carousel);
+    
+    // Si pas d'instance, en créer une
+    if (!bsCarousel) {
+      console.log('Création du carousel Bootstrap');
+      bsCarousel = new bootstrap.Carousel(carousel, {
+        interval: 5000,
+        wrap: true
+      });
+    }
+    
+    // Gestion du clic sur les miniatures
+    thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Clic sur miniature', index);
+        if (bsCarousel) {
+          bsCarousel.to(index);
+        }
+      });
+    });
+    
+    // Mettre à jour la miniature active quand le carousel change
+    carousel.addEventListener('slide.bs.carousel', function (e) {
+      console.log('Carousel change vers slide', e.to);
+      
+      // Retirer la classe active de toutes les miniatures
+      thumbnails.forEach(thumb => thumb.classList.remove('active'));
+      
+      // Ajouter la classe active à la miniature correspondante
+      if (thumbnails[e.to]) {
+        thumbnails[e.to].classList.add('active');
+        
+        // Scroll automatique vers la miniature active
+        if (thumbnailsScroll) {
+          const activeThumbnail = thumbnails[e.to];
+          const scrollLeft = activeThumbnail.offsetLeft - (thumbnailsScroll.offsetWidth / 2) + (activeThumbnail.offsetWidth / 2);
+          thumbnailsScroll.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+    
+  }, 100);
+  
+  // Gestion du scroll des miniatures avec les boutons
+  if (scrollLeftBtn && thumbnailsScroll) {
+    console.log('Bouton scroll gauche trouvé');
+    scrollLeftBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log('Scroll gauche');
+      thumbnailsScroll.scrollBy({
+        left: -250,
+        behavior: 'smooth'
+      });
+    });
+  }
+  
+  if (scrollRightBtn && thumbnailsScroll) {
+    console.log('Bouton scroll droit trouvé');
+    scrollRightBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log('Scroll droit');
+      thumbnailsScroll.scrollBy({
+        left: 250,
+        behavior: 'smooth'
+      });
+    });
+  }
+});
 
 // Gestion du formulaire de recherche
 //-------------------------------------

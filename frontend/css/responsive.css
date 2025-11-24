@@ -122,6 +122,8 @@
     display: flex;
   }
 
+  
+
   footer.container-fluid {
     margin-left: -15px;
   }
@@ -138,6 +140,11 @@
   .destination-name {
     font-size: 22px;
   }
+  /* === CARROUSEL === */
+.hotel-carousel {
+  max-height: none;      /* ⬅️ Annule la hauteur max de 640px */
+  overflow: visible;     /* ⬅️ Permet au contenu de dépasser */
+}
 }
 
 /* ==========================================================
