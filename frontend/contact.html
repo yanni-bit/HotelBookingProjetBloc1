@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Travaillons ensemble</title>
+  <meta name="description" content="Contactez-moi pour un devis ou une mission freelance." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/styleContact.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:," />
+</head>
+<body>
+<!-- ==========================================================
+       NAVIGATION
+       ========================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-brown">
+    <span class="navbar-brand d-lg-none">Menu</span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+      aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menuPrincipal">
+      <ul class="navbar-nav me-auto ms-3">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="room.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="calendrier.html">Calendrier</a></li>
+        <li class="nav-item"><a class="nav-link" href="booking.html">Réservation</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==========================================================
+       CONTENU PRINCIPAL
+       ========================================================== -->
+
+<main class="container section">
+  <h1>Contact</h1>
+
+  <section class="grid cols-2">
+    <div class="card">
+      <h2>Écrivez-moi</h2>
+      <!-- Adaptez action="/contact" à votre route Node.js -->
+      <form action="/contact" method="POST" novalidate>
+        <div class="field inline">
+          <div>
+            <label for="name">Nom complet</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="field inline">
+          <div>
+            <label for="subject">Sujet</label>
+            <input id="subject" name="subject" type="text" required />
+          </div>
+          <div>
+            <label for="website">Site (optionnel)</label>
+            <input id="website" name="website" type="url" placeholder="https://…" />
+          </div>
+        </div>
+
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required minlength="10"></textarea>
+          <p class="help">Note : les messages validés seront affichés publiquement.</p>
+        </div>
+
+        <div>
+          <label>
+            <input type="checkbox" name="consent_public" value="yes" required />
+            Je consens à la publication de mon message.
+          </label>
+        </div>
+
+        <input type="submit" value="Envoyer" />
+        <p class="help">Vous recevrez une copie par e-mail si disponible.</p>
+        <!-- Messages d'état côté serveur -->
+        <!-- <p class="success">Merci, votre message a été envoyé.</p> -->
+        <!-- <p class="error">Erreur : merci de réessayer plus tard.</p> -->
+      </form>
+    </div>
+
+    <aside class="card">
+      <h2>Coordonnées</h2>
+      <p><strong>E-mail :</strong> contact@exemple.com</p>
+      <p><strong>Disponibilité :</strong> sous 2 semaines</p>
+      <div class="tags">
+        <span class="tag">Paris</span><span class="tag">Remote</span>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section card" aria-live="polite">
+    <h2>Messages publics</h2>
+    <!-- Cette liste sera rendue côté serveur avec vos données de BDD -->
+    <div id="public-messages" class="grid">
+      <!-- Exemple (à supprimer une fois branché) -->
+      <article class="card">
+        <p><strong>Marie</strong> — “Super réactivité, je recommande.”</p>
+        <p class="meta">Publié le 12/09/2025</p>
+      </article>
+      <!-- /Exemple -->
+    </div>
+  </section>
+</main>
+
+  <footer class="container-fluid mt-1">
+    <div class="row">
+      <div class="col-lg-3 footer_contact">
+        <div class="p-3">
+          <h2>Book Your Travel</h2>
+          <p>1400 PennsylSUVia Ave. Washington DC</p>
+          <p><em>P :</em> 24/7 customer support : 1-555-555-5555</p>
+          <p><em>E :</em> booking@mail.com</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 footer_support">
+        <div class="p-3">
+          <h2>Customer support</h2>
+          <ul>
+            <li><a href="#">Faq</a></li>
+            <li><a href="#">How do I make a reservation ?</a></li>
+            <li><a href="#">Payment options</a></li>
+            <li><a href="#">Booking tips</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-3 footer_follow">
+        <div class="p-3">
+          <h2>Follow us</h2>
+          <ul class="list-unstyled d-flex gap-3 mt-3">
+            <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+            <li><a href="#"><i class="bi bi-youtube"></i></a></li>
+            <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+            <li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
+            <li><a href="#"><i class="bi bi-pinterest"></i></a></li>
+            <li><a href="#"><i class="bi bi-vimeo"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-3 footer_newsletter">
+        <div class="p-3">
+          <h2>Newsletter</h2>
+          <p>Inscrivez-vous pour recevoir nos offres exclusives !</p>
+          <form>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Votre email">
+              <button class="btn btn-dark" type="submit">OK</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

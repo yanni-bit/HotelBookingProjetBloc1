@@ -1,0 +1,298 @@
+/* ==========================================================
+   RESPONSIVE.CSS – Adaptations mobiles & tablettes
+   Projet : Hôtel Booking (Bloc 2)
+   ----------------------------------------------------------
+   Contient :
+   - Adaptations du HEADER (logo, contact, recherche, ruban)
+   - Ajustements généraux pour tablettes et mobiles
+   ========================================================== */
+
+
+/* ==========================================================
+   MOBILES & TABLETTES (< 992px)
+   ---------------------------------------------------------- */
+@media (max-width: 991px) {
+
+  /* === HEADER === */
+  .base-header {
+    padding: 15px 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .header-top {
+    padding-right: 0;
+    margin-right: -10px;
+    /* enlève le padding du dernier enfant */
+  }
+
+  /* Réorganisation des sections header */
+  .header_logo,
+  .header_contact,
+  .header_search {
+    justify-content: flex-start !important;
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .header_logo {
+    padding-bottom: 0 !important;
+  }
+
+  .header_contact {
+    padding-bottom: 0 !important;
+  }
+
+  /* === RUBAN === */
+  .ribbon {
+    right: 5px;
+    top: 0;
+    padding: 12px 10px;
+  }
+
+  /* === SECTION RECHERCHE === */
+  .search-overlay-container {
+    position: relative;
+    /* ⭐ Plus absolu : devient relatif (dans le flux) */
+    bottom: auto;
+    /* Annule le bottom */
+    left: auto;
+    /* Annule le left */
+    transform: none;
+    /* Annule le centrage */
+    width: 100%;
+    /* Pleine largeur */
+    max-width: 100%;
+    /* Pas de limite */
+    padding: 0 15px;
+    /* Espace intérieur réduit */
+    top: auto;
+    /* Remonte un peu (optionnel) */
+  }
+
+  .search-overlay-content {
+    padding: 15px;
+    /* Moins de padding sur mobile */
+  }
+
+  .search-overlay-content .row>div {
+    margin-bottom: 15px;
+    /* Espace entre les colonnes empilées */
+  }
+
+  .search-field-box h5 {
+    font-size: 13px;
+    /* Labels plus petits */
+  }
+
+  .search-field-box .form-control {
+    height: 40px;
+    /* Champs un peu plus hauts (meilleur pour le touch) */
+    font-size: 14px;
+    /* Texte plus gros (lisibilité mobile) */
+  }
+
+  .search-overlay-content .row>div:not(:first-child) .search-field-box {
+    border-left: none;
+  }
+
+  /* === CONTACT === */
+  .bloc-contact {
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 0;
+    min-width: auto;
+  }
+
+  .bloc-contact-ico {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 18px;
+  }
+
+  /* === RECHERCHE === */
+  .bloc-search {
+    width: 100%;
+    justify-content: flex-start;
+    display: flex;
+  }
+
+  footer.container-fluid {
+    margin-left: -15px;
+  }
+
+  /* === SECTION DESTINATIONS === */
+  .destinations-section {
+    padding: 40px 0;
+  }
+
+  .destination-card-image {
+    height: 250px;
+  }
+
+  .destination-name {
+    font-size: 22px;
+  }
+
+  footer.container-fluid {
+    padding: 0 5%;
+  }
+}
+
+/* ==========================================================
+   PETITS SMARTPHONES (≤ 480px)
+   ---------------------------------------------------------- */
+@media (max-width: 400px) {
+
+  /* === HEADER === */
+  /* === RUBAN === */
+  .ribbon {
+    font-size: 11px;
+    padding: 10px 8px;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .ribbon::before,
+  .ribbon::after {
+    display: none;             /* masque les deux triangles */
+  }  
+
+  /* === CONTACT === */
+  .bloc-contact-label,
+  .bloc-contact-number {
+    font-size: 11px;
+  }
+
+  .bloc-contact-ico {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 16px;
+  }
+
+  /* === Réorganisation du header et ruban === */
+  .base-header {
+    padding-top: 0%;
+  }
+
+  .base-header .container-fluid {
+    display: flex;
+    flex-direction: column;
+    /* empile tout verticalement */
+  }
+
+  .base-header .ribbon {
+    position: static !important;
+    /* sort du mode absolu */
+    order: -1;
+    /* remonte avant le header-top */
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: var(--turquoise);
+  }
+
+  .base-header .header-top {
+    padding-right: 0;
+    /* supprime le vide prévu pour le ruban */
+    order: 0;
+  }
+
+  .base-header .ribbon nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .base-header .ribbon .ribbon-btn {
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: auto;
+    background-color: var(--turquoise);
+    color: #fff;
+    border-radius: 0;
+  }
+
+  /* === CARROUSEL === */
+
+  .dot {
+    height: 8px;
+    width: 8px;
+  }
+
+  .search-col-date,
+  .search-col-who {
+    display: flex;
+    flex-direction: column !important;
+    gap: 10px;
+    width: 100%;
+    text-align: start;
+  }
+
+  .search-col-date .mb-3,
+  .search-col-who .mb-3 {
+    margin-bottom: 5px !important;
+    margin-top: 0px;
+  }
+
+  .search-field-box .form-control {
+    margin-top: 0px;
+  }
+
+
+  /* === SECTION DESTINATIONS === */
+  .destinations-section {
+    padding: 30px 0;
+  }
+
+  .destination-card-image {
+    height: 220px;
+  }
+
+  .destination-name {
+    font-size: 20px;
+  }
+
+  .destination-stats {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .destination-card-footer {
+    padding: 12px 15px;
+  }
+
+  /* === FOOTER === */
+  footer.container-fluid {
+    padding: 0 5%;
+  }
+
+  footer .botton a {
+    text-decoration: underline;
+  }
+
+  .searchProcess {
+    position: relative;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  footer .botton nav li {
+    padding: 0;
+    border: none !important;
+  }
+
+  .search-overlay-content {
+    padding-bottom: 0px;
+  }
+
+  .search-overlay-content .row>div {
+    margin-bottom: 5px;
+  }
+}

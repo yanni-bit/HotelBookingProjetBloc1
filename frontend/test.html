@@ -1,0 +1,133 @@
+<!-- ==========================================================
+       CONTENU PRINCIPAL ROOM
+       ========================================================== -->
+
+<main class="py-5">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-3">
+        <aside class="sidebar bg-light p-3 mb-4 rounded sticky-top" style="top: 20px;">
+          
+    
+          <nav class="nav flex-column nav-pills sidebar-nav" id="roomDetailsNav" role="tablist">
+            
+            <a class="nav-link active" id="availability-tab" data-bs-toggle="tab" data-bs-target="#availability" type="button" role="tab" aria-controls="availability" aria-selected="true" href="#">
+                <i class="bi bi-calendar-check me-2"></i> Disponibilité & Prix (Availability)
+            </a>
+            
+            <a class="nav-link" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="false" href="#">
+                <i class="bi bi-file-text me-2"></i> Description
+            </a>
+
+            <a class="nav-link" id="amenities-tab" data-bs-toggle="tab" data-bs-target="#amenities" type="button" role="tab" aria-controls="amenities" aria-selected="false" href="#">
+                <i class="bi bi-wifi me-2"></i> Services (Amenities)
+            </a>
+
+            <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false" href="#">
+                <i class="bi bi-chat-square-text me-2"></i> Avis (Reviews)
+            </a>
+
+          </nav>
+        </aside>
+      </div>
+
+      <div class="col-lg-6">
+        <section class="room-details mb-4">        
+          <div class="room-gallery bg-light p-3 mb-4 rounded shadow-sm">
+            <div class="placeholder-img text-center py-5 text-muted">
+                [Zone pour Carrousel/Galerie de photos]
+            </div>
+            <div class="row mt-3">
+                <div class="col-4">[Photo miniature]</div>
+                <div class="col-4">[Photo miniature]</div>
+                <div class="col-4">[Photo miniature]</div>
+            </div>
+          </div>
+          
+          <div class="tab-content" id="roomDetailsContent">
+              
+              <div class="tab-pane fade show active" id="availability" role="tabpanel" aria-labelledby="availability-tab">
+                  <h2 class="h4 mb-3 border-bottom pb-2">Disponibilité et Prix</h2>
+                  
+                  <div class="single-offer-card card p-3 mb-4 border shadow-sm">
+                      <div class="row g-0 align-items-center">
+                          <div class="col-md-7">
+                              <div class="card-body">
+                                  <h5 class="card-title fw-bold">Votre Offre Exclusive</h5>
+                                  <p class="card-text text-muted">Forfait standard avec petit-déjeuner. Annulation gratuite.</p>
+                              </div>
+                          </div>
+                          <div class="col-md-5 text-end">
+                              <div class="p-3">
+                                  <span class="price display-6 fw-bold text-marron">150€</span>
+                                  <p class="small text-muted mb-2">par nuit</p>
+                                  <a href="#" class="btn btn-primary btn-marron">Réserver cette offre</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="calendar-container bg-white p-4 border rounded shadow-sm">
+                      <h3 class="h4 border-bottom pb-2 mb-3">Sélectionner les dates</h3>
+                      <div class="empty-calendar-area text-center py-5 text-muted">
+                          [Code du composant Calendrier à insérer ici]
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description-tab">
+                  <h2 class="h4 mb-3 border-bottom pb-2">Description de la Chambre</h2>
+                  <div class="bg-white p-4 border rounded shadow-sm text-muted">
+                      <p>Insérez ici la description détaillée de la chambre, sa superficie, le type de lit, la vue, etc.</p>
+                      <p>Ceci est le contenu qui apparaît lorsque l'onglet 'Description' est sélectionné dans le menu de gauche.</p>
+                  </div>
+              </div>
+              
+              <div class="tab-pane fade" id="amenities" role="tabpanel" aria-labelledby="amenities-tab">
+                  <h2 class="h4 mb-3 border-bottom pb-2">Services et Équipements</h2>
+                  <div class="bg-white p-4 border rounded shadow-sm text-muted">
+                      <ul class="list-unstyled row">
+                          <li class="col-md-6"><i class="bi bi-wifi me-2"></i> Wi-Fi Gratuit</li>
+                          <li class="col-md-6"><i class="bi bi-cup-hot me-2"></i> Machine à Café</li>
+                          <li class="col-md-6"><i class="bi bi-tv me-2"></i> Télévision Écran Plat</li>
+                          <li class="col-md-6"><i class="bi bi-wind me-2"></i> Climatisation</li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                  <h2 class="h4 mb-3 border-bottom pb-2">Avis Clients</h2>
+                  <div class="bg-white p-4 border rounded shadow-sm text-muted">
+                      <p>Insérez ici les notes, les étoiles et la liste des commentaires clients.</p>
+                  </div>
+              </div>
+              
+          </div> </section>
+      </div>
+
+      <div class="col-lg-3">
+        <aside class="sidebar bg-light p-3 mb-4 rounded">
+          <h3 class="h5 text-uppercase fw-bold pb-2 border-bottom border-marron">
+            <i class="bi bi-lightning-charge-fill me-2"></i>Hot Deals
+          </h3>
+          <nav class="nav flex-column sidebar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Winter beach escapes</a>
+            <a class="nav-link" href="#">New Year's Eve in Paris</a>
+            <a class="nav-link" href="#">Skiing weekends in the Alpes</a>
+            <a class="nav-link" href="#">Weekly top offer: Thailand</a>
+          </nav>
+
+          <h3 class="h5 text-uppercase fw-bold pt-4 pb-2 border-bottom border-marron mt-4">
+            <i class="bi bi-info-circle-fill me-2"></i>Aide & Contact
+          </h3>
+          <div class="widget-contact pt-3 text-muted">
+            <p class="small mb-1"><i class="bi bi-telephone-fill me-1"></i>24/7 Support: 1-555-555-5555</p>
+            <p class="small"><i class="bi bi-envelope-fill me-1"></i>booking@mail.com</p>
+          </div>
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</main>

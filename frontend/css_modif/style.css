@@ -1,0 +1,1077 @@
+/* ==========================================================
+   STYLE.CSS – Mise en page principale
+   Projet : Hôtel Booking (Bloc 2)
+   ----------------------------------------------------------
+   Contient les styles visuels des sections principales
+   ========================================================== */
+
+/* ==========================================================
+   HEADER GLOBAL
+   ---------------------------------------------------------- */
+.base-header {
+  background-color: #fff;
+  padding: 0;
+  position: relative;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-top {
+  padding-right: 160px;
+  /* espace réservé au ruban turquoise */
+}
+
+/* ==========================================================
+   SECTIONS HEADER (harmonisées avec footer)
+   ---------------------------------------------------------- */
+.header_logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header_contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_search {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* ==========================================================
+   LOGO
+   ---------------------------------------------------------- */
+.my-logo-img {
+  display: block;
+  height: auto;
+}
+
+/* ==========================================================
+   BLOC CONTACT
+   ---------------------------------------------------------- */
+.bloc-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 250px;
+  flex-shrink: 0;
+}
+
+.bloc-contact-ico {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  min-height: 46px;
+  border-radius: 50%;
+  background-color: var(--turquoise);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  aspect-ratio: 1 / 1;
+}
+
+.text-contact {
+  text-align: left;
+}
+
+.bloc-contact-label {
+  font-size: 14px;
+  color: var(--gris-moyen);
+}
+
+.bloc-contact-number {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gris-moyen);
+}
+
+/* ==========================================================
+   BLOC RECHERCHE
+   ---------------------------------------------------------- */
+.bloc-search {
+  /* display: flex; */
+  /* justify-content: flex-end; */
+  position: relative;
+  width: 100%;
+}
+
+.bloc-search-input {
+  border-radius: 25px !important;
+  padding-left: 20px !important;
+  padding-right: 45px !important;
+  border: 1px solid #ddd !important;
+  font-size: 14px;
+  height: 40px;
+  width: 100% !important;
+  /* min-width: 350px; */
+
+}
+
+.bloc-search-ico {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+/* ==========================================================
+   RUBAN TURQUOISE
+   ---------------------------------------------------------- */
+.ribbon {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  width: 130px;
+  min-width: 100px;
+  background-color: var(--turquoise);
+  box-shadow: 1px 0 0 rgba(0, 0, 0, .1), -1px 0 0 rgba(0, 0, 0, .1);
+  /* border-radius: 0 0 10px 10px; */
+  padding: 20px 10px 10px 10px;
+  text-align: center;
+  z-index: 1000;
+}
+
+/* Triangle décoratif sous le ruban */
+.ribbon::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;               /* distance sous le ruban */
+  left: 0;                     /* aligné à gauche */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 65px 0 0; /* hauteur / largeur du triangle */
+  border-color: var(--turquoise) transparent transparent transparent;
+  z-index: 2;
+  box-shadow: -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.ribbon::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;               /* même hauteur que le before */
+  right: 0;                    /* aligné à droite */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 0 0 65px; /* inverse les côtés du triangle */
+  border-color: var(--turquoise) transparent transparent transparent;
+  z-index: 2;
+  box-shadow: 1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.ribbon ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ribbon ul li {
+  padding: 6px 0;
+}
+
+.ribbon ul li a {
+  background-color: var(--turquoise);
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ribbon-btn {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 0;
+  border: none;
+  border-bottom: 1px solid #00000033;
+  border-radius: 0;
+  background: none;
+}
+
+.ribbon-btn:hover {
+  background-color: var(--turquoise);
+  color: var(--link-hover);
+}
+
+.ribbon .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.ribbon .dropdown-item:hover {
+  background-color: var(--turquoise);
+  color: var(--link-hover);
+}
+
+.ribbon .dropdown-menu {
+  padding: 0;
+  margin: 0;
+  background-color: var(--turquoise);
+}
+
+/* ==========================================================
+   SECTIONS GÉNÉRALES
+   ---------------------------------------------------------- */
+
+/* Menu principal */
+/* création d'une marge variable pour le coté gauche de navbar innexistant dans bootstrap */
+.navbar-custom-ms {
+  margin-left: 5%;
+}
+
+
+.navbar {
+  background-color: var(--marron);
+  padding: 0 5px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: 700;
+}
+
+.navbar-collapse{
+  max-height: 37px;
+}
+
+.navbar-toggler {
+  background-color: #ffffff1a;
+}
+
+.navbar-brand {
+  color: var(--blanc);
+}
+
+.nav-link {
+  color: var(--blanc);
+  font-family: var(--font-principale);
+}
+
+/* Contenu principal */
+
+/* Carrousel */
+
+.hotel-carousel {
+  position: relative;
+  max-width: 1920px;
+  max-height: 760px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.hotel-slide {
+  display: none;
+}
+
+.hotel-slide img {
+  width: 100%;
+}
+
+/* Boutons flèches */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 12px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+/* Animation fondu */
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+/* Points */
+.dots {
+  text-align: center;
+  position: absolute;
+  /* ⬅️ Changé en absolute */
+  bottom: 30px;
+  /* ⬅️ Position depuis le bas (ajustez selon besoin) */
+  left: 0;
+  right: 0;
+  z-index: 5;
+  /* ⬅️ Sous le container (qui est à z-index: 10) */
+}
+
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.dotActive,
+.dot:hover {
+  background-color: #717171;
+}
+
+
+/* Container de recherche superposé sur le carrousel */
+.search-overlay-container {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  z-index: 10;
+  padding: 0 15px;
+}
+
+.search-overlay-content {
+  background-color: var(--blanc);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-height: 175px;
+}
+
+/* Forcer les colonnes à avoir la même hauteur */
+.search-overlay-content .row {
+  display: flex;
+  align-items: stretch;
+  /* force les colonnes à avoir la même hauteur */
+}
+
+/* on précise que chaque colonne est un conteneur vertical */
+.search-overlay-content .row>div {
+  display: flex;
+  flex-direction: column;
+  /* pour empiler le titre et la box verticalement */
+}
+
+/* la box prend toute la hauteur disponible dans sa colonne */
+.search-field-box {
+  background-color: transparent;
+  padding: 0 10px 0 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* contenu vertical (utile pour radios/champs) */
+  align-items: flex-start;
+  /* alignement à gauche du contenu */
+  justify-content: flex-start;
+  /* en haut du bloc */
+  flex: 1;
+  /* clé pour remplir toute la hauteur restante */
+  min-height: 100px;
+  /* hauteur minimale de sécurité */
+  border-radius: 8px;
+}
+
+/* Le titre au-dessus de la box */
+.field-title {
+  font-weight: 600;
+  color: var(--gris-moyen);
+  margin-bottom: 10px;
+  /* espacement avant la box */
+}
+
+/* DESTINATION */
+.destination-box {
+  position: relative;
+}
+
+.destination-box .search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--turquoise);
+  font-size: 18px;
+}
+
+/* champ texte destination */
+.destination-box input {
+  width: 100%;
+  border: 2px solid var(--gris-clair);
+  border-radius: 6px;
+  padding: 12px 45px;
+  /* espaces pour icône et texte */
+  font-size: 14px;
+}
+
+.destination-box input:focus {
+  border-color: var(--turquoise);
+  outline: none;
+}
+
+/* DATE */
+.date-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.date-box label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.date-box input {
+  border: 2px solid var(--gris-clair);
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.date-box input:focus {
+  border-color: var(--turquoise);
+  outline: none;
+}
+
+/* GUESTS */
+.guests-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.guests-box label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.guests-box input,
+.guests-box select {
+  border: 2px solid var(--gris-clair);
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.guests-box input:focus,
+.guests-box select:focus {
+  border-color: var(--turquoise);
+  outline: none;
+}
+
+/* SEARCH TYPE: radios */
+.search-type {
+  display: flex;
+  flex-direction: row;
+  /* Horizontalement */
+  gap: 15px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  /* centrer les options */
+  flex-wrap: wrap;
+  /* permettre wrap sur mobile */
+}
+
+.search-type label {
+  /* afficher en ligne avec input */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--gris-moyen);
+  cursor: pointer;
+}
+
+.search-type input[type="radio"] {
+  accent-color: var(--turquoise);
+  cursor: pointer;
+}
+
+/* SEARCH BUTTON */
+.search-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* bouton en bas de colonne */
+}
+
+.btn-search {
+  background-color: var(--turquoise);
+  color: #fff;
+  border: 2px solid var(--turquoise);
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+.btn-search:hover {
+  background-color: var(--blanc);
+  color: var(--turquoise);
+}
+
+/* Suggestions, reviews, about */
+.section-full-width {
+  background-color: var(--blanc);
+  padding: 30px 0;
+}
+
+.section-reviews {
+  background-color: var(--gris-clair);
+  padding: 30px 0;
+}
+
+.section-about {
+  background-color: var(--blanc);
+  padding: 30px 0;
+}
+
+.section-about img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Répartition des colonnes sur la page de présentation */
+.divider-line {
+  width: 100%;
+  margin: 30px auto;
+  border-bottom: 2px solid var(--turquoise-light);
+  max-width: 80%;
+}
+
+/* ================================================================
+   SIDEBAR ROOM PAGE
+   ================================================================= */
+
+/* Contenu principal Room */
+.room-page .sidebar {
+    background-color: var(--gris-clair);
+}
+
+.room-gallery .placeholder-img {
+    border-radius: 6px;
+}
+
+/* Onglets */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Tous les liens */
+.sidebar-nav a.nav-link {
+    background: #e7e3df;
+    color: #555;
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    transition: all 0.15s ease-in-out;
+}
+
+/* Icône */
+.sidebar-nav a.nav-link i {
+    font-size: 18px;
+}
+
+/* Hover */
+.sidebar-nav a.nav-link:hover {
+    opacity: 0.9;
+}
+
+/* Onglet actif turquoise */
+.sidebar-nav a.nav-link.active {
+    background-color: var(--turquoise);
+    border-radius: 4px 0 0 4px;
+    position: relative;
+}
+
+/* Flèche turquoise à droite de l'onglet actif */
+.sidebar-nav a.nav-link.active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -30px;
+    width: 0;
+    height: 100%;
+    border-style: solid;
+    border-width: 26px 0px 26px 30px;
+    border-color: transparent transparent transparent var(--turquoise);
+    z-index: 5;
+}
+
+/* Contenu de l'onglet */
+#roomDetailsContent .tab-pane {
+    padding: 20px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+/* La colonne des onglets doit passer au-dessus du contenu central */
+.room-page .row > .col-md-3 {
+    position: relative;
+    z-index: 10;
+}
+
+.room-page .row > .col-md-9 {
+    position: relative;
+    z-index: 1;
+}
+
+/* ================================================================
+   RESUME HOTEL COLONNE DROITE
+   ================================================================= */
+
+.hotel-header-box h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Stars */
+.hotel-header-box .stars-header i {
+    font-size: 1.1rem;
+}
+
+/* Rating */
+.hotel-header-box .rating i {
+    font-size: 1rem;
+}
+
+/* Tags */
+.hotel-header-box .hotel-tag {
+    background: #e7e3df;         /* gris beige maquette */
+    color: #444;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.hotel-header-box .hotel-tag i {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* ================================================================
+   ANCIEN CALENDRIER PERSONNALISÉ (COMMENTÉ - REMPLACÉ PAR FLATPICKR)
+   ================================================================= */
+
+/* Card calendrier */
+/* .calendar-card {
+    background: var(--blanc);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+} */
+
+/* Header */
+.calendar-header {
+    background: linear-gradient(
+      135deg,
+      var(--turquoise),
+      var(--turquoise-hover)
+    );
+    color: var(--blanc);
+    padding: 20px;
+}
+
+/* Navigation */
+/* .calendar-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--gris-clair);
+    border-bottom: 1px solid var(--turquoise-light);
+}
+
+.current-month {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gris-fonce);
+} */
+
+/* Jours semaine */
+/* .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 10px 15px;
+    background-color: var(--gris-clair);
+}
+
+.weekday {
+    text-align: center;
+    font-weight: 600;
+    color: var(--gris-moyen);
+    font-size: 0.8rem;
+} */
+
+/* Grille jours */
+/* .days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 15px;
+}
+
+.day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--turquoise-light);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--marron-clair);
+    font-weight: 500;
+    color: var(--gris-fonce);
+} */
+
+/* Hover */
+/* .day:hover:not(.disabled):not(.other-month) {
+    border-color: var(--turquoise);
+    transform: scale(1.05);
+} */
+
+/* Jours hors mois */
+/* .day.other-month {
+    color: #ccc;
+} */
+
+/* Disabled */
+/* .day.disabled {
+    background: #f8f9fa;
+    color: #adb5bd;
+    border-color: #e9ecef;
+    cursor: not-allowed;
+} */
+
+/* Sélection check-in/out */
+/* .day.selected {
+    background: var(--turquoise);
+    color: var(--blanc);
+    border-color: var(--turquoise);
+}
+
+.day.selected.in-range {
+    background: var(--turquoise);
+    color: var(--blanc);
+    border-color: var(--turquoise);
+} */
+
+/* Range */
+/* .day.in-range {
+    background: var(--turquoise-light);
+    border-color: var(--turquoise-light);
+    color: var(--gris-fonce);
+} */
+
+/* Aujourd'hui */
+/* .day.today {
+    border-color: var(--marron);
+} */
+
+/* ================================================================
+   STYLES FLATPICKR (NOUVEAU CALENDRIER)
+   ================================================================= */
+
+/* Container principal Flatpickr */
+.flatpickr-calendar {
+    width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Header avec mois et navigation */
+.flatpickr-months {
+    background: linear-gradient(135deg, var(--turquoise), var(--turquoise-hover)) !important;
+    padding: 15px 20px !important;
+}
+
+.flatpickr-current-month {
+    color: var(--blanc) !important;
+    font-weight: 600 !important;
+}
+
+/* Flèches de navigation */
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+    fill: var(--blanc) !important;
+}
+
+/* Jours de la semaine */
+.flatpickr-weekdays {
+    background-color: var(--gris-clair) !important;
+    padding: 10px 0 !important;
+}
+
+.flatpickr-weekday {
+    color: var(--gris-moyen) !important;
+    font-weight: 600 !important;
+}
+
+/* Cellules des jours */
+.flatpickr-day {
+    border: 2px solid var(--turquoise-light) !important;
+    border-radius: 6px !important;
+    color: var(--gris-fonce) !important;
+    background: var(--marron-clair) !important;
+    margin: 2px !important;
+}
+
+/* Hover sur les jours */
+.flatpickr-day:hover {
+    background: var(--turquoise) !important;
+    border-color: var(--turquoise) !important;
+    color: var(--blanc) !important;
+}
+
+/* Jours sélectionnés (début et fin) */
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+    background: var(--turquoise) !important;
+    border-color: var(--turquoise) !important;
+    color: var(--blanc) !important;
+}
+
+/* Jours dans la plage */
+.flatpickr-day.inRange {
+    background: var(--turquoise-light) !important;
+    border-color: var(--turquoise-light) !important;
+    box-shadow: none !important;
+}
+
+/* Aujourd'hui */
+.flatpickr-day.today {
+    border-color: var(--marron) !important;
+    border-width: 3px !important;
+}
+
+/* Jours désactivés */
+.flatpickr-day.disabled {
+    background: #f8f9fa !important;
+    color: #adb5bd !important;
+    border-color: #e9ecef !important;
+}
+
+/* ================================================================
+   BOÎTES DATE/HEURE ET RÉCAPITULATIF (CONSERVÉS)
+   ================================================================= */
+
+/* Boîtes datetime */
+.datetime-box-compact {
+    background: var(--gris-clair);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+/* Titre datetime */
+.datetime-header-compact {
+    font-size: 0.85rem;
+    color: var(--gris-moyen);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Info */
+.time-info-compact {
+    background-color: var(--turquoise-light);
+    color: var(--turquoise-dark);
+    border-left: 3px solid var(--turquoise);
+}
+
+/* Banner total nuitées */
+.nights-banner {
+    background: var(--marron-clair);
+    color: var(--gris-fonce);
+    padding: 12px;
+    font-size: 0.95rem;
+}
+
+/* Bouton réserver */
+.btn-reserver{
+  background-color: var(--turquoise-dark);
+}
+
+.btn-reserver:hover{
+  background-color: var(--turquoise-hover);
+}
+
+/* Pied de page */
+footer.container-fluid {
+  padding: 0;
+  background-color: var(--blanc);
+  font-size: 12px;
+  color: var(--gris-moyen);
+  text-align: center;
+  font-weight: 700;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer_contact {
+  text-align: left;
+}
+
+.footer_support {
+  text-align: left;
+}
+
+.footer_follow {
+  text-align: left;
+}
+
+.footer_newsletter {
+  text-align: left;
+}
+
+footer.container-fluid h2 {
+  font-size: 20px;
+  color: var(--gris-moyen);
+}
+
+footer.container-fluid p,
+.footer li,
+.footer a {
+  font-weight: 400;
+  color: var(--gris-moyen);
+}
+
+footer.container-fluid ul li {
+  line-height: 1.2;
+}
+
+.footer_support a {
+  color: var(--gris-moyen);
+}
+
+footer.container-fluid .footer_support ul li::before {
+  content: "•";
+  color: var(--turquoise);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  font-size: 1.5em;
+  padding: 0 0 0 0;
+  position: relative;
+  top: 3px;
+}
+
+.footer_follow ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.footer_follow li {
+  display: inline-block;
+}
+
+.footer_follow a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--marron);
+  color: var(--blanc);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footer_follow a:hover {
+  background-color: #d1c6bc;
+  /* plus clair au survol */
+  transform: scale(1.1);
+  color: var(--turquoise);
+  border-color: var(--marron);
+}
+
+.footer_follow i {
+  position: relative;
+  top: -2px;
+}
+
+.footer.container-fluid em {
+  color: var(--turquoise);
+  font-weight: bold;
+}
+
+.footer_newsletter input::placeholder {
+  color: var(--gris-moyen);
+}
+
+.btn-dark {
+  background-color: var(--marron);
+  border-color: var(--marron);
+}
+
+.btn-dark:hover {
+  background-color: #d1c6bc;
+  /* plus clair au survol */
+  transform: scale(1.1);
+  color: var(--turquoise);
+  border-color: var(--marron);
+}
+
+footer .bottom a {
+  color: var(--gris-moyen);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 300;
+}
+
+footer .bottom a:hover {
+  color: var(--turquoise);
+}
+
+footer .bottom nav li:not(:first-child) {
+  border-left: 1px solid #e5e5e5;
+}
+
+footer .bottom nav li {
+  padding: 0 0 0 12px;
+}

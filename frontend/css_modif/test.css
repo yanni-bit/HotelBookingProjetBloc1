@@ -1,0 +1,70 @@
+<header class="base-header position-relative">
+    <div class="container-fluid">
+
+      <!-- Ligne principale -->
+      <div class="row align-items-center header-top g-3">
+
+        <!-- LOGO -->
+        <div class="col-12 col-md-4 col-lg-6">
+          <a href="index.html" class="my-logo d-block">
+            <img src="assets/images/logo.png" alt="Book Your Travel" class="my-logo-img">
+          </a>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="col-12 col-md-4 col-lg-3">
+          <div class="bloc-contact d-flex align-items-center justify-content-lg-center gap-2">
+            <div class="bloc-contact-ico"><i class="bi bi-telephone"></i></div>
+            <div class="lh-sm text-start text-contact">
+              <div class="bloc-contact-label">24/7 Support number</div>
+              <div class="bloc-contact-number">1-555-555-555</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RECHERCHE -->
+        <div class="col-12 col-md-4 col-lg-3">
+          <div class="bloc-search">
+            <form class="position-relative">
+              <input type="search" class="form-control bloc-search-input" placeholder="Search">
+              <i class="bi bi-search bloc-search-ico"></i>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- RUBAN TURQUOISE À DROITE -->
+      <div class="ribbon">
+        <nav class="d-flex gap-2 flex-column align-items-stretch">
+          <div class="dropdown">
+            <a class="btn btn-outline-dark w-100 ribbon-btn" href="#" role="button">
+              MON COMPTE
+            </a>
+          </div>
+
+          <div class="dropdown">
+            <button class="btn btn-outline-dark w-100 ribbon-btn" type="button" id="langue">
+              PAYS
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Français (Fr)</a></li>
+              <li><a class="dropdown-item" href="#">English (US)</a></li>
+              <li><a class="dropdown-item" href="#">Italian (It)</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown">
+            <button class="btn btn-outline-dark w-100 ribbon-btn" type="button" id="monnaie">
+              MONNAIE
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">€ Euro</a></li>
+              <li><a class="dropdown-item" href="#">$US Dollar</a></li>
+              <li><a class="dropdown-item" href="#">£ Pound</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+    </div>
+  </header>
