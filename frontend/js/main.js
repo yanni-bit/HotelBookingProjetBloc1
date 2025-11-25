@@ -1,6 +1,6 @@
 /* ==========================================================
    MAIN.JS - Fonctionnalités principales
-   Projet : Hôtel Booking (Bloc 2)
+   Projet : Hôtel Booking (Bloc 1)
    ----------------------------------------------------------
    Contient :
    - Initialisation du ruban (langue et monnaie)

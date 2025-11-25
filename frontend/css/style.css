@@ -1,6 +1,6 @@
 /* ==========================================================
    STYLE.CSS - Mise en page principale
-   Projet : Hôtel Booking (Bloc 2)
+   Projet : Hôtel Booking (Bloc 1)
    ----------------------------------------------------------
    Contient les styles visuels des sections principales
    ========================================================== */
@@ -1092,6 +1092,111 @@
 
 .thumbnail-nav i {
   font-size: 20px;
+}
+
+
+/* ==========================================================
+   CARD OFFRE DE CHAMBRE (dans onglet Disponibilité)
+   ---------------------------------------------------------- */
+
+/* VARIABLES DE LARGEUR - PERMET DE MODIFIER LES LARGEUR DES DEUX SOUS-COLONNES */
+:root {
+  --col-title-width: 50%;  /* Largeur colonne TITRE */
+  --col-price-width: 50%;  /* Largeur colonne PRIX */
+}
+
+/* Application des largeurs personnalisées */
+.col-title-info {
+  flex: 0 0 var(--col-title-width);
+  max-width: var(--col-title-width);
+}
+
+.col-price-info {
+  flex: 0 0 var(--col-price-width);
+  max-width: var(--col-price-width);
+}
+
+/* Card principale */
+.room-offer-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0 !important;
+  transition: all 0.3s ease;
+}
+
+.room-offer-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Mini carrousel de la card offre */
+.offer-carousel-image {
+  height: 280px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+#roomOfferCarousel .carousel-control-prev,
+#roomOfferCarousel .carousel-control-next {
+  width: 40px;
+  opacity: 0.8;
+}
+
+#roomOfferCarousel .carousel-control-prev:hover,
+#roomOfferCarousel .carousel-control-next:hover {
+  opacity: 1;
+}
+
+.room-title, .text-prix {
+  color: var(--turquoise-hover);
+}
+
+/* Badges de la card */
+.room-offer-card .badge {
+  font-size: 0.75rem;
+  padding: 0.35em 0.65em;
+  font-weight: 600;
+  color: var(--blanc);
+  background-color: var(--turquoise-badge);
+}
+
+.expo {
+  font-size: 0.7em;
+}
+
+/* Bouton BOOK NOW */
+.btn-book-now {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-book-now:hover {
+  background-color: var(--turquoise-hover);
+  border-color: var(--turquoise-hover);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(95, 200, 194, 0.3);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation sur le calendrier ciblé */
+#calendar-section:target {
+  animation: highlight-calendar 1s ease;
+}
+
+@keyframes highlight-calendar {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(95, 200, 194, 0.1);
+  }
 }
 
 

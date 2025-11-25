@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   
   // Prix par nuit (à adapter selon tes besoins)
-  const PRIX_PAR_NUIT = 120;
+  const PRIX_PAR_NUIT = 770;
 
   // Éléments DOM
   const checkInInfo = document.getElementById('checkInInfo');
