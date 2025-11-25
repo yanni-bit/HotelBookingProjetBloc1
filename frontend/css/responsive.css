@@ -140,11 +140,22 @@
   .destination-name {
     font-size: 22px;
   }
-  /* === CARROUSEL === */
-.hotel-carousel {
-  max-height: none;      /* ⬅️ Annule la hauteur max de 640px */
-  overflow: visible;     /* ⬅️ Permet au contenu de dépasser */
-}
+
+/* === CARROUSEL === */
+  /* Permet au bloc de recherche (qui passe en position relative)
+     d'être visible en dessous du carrousel */
+  .hotel-carousel {
+    max-height: none;
+    overflow: visible;
+  }
+  
+  .hotel-slide {
+    max-height: none;  /* Optionnel : permet aux slides d'avoir leur hauteur naturelle */
+  }
+  
+  .hotel-slide img {
+    max-height: 500px;  /* Optionnel : limite la hauteur des images en mobile */
+  }
 }
 
 /* ==========================================================

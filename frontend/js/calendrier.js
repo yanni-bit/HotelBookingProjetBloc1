@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dateFormat: "d/m/Y",        // Format d'affichage
     locale: "fr",               // Langue française
     inline: true,               // Affichage inline (toujours visible)
-    showMonths: 1,              // Nombre de mois affichés
+    showMonths: 2,              // Nombre de mois affichés
     
     // Callback quand on sélectionne des dates
     onChange: function(selectedDates, dateStr, instance) {
