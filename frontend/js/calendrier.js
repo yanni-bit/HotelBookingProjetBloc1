@@ -1,5 +1,6 @@
 // ==========================================================
 // CALENDRIER.JS - Intégration Flatpickr
+// Projet : Hôtel Booking (Bloc 1)
 // ==========================================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Personnalisation des jours
     onDayCreate: function(datesObj, dStr, fp, dayElem) {
-      // Vous pouvez ajouter des classes personnalisées ici
+      // On peut ajouter des classes personnalisées ici
       // Par exemple : marquer certains jours comme complets
       // dayElem.classList.add('unavailable');
     }
@@ -160,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         alert(`Réservation confirmée!\n\nArrivée: ${formatDate(checkInDate)}\nDépart: ${formatDate(checkOutDate)}\nNuits: ${diffDays}\nTotal: ${total}€`);
         
-        // Ici tu peux rediriger vers la page de paiement
+        // Ici on peut rediriger vers la page de réservation
         // window.location.href = 'booking.html';
       }
     });

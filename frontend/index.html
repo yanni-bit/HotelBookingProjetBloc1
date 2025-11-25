@@ -4,25 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Projet fil rouge Bloc 1 - Application de réservation d'hôtel">
-  <title>Réservation d'hôtel</title>
+  <meta name="description" content="Projet fil rouge Bloc 2 - Application de réservation d'hôtel">
+  <title>Réservation d'hôtel - Book Your Travel</title>
 
-  <!-- Bootstrap css 5.3.8 -->
+  <!-- ========== STYLES CSS ========== -->
+  <!-- Bootstrap 5.3.8 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Icônes Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Styles locaux -->
+  <!-- Styles personnalisés -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
-
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/icons/hotel.png">
 
-  <!-- Bootstrap JS 5.3.8 -->
+  <!-- ========== SCRIPTS JAVASCRIPT ========== -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
-
-  <!-- JS locaux -->
+  <!-- Scripts personnalisés -->
   <script src="js/utils.js" defer></script>
   <script src="js/api.js" defer></script>
   <script src="js/main.js" defer></script>
@@ -30,15 +30,16 @@
 
 <body>
 
-  <!-- ==========================================================
-       HEADER GLOBAL
-       ========================================================== -->
-
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                              HEADER GLOBAL                               ║
+       ║ Contient : Logo, Contact, Recherche, Ruban (Langue/Monnaie/Compte)       ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: HEADER -->
   <header class="base-header position-relative">
     <div class="container-fluid">
       <div class="row header-top g-3">
 
-        <!-- LOGO -->
+        <!-- ========== LOGO ========== -->
         <div class="col-12 col-lg-6 order-0">
           <div class="header_logo">
             <a href="index.html" class="my-logo d-block">
@@ -47,7 +48,8 @@
           </div>
         </div>
 
-        <!-- CONTACT -->
+        <!-- ========== BLOC CONTACT ========== -->
+        <!-- Affiche le numéro de téléphone avec icône -->
         <div class="col-12 col-lg-3 order-2 order-lg-1">
           <div class="header_contact">
             <div class="bloc-contact">
@@ -62,7 +64,8 @@
           </div>
         </div>
 
-        <!-- RECHERCHE -->
+        <!-- ========== BARRE DE RECHERCHE HEADER ========== -->
+        <!-- Petite barre de recherche dans le header -->
         <div class="col-12 col-lg-3 order-lg-2">
           <div class="header_search">
             <div class="bloc-search">
@@ -76,15 +79,19 @@
 
       </div>
 
-      <!-- RUBAN DROIT -->
+      <!-- ========== RUBAN TURQUOISE ========== -->
+      <!-- Ruban vertical droit avec : Mon compte, Pays, Monnaie -->
       <div class="ribbon">
         <nav class="d-flex gap-2 flex-column align-items-stretch">
+          
+          <!-- Bouton Mon Compte -->
           <div class="dropdown">
             <a class="btn btn-outline-dark w-100 ribbon-btn" href="#" role="button">
               MON COMPTE
             </a>
           </div>
 
+          <!-- Sélecteur de Pays -->
           <div class="dropdown">
             <button class="btn btn-outline-dark w-100 ribbon-btn" type="button" id="langue">
               PAYS
@@ -92,37 +99,45 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Français (Fr)</a></li>
               <li><a class="dropdown-item" href="#">English (US)</a></li>
-              <li><a class="dropdown-item" href="#">Italianà (It)</a></li>
+              <li><a class="dropdown-item" href="#">Italiano (It)</a></li>
             </ul>
           </div>
 
+          <!-- Sélecteur de Monnaie -->
           <div class="dropdown">
             <button class="btn btn-outline-dark w-100 ribbon-btn" type="button" id="monnaie">
               MONNAIE
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">€ Euro</a></li>
-              <li><a class="dropdown-item" href="#">$US Dollar</a></li>
+              <li><a class="dropdown-item" href="#">$ US Dollar</a></li>
               <li><a class="dropdown-item" href="#">£ Pound</a></li>
             </ul>
           </div>
+
         </nav>
       </div>
+      <!-- FIN: Ruban turquoise -->
+
     </div>
   </header>
+  <!-- FIN BLOC: HEADER -->
 
 
-  <!-- ==========================================================
-       NAVIGATION
-       ========================================================== -->
-
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                         NAVIGATION PRINCIPALE                            ║
+       ║ Menu de navigation horizontal avec liens vers les pages du site          ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: NAVIGATION -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-brown">
+    <!-- Bouton hamburger pour mobile -->
     <span class="navbar-brand d-lg-none">Menu</span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
       aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Menu principal -->
     <div class="collapse navbar-collapse" id="menuPrincipal">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
@@ -143,15 +158,20 @@
       </ul>
     </div>
   </nav>
-
-  <!-- ==========================================================
-       CARROUSEL + BLOC RECHERCHE
-       ========================================================== -->
+  <!-- FIN BLOC: NAVIGATION -->
 
 
-
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                    CARROUSEL + BLOC DE RECHERCHE                         ║
+       ║ Carrousel d'images avec bloc de recherche superposé                      ║
+       ║ • Carrousel : 3 slides avec navigation (flèches + points)                ║
+       ║ • Recherche : Formulaire avec Type, Destination, Dates, Personnes        ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: CARROUSEL + RECHERCHE -->
   <div id="hotelCarousel" class="hotel-carousel">
-    <!-- Slides -->
+    
+    <!-- ========== CARROUSEL: SLIDES ========== -->
+    <!-- DÉBUT: Slides du carrousel -->
     <div class="hotel-slide">
       <img src="assets/images/slide-1.jpg" alt="Chambre 1" style="width:100%">
     </div>
@@ -163,30 +183,42 @@
     <div class="hotel-slide">
       <img src="assets/images/slide-3.jpg" alt="Chambre 3" style="width:100%">
     </div>
+    <!-- FIN: Slides du carrousel -->
 
-    <!-- Boutons navigation -->
+    <!-- ========== CARROUSEL: BOUTONS DE NAVIGATION ========== -->
+    <!-- Flèches précédent/suivant -->
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-    <!-- Points indicateurs -->
+    <!-- ========== CARROUSEL: POINTS INDICATEURS ========== -->
+    <!-- Points pour indiquer et changer de slide -->
     <div class="dots">
       <span class="dot" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 
-    <!-- NOUVEAU: Container de recherche sur le carrousel -->
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║                     BLOC DE RECHERCHE SUPERPOSÉ                        ║
+         ║ Formulaire de recherche en 4 colonnes :                                ║
+         ║ 1. What? (Type de réservation : Hotel, Flight, etc.)                   ║
+         ║ 2. Where? (Destination)                                                ║
+         ║ 3. When? (Check-in / Check-out)                                        ║
+         ║ 4. Who? (Rooms, Adults, Children)                                      ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- DÉBUT: Bloc de recherche -->
     <div class="search-overlay-container">
       <div class="search-overlay-content">
-        <div class="row g-0 ">
+        <div class="row g-0">
 
-          <!-- Colonne 1: Boutons sur 2 colonnes -->
+          <!-- ========== COLONNE 1: TYPE DE RÉSERVATION (What?) ========== -->
+          <!-- Boutons radio pour choisir : Hotel, Flight, Flight & Hotel, etc. -->
           <div class="col-12 col-lg-3 d-flex flex-column">
             <h5 class="search-field-box-title"><em>01</em> What?</h5>
             <div class="search-field-box">
               <div class="row-buttons">
 
-                <!-- COLONNE GAUCHE (radios 1, 2, 3) -->
+                <!-- Colonne gauche des radios -->
                 <div class="search-col-button">
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="radioDefault" id="radio1">
@@ -202,7 +234,7 @@
                   </div>
                 </div>
 
-                <!-- COLONNE DROITE (radios 4, 5, 6) -->
+                <!-- Colonne droite des radios -->
                 <div class="search-col-button">
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="radioDefault" id="radio4">
@@ -218,11 +250,13 @@
                   </div>
                 </div>
 
-              </div> <!-- Fin row-buttons -->
-            </div> <!-- Fin search-field-box -->
-          </div> <!-- Fin col-12 col-lg-3 -->
+              </div>
+            </div>
+          </div>
+          <!-- FIN: Colonne 1 (What?) -->
 
-          <!-- Colonne 2: Champ de saisie -->
+          <!-- ========== COLONNE 2: DESTINATION (Where?) ========== -->
+          <!-- Champ texte pour saisir la destination -->
           <div class="col-12 col-lg-3 d-flex flex-column">
             <h5 class="search-field-box-title"><em>02</em> Where?</h5>
             <div class="search-field-box">
@@ -233,69 +267,97 @@
                 id="hotelDestination" name="hotelDestination">
             </div>
           </div>
+          <!-- FIN: Colonne 2 (Where?) -->
 
-          <!-- Colonne 3: Check-in et Check-out -->
+          <!-- ========== COLONNE 3: DATES (When?) ========== -->
+          <!-- Check-in et Check-out -->
           <div class="col-12 col-lg-3 d-flex flex-column">
             <h5 class="search-field-box-title"><em>03</em> When?</h5>
             <div class="search-field-box">
               <div class="search-col-date d-flex flex-row">
+                
+                <!-- Check-in -->
                 <div class="mb-3">
                   <label for="checkin">
                     <h5>Check-in</h5>
                   </label>
                   <input type="date" class="form-control" id="checkin" name="checkin">
                 </div>
+
+                <!-- Check-out -->
                 <div class="mb-3">
                   <label for="checkout">
                     <h5>Check-out</h5>
                   </label>
                   <input type="date" class="form-control" id="checkout" name="checkout">
                 </div>
-              </div> <!-- fin .search-col-date -->
-            </div> <!-- fin .search-field-box -->
-          </div> <!-- fin .col -->
 
-          <!-- Colonne 4: 3 autres champs -->
+              </div>
+            </div>
+          </div>
+          <!-- FIN: Colonne 3 (When?) -->
+
+          <!-- ========== COLONNE 4: NOMBRE DE PERSONNES (Who?) ========== -->
+          <!-- Rooms, Adults, Children -->
           <div class="col-12 col-lg-3 d-flex flex-column">
             <h5 class="search-field-box-title"><em>04</em> Who?</h5>
             <div class="search-field-box">
               <div class="search-col-who d-flex flex-row">
+                
+                <!-- Chambres -->
                 <div class="mb-3">
                   <label for="rooms">
                     <h5>Rooms</h5>
                   </label>
                   <input type="number" class="form-control" id="rooms" name="rooms" min="1" value="1">
                 </div>
+
+                <!-- Adultes -->
                 <div class="mb-3">
                   <label for="adults">
                     <h5>Adults</h5>
                   </label>
                   <input type="number" class="form-control" id="adults" name="adults" min="1" value="2">
                 </div>
+
+                <!-- Enfants -->
                 <div class="mb-3">
                   <label for="children">
                     <h5>Children</h5>
                   </label>
                   <input type="number" class="form-control" id="children" name="children" min="0" value="0">
                 </div>
-              </div> <!-- fin .fin .search-col-who -->
-            </div> <!-- fin .search-field-box -->
-          </div> <!-- fin .col -->
-        </div> <!-- Fin row g-0 -->
+
+              </div>
+            </div>
+          </div>
+          <!-- FIN: Colonne 4 (Who?) -->
+
+        </div>
+        <!-- FIN: Row des 4 colonnes -->
+
+        <!-- ========== BOUTON DE VALIDATION ========== -->
+        <!-- Bouton pour lancer la recherche -->
         <div class="searchProcess">
           <button type="submit" class="btn px-3 pt-2 pb-1 btn-custom w-20">Proceed to results</button>
         </div>
 
-      </div> <!-- Fin search-overlay-content -->
-    </div> <!-- Fin search-overlay-container -->
-  </div> <!-- fin hotelCarousel -->
+      </div>
+    </div>
+    <!-- FIN: Bloc de recherche -->
 
-  <!-- ==========================================================
-       SECTION OFFRES
-       ========================================================== -->
+  </div>
+  <!-- FIN BLOC: CARROUSEL + RECHERCHE -->
 
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                            SECTION OFFRES                                ║
+       ║ 4 cards d'offres spéciales avec images, badges et boutons                ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: OFFRES -->
   <section class="offres-section">
     <div class="container ligneSeparation">
+      
       <!-- Titre de la section -->
       <div class="row">
         <div class="col-12 text-center mb-4">
@@ -304,10 +366,10 @@
         </div>
       </div>
 
-      <!-- Cards des offres -->
+      <!-- Grid des offres (4 colonnes sur desktop, empilées sur mobile) -->
       <div class="row g-4">
 
-        <!-- Offre 1 -->
+        <!-- ========== OFFRE 1 ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="offre-card">
             <div class="offre-card-image">
@@ -322,7 +384,7 @@
           </div>
         </div>
 
-        <!-- Offre 2 -->
+        <!-- ========== OFFRE 2 ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="offre-card">
             <div class="offre-card-image">
@@ -337,58 +399,64 @@
           </div>
         </div>
 
-        <!-- Offre 3 -->
+        <!-- ========== OFFRE 3 ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="offre-card">
             <div class="offre-card-image">
-              <img src="assets/images/nuit_de_noces.jpg" alt="luxury in the Maldives">
+              <img src="assets/images/nuit_de_noces.jpg" alt="Luxury in the Maldives">
               <div class="offre-badge">HOT DEAL</div>
             </div>
             <div class="offre-card-body">
-              <h3 class="offre-card-title">A heavenly wedding night</h3>
+              <h3 class="offre-card-title">A Heavenly Wedding Night</h3>
               <p class="offre-card-text">Honeymoon night in the Maldives, total luxury facing the ocean</p>
               <a href="#" class="btn btn-offre">Book Now</a>
             </div>
           </div>
         </div>
 
-        <!-- Offre 4 -->
+        <!-- ========== OFFRE 4 ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="offre-card">
             <div class="offre-card-image">
-              <img src="assets/images/offre-4.jpg" alt="Tahiti offre">
+              <img src="assets/images/offre-4.jpg" alt="Tahiti offer">
               <div class="offre-badge">NEW</div>
             </div>
             <div class="offre-card-body">
-              <h3 class="offre-card-title">Our weekly top offer: Tahiti</h3>
+              <h3 class="offre-card-title">Our Weekly Top Offer: Tahiti</h3>
               <p class="offre-card-text">Discover paradise with unbeatable prices</p>
               <a href="#" class="btn btn-offre">Book Now</a>
             </div>
           </div>
         </div>
 
-      </div> <!-- fin row -->
-    </div> <!-- fin container -->
+      </div>
+      <!-- FIN: Grid des offres -->
+
+    </div>
   </section>
+  <!-- FIN BLOC: OFFRES -->
 
-  <!-- ==========================================================
-       SECTION DESTINATIONS
-       ========================================================== -->
 
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                        SECTION DESTINATIONS                              ║
+       ║ 12 cards de destinations populaires avec overlay et statistiques         ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: DESTINATIONS -->
   <section class="destinations-section">
     <div class="container ligneSeparation">
+      
       <!-- Titre de la section -->
       <div class="row">
         <div class="col-12 text-center mb-4">
-          <h2 class="section-title">Top destinations around the world</h2>
+          <h2 class="section-title">Top Destinations Around the World</h2>
           <p class="section-subtitle">Discover the most popular travel destinations</p>
         </div>
       </div>
 
-      <!-- Cards des destinations -->
+      <!-- Grid des destinations (12 cards sur 3 rangées) -->
       <div class="row g-4">
 
-        <!-- Destination 1 -->
+        <!-- ========== DESTINATION 1: Paris ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -411,7 +479,7 @@
           </div>
         </div>
 
-        <!-- Destination 2 -->
+        <!-- ========== DESTINATION 2: Amsterdam ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -433,7 +501,7 @@
           </div>
         </div>
 
-        <!-- Destination 3 -->
+        <!-- ========== DESTINATION 3: St Petersburg ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -455,7 +523,7 @@
           </div>
         </div>
 
-        <!-- Destination 4 -->
+        <!-- ========== DESTINATION 4: Prague ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -477,7 +545,7 @@
           </div>
         </div>
 
-        <!-- Destination 5 -->
+        <!-- ========== DESTINATION 5: Tahiti ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -485,8 +553,8 @@
               <div class="offre-badge">NEW</div>
               <div class="destination-overlay">
                 <div class="destination-info">
-                  <h3 class="destination-name">Thahti</h3>
-                  <p class="destination-country">Polynesie</p>
+                  <h3 class="destination-name">Tahiti</h3>
+                  <p class="destination-country">Polynésie</p>
                   <div class="destination-stats">
                     <span><i class="bi bi-building"></i> 350 Hotels</span>
                     <span><i class="bi bi-airplane"></i> From $1190</span>
@@ -500,7 +568,7 @@
           </div>
         </div>
 
-        <!-- Destination 6 -->
+        <!-- ========== DESTINATION 6: Zanzibar ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -522,7 +590,7 @@
           </div>
         </div>
 
-        <!-- Destination 7 -->
+        <!-- ========== DESTINATION 7: Maldives ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -544,7 +612,7 @@
           </div>
         </div>
 
-        <!-- Destination 8 -->
+        <!-- ========== DESTINATION 8: Cancun ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -566,7 +634,7 @@
           </div>
         </div>
 
-        <!-- Destination 9 -->
+        <!-- ========== DESTINATION 9: Dubai ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -588,7 +656,7 @@
           </div>
         </div>
 
-        <!-- Destination 10 -->
+        <!-- ========== DESTINATION 10: Bali ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -610,7 +678,7 @@
           </div>
         </div>
 
-        <!-- Destination 11 -->
+        <!-- ========== DESTINATION 11: New York ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -632,7 +700,7 @@
           </div>
         </div>
 
-        <!-- Destination 12 -->
+        <!-- ========== DESTINATION 12: Tokyo ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -654,22 +722,26 @@
           </div>
         </div>
 
-      </div> <!-- fin row -->
-    </div> <!-- fin container -->
+      </div>
+      <!-- FIN: Grid des destinations -->
+
+    </div>
   </section>
+  <!-- FIN BLOC: DESTINATIONS -->
 
 
-  <!-- ==========================================================
-       CRITERES DE SELECTION
-       ========================================================== -->
-
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                      SECTION CRITÈRES DE SÉLECTION                       ║
+       ║ 8 cards présentant les avantages et garanties du service                 ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: CRITÈRES -->
   <section class="criteres-section">
     <div class="container">
 
-      <!-- Cards des critères -->
+      <!-- Grid des critères (8 cards sur 2 rangées) -->
       <div class="row g-4">
 
-        <!-- Crtitère 1 -->
+        <!-- Critère 1 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
@@ -682,7 +754,7 @@
           </div>
         </div>
 
-        <!-- Crtitère 2 -->
+        <!-- Critère 2 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
@@ -695,33 +767,33 @@
           </div>
         </div>
 
-        <!-- Crtitère 3 -->
+        <!-- Critère 3 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
               <h3 class="info-card-title">Exclusive Knowledge</h3>
               <p class="info-card-text">
-                We’ve done our research.<br>Our scouts are always busy finding out more about our hotels, the
+                We've done our research.<br>Our scouts are always busy finding out more about our hotels, the
                 surroundings and activities on offer nearby.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Crtitère 4 -->
+        <!-- Critère 4 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
               <h3 class="info-card-title">Passionate Service</h3>
               <p class="info-card-text">
-                Book Your Travels’s team will cater to your special requests.<br>We offer expert and passionate advice
+                Book Your Travel's team will cater to your special requests.<br>We offer expert and passionate advice
                 for finding the right hotel.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Crtitère 5 -->
+        <!-- Critère 5 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
@@ -734,7 +806,7 @@
           </div>
         </div>
 
-        <!-- Crtitère 6 -->
+        <!-- Critère 6 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
@@ -747,7 +819,7 @@
           </div>
         </div>
 
-        <!-- Crtitère 7 -->
+        <!-- Critère 7 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
@@ -760,7 +832,7 @@
           </div>
         </div>
 
-        <!-- Crtitère 8 -->
+        <!-- Critère 8 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
@@ -772,38 +844,51 @@
             </div>
           </div>
         </div>
-      </div> <!-- fin row -->
-    </div> <!-- fin container -->
-  </section>
 
-  <!-- ==========================================================
-       PIED DE PAGE
-       ========================================================== -->
+      </div>
+      <!-- FIN: Grid des critères -->
+
+    </div>
+  </section>
+  <!-- FIN BLOC: CRITÈRES -->
+
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                              FOOTER                                      ║
+       ║ Pied de page avec : Contact, Support, Réseaux sociaux, Newsletter        ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: FOOTER -->
   <footer class="container-fluid mt-1">
     <div>
       <div class="row">
+        
+        <!-- ========== COLONNE 1: CONTACT ========== -->
         <div class="col-lg-3 footer_contact">
           <div class="p-3">
             <h2>Book Your Travel</h2>
-            <p>1400 PennsylSUVia Ave. Washington, DC</p>
+            <p>1400 Pennsylvania Ave. Washington, DC</p>
             <p><em>P:</em> 24/7 customer support: 1-555-555-5555</p>
             <p><em>E:</em> booking@mail.com</p>
           </div>
         </div>
+
+        <!-- ========== COLONNE 2: SUPPORT CLIENT ========== -->
         <div class="col-lg-3">
           <div class="p-3 footer_support">
-            <h2>Customer support</h2>
+            <h2>Customer Support</h2>
             <ul>
-              <li><a href="#" title="Faq">Faq</a></li>
+              <li><a href="#" title="Faq">FAQ</a></li>
               <li><a href="#" title="How do I make a reservation?">How do I make a reservation?</a></li>
               <li><a href="#" title="Payment options">Payment options</a></li>
               <li><a href="#" title="Booking tips">Booking tips</a></li>
             </ul>
           </div>
         </div>
+
+        <!-- ========== COLONNE 3: RÉSEAUX SOCIAUX ========== -->
         <div class="col-lg-3">
           <div class="p-3 footer_follow">
-            <h2>Follow us</h2>
+            <h2>Follow Us</h2>
             <ul class="list-unstyled d-flex gap-2 mt-3">
               <li><a href="#" title="Facebook"><i class="bi bi-facebook"></i></a></li>
               <li><a href="#" title="YouTube"><i class="bi bi-youtube"></i></a></li>
@@ -814,6 +899,8 @@
             </ul>
           </div>
         </div>
+
+        <!-- ========== COLONNE 4: NEWSLETTER ========== -->
         <div class="col-lg-3">
           <div class="p-3 footer_newsletter">
             <h2>Newsletter</h2>
@@ -826,10 +913,12 @@
             </form>
           </div>
         </div>
+
       </div>
     </div>
   </footer>
 
+  <!-- ========== BAS DE PAGE: COPYRIGHT & LIENS ========== -->
   <div class="bottom w-100 p-3">
     <p class="copy">Copyright 2025 Réservation d'hôtel Formation Ilaria</p>
     <nav>
@@ -841,12 +930,10 @@
         <li class="list-inline-item"><a href="#" title="FAQ">FAQ</a></li>
         <li class="list-inline-item"><a href="#" title="Careers">Careers</a></li>
         <li class="list-inline-item"><a href="#" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
-        <li class="list-inline-item"><a href="#" title="Privacy statement">Privacy statement</a></li>
       </ul>
     </nav>
   </div>
-
+  <!-- FIN BLOC: FOOTER -->
 
 </body>
-
 </html>

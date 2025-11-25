@@ -1,11 +1,11 @@
 /* ==========================================================
-   BASE.CSS — Hôtel Booking (Bloc 2)
+   BASE.CSS - Hôtel Booking (Bloc 1)
    ----------------------------------------------------------
    Contient :
-   1. Variables globales (couleurs, typos, espacements)
+   1. Variables globales (couleurs, typographies, espacements)
    2. Reset CSS (Eric Meyer)
    3. Styles généraux (body, titres, textes, liens)
-   4. Utilitaires CSS (flex, overflow, alignements)
+   4. Utilitaires CSS (flexbox, overflow, alignements)
    ========================================================== */
 
 
@@ -15,21 +15,27 @@
 
 :root {
   /* === Couleurs principales === */
-  --turquoise: #5fc8c2;         /* Couleur de marque principale */
-  --turquoise-hover: #3db3aa;   /* Variante hover */
+  --turquoise: #5fc8c2;
+  --turquoise-hover: #3db3aa;
   --turquoise-light: rgba(95, 200, 194, 0.1);
   --turquoise-dark: rgba(95, 200, 194, 0.85);
   --turquoise-clair: #C9FAFF;
-  --gris-clair: #f7f7f7;        /* Fond clair */
-  --gris-moyen: #858585;        /* Texte secondaire */
-  --gris-fonce: #333333;        /* Texte principal */
+  
+  /* === Couleurs neutres === */
+  --gris-clair: #f7f7f7;
+  --gris-moyen: #858585;
+  --gris-fonce: #333333;
   --blanc: #ffffff;
   --noir: #000000;
+  
+  /* === Couleurs secondaires === */
   --marron: #d6c8c0;
   --marron-clair: #E9E6E0;
+  
+  /* === Couleurs d'interaction === */
   --link-hover: #00000066;
-
-  /* === Couleurs d’état === */
+  
+  /* === Couleurs d'état === */
   --vert-validation: #3cb878;
   --rouge-erreur: #e74c3c;
   --jaune-attention: #f1c40f;
@@ -75,7 +81,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* HTML5 display-role reset pour anciens navigateurs */
+/* HTML5 - Reset pour anciens navigateurs */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -143,19 +149,19 @@ ul {
 
 
 /* ==========================================================
-   4. UTILITAIRES CSS — Flexbox, Alignement & Overflow
+   4. UTILITAIRES CSS - Flexbox, Alignement & Overflow
    ---------------------------------------------------------- */
 
-/* === Alignements rapides === */
+/* === Alignements flexbox === */
 
-/* Centre horizontalement et verticalement */
+/* Centre horizontal et vertical */
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Espace entre deux éléments (utile pour header/nav) */
+/* Espace entre deux éléments */
 .flex-between {
   display: flex;
   justify-content: space-between;
@@ -188,15 +194,15 @@ ul {
   flex-direction: column;
 }
 
-/* === Overflow & gestion du texte === */
+/* === Overflow et gestion du texte === */
 
-/* Empêche les débordements horizontaux dans un flex */
+/* Empêche les débordements horizontaux */
 .overflow-protection {
   min-width: 0;
   overflow: hidden;
 }
 
-/* Coupe proprement le texte long avec "..." */
+/* Coupe le texte long avec "..." */
 .text-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -222,7 +228,7 @@ ul {
   margin-bottom: auto;
 }
 
-/* === Centrage complet (horizontal + vertical) === */
+/* === Centrage complet === */
 .flex-center-full {
   display: flex;
   justify-content: center;
@@ -231,13 +237,14 @@ ul {
   height: 100vh;
 }
 
+/* === Largeur pleine === */
 .full-width {
   width: 100%;
   max-width: none;
 }
 
-/* === Hauteur pleine (full height) === */
+/* === Hauteur pleine === */
 .full-height {
   height: 100%;
-  min-height: 100vh; /* prend toute la hauteur visible */
+  min-height: 100vh;
 }
