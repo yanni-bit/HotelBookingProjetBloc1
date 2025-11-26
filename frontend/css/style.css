@@ -966,6 +966,61 @@
   font-weight: 500;
 }
 
+/* ==========================================================
+   FICHE HOTEL ROOM
+   ---------------------------------------------------------- */
+
+   /* VARIABLES DE LARGEUR - PERMET DE MODIFIER LES LARGEUR DE DEUX SOUS-COLONNES */
+:root {
+  --col-name-width: 75%;  /* Largeur colonne NOM HOTEL */
+  --col-star-width: 25%;  /* Largeur colonne NBE ETOILE */
+}
+
+/* Application des largeurs personnalisées */
+
+.col-name-hotel{
+  flex: 0 0 var(--col-name-width);
+  max-width: var(--col-name-width);
+}
+
+.col-star-hotel{
+  flex: 0 0 var(--col-star-width);
+  max-width: var(--col-star-width);
+}
+
+/* Taille des étoiles */
+
+.stars-header i {
+    font-size: 0.7rem;
+}
+
+
+/* ==========================================================
+   HOTEL POPULAIRE ROOM
+   ---------------------------------------------------------- */
+
+.name-populaire {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* ← Pousse les étoiles à droite sur une ligne */
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 0;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.stars i {
+  font-size: 0.7rem;
+  line-height: 1;
+  margin-bottom: 3px;
+}
 
 /* ==========================================================
    CARROUSEL ROOM - Galerie d'images
@@ -973,7 +1028,7 @@
 
 /* Images principales du carrousel */
 .carousel-image {
-  height: 400px;
+  height: 683px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -1099,7 +1154,7 @@
    CARD OFFRE DE CHAMBRE (dans onglet Disponibilité)
    ---------------------------------------------------------- */
 
-/* VARIABLES DE LARGEUR - PERMET DE MODIFIER LES LARGEUR DES DEUX SOUS-COLONNES */
+/* VARIABLES DE LARGEUR - PERMET DE MODIFIER LES LARGEUR DE DEUX SOUS-COLONNES */
 :root {
   --col-title-width: 50%;  /* Largeur colonne TITRE */
   --col-price-width: 50%;  /* Largeur colonne PRIX */
@@ -1115,6 +1170,7 @@
   flex: 0 0 var(--col-price-width);
   max-width: var(--col-price-width);
 }
+
 
 /* Card principale */
 .room-offer-card {
@@ -1360,4 +1416,221 @@ footer .bottom nav li {
 
 .main {
   padding: 20px;
+}
+
+/* ==========================================================
+   CALENDRIER FLATPICKR - Styles de base
+   ---------------------------------------------------------- */
+
+/* Conteneur principal du calendrier */
+.flatpickr-calendar {
+  width: 100% !important;
+  max-width: 450px !important;
+  margin: 0 auto !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+}
+
+/* En-tête du calendrier (mois/année) */
+.flatpickr-months {
+  padding: 10px 0 20px !important;
+}
+
+.flatpickr-current-month {
+  font-size: 1.3em !important;
+  padding: 10px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: normal !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  font-size: 1.2em !important;
+  padding: 5px 10px !important;
+  line-height: normal !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.flatpickr-current-month .numInputWrapper {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.numInputWrapper {
+  font-size: 1.2em !important;
+}
+
+/* Flèches de navigation */
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  padding: 10px !important;
+}
+
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Jours de la semaine */
+.flatpickr-weekdays {
+  margin-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.flatpickr-weekday {
+  font-size: 1em !important;
+  font-weight: 600 !important;
+  padding: 8px 0 !important;
+}
+
+/* Grille des jours */
+.flatpickr-days {
+  width: 100% !important;
+}
+
+.dayContainer {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Cellules des jours */
+.flatpickr-day {
+  height: 45px !important;
+  line-height: 45px !important;
+  max-width: none !important;
+  flex: 1 0 14.28% !important;
+  font-size: 1em !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  margin: 2px !important;
+}
+
+/* Jour sélectionné */
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background: var(--turquoise, #5fc8c2) !important;
+  border-color: var(--turquoise, #5fc8c2) !important;
+  font-weight: 600 !important;
+}
+
+/* Jours dans la plage */
+.flatpickr-day.inRange {
+  background: var(--turquoise-light, rgba(95, 200, 194, 0.2)) !important;
+  border-color: transparent !important;
+}
+
+/* Hover sur les jours */
+.flatpickr-day:hover {
+  background: var(--turquoise-light, rgba(95, 200, 194, 0.3)) !important;
+  border-color: var(--turquoise, #5fc8c2) !important;
+}
+
+/* Jour actuel */
+.flatpickr-day.today {
+  border-color: var(--turquoise, #5fc8c2) !important;
+  font-weight: 600 !important;
+}
+
+/* Conteneur du calendrier (pour centrer dans la page) */
+#flatpickr-calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+/* ==========================================================
+   FORMULAIRE MOBILE ALTERNATIF AU CALENDRIER
+   ---------------------------------------------------------- */
+
+/* Par défaut, masquer le formulaire mobile (affiché uniquement ≤ 390px via responsive.css) */
+.mobile-date-form {
+  display: none;
+}
+
+/* Styles pour les champs date mobile */
+.mobile-date-form .form-control[type="date"] {
+  height: 45px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 2px solid var(--turquoise-light);
+  transition: all 0.3s ease;
+}
+
+.mobile-date-form .form-control[type="date"]:focus {
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 0.2rem var(--turquoise-light);
+  outline: none;
+}
+
+.mobile-date-form .form-label {
+  color: var(--gris-fonce);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.mobile-date-form .form-label i {
+  color: var(--turquoise);
+}
+
+
+/* ==========================================================
+   MODAL GLOBAL
+   ---------------------------------------------------------- */
+
+.modal-custom .modal-content {
+  border-radius: 10px;
+  padding: 20px;
+  border: none;
+}
+
+.modal-custom .modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.modal-custom .modal-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.modal-custom .modal-body {
+  font-size: 1rem;
+  color: #555;
+}
+
+.modal-custom .modal-footer {
+  border-top: none;
+  padding-top: 0;
+}
+
+.btn-close.btn-close-white {
+  opacity: 1 !important;
+}
+
+/* Gérer UNIQUEMENT les flèches du carrousel dans modal */
+
+.modal-custom .carousel-control-prev,
+.modal-custom .carousel-control-next {
+  top: 50%;                 /* centre vertical */
+  transform: translateY(-50%);
+  width: 40px;              /* optionnel */
+  height: 40px;             /* optionnel */
+}
+
+/* Flèche gauche */
+.modal-custom .carousel-control-prev {
+  left: 15px;               /* décalage depuis le bord */
+}
+
+/* Flèche droite */
+.modal-custom .carousel-control-next {
+  right: 15px;              /* décalage depuis le bord */
 }
