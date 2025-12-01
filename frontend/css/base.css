@@ -32,6 +32,7 @@
   /* === Couleurs secondaires === */
   --marron: #d6c8c0;
   --marron-clair: #E9E6E0;
+  --marron-fonce: #AB9A8F;
   
   /* === Couleurs d'interaction === */
   --link-hover: #00000066;
@@ -255,7 +256,7 @@ ul {
   min-height: 100vh;
 }
 
-/* === Espacements rapides === */
+/* === Utilitaires texte === */
 
 /* Texte justifié */
 .text-justify {
@@ -265,4 +266,18 @@ ul {
 /* Rétablir le gras après le reset css et évitee les conflit */
 b, strong {
     font-weight: bold !important;
+}
+
+.couleur-titre {
+  color: var(--gris-moyen);
+}
+
+.couleur-soustitre {
+  color: var(--turquoise);
+}
+
+.h-titre {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.2;
 }

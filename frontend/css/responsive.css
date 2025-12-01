@@ -233,6 +233,16 @@
     line-height: 48px !important;
     font-size: 1.05em !important;
   }
+
+  /* ONGLET AVIS CLIENTS */
+
+  .review-item {
+    flex-direction: column;
+  }
+  
+  .review-header {
+    min-width: auto;
+  }
 }
 
 
@@ -290,6 +300,16 @@
     height: 44px !important;
     line-height: 44px !important;
     font-size: 1em !important;
+  }
+
+   /* ONGLET AVIS CLIENTS */
+
+  .review-item {
+    flex-direction: column;
+  }
+  
+  .review-header {
+    min-width: auto;
   }
 }
 
@@ -360,6 +380,16 @@
 
   #flatpickr-calendar-container {
     padding: 15px;
+  }
+
+  /* ONGLET AVIS CLIENTS */
+
+  .review-item {
+    flex-direction: column;
+  }
+  
+  .review-header {
+    min-width: auto;
   }
 }
 
@@ -598,6 +628,16 @@
   #flatpickr-calendar-container {
     padding: 10px;
   }
+
+  /* ONGLET AVIS CLIENTS */
+
+  .review-item {
+    flex-direction: column;
+  }
+  
+  .review-header {
+    min-width: auto;
+  }
 }
 
 
@@ -639,6 +679,16 @@
     line-height: 28px !important;
     font-size: 0.75em !important;
     margin: 0.5px !important;
+  }
+
+  /* ONGLET AVIS CLIENTS */
+
+  .review-item {
+    flex-direction: column;
+  }
+  
+  .review-header {
+    min-width: auto;
   }
 }
 

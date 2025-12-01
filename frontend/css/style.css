@@ -972,8 +972,8 @@
 
    /* VARIABLES DE LARGEUR - PERMET DE MODIFIER LES LARGEUR DE DEUX SOUS-COLONNES */
 :root {
-  --col-name-width: 75%;  /* Largeur colonne NOM HOTEL */
-  --col-star-width: 25%;  /* Largeur colonne NBE ETOILE */
+  --col-name-width: 70%;  /* Largeur colonne NOM HOTEL */
+  --col-star-width: 30%;  /* Largeur colonne NBE ETOILE */
 }
 
 /* Application des largeurs personnalisées */
@@ -999,15 +999,18 @@
    HOTEL POPULAIRE ROOM
    ---------------------------------------------------------- */
 
-.name-populaire {
+/* Nom de l'hotel et étoiles */
+/* Nom de l'hotel et étoiles */
+.name-populaire, .name-offredujour {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* ← Pousse les étoiles à droite sur une ligne */
+  justify-content: space-between;
   align-items: center;
   column-gap: 8px;
   row-gap: 0;
   line-height: 1.3;
-  margin-bottom: 0.75rem;
+  margin-bottom: -0.20rem;
+  color: var(--marron-fonce);
 }
 
 .stars {
@@ -1020,6 +1023,37 @@
   font-size: 0.7rem;
   line-height: 1;
   margin-bottom: 3px;
+}
+
+/* Prix et note */
+.info-hotel-populaire {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--gris-moyen);
+}
+
+.pouce i {
+  font-size: 0.7rem;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.pouce {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.8rem;
+  color: #bdbdbd;
+}
+
+.pouce-note {
+  color: var(--gris-moyen);
+}
+
+.info-prix {
+  margin-top: 2px;
 }
 
 /* ==========================================================
@@ -1253,6 +1287,131 @@ html {
   50% {
     background-color: rgba(95, 200, 194, 0.1);
   }
+}
+
+/* ==========================================================
+   EQUUIPEMENTS (dans onglet Equipements)
+   ---------------------------------------------------------- */
+.amenities-section {
+  padding: 0;
+}
+
+.amenities-section h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.amenity-item {
+  font-size: 0.95em;
+}
+
+.fumeurs-info {
+  margin-top: 20px;
+  font-size: 0.95em;
+}
+
+/* ==========================================================
+   ONGLET AVIS CLIENTS
+   ---------------------------------------------------------- */
+
+.reviews-section {
+  padding: 0;
+}
+
+.review-item {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  display: flex;
+  gap: 20px;
+}
+
+.review-header {
+  display: flex;
+  gap: 15px;
+  min-width: 200px;
+  flex-shrink: 0;
+}
+
+.review-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ccc;
+  flex-shrink: 0;
+}
+
+.review-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+}
+
+.review-author {
+  font-weight: 600;
+  color: #333;
+  font-size: 1em;
+}
+
+.review-details {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.review-date {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.review-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review-comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #6c757d;
+}
+
+.icon-positive,
+.icon-negative {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  flex-shrink: 0;
+  font-size: 1.1em;
+}
+
+.icon-positive {
+  background-color: #4CAF50;
+}
+
+.icon-negative {
+  background-color: #f44336;
 }
 
 
