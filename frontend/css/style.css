@@ -1002,7 +1002,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   border: solid 1px var(--marron);
-  border-radius: 7px;
+  border-radius: 50px 7px 7px 50px;
   padding: 5px;
   background-color: var(--marron);
   box-shadow: 2px 0 3px rgba(0,0,0,0.3);
