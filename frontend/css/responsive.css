@@ -30,9 +30,18 @@
    Bootstrap qui décale la flèche droite et le X close hors
    du conteneur quand l’image devient très large
    ========================================================== */
-   
+
 @media (min-width: 1200px) {
 
+  /* Décalage des étoiles de hotel-header */
+  .col-star-hotel {
+    gap: 2px;
+    flex: 0;
+  }
+
+  /* Correction flèche et close du modal qui pose problème de
+   Bootstrap qui décale la flèche droite et le X close hors
+   du conteneur quand l’image devient très large */
   .modal-custom .btn-close {
     position: absolute;
     top: 15px;
@@ -109,6 +118,16 @@
 
   .header_search {
     padding-top: 0 !important;
+  }
+
+  /* Décalage des étoiles de hotel-header */
+  .col-star-hotel {
+    display: inline;
+    gap: 2px;
+  }
+
+  .room-details {
+    padding-bottom: 20px;
   }
 
   /* === RUBAN === */
@@ -219,6 +238,10 @@
 
   /* === CALENDRIER FLATPICKR === */
 
+  .container {
+    max-width: 95%;
+  }
+
   .flatpickr-calendar {
     max-width: 450px !important;
     padding: 20px !important;
@@ -239,10 +262,11 @@
   .review-item {
     flex-direction: column;
   }
-  
+
   .review-header {
     min-width: auto;
   }
+
 }
 
 
@@ -253,6 +277,10 @@
 @media (min-width: 576px) and (max-width: 767px) {
 
   /* === SLIDEBAR GAUCHE === */
+
+  .sidebar {
+    margin-bottom: 0 !important;
+  }
 
   .sidebar-nav a.nav-link.active::after {
     display: none;
@@ -302,14 +330,18 @@
     font-size: 1em !important;
   }
 
-   /* ONGLET AVIS CLIENTS */
+  /* ONGLET AVIS CLIENTS */
 
   .review-item {
     flex-direction: column;
   }
-  
+
   .review-header {
     min-width: auto;
+  }
+
+  .container {
+    max-width: 95%;
   }
 }
 
@@ -321,6 +353,10 @@
 @media (min-width: 391px) and (max-width: 575px) {
 
   /* === SLIDEBAR GAUCHE === */
+
+  .sidebar {
+    margin-bottom: 0 !important;
+  }
 
   .sidebar-nav a.nav-link.active::after {
     display: none;
@@ -387,10 +423,12 @@
   .review-item {
     flex-direction: column;
   }
-  
+
   .review-header {
     min-width: auto;
   }
+
+
 }
 
 
@@ -401,6 +439,10 @@
 @media (max-width: 390px) {
 
   /* === SLIDEBAR GAUCHE === */
+
+  .sidebar {
+    margin-bottom: 0 !important;
+  }
 
   .sidebar-nav a.nav-link.active::after {
     display: none;
@@ -634,7 +676,7 @@
   .review-item {
     flex-direction: column;
   }
-  
+
   .review-header {
     min-width: auto;
   }
@@ -646,6 +688,12 @@
    ---------------------------------------------------------- */
 
 @media (max-width: 359px) {
+
+  /* Décalage des étoiles de hotel-header */
+  .col-star-hotel {
+    display: inline-flex;
+    gap: 2px;
+  }
 
   /* === CALENDRIER FLATPICKR (masqué mais styles définis) === */
 
@@ -686,7 +734,7 @@
   .review-item {
     flex-direction: column;
   }
-  
+
   .review-header {
     min-width: auto;
   }

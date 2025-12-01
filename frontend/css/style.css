@@ -986,6 +986,8 @@
 .col-star-hotel{
   flex: 0 0 var(--col-star-width);
   max-width: var(--col-star-width);
+  white-space: nowrap;
+  display: inline-flex;
 }
 
 /* Taille des étoiles */
@@ -993,6 +995,28 @@
 .stars-header i {
     font-size: 0.7rem;
 }
+
+/* Tag */
+.hotel-tag {
+  color: var(--blanc);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: solid 1px var(--marron);
+  border-radius: 7px;
+  padding: 5px;
+  background-color: var(--marron);
+  box-shadow: 2px 0 3px rgba(0,0,0,0.3);
+}
+
+.point {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: currentColor;
+  border-radius: 50%;
+  box-shadow: inset 2px 0 2px rgba(0,0,0,0.3);
+}
+
 
 
 /* ==========================================================
@@ -1289,6 +1313,7 @@ html {
   }
 }
 
+
 /* ==========================================================
    EQUUIPEMENTS (dans onglet Equipements)
    ---------------------------------------------------------- */
@@ -1356,7 +1381,6 @@ html {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  justify-content: center;
 }
 
 .review-author {
@@ -1413,6 +1437,7 @@ html {
 .icon-negative {
   background-color: #f44336;
 }
+
 
 
 /* ==========================================================
