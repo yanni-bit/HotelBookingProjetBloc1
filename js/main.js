@@ -10,13 +10,6 @@
    - Formulaire de recherche
    ========================================================== */
 
-   function translateTo(lang) {
-  const currentUrl = window.location.href;
-  const url = `https://translate.google.com/translate?sl=auto&tl=${lang}&u=${encodeURIComponent(currentUrl)}`;
-  window.location.href = url;
-}
-
-
 /* ==========================================================
    INITIALISATION DU RUBAN (LANGUE ET MONNAIE)
    ---------------------------------------------------------- */
