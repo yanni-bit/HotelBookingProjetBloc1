@@ -2852,12 +2852,3 @@ Copier
   background-color: var(--turquoise-hover);
   border-color: var(--turquoise-hover);
 }
-
-
-/* ==========================================================
-   BOUTON WEGLOT
-   ========================================================== */
-
-   .weglot-container {
-  display: none !important;
-}
