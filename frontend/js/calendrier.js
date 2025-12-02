@@ -199,12 +199,32 @@ document.addEventListener('DOMContentLoaded', function() {
           // Calculer le nombre de nuits
           const diffTime = Math.abs(checkOutDate - checkInDate);
           const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-          const total = diffDays * PRIX_PAR_NUIT;
           
-          alert(`Réservation confirmée!\n\nArrivée: ${formatDate(checkInDate)}\nDépart: ${formatDate(checkOutDate)}\nNuits: ${diffDays}\nTotal: ${total}€`);
+          // Récupérer les heures
+          const checkInTime = checkInTimeInput ? checkInTimeInput.value : '15:00';
+          const checkOutTime = checkOutTimeInput ? checkOutTimeInput.value : '11:00';
           
-          // Ici on peut rediriger vers la page de réservation
-          // window.location.href = 'booking.html';
+          // Formater les dates pour l'URL (format ISO)
+          const checkInISO = checkInDate.toISOString().split('T')[0];
+          const checkOutISO = checkOutDate.toISOString().split('T')[0];
+          
+          // Récupérer le nom de la chambre depuis la page (peut être adapté)
+          const roomName = document.querySelector('.hotel-header-box h1')?.textContent || 'Villa sur l\'eau';
+          
+          // Construire l'URL avec les paramètres
+          const params = new URLSearchParams({
+              checkIn: checkInISO,
+              checkOut: checkOutISO,
+              checkInTime: checkInTime,
+              checkOutTime: checkOutTime,
+              nights: diffDays,
+              price: PRIX_PAR_NUIT,
+              roomName: roomName,
+              adults: 2 // Peut être récupéré depuis un champ du formulaire
+          });
+          
+          // Rediriger vers la page de réservation
+          window.location.href = `booking.html?${params.toString()}`;
       }
   }
 

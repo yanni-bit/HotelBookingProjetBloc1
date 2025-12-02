@@ -92,7 +92,7 @@
       <!-- Ruban vertical droit avec : Mon compte, Pays, Monnaie -->
       <div class="ribbon">
         <nav class="d-flex gap-2 flex-column align-items-stretch">
-
+          
           <!-- Bouton Mon Compte -->
           <div class="dropdown">
             <a class="btn btn-outline-dark w-100 pb-2 ribbon-btn" href="#" role="button">
@@ -172,138 +172,7 @@
        ========================================================== -->
 
   <main class="pe-3 pb-5 contact-main">
-    <div class="container">
 
-      <!-- Fil d'Ariane -->
-      <nav aria-label="breadcrumb" class="mb-1">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Contact</li>
-        </ol>
-      </nav>
-
-      <!-- Titre -->
-      <div class="contact-header text-center mb-5">
-        <h1>Contactez-nous</h1>
-        <p class="lead">Nous sommes là pour vous aider. N'hésitez pas à nous contacter !</p>
-      </div>
-
-      <div class="row g-4">
-
-        <!-- COLONNE GAUCHE - CARTE ET INFOS -->
-        <div class="col-lg-7">
-
-          <!-- Carte Google Maps -->
-          <div class="map-container mb-4">
-            <div class="map-overlay">
-            </div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.2302828527404!2d-77.03495072365499!3d38.895848946794814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b797ef60a829%3A0x308f6aa1bf4c84c5!2s1400%20Pennsylvania%20Ave%20NW%2C%20Washington%2C%20DC%2020004%2C%20%C3%89tats-Unis!5e0!3m2!1sfr!2sfr!4v1764687652916!5m2!1sfr!2sfr"
-              width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-
-          <!-- Informations de contact -->
-          <div class="contact-info-cards">
-            <div class="row g-3">
-
-              <!-- Téléphone -->
-              <div class="col-md-6">
-                <div class="info-card">
-                  <div class="info-icon">
-                    <i class="bi bi-telephone-fill"></i>
-                  </div>
-                  <div class="info-content">
-                    <h6>Téléphone</h6>
-                    <p class="mb-0">Support 24/7</p>
-                    <a href="tel:+33123456789">1-555-555-5555</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Email -->
-              <div class="col-md-6">
-                <div class="info-card">
-                  <div class="info-icon">
-                    <i class="bi bi-envelope-fill"></i>
-                  </div>
-                  <div class="info-content">
-                    <h6>Email</h6>
-                    <p class="mb-0">Réponse sous 24h</p>
-                    <a href="#">booking@mail.com</a>
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-
-        </div>
-
-        <!-- COLONNE DROITE - FORMULAIRE -->
-        <div class="col-lg-5">
-          <div class="contact-form-wrapper">
-            <h3 class="mb-4">Envoyez-nous un message</h3>
-
-            <form id="contactForm" class="contact-form">
-
-              <!-- Nom -->
-              <div class="mb-3">
-                <label for="name" class="form-label">Votre nom <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="name" required>
-              </div>
-
-              <!-- Email -->
-              <div class="mb-3">
-                <label for="email" class="form-label">Votre e-mail <span class="text-danger">*</span></label>
-                <input type="email" class="form-control" id="email" required>
-              </div>
-
-              <!-- Téléphone -->
-              <div class="mb-3">
-                <label for="phone" class="form-label">Téléphone</label>
-                <input type="tel" class="form-control" id="phone">
-              </div>
-
-              <!-- Sujet -->
-              <div class="mb-3">
-                <label for="subject" class="form-label">Sujet <span class="text-danger">*</span></label>
-                <select class="form-select" id="subject" required>
-                  <option value="">Sélectionnez un sujet</option>
-                  <option value="reservation">Réservation</option>
-                  <option value="information">Demande d'information</option>
-                  <option value="reclamation">Réclamation</option>
-                  <option value="autre">Autre</option>
-                </select>
-              </div>
-
-              <!-- Message -->
-              <div class="mb-3">
-                <label for="message" class="form-label">Votre message <span class="text-danger">*</span></label>
-                <textarea class="form-control" id="message" rows="5" required></textarea>
-              </div>
-
-              <!-- Bouton -->
-              <button type="submit" class="btn btn-primary w-100">
-                <i class="bi bi-send-fill me-2"></i>
-                Envoyer le message
-              </button>
-
-              <!-- Message de succès (masqué par défaut) -->
-              <div class="alert alert-success mt-3" id="successMessage" style="display: none;">
-                <i class="bi bi-check-circle-fill me-2"></i>
-                Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.
-              </div>
-
-            </form>
-          </div>
-        </div>
-
-      </div>
-
-
-    </div>
   </main>
 
   <!-- ==========================================================

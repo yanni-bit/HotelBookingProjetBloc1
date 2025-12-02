@@ -135,11 +135,11 @@
 .ribbon {
   position: absolute;
   top: 0;
-  right: 5%;
+  right: 1.5%;
   width: 140px;
   min-width: 100px;
+  min-height: 150px;
   background-color: var(--turquoise);
-  border-radius: 0 0 10px 10px;
   padding: 15px 20px;
   text-align: center;
   z-index: 1000;
@@ -194,6 +194,35 @@
   padding: 0;
   margin: 0;
   background-color: var(--turquoise);
+}
+
+/* Triangle décoratif sous le ruban */
+.ribbon::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;               /* distance sous le ruban */
+  left: 0;                     /* aligné à gauche */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 65px 0 0; /* hauteur / largeur du triangle */
+  border-color: var(--turquoise) transparent transparent transparent;
+  z-index: 2;
+  box-shadow: -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.ribbon::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;               /* même hauteur que le before */
+  right: 0;                    /* aligné à droite */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 0 0 65px; /* inverse les côtés du triangle */
+  border-color: var(--turquoise) transparent transparent transparent;
+  z-index: 2;
+  box-shadow: 1px 0 0 rgba(0, 0, 0, .1);
 }
 
 
@@ -1817,4 +1846,1009 @@ footer .bottom nav li {
 /* Flèche droite */
 .modal-custom .carousel-control-next {
   right: 15px;              /* décalage depuis le bord */
+}
+
+/* ==========================================================
+   BOOKING.CSS - Page de réservation
+   Projet : Hôtel Booking (Bloc 1)
+   ========================================================== */
+
+/* ==========================================================
+   LAYOUT GÉNÉRAL
+   ========================================================== */
+
+.booking-main {
+  background-color: var(--marron-clair);
+}
+
+/* Fil d'Ariane */
+.breadcrumb {
+  background-color: transparent;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: var(--gris-moyen);
+}
+
+.breadcrumb-item a {
+  color: var(--turquoise);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--turquoise-hover);
+}
+
+/* ==========================================================
+   EN-TÊTE DE LA PAGE
+   ========================================================== */
+
+.booking-header {
+  background: var(--blanc);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.booking-header h1 {
+  font-size: 2rem;
+  color: var(--gris-fonce);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.booking-header p {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+/* ==========================================================
+   FORMULAIRE DE RÉSERVATION
+   ========================================================== */
+
+.booking-form {
+  background: var(--blanc);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Section du formulaire */
+.form-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* En-tête de section */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-number {
+  width: 40px;
+  height: 40px;
+  background: var(--turquoise);
+  color: var(--blanc);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  color: var(--gris-fonce);
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Champs de formulaire */
+.form-label {
+  font-weight: 500;
+  color: var(--gris-fonce);
+  margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.2s;
+  color: var(--gris-moyen);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 3px var(--turquoise-light);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ==========================================================
+   SECTION NOMBRE DE VOYAGEURS
+   ========================================================== */
+
+.guests-section {
+  background: var(--gris-clair);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  margin-top: 0.5rem;
+}
+
+.guests-section h6 {
+  color: var(--gris-fonce);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.guests-section h6 i {
+  color: var(--turquoise);
+  margin-right: 0.5rem;
+}
+
+.guests-section .form-label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--gris-fonce);
+}
+
+.guests-section .input-group {
+  width: 100%;
+  max-width: 250px;
+}
+
+.guests-section .btn-outline-secondary {
+  border-color: var(--turquoise);
+  color: var(--turquoise);
+  transition: all 0.2s;
+  padding: 0.5rem 1rem;
+}
+
+.guests-section .btn-outline-secondary:hover:not(:disabled) {
+  background-color: var(--turquoise);
+  color: var(--blanc);
+  border-color: var(--turquoise);
+}
+
+.guests-section .btn-outline-secondary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  color: #999;
+}
+
+.guests-section .form-control {
+  border-color: var(--turquoise);
+  font-weight: 600;
+  color: var(--gris-fonce);
+  font-size: 1.1rem;
+  background-color: var(--blanc);
+}
+
+.guests-section .alert {
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+}
+
+.guests-section .alert-info {
+  background-color: #bfe9e7;
+  border: 1px solid #b1dad7;
+  color: var(--gris-fonce);
+}
+
+.guests-section .alert-danger {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.guests-section #totalGuests {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+
+/* ==========================================================
+   SERVICES ADDITIONNELS
+   ========================================================== */
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.service-item {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+
+.service-item:hover {
+  border-color: var(--turquoise-light);
+  background-color: var(--turquoise-light);
+}
+
+.service-item .form-check {
+  margin: 0;
+}
+
+.service-item .form-check-input {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.service-item .form-check-input:checked {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+}
+
+.service-item .form-check-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  margin: 0;
+}
+
+.service-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.service-info i {
+  font-size: 1.8rem;
+  color: var(--turquoise);
+}
+
+.service-info strong {
+  display: block;
+  color: var(--gris-fonce);
+  font-size: 1.1rem;
+}
+
+.service-info small {
+  color: var(--gris-moyen) !important;
+}
+
+.service-price {
+  font-weight: 700;
+  color: var(--turquoise);
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+/* ==========================================================
+   INFORMATIONS DE PAIEMENT
+   ========================================================== */
+
+.payment-info-box {
+  background: var(--turquoise-light);
+  border-left: 4px solid var(--turquoise);
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.payment-info-box i {
+  font-size: 2rem;
+  color: var(--turquoise);
+}
+
+.payment-info-box p {
+  margin: 0;
+  color: var(--gris-fonce);
+}
+
+/* ==========================================================
+   CONDITIONS DE RÉSERVATION
+   ========================================================== */
+
+.conditions-box {
+  background: var(--gris-clair);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.conditions-box h6 {
+  color: var(--gris-fonce);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.conditions-box p {
+  margin-bottom: 0.5rem;
+  color: var(--gris-fonce);
+}
+
+.conditions-box ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.conditions-box li {
+  color: var(--gris-fonce);
+  margin-bottom: 0.25rem;
+}
+
+.form-check {
+  padding-left: 0;
+}
+
+.form-check-input {
+  margin-right: 0.5rem;
+}
+
+.form-check-label a {
+  color: var(--turquoise);
+  text-decoration: underline;
+}
+
+.form-check-label a:hover {
+  color: var(--turquoise-hover);
+}
+
+/* ==========================================================
+   RÉCAPITULATIF (SIDEBAR)
+   ========================================================== */
+
+.booking-summary {
+  background: var(--blanc);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  top: 2rem;
+}
+
+.booking-summary h3 {
+  font-size: 1.5rem;
+  color: var(--gris-fonce);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--turquoise);
+  padding-bottom: 0.75rem;
+}
+
+/* ==========================================================
+   NOM DE L'HÔTEL
+   ========================================================== */
+
+.summary-hotel-name {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-hotel-name small {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+  color: var(--gris-moyen);
+}
+
+.summary-hotel-name h6 {
+  font-size: 1rem;
+  color: var(--gris-fonce);
+  margin: 0;
+  font-weight: 600;
+}
+
+.summary-hotel-name i {
+  color: var(--turquoise);
+  margin-right: 0.25rem;
+}
+
+/* ==========================================================
+   CHAMBRE
+   ========================================================== */
+
+.summary-room {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-room-details {
+  display: flex;
+  gap: 1rem;
+}
+
+.summary-room-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.summary-room-info h5 {
+  font-size: 1.1rem;
+  color: var(--gris-fonce);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.summary-room-info p {
+  font-size: 0.9rem;
+}
+
+/* ==========================================================
+   DATES DU SÉJOUR
+   ========================================================== */
+
+.summary-dates {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-date-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.summary-date-item small {
+  font-size: 0.85rem;
+}
+
+.summary-date-item strong {
+  color: var(--gris-fonce);
+  font-size: 1rem;
+}
+
+.summary-separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summary-separator i {
+  color: var(--turquoise);
+  font-size: 1.2rem;
+}
+
+.summary-separator .badge {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  background-color: #bfe9e7;
+  border: 1px solid #b1dad7;
+}
+
+/* ==========================================================
+   PRIX
+   ========================================================== */
+
+.summary-pricing {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-pricing h6 {
+  font-size: 1rem;
+  color: var(--gris-fonce);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.price-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  color: var(--gris-fonce);
+}
+
+.price-line.service-line {
+  font-size: 0.9rem;
+  color: var(--gris-moyen);
+  padding: 0.35rem 0;
+}
+
+.price-line.price-total {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--turquoise);
+  font-size: 1.3rem;
+  color: var(--turquoise);
+}
+
+/* ==========================================================
+   AVANTAGES
+   ========================================================== */
+
+.summary-benefits {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.benefit-item i {
+  font-size: 1.2rem;
+}
+
+.benefit-item span {
+  color: var(--gris-fonce);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================
+   CONTACT
+   ========================================================== */
+
+.summary-contact h6 {
+  font-size: 1rem;
+  color: var(--gris-fonce);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.summary-contact p {
+  color: var(--gris-moyen);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summary-contact i {
+  color: var(--turquoise);
+}
+
+/* ==========================================================
+   BOUTON DE SOUMISSION
+   ========================================================== */
+
+.btn-primary {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  color: var(--blanc);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--turquoise-hover);
+  border-color: var(--turquoise-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(95, 200, 194, 0.3);
+}
+
+tact · CSS
+Copier
+
+/* ==========================================================
+   CONTACT.CSS - Page de contact
+   Projet : Hôtel Booking (Bloc 1)
+   ========================================================== */
+
+/* ==========================================================
+   LAYOUT GÉNÉRAL
+   ========================================================== */
+
+.contact-main {
+  padding: 2rem 0 4rem;
+  background-color: var(--gris-clair);
+  min-height: calc(100vh - 200px);
+}
+
+/* Fil d'Ariane */
+.breadcrumb {
+  background-color: transparent;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: var(--gris-moyen);
+}
+
+.breadcrumb-item a {
+  color: var(--turquoise);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--turquoise-hover);
+}
+
+/* ==========================================================
+   EN-TÊTE DE LA PAGE
+   ========================================================== */
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  color: var(--gris-fonce);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contact-header .lead {
+  font-size: 1.2rem;
+  color: var(--gris-moyen);
+}
+
+/* ==========================================================
+   CARTE GOOGLE MAPS
+   ========================================================== */
+
+.map-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+  height: 630px;
+}
+
+.map-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.map-info-box {
+  background: var(--blanc);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 300px;
+}
+
+.map-info-box h5 {
+  color: var(--turquoise);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.map-info-box h5 i {
+  margin-right: 0.5rem;
+}
+
+.map-info-box p {
+  color: var(--gris-fonce);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   CARTES D'INFORMATIONS
+   ========================================================== */
+
+.contact-info-cards {
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: var(--blanc);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(95, 200, 194, 0.2);
+}
+
+.info-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--turquoise-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-icon i {
+  font-size: 1.5rem;
+  color: var(--turquoise);
+}
+
+.info-content h6 {
+  color: var(--gris-fonce);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.info-content p {
+  color: var(--gris-moyen);
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.info-content a {
+  color: var(--turquoise);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.info-content a:hover {
+  color: var(--turquoise-hover);
+  text-decoration: underline;
+}
+
+/* ==========================================================
+   FORMULAIRE DE CONTACT
+   ========================================================== */
+
+.contact-form-wrapper {
+  background: var(--blanc);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 2rem;
+}
+
+.contact-form-wrapper h3 {
+  color: var(--gris-fonce);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.contact-form .form-label {
+  font-weight: 500;
+  color: var(--gris-fonce);
+  margin-bottom: 0.5rem;
+}
+
+.contact-form .form-control,
+.contact-form .form-select {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.contact-form .form-control:focus,
+.contact-form .form-select:focus {
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 3px var(--turquoise-light);
+}
+
+.contact-form textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form .btn-primary {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  color: var(--blanc);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.contact-form .btn-primary:hover {
+  background-color: var(--turquoise-hover);
+  border-color: var(--turquoise-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(95, 200, 194, 0.3);
+}
+
+.contact-form .alert-success {
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+.footer-principal {
+  background: var(--gris-fonce);
+  color: var(--blanc);
+  padding: 3rem 0 1rem;
+}
+
+.footer-principal h5 {
+  color: var(--turquoise);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-principal p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--turquoise);
+}
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li {
+  color: #ccc;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.footer-contact i {
+  color: var(--turquoise);
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+.footer-bottom p {
+  color: #999;
+  margin: 0;
+}
+
+/* ==========================================================
+   MODAL DE CONFIRMATION
+   ========================================================== */
+
+.confirmation-details .info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--gris-clair);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.confirmation-details .info-row i {
+  font-size: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.confirmation-details .info-row div {
+  flex: 1;
+}
+
+.confirmation-details .info-row small {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.confirmation-details .info-row p {
+  font-size: 1rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.modal-header.bg-success {
+  background-color: #28a745 !important;
+}
+
+.modal-content {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  border-radius: 12px 12px 0 0;
+  padding: 1.5rem;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  border-top: 1px solid #e0e0e0;
+  padding: 1rem 1.5rem;
+}
+
+.modal-footer .btn-primary {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  padding: 0.5rem 2rem;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: var(--turquoise-hover);
+  border-color: var(--turquoise-hover);
 }

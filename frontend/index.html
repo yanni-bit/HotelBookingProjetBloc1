@@ -86,26 +86,26 @@
           
           <!-- Bouton Mon Compte -->
           <div class="dropdown">
-            <a class="btn btn-outline-dark w-100 ribbon-btn" href="#" role="button">
+            <a class="btn btn-outline-dark w-100 pb-2 ribbon-btn" href="#" role="button">
               MON COMPTE
             </a>
           </div>
 
           <!-- Sélecteur de Pays -->
           <div class="dropdown">
-            <button class="btn btn-outline-dark w-100 ribbon-btn" type="button" id="langue">
+            <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="langue">
               PAYS
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Français (Fr)</a></li>
-              <li><a class="dropdown-item" href="#">English (US)</a></li>
-              <li><a class="dropdown-item" href="#">Italiano (It)</a></li>
+             <li><a class="dropdown-item" href="#" onclick="translateTo('fr')">Français</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateTo('en')">English</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateTo('it')">Italiano</a></li>
             </ul>
           </div>
 
           <!-- Sélecteur de Monnaie -->
           <div class="dropdown">
-            <button class="btn btn-outline-dark w-100 ribbon-btn" type="button" id="monnaie">
+            <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="monnaie">
               MONNAIE
             </button>
             <ul class="dropdown-menu">
@@ -130,30 +130,28 @@
        ╚══════════════════════════════════════════════════════════════════════════╝ -->
   <!-- DÉBUT BLOC: NAVIGATION -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-brown">
-    <!-- Bouton hamburger pour mobile -->
     <span class="navbar-brand d-lg-none">Menu</span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
       aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Menu principal -->
     <div class="collapse navbar-collapse" id="menuPrincipal">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
           <a class="nav-link active" href="index.html">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="room.html">Template Fiche Hotel</a>
+          <a class="nav-link" href="room.html">Template Hotel</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="calendrier.html">Calendrier</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="booking.html">Réservation</a>
+          <a class="nav-link" href="booking.html">Template Réservation</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="documentations.html">Documentations</a>
         </li>
       </ul>
     </div>

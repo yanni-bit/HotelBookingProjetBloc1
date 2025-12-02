@@ -40,26 +40,28 @@
 
 <body>
 
-  <!-- ==========================================================
-       HEADER GLOBAL
-       ========================================================== -->
-
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                              HEADER GLOBAL                               ║
+       ║ Contient : Logo, Contact, Recherche, Ruban (Langue/Monnaie/Compte)       ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: HEADER -->
   <header class="base-header position-relative">
     <div class="container-fluid">
       <div class="row header-top g-3">
 
-        <!-- LOGO -->
+        <!-- ========== LOGO ========== -->
         <div class="col-12 col-lg-6 order-0">
-          <div class="p-3 header_logo">
+          <div class="header_logo">
             <a href="index.html" class="my-logo d-block">
               <img src="assets/images/logo.png" alt="Book Your Travel" class="my-logo-img">
             </a>
           </div>
         </div>
 
-        <!-- CONTACT -->
+        <!-- ========== BLOC CONTACT ========== -->
+        <!-- Affiche le numéro de téléphone avec icône -->
         <div class="col-12 col-lg-3 order-2 order-lg-1">
-          <div class="p-3 header_contact">
+          <div class="header_contact">
             <div class="bloc-contact">
               <div class="bloc-contact-ico">
                 <i class="bi bi-telephone"></i>
@@ -72,9 +74,10 @@
           </div>
         </div>
 
-        <!-- RECHERCHE -->
+        <!-- ========== BARRE DE RECHERCHE HEADER ========== -->
+        <!-- Petite barre de recherche dans le header -->
         <div class="col-12 col-lg-3 order-lg-2">
-          <div class="p-3 header_search">
+          <div class="header_search">
             <div class="bloc-search">
               <form class="position-relative">
                 <input type="search" class="form-control bloc-search-input" placeholder="Search">
@@ -86,46 +89,56 @@
 
       </div>
 
-      <!-- RUBAN DROIT -->
+      <!-- ========== RUBAN TURQUOISE ========== -->
+      <!-- Ruban vertical droit avec : Mon compte, Pays, Monnaie -->
       <div class="ribbon">
         <nav class="d-flex gap-2 flex-column align-items-stretch">
+          
+          <!-- Bouton Mon Compte -->
           <div class="dropdown">
-            <a class="btn btn-outline-dark w-100 ribbon-btn" href="#" role="button">
+            <a class="btn btn-outline-dark w-100 pb-2 ribbon-btn" href="#" role="button">
               MON COMPTE
             </a>
           </div>
 
+          <!-- Sélecteur de Pays -->
           <div class="dropdown">
-            <button class="btn btn-outline-dark w-100 ribbon-btn" type="button" id="langue">
+            <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="langue">
               PAYS
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Français (Fr)</a></li>
               <li><a class="dropdown-item" href="#">English (US)</a></li>
-              <li><a class="dropdown-item" href="#">Italianà (It)</a></li>
+              <li><a class="dropdown-item" href="#">Italiano (It)</a></li>
             </ul>
           </div>
 
+          <!-- Sélecteur de Monnaie -->
           <div class="dropdown">
-            <button class="btn btn-outline-dark w-100 ribbon-btn" type="button" id="monnaie">
+            <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="monnaie">
               MONNAIE
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">€ Euro</a></li>
-              <li><a class="dropdown-item" href="#">$US Dollar</a></li>
+              <li><a class="dropdown-item" href="#">$ US Dollar</a></li>
               <li><a class="dropdown-item" href="#">£ Pound</a></li>
             </ul>
           </div>
+
         </nav>
       </div>
+      <!-- FIN: Ruban turquoise -->
+
     </div>
   </header>
+  <!-- FIN BLOC: HEADER -->
 
 
-  <!-- ==========================================================
-       NAVIGATION
-       ========================================================== -->
-
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                         NAVIGATION PRINCIPALE                            ║
+       ║ Menu de navigation horizontal avec liens vers les pages du site          ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: NAVIGATION -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-brown">
     <span class="navbar-brand d-lg-none">Menu</span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
@@ -139,27 +152,37 @@
           <a class="nav-link active" href="index.html">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="room.html">Template Fiche Hotel</a>
+          <a class="nav-link" href="room.html">Template Hotel</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="calendrier.html">Calendrier</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="booking.html">Réservation</a>
+          <a class="nav-link" href="booking.html">Template Réservation</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contact.html">Contact</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="documentations.html">Documentations</a>
+        </li>
       </ul>
     </div>
   </nav>
+  <!-- FIN BLOC: NAVIGATION -->
 
   <!-- ==========================================================
        CONTENU PRINCIPAL ROOM
        ========================================================== -->
 
-  <main class="py-5 room-page">
+  <main class="pe-3 pb-5 room-page">
     <div class="container">
+
+<!-- Fil d'Ariane -->
+      <nav aria-label="breadcrumb" class="mb-1">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Hotel</li>
+        </ol>
+      </nav>
+
       <div class="row">
 
         <div class="col-lg-9">

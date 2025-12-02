@@ -4,16 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Projet fil rouge Bloc 2 - Application de réservation d'hôtel">
+  <meta name="description" content="Projet fil rouge Bloc 1 - Application de réservation d'hôtel">
   <title>Réservation d'hôtel</title>
 
-  <!-- Bootstrap 5.3.8 -->
+  <!-- Bootstrap css 5.3.8 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Icônes Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Feuilles de style locales -->
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <!-- Styles locaux -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -21,22 +22,33 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/icons/hotel.png">
 
-  <!-- Scripts JS (chargés sans blocage) -->
-  <script src="js/utils.js" defer></script>
-  <script src="js/api.js" defer></script>
+  <!-- Bootstrap JS 5.3.8 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+
+  <!-- JS locaux -->
+  <!-- <script src="js/utils.js" defer></script>
+  <script src="js/api.js" defer></script> -->
   <script src="js/main.js" defer></script>
+  <script src="js/booking.js" defer></script>
+  <script src="js/booking-responsive-matchmedia.js" defer></script>
 </head>
 
 <body>
 
-  <!-- ==========================================================
-       HEADER GLOBAL
-       ========================================================== -->
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                              HEADER GLOBAL                               ║
+       ║ Contient : Logo, Contact, Recherche, Ruban (Langue/Monnaie/Compte)       ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: HEADER -->
   <header class="base-header position-relative">
     <div class="container-fluid">
       <div class="row header-top g-3">
 
-        <!-- LOGO -->
+        <!-- ========== LOGO ========== -->
         <div class="col-12 col-lg-6 order-0">
           <div class="header_logo">
             <a href="index.html" class="my-logo d-block">
@@ -45,7 +57,8 @@
           </div>
         </div>
 
-        <!-- CONTACT -->
+        <!-- ========== BLOC CONTACT ========== -->
+        <!-- Affiche le numéro de téléphone avec icône -->
         <div class="col-12 col-lg-3 order-2 order-lg-1">
           <div class="header_contact">
             <div class="bloc-contact">
@@ -60,7 +73,8 @@
           </div>
         </div>
 
-        <!-- RECHERCHE -->
+        <!-- ========== BARRE DE RECHERCHE HEADER ========== -->
+        <!-- Petite barre de recherche dans le header -->
         <div class="col-12 col-lg-3 order-lg-2">
           <div class="header_search">
             <div class="bloc-search">
@@ -71,17 +85,26 @@
             </div>
           </div>
         </div>
+
       </div>
 
-      <!-- RUBAN DROIT -->
+      <!-- ========== RUBAN TURQUOISE ========== -->
+      <!-- Ruban vertical droit avec : Mon compte, Pays, Monnaie -->
       <div class="ribbon">
         <nav class="d-flex gap-2 flex-column align-items-stretch">
+          
+          <!-- Bouton Mon Compte -->
           <div class="dropdown">
-            <a class="btn btn-outline-dark w-100 ribbon-btn" href="#" role="button">MON COMPTE</a>
+            <a class="btn btn-outline-dark w-100 pb-2 ribbon-btn" href="#" role="button">
+              MON COMPTE
+            </a>
           </div>
 
+          <!-- Sélecteur de Pays -->
           <div class="dropdown">
-            <button class="btn btn-outline-dark w-100 ribbon-btn" type="button" id="langue">PAYS</button>
+            <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="langue">
+              PAYS
+            </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Français (Fr)</a></li>
               <li><a class="dropdown-item" href="#">English (US)</a></li>
@@ -89,21 +112,32 @@
             </ul>
           </div>
 
+          <!-- Sélecteur de Monnaie -->
           <div class="dropdown">
-            <button class="btn btn-outline-dark w-100 ribbon-btn" type="button" id="monnaie">MONNAIE</button>
+            <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="monnaie">
+              MONNAIE
+            </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">€ Euro</a></li>
               <li><a class="dropdown-item" href="#">$ US Dollar</a></li>
               <li><a class="dropdown-item" href="#">£ Pound</a></li>
             </ul>
           </div>
+
         </nav>
       </div>
+      <!-- FIN: Ruban turquoise -->
+
     </div>
   </header>
-  <!-- ==========================================================
-       NAVIGATION
-       ========================================================== -->
+  <!-- FIN BLOC: HEADER -->
+
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                         NAVIGATION PRINCIPALE                            ║
+       ║ Menu de navigation horizontal avec liens vers les pages du site          ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: NAVIGATION -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-brown">
     <span class="navbar-brand d-lg-none">Menu</span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
@@ -112,77 +146,545 @@
     </button>
 
     <div class="collapse navbar-collapse" id="menuPrincipal">
-      <ul class="navbar-nav me-auto ms-3">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Accueil</a></li>
-        <li class="nav-item"><a class="nav-link" href="room.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="calendrier.html">Calendrier</a></li>
-        <li class="nav-item"><a class="nav-link" href="booking.html">Réservation</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="room.html">Template Hotel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="booking.html">Template Réservation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="documentations.html">Documentations</a>
+        </li>
       </ul>
     </div>
   </nav>
+  <!-- FIN BLOC: NAVIGATION -->
 
-  <!-- ==========================================================
-       CONTENU PRINCIPAL
-       ========================================================== -->
-  <main class="main">
-    <h2>RESERVATION</h2>
+  <!-- CONTENU PRINCIPAL -->
+  <main class="pe-3 pb-5 booking-main">
+    <div class="container">
+
+      <!-- Fil d'Ariane -->
+      <nav aria-label="breadcrumb" class="mb-1">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+          <li class="breadcrumb-item"><a href="room.html">Hotel</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Réservation</li>
+        </ol>
+      </nav>
+
+      <div class="row">
+
+        <!-- COLONNE GAUCHE - FORMULAIRE -->
+        <div class="col-lg-8">
+
+          <!-- En-tête -->
+          <div class="booking-header">
+            <h1>Finaliser votre réservation</h1>
+            <p class="text-muted">Complétez les informations ci-dessous pour confirmer votre séjour</p>
+          </div>
+
+          <form id="bookingForm" class="booking-form">
+
+            <!-- SECTION 1 : Informations personnelles -->
+            <div class="form-section">
+              <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>Vos informations</h2>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="firstName" class="form-label">Prénom <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="firstName" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="lastName" class="form-label">Nom <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="lastName" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Téléphone <span class="text-danger">*</span></label>
+                  <input type="tel" class="form-control" id="phone" required>
+                </div>
+
+                <div class="col-12">
+                  <label for="address" class="form-label">Adresse</label>
+                  <input type="text" class="form-control" id="address">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="city" class="form-label">Ville</label>
+                  <input type="text" class="form-control" id="city">
+                </div>
+
+                <div class="col-md-3">
+                  <label for="postalCode" class="form-label">Code postal</label>
+                  <input type="text" class="form-control" id="postalCode">
+                </div>
+
+                <div class="col-md-3">
+                  <label for="country" class="form-label">Pays</label>
+                  <select class="form-select" id="country">
+                    <option value="FR" selected>France</option>
+                    <option value="BE">Belgique</option>
+                    <option value="CH">Suisse</option>
+                    <option value="CA">Canada</option>
+                    <option value="US">États-Unis</option>
+                  </select>
+                </div>
+
+                <!-- NOUVEAU : Nombre de personnes -->
+                <div class="col-12">
+                  <div class="guests-section">
+                    <h6 class="mb-3"><i class="bi bi-people-fill"></i> Nombre de voyageurs <span
+                        class="text-danger">*</span></h6>
+
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label for="adults" class="form-label">Adultes (18 ans et +)</label>
+                        <div class="input-group">
+                          <button class="btn btn-outline-secondary" type="button" id="adultsMin">
+                            <i class="bi bi-dash"></i>
+                          </button>
+                          <input type="number" class="form-control text-center" id="adults" value="2" min="1" max="3"
+                            readonly>
+                          <button class="btn btn-outline-secondary" type="button" id="adultsPlus">
+                            <i class="bi bi-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="children" class="form-label">Enfants (0-17 ans)</label>
+                        <div class="input-group">
+                          <button class="btn btn-outline-secondary" type="button" id="childrenMin">
+                            <i class="bi bi-dash"></i>
+                          </button>
+                          <input type="number" class="form-control text-center" id="children" value="0" min="0" max="2"
+                            readonly>
+                          <button class="btn btn-outline-secondary" type="button" id="childrenPlus">
+                            <i class="bi bi-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-info mt-3 mb-0" id="guestsAlert">
+                      <i class="bi bi-info-circle"></i> <strong>Total :</strong> <span id="totalGuests">2</span>
+                      personne(s) - Maximum 3 personnes par chambre
+                    </div>
+
+                    <div class="alert alert-danger mt-2 mb-0" id="guestsError" style="display: none;">
+                      <i class="bi bi-exclamation-triangle"></i> Le nombre maximum de personnes est de 3
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- SECTION 2 : Services additionnels -->
+            <div class="form-section">
+              <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>Services additionnels</h2>
+              </div>
+
+              <div class="services-list">
+
+                <div class="service-item">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="parking" value="15"
+                      data-service="Parking privé">
+                    <label class="form-check-label" for="parking">
+                      <div class="service-info">
+                        <i class="bi bi-car-front"></i>
+                        <div>
+                          <strong>Parking privé</strong>
+                          <small class="d-block text-muted">Place de parking sécurisée</small>
+                        </div>
+                      </div>
+                      <span class="service-price">15€/nuit</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="service-item">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="breakfast" value="25"
+                      data-service="Petit-déjeuner">
+                    <label class="form-check-label" for="breakfast">
+                      <div class="service-info">
+                        <i class="bi bi-cup-hot"></i>
+                        <div>
+                          <strong>Petit-déjeuner</strong>
+                          <small class="d-block text-muted">Buffet continental par personne</small>
+                        </div>
+                      </div>
+                      <span class="service-price">25€/pers/jour</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="service-item">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="spa" value="80" data-service="Accès spa">
+                    <label class="form-check-label" for="spa">
+                      <div class="service-info">
+                        <i class="bi bi-water"></i>
+                        <div>
+                          <strong>Accès spa</strong>
+                          <small class="d-block text-muted">Piscine, sauna et jacuzzi</small>
+                        </div>
+                      </div>
+                      <span class="service-price">80€/séjour</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="service-item">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="transfer" value="50"
+                      data-service="Transfert aéroport">
+                    <label class="form-check-label" for="transfer">
+                      <div class="service-info">
+                        <i class="bi bi-airplane"></i>
+                        <div>
+                          <strong>Transfert aéroport</strong>
+                          <small class="d-block text-muted">Aller simple depuis/vers l'aéroport</small>
+                        </div>
+                      </div>
+                      <span class="service-price">50€/trajet</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="service-item">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="latecheckout" value="30"
+                      data-service="Late check-out">
+                    <label class="form-check-label" for="latecheckout">
+                      <div class="service-info">
+                        <i class="bi bi-clock"></i>
+                        <div>
+                          <strong>Départ tardif</strong>
+                          <small class="d-block text-muted">Départ jusqu'à 16h au lieu de 11h</small>
+                        </div>
+                      </div>
+                      <span class="service-price">30€</span>
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- SECTION 3 : Demandes spéciales -->
+            <div class="form-section">
+              <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>Demandes spéciales</h2>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="specialRequests" class="form-label">
+                    Avez-vous des demandes particulières ?
+                  </label>
+                  <textarea class="form-control" id="specialRequests" rows="4"
+                    placeholder="Ex : Chambre étage élevé, lit bébé, allergies alimentaires..."></textarea>
+                  <small class="text-muted">Ces demandes sont soumises à disponibilité</small>
+                </div>
+
+                <div class="col-12">
+                  <label for="arrivalTime" class="form-label">Heure d'arrivée estimée</label>
+                  <select class="form-select" id="arrivalTime">
+                    <option value="">Sélectionnez une plage horaire</option>
+                    <option value="14-16">14h00 - 16h00</option>
+                    <option value="16-18">16h00 - 18h00</option>
+                    <option value="18-20">18h00 - 20h00</option>
+                    <option value="20-22">20h00 - 22h00</option>
+                    <option value="22+">Après 22h00</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 4 : Paiement -->
+            <div class="form-section">
+              <div class="section-header">
+                <div class="section-number">4</div>
+                <h2>Informations de paiement</h2>
+              </div>
+
+              <div class="payment-info-box">
+                <i class="bi bi-shield-check"></i>
+                <p>Paiement sécurisé. Vos informations sont cryptées et protégées.</p>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="cardName" class="form-label">Nom sur la carte <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="cardName" required>
+                </div>
+
+                <div class="col-12">
+                  <label for="cardNumber" class="form-label">Numéro de carte <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456"
+                    maxlength="19" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="cardExpiry" class="form-label">Date d'expiration <span
+                      class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="cardExpiry" placeholder="MM/AA" maxlength="5" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="cardCVV" class="form-label">CVV <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="cardCVV" placeholder="123" maxlength="3" required>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 5 : Conditions -->
+            <div class="form-section">
+              <div class="section-header">
+                <div class="section-number">5</div>
+                <h2>Conditions de réservation</h2>
+              </div>
+
+              <div class="conditions-box">
+                <h6>Politique d'annulation</h6>
+                <p>Annulation gratuite jusqu'à 48h avant l'arrivée. Au-delà, la première nuit sera facturée.</p>
+
+                <h6 class="mt-3">Conditions générales</h6>
+                <ul>
+                  <li>Check-in : à partir de 15h00</li>
+                  <li>Check-out : avant 11h00</li>
+                  <li>Une pièce d'identité et une carte bancaire sont requises à l'arrivée</li>
+                </ul>
+              </div>
+
+              <div class="form-check mt-3">
+                <input class="form-check-input" type="checkbox" id="acceptTerms" required>
+                <label class="form-check-label" for="acceptTerms">
+                  J'accepte les <a href="#" target="_blank">conditions générales de vente</a> et la
+                  <a href="#" target="_blank">politique de confidentialité</a> <span class="text-danger">*</span>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="newsletter">
+                <label class="form-check-label" for="newsletter">
+                  Je souhaite recevoir les offres spéciales et actualités par email
+                </label>
+              </div>
+            </div>
+
+            <!-- Bouton de soumission -->
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-primary btn-lg px-5">
+                <i class="bi bi-lock-fill me-2"></i>
+                Confirmer et payer
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- COLONNE DROITE - RÉCAPITULATIF -->
+        <div class="col-lg-4 ordre">
+          <div class="booking-summary sticky-top">
+
+            <h3>Récapitulatif</h3>
+
+            <!-- Informations de la chambre -->
+            <div class="summary-room">
+              <!-- Nom de l'hôtel -->
+              <div class="summary-hotel-name">
+                <small class="text-muted"><i class="bi bi-building"></i> Hôtel</small>
+                <h6 id="summaryHotelName">Conrad Maldives Rangali Island</h6>
+              </div>
+
+              <!-- Image et détails de la chambre -->
+              <div class="summary-room-details">
+                <img src="assets/images/ConradMaldivesRangaliIsland/conrad-room-1.jpg" alt="Chambre"
+                  class="summary-room-img">
+                <div class="summary-room-info">
+                  <h5 id="summaryRoomName">Villa sur l'eau</h5>
+                  <p class="text-muted mb-0"><i class="bi bi-people"></i> 2 adultes</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dates du séjour -->
+            <div class="summary-dates">
+              <div class="summary-date-item">
+                <small class="text-muted">Arrivée</small>
+                <strong id="summaryCheckIn">--</strong>
+                <small id="summaryCheckInTime">15:00</small>
+              </div>
+              <div class="summary-separator">
+                <i class="bi bi-arrow-right"></i>
+                <span id="summaryNights" class="badge couleur-titre">-- nuits</span>
+              </div>
+              <div class="summary-date-item">
+                <small class="text-muted">Départ</small>
+                <strong id="summaryCheckOut">--</strong>
+                <small id="summaryCheckOutTime">11:00</small>
+              </div>
+            </div>
+
+            <!-- Détails du prix -->
+            <div class="summary-pricing">
+              <h6>Détail du prix</h6>
+
+              <div class="price-line">
+                <span>Chambre (<span id="priceNights">--</span> nuits)</span>
+                <span id="priceRoom">--€</span>
+              </div>
+
+              <div id="servicesContainer"></div>
+
+              <div class="price-line price-total">
+                <strong>Total</strong>
+                <strong id="priceTotal">--€</strong>
+              </div>
+
+              <small class="text-muted d-block mt-2">
+                <i class="bi bi-info-circle"></i> Taxe de séjour incluse
+              </small>
+            </div>
+
+            <!-- Avantages -->
+            <div class="summary-benefits">
+              <div class="benefit-item">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Annulation gratuite</span>
+              </div>
+              <div class="benefit-item">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Confirmation immédiate</span>
+              </div>
+              <div class="benefit-item">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Paiement sécurisé</span>
+              </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="summary-contact">
+              <h6>Besoin d'aide ?</h6>
+              <p class="mb-2"><i class="bi bi-telephone"></i> 1-555-555-5555</p>
+              <p class="mb-0"><i class="bi bi-envelope"></i> <a href="contact.html" title="Contact">Contact</a></p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
   </main>
 
   <!-- ==========================================================
        PIED DE PAGE
        ========================================================== -->
-    <footer class="container-fluid mt-1">
-    <div class="row">
-      <div class="col-lg-3 footer_contact">
-        <div class="p-3">
-          <h2>Book Your Travel</h2>
-          <p>1400 PennsylSUVia Ave. Washington DC</p>
-          <p><em>P :</em> 24/7 customer support : 1-555-555-5555</p>
-          <p><em>E :</em> booking@mail.com</p>
-        </div>
-      </div>
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                              FOOTER                                      ║
+       ║ Pied de page avec : Contact, Support, Réseaux sociaux, Newsletter        ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: FOOTER -->
+  <footer class="container-fluid mt-1">
+    <div>
+      <div class="row">
 
-      <div class="col-lg-3 footer_support">
-        <div class="p-3">
-          <h2>Customer support</h2>
-          <ul>
-            <li><a href="#">Faq</a></li>
-            <li><a href="#">How do I make a reservation ?</a></li>
-            <li><a href="#">Payment options</a></li>
-            <li><a href="#">Booking tips</a></li>
-          </ul>
+        <!-- ========== COLONNE 1: CONTACT ========== -->
+        <div class="col-lg-3 footer_contact">
+          <div class="p-3">
+            <h2>Book Your Travel</h2>
+            <p>1400 Pennsylvania Ave. Washington, DC</p>
+            <p><em>P:</em> 24/7 customer support: 1-555-555-5555</p>
+            <p><em>E:</em> <a href="#">booking@mail.com</a></p>
+          </div>
         </div>
-      </div>
 
-      <div class="col-lg-3 footer_follow">
-        <div class="p-3">
-          <h2>Follow us</h2>
-          <ul class="list-unstyled d-flex gap-3 mt-3">
-            <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-            <li><a href="#"><i class="bi bi-youtube"></i></a></li>
-            <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
-            <li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
-            <li><a href="#"><i class="bi bi-pinterest"></i></a></li>
-            <li><a href="#"><i class="bi bi-vimeo"></i></a></li>
-          </ul>
+        <!-- ========== COLONNE 2: SUPPORT CLIENT ========== -->
+        <div class="col-lg-3">
+          <div class="p-3 footer_support">
+            <h2>Customer Support</h2>
+            <ul>
+              <li><a href="#" title="Faq">FAQ</a></li>
+              <li><a href="#" title="How do I make a reservation?">How do I make a reservation?</a></li>
+              <li><a href="#" title="Payment options">Payment options</a></li>
+              <li><a href="#" title="Booking tips">Booking tips</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <div class="col-lg-3 footer_newsletter">
-        <div class="p-3">
-          <h2>Newsletter</h2>
-          <p>Inscrivez-vous pour recevoir nos offres exclusives !</p>
-          <form>
-            <div class="input-group">
-              <input type="email" class="form-control" placeholder="Votre email">
-              <button class="btn btn-dark" type="submit">OK</button>
-            </div>
-          </form>
+        <!-- ========== COLONNE 3: RÉSEAUX SOCIAUX ========== -->
+        <div class="col-lg-3">
+          <div class="p-3 footer_follow">
+            <h2>Follow Us</h2>
+            <ul class="list-unstyled d-flex gap-2 mt-3">
+              <li><a href="#" title="Facebook"><i class="bi bi-facebook"></i></a></li>
+              <li><a href="#" title="YouTube"><i class="bi bi-youtube"></i></a></li>
+              <li><a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+              <li><a href="#" title="Twitter"><i class="bi bi-twitter-x"></i></a></li>
+              <li><a href="#" title="Pinterest"><i class="bi bi-pinterest"></i></a></li>
+              <li><a href="#" title="Vimeo"><i class="bi bi-vimeo"></i></a></li>
+            </ul>
+          </div>
         </div>
+
+        <!-- ========== COLONNE 4: NEWSLETTER ========== -->
+        <div class="col-lg-3">
+          <div class="p-3 footer_newsletter">
+            <h2>Newsletter</h2>
+            <p>Inscrivez-vous pour recevoir nos offres exclusives !</p>
+            <form>
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Votre email" required>
+                <button class="btn btn-dark" type="submit">OK</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
       </div>
     </div>
   </footer>
+
+  <!-- ========== BAS DE PAGE: COPYRIGHT & LIENS ========== -->
+  <div class="bottom w-100 p-3">
+    <p class="copy">Copyright 2025 Réservation d'hôtel Formation Ilaria</p>
+    <nav>
+      <ul class="list-inline text-center mb-0">
+        <li class="list-inline-item"><a href="#" title="About us">About us</a></li>
+        <li class="list-inline-item"><a href="contact.html" title="Contact">Contact</a></li>
+        <li class="list-inline-item"><a href="#" title="Partners">Partners</a></li>
+        <li class="list-inline-item"><a href="#" title="Customer service">Customer service</a></li>
+        <li class="list-inline-item"><a href="#" title="FAQ">FAQ</a></li>
+        <li class="list-inline-item"><a href="#" title="Careers">Careers</a></li>
+        <li class="list-inline-item"><a href="#" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+      </ul>
+    </nav>
+  </div>
+  <!-- FIN BLOC: FOOTER -->
 
 </body>
 
