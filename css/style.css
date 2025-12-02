@@ -1,0 +1,2854 @@
+/* ==========================================================
+   STYLE.CSS - Mise en page principale
+   Projet : Hôtel Booking (Bloc 1)
+   ----------------------------------------------------------
+   Contient les styles visuels des sections principales
+   ========================================================== */
+
+
+/* ==========================================================
+   HEADER GLOBAL
+   ---------------------------------------------------------- */
+
+.base-header {
+  background-color: #fff;
+  padding: 10px 5%;
+  position: relative;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Espace réservé au ruban turquoise à droite */
+.header-top {
+  padding-right: 160px;
+}
+
+/* === Sections du header === */
+
+.header_logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header_contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_search {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* === Logo === */
+
+.my-logo-img {
+  display: block;
+  height: auto;
+}
+
+
+/* ==========================================================
+   BLOC CONTACT
+   ---------------------------------------------------------- */
+
+.bloc-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 250px;
+  flex-shrink: 0;
+}
+
+/* Icône du contact */
+.bloc-contact-ico {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  min-height: 46px;
+  border-radius: 50%;
+  background-color: var(--turquoise);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  aspect-ratio: 1 / 1;
+}
+
+/* Texte du contact */
+.text-contact {
+  text-align: left;
+}
+
+.bloc-contact-label {
+  font-size: 14px;
+  color: var(--gris-moyen);
+}
+
+.bloc-contact-number {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gris-moyen);
+}
+
+
+/* ==========================================================
+   BLOC RECHERCHE HEADER
+   ---------------------------------------------------------- */
+
+.bloc-search {
+  position: relative;
+  width: 100%;
+}
+
+.bloc-search-input {
+  border-radius: 25px !important;
+  padding-left: 20px !important;
+  padding-right: 45px !important;
+  border: 1px solid #ddd !important;
+  font-size: 14px;
+  height: 40px;
+  width: 100% !important;
+}
+
+.bloc-search-ico {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+
+/* ==========================================================
+   RUBAN TURQUOISE
+   ---------------------------------------------------------- */
+
+.ribbon {
+  position: absolute;
+  top: 0;
+  right: 1.5%;
+  width: 140px;
+  min-width: 100px;
+  min-height: 150px;
+  background-color: var(--turquoise);
+  padding: 15px 20px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.ribbon ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ribbon ul li {
+  padding: 6px 0;
+}
+
+.ribbon ul li a {
+  background-color: var(--turquoise);
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Boutons du ruban */
+.ribbon-btn {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 0;
+  border: none;
+  border-bottom: 1px solid #00000033;
+  border-radius: 0;
+  background: none;
+}
+
+.ribbon-btn:hover {
+  background-color: var(--turquoise);
+  color: var(--link-hover);
+}
+
+/* Dropdown du ruban */
+.ribbon .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.ribbon .dropdown-item:hover {
+  background-color: var(--turquoise);
+  color: var(--link-hover);
+}
+
+.ribbon .dropdown-menu {
+  padding: 0;
+  margin: 0;
+  background-color: var(--turquoise);
+}
+
+/* Triangle décoratif sous le ruban */
+.ribbon::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;               /* distance sous le ruban */
+  left: 0;                     /* aligné à gauche */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 65px 0 0; /* hauteur / largeur du triangle */
+  border-color: var(--turquoise) transparent transparent transparent;
+  z-index: 2;
+  box-shadow: -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.ribbon::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;               /* même hauteur que le before */
+  right: 0;                    /* aligné à droite */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 0 0 65px; /* inverse les côtés du triangle */
+  border-color: var(--turquoise) transparent transparent transparent;
+  z-index: 2;
+  box-shadow: 1px 0 0 rgba(0, 0, 0, .1);
+}
+
+
+/* ==========================================================
+   NAVIGATION PRINCIPALE
+   ---------------------------------------------------------- */
+
+.navbar {
+  background-color: var(--marron);
+  padding: 5px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: 700;
+}
+
+.navbar-toggler {
+  background-color: #ffffff1a;
+}
+
+.navbar-brand {
+  color: var(--blanc);
+}
+
+.nav-link {
+  color: var(--blanc);
+  font-family: var(--font-principale);
+}
+
+
+/* ==========================================================
+   CARROUSEL INDEX
+   ---------------------------------------------------------- */
+
+.hotel-carousel {
+  position: relative;
+  max-height: 640px;
+  overflow: hidden;
+}
+
+.hotel-slide {
+  display: none;
+  max-height: 640px;
+}
+
+.hotel-slide img {
+  width: 100%;
+  height: 100%;
+  max-height: 640px;
+  object-fit: cover;
+}
+
+/* === Boutons flèches du carrousel === */
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 12px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+/* === Points indicateurs === */
+
+.dots {
+  text-align: center;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.dotActive,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* === Animation fondu === */
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+
+/* ==========================================================
+   BLOC RECHERCHE SUPERPOSÉ SUR LE CARROUSEL
+   ---------------------------------------------------------- */
+
+.search-overlay-container {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1170px;
+  z-index: 10;
+  padding: 0 15px;
+}
+
+.search-overlay-content {
+  background-color: var(--blanc);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Force les colonnes à avoir la même hauteur */
+.search-overlay-content .row {
+  display: flex;
+  align-items: stretch;
+}
+
+/* Chaque colonne est un conteneur vertical */
+.search-overlay-content .row > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Boîtes de champs du formulaire === */
+
+.search-field-box {
+  background-color: transparent;
+  padding: 0 10px 0 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  min-height: 100px;
+  font-size: 13px;
+  color: var(--gris-moyen);
+  font-weight: 400;
+}
+
+/* Titre des champs */
+.search-field-box-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gris-fonce);
+  padding-left: 9px;
+  text-align: left;
+}
+
+.search-field-box h5 {
+  padding-top: 10px;
+  font-weight: 600;
+  color: var(--gris-fonce);
+}
+
+.search-field-box-title em {
+  color: var(--turquoise);
+}
+
+/* Champs de formulaire */
+.search-field-box .form-control {
+  width: 100%;
+  height: 35px;
+  border-radius: 18px;
+  border: 1px solid var(--gris-moyen);
+  margin-top: 5px;
+  padding: 10px 15px;
+  font-size: 13px;
+  color: var(--gris-moyen);
+  background-color: #fff;
+}
+
+/* === Colonnes dates et nombre de personnes === */
+
+.search-col-date,
+.search-col-who {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  text-align: start;
+}
+
+.search-col-date .mb-3,
+.search-col-who .mb-3 {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Bordure gauche pour séparer les colonnes */
+.search-overlay-content .row > div:not(:first-child) .search-field-box {
+  border-left: 1px solid #ebebeb;
+}
+
+/* === Colonnes de boutons radio === */
+
+.row-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.search-col-button {
+  width: 50%;
+  text-align: start;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gris-moyen);
+}
+
+/* === Bouton de validation === */
+
+.searchProcess {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-custom {
+  border-radius: 20px 20px 0 0;
+  border: 1px solid var(--turquoise);
+  background-color: var(--turquoise);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blanc);
+  text-transform: uppercase;
+}
+
+.btn-custom:hover {
+  background-color: var(--turquoise-hover);
+}
+
+
+/* ==========================================================
+   SECTION OFFRES
+   ---------------------------------------------------------- */
+
+.offres-section {
+  padding: 40px 0;
+  background-color: var(--marron-clair);
+}
+
+/* Ligne de séparation */
+.ligneSeparation {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 -0.5px 0 rgba(255, 255, 255, 0.6);
+  padding-bottom: 50px;
+}
+
+/* === Titres de section === */
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gris-fonce);
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--gris-moyen);
+  margin-bottom: 0;
+}
+
+/* === Cards des offres === */
+
+.offre-card {
+  background-color: var(--blanc);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.offre-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image de la card */
+.offre-card-image {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.offre-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.offre-card:hover .offre-card-image img {
+  transform: scale(1.1);
+}
+
+/* Badge promotionnel */
+.offre-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--turquoise);
+  color: var(--blanc);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(95, 200, 194, 0.4);
+}
+
+/* Corps de la card */
+.offre-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.offre-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gris-fonce);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.offre-card-text {
+  font-size: 14px;
+  color: var(--gris-moyen);
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+/* Bouton de la card */
+.btn-offre {
+  background-color: var(--turquoise);
+  color: var(--blanc);
+  border: 2px solid var(--turquoise);
+  border-radius: 25px;
+  padding: 8px 25px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-offre:hover {
+  background-color: var(--turquoise);
+  color: var(--blanc);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(95, 200, 194, 0.3);
+}
+
+
+/* ==========================================================
+   SECTION DESTINATIONS
+   ---------------------------------------------------------- */
+
+.destinations-section {
+  background-color: var(--marron-clair);
+  padding-bottom: 20px;
+}
+
+/* === Cards des destinations === */
+
+.destination-card {
+  background-color: var(--blanc);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image avec overlay */
+.destination-card-image {
+  position: relative;
+  overflow: hidden;
+  height: 280px;
+}
+
+.destination-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.destination-card:hover .destination-card-image img {
+  transform: scale(1.15);
+}
+
+/* Overlay avec dégradé */
+.destination-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.8) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  transition: background 0.3s ease;
+}
+
+.destination-card:hover .destination-overlay {
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(95, 200, 194, 0.9) 100%);
+}
+
+/* Informations de la destination */
+.destination-info {
+  color: var(--blanc);
+  width: 100%;
+}
+
+.destination-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--blanc);
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.destination-country {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 10px;
+}
+
+.destination-stats {
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.destination-stats span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.destination-stats i {
+  font-size: 14px;
+}
+
+/* Footer de la card */
+.destination-card-footer {
+  padding: 15px 20px;
+  background-color: var(--blanc);
+  border-top: 1px solid #f0f0f0;
+}
+
+.btn-destination {
+  color: var(--turquoise);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-destination:hover {
+  color: var(--turquoise-hover);
+  gap: 10px;
+  text-decoration: none;
+}
+
+.btn-destination i {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.btn-destination:hover i {
+  transform: translateX(5px);
+}
+
+
+/* ==========================================================
+   SECTION CRITÈRES DE SÉLECTION
+   ---------------------------------------------------------- */
+
+.criteres-section {
+  background-color: var(--marron-clair);
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+.criteres-section .container .row {
+  align-items: stretch;
+}
+
+/* === Cards d'information === */
+
+.info-card {
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(242, 242, 242, 1) 100%);
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.info-card-body {
+  padding: 25px 20px;
+  text-align: left;
+}
+
+.info-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--turquoise);
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.info-card-text {
+  color: var(--gris-fonce);
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: var(--font-secondaire);
+}
+
+
+/* ==========================================================
+   PAGE ROOM - Styles spécifiques
+   ---------------------------------------------------------- */
+
+.room-page {
+  background-color: var(--marron-clair);
+}
+
+.room-details,
+#roomDetailsContent {
+  background-color: var(--marron-clair);
+}
+
+/* === Calendrier Flatpickr === */
+
+.flatpickr-calendar.inline {
+  background-color: var(--gris-clair);
+}
+
+.time-selectors-row {
+  background-color: var(--gris-clair);
+}
+
+.flatpickr-calendar {
+  box-shadow: none !important;
+  border: solid 1px var(--marron);
+}
+
+.flatpickr-day.today {
+  border-color: var(--turquoise-hover) !important;
+}
+
+.flatpickr-day.today:hover {
+  background-color: var(--turquoise-hover) !important;
+  color: #fff !important;
+}
+
+.flatpickr-day:hover {
+  background-color: rgba(95, 200, 194, 0.4) !important;
+}
+
+.flatpickr-day.startRange,
+.flatpickr-day.endRange.endRange {
+  background-color: var(--turquoise) !important;
+  border-color: var(--turquoise) !important;
+}
+
+.flatpickr-day.inRange {
+  background-color: var(--turquoise-clair);
+  border-color: var(--turquoise-clair);
+}
+
+/* Lignes d'information */
+.info-line {
+  border-left: none !important;
+  background-color: rgba(95, 200, 194, 0.4) !important;
+}
+
+#nightsCount {
+  background-color: rgba(95, 200, 194, 0.4) !important;
+}
+
+/* Bouton de confirmation */
+#confirmBtn:not(:disabled) {
+  background-color: var(--turquoise) !important;
+  border-color: var(--turquoise) !important;
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+/* === Menu latéral avec onglets === */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1px;
+}
+
+/* Liens du menu */
+.sidebar-nav a.nav-link {
+  background: var(--marron);
+  color: #555;
+  padding: 15px;
+  border-radius: 4px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  transition: all 0.15s ease-in-out;
+}
+
+.sidebar-nav a.nav-link i {
+  font-size: 18px;
+}
+
+.sidebar-nav a.nav-link:hover {
+  opacity: 0.9;
+}
+
+/* Onglet actif */
+.sidebar-nav a.nav-link.active {
+  background-color: var(--turquoise);
+  border-radius: 4px 0 0 4px;
+  position: relative;
+}
+
+/* Flèche de l'onglet actif */
+.sidebar-nav a.nav-link.active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -32px;
+  width: 0;
+  height: 100%;
+  border-style: solid;
+  border-width: 29px 0px 29px 32px;
+  border-color: transparent transparent transparent var(--turquoise);
+  z-index: 5;
+}
+
+/* Contenu des onglets */
+#roomDetailsContent .tab-pane {
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+/* Z-index pour superposition correcte */
+.room-page .row > .col-md-3 {
+  position: relative;
+  z-index: 10;
+}
+
+.room-page .row > .col-md-9 {
+  position: relative;
+  z-index: 1;
+}
+
+/* Bordure marron */
+.border-marron {
+  border-color: var(--marron) !important;
+}
+
+/* === Card d'offre unique === */
+
+.single-offer-card {
+  border: 2px solid var(--turquoise-hover) !important;
+}
+
+.single-offer-card .btn-marron {
+  background-color: var(--marron);
+  border-color: var(--marron);
+  color: var(--blanc);
+  font-weight: 700;
+  border-radius: 25px;
+  padding: 10px 25px;
+  transition: all 0.3s;
+}
+
+.single-offer-card .btn-marron:hover {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+}
+
+/* === Lignes d'information avec icône === */
+
+.info-line {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--gris-clair);
+  border-left: 3px solid var(--turquoise);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--gris-fonce);
+}
+
+.info-line i {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.info-line span {
+  font-weight: 500;
+}
+
+/* ==========================================================
+   FICHE HOTEL ROOM
+   ---------------------------------------------------------- */
+
+   /* VARIABLES DE LARGEUR - PERMET DE MODIFIER LES LARGEUR DE DEUX SOUS-COLONNES */
+:root {
+  --col-name-width: 70%;  /* Largeur colonne NOM HOTEL */
+  --col-star-width: 30%;  /* Largeur colonne NBE ETOILE */
+}
+
+/* Application des largeurs personnalisées */
+
+.col-name-hotel{
+  flex: 0 0 var(--col-name-width);
+  max-width: var(--col-name-width);
+}
+
+.col-star-hotel{
+  flex: 0 0 var(--col-star-width);
+  max-width: var(--col-star-width);
+  white-space: nowrap;
+  display: inline-flex;
+}
+
+/* Taille des étoiles */
+
+.stars-header i {
+    font-size: 0.7rem;
+}
+
+/* Tag */
+.hotel-tag {
+  color: var(--blanc);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: solid 1px var(--marron);
+  border-radius: 50px 7px 7px 50px;
+  padding: 5px;
+  background-color: var(--marron);
+  box-shadow: 2px 0 3px rgba(0,0,0,0.3);
+}
+
+.point {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+  border-radius: 50%;
+  box-shadow: inset 2px 0 2px rgba(0,0,0,0.3);
+}
+
+
+
+/* ==========================================================
+   HOTEL POPULAIRE ROOM
+   ---------------------------------------------------------- */
+
+/* Nom de l'hotel et étoiles */
+/* Nom de l'hotel et étoiles */
+.name-populaire, .name-offredujour {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 0;
+  line-height: 1.3;
+  margin-bottom: -0.20rem;
+  color: var(--marron-fonce);
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.stars i {
+  font-size: 0.7rem;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+/* Prix et note */
+.info-hotel-populaire {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--gris-moyen);
+}
+
+.pouce i {
+  font-size: 0.7rem;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.pouce {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.8rem;
+  color: #bdbdbd;
+}
+
+.pouce-note {
+  color: var(--gris-moyen);
+}
+
+.info-prix {
+  margin-top: 2px;
+}
+
+/* ==========================================================
+   CARROUSEL ROOM - Galerie d'images
+   ---------------------------------------------------------- */
+
+/* Images principales du carrousel */
+.carousel-image {
+  height: 683px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carousel {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* === Miniatures === */
+
+.carousel-thumbnail {
+  height: 80px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  padding: 0;
+}
+
+.carousel-thumbnail:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.carousel-thumbnail.active {
+  border-color: var(--turquoise);
+  opacity: 1;
+}
+
+/* Contrôles du carrousel */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  opacity: 0.7;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Indicateurs */
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-indicators .active {
+  background-color: var(--turquoise);
+}
+
+/* === Miniatures scrollables === */
+
+.thumbnails-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.thumbnails-wrapper {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.thumbnails-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 5px 0;
+  
+  /* Cache la scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.thumbnails-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-thumbnail {
+  flex-shrink: 0;
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+/* Boutons de navigation des miniatures */
+.thumbnail-nav {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.thumbnail-nav:hover {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  color: white;
+}
+
+.thumbnail-nav i {
+  font-size: 20px;
+}
+
+
+/* ==========================================================
+   CARD OFFRE DE CHAMBRE (dans onglet Disponibilité)
+   ---------------------------------------------------------- */
+
+/* VARIABLES DE LARGEUR - PERMET DE MODIFIER LES LARGEUR DE DEUX SOUS-COLONNES */
+:root {
+  --col-title-width: 50%;  /* Largeur colonne TITRE */
+  --col-price-width: 50%;  /* Largeur colonne PRIX */
+}
+
+/* Application des largeurs personnalisées */
+.col-title-info {
+  flex: 0 0 var(--col-title-width);
+  max-width: var(--col-title-width);
+}
+
+.col-price-info {
+  flex: 0 0 var(--col-price-width);
+  max-width: var(--col-price-width);
+}
+
+
+/* Card principale */
+.room-offer-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0 !important;
+  transition: all 0.3s ease;
+}
+
+.room-offer-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Mini carrousel de la card offre */
+.offer-carousel-image {
+  height: 280px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+#roomOfferCarousel .carousel-control-prev,
+#roomOfferCarousel .carousel-control-next {
+  width: 40px;
+  opacity: 0.8;
+}
+
+#roomOfferCarousel .carousel-control-prev:hover,
+#roomOfferCarousel .carousel-control-next:hover {
+  opacity: 1;
+}
+
+.room-title, .text-prix {
+  color: var(--turquoise-hover);
+}
+
+/* Badges de la card */
+.room-offer-card .badge {
+  font-size: 0.75rem;
+  padding: 0.35em 0.65em;
+  font-weight: 600;
+  color: var(--blanc);
+  background-color: var(--turquoise-badge);
+}
+
+.expo {
+  font-size: 0.7em;
+}
+
+/* Bouton BOOK NOW */
+.btn-book-now {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-book-now:hover {
+  background-color: var(--turquoise-hover);
+  border-color: var(--turquoise-hover);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(95, 200, 194, 0.3);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation sur le calendrier ciblé */
+#calendar-section:target {
+  animation: highlight-calendar 1s ease;
+}
+
+@keyframes highlight-calendar {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(95, 200, 194, 0.1);
+  }
+}
+
+
+/* ==========================================================
+   EQUUIPEMENTS (dans onglet Equipements)
+   ---------------------------------------------------------- */
+.amenities-section {
+  padding: 0;
+}
+
+.amenities-section h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.amenity-item {
+  font-size: 0.95em;
+}
+
+.fumeurs-info {
+  margin-top: 20px;
+  font-size: 0.95em;
+}
+
+/* ==========================================================
+   ONGLET AVIS CLIENTS
+   ---------------------------------------------------------- */
+
+.reviews-section {
+  padding: 0;
+}
+
+.review-item {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  display: flex;
+  gap: 20px;
+}
+
+.review-header {
+  display: flex;
+  gap: 15px;
+  min-width: 200px;
+  flex-shrink: 0;
+}
+
+.review-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ccc;
+  flex-shrink: 0;
+}
+
+.review-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.review-author {
+  font-weight: 600;
+  color: #333;
+  font-size: 1em;
+}
+
+.review-details {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.review-date {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.review-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review-comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #6c757d;
+}
+
+.icon-positive,
+.icon-negative {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  flex-shrink: 0;
+  font-size: 1.1em;
+}
+
+.icon-positive {
+  background-color: #4CAF50;
+}
+
+.icon-negative {
+  background-color: #f44336;
+}
+
+
+
+/* ==========================================================
+   FOOTER
+   ---------------------------------------------------------- */
+
+footer.container-fluid {
+  padding: 0 5%;
+  background-color: var(--blanc);
+  font-size: 13px;
+  color: var(--gris-moyen);
+  text-align: center;
+  font-weight: 700;
+  max-width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Sections du footer === */
+
+.footer_contact,
+.footer_support,
+.footer_follow,
+.footer_newsletter {
+  text-align: left;
+}
+
+footer.container-fluid h2 {
+  font-size: 20px;
+  color: var(--gris-moyen);
+}
+
+footer.container-fluid p,
+.footer li,
+.footer a {
+  font-weight: 400;
+  color: var(--gris-moyen);
+}
+
+footer.container-fluid ul li {
+  line-height: 1.2;
+}
+
+.footer_support a {
+  color: var(--gris-moyen);
+}
+
+/* Puces turquoise pour le support */
+footer.container-fluid .footer_support ul li::before {
+  content: "•";
+  color: var(--turquoise);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  font-size: 1.5em;
+  padding: 0 0 0 0;
+  position: relative;
+  top: 3px;
+}
+
+/* === Réseaux sociaux === */
+
+.footer_follow ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.footer_follow li {
+  display: inline-block;
+}
+
+.footer_follow a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--marron);
+  color: var(--blanc);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footer_follow a:hover {
+  background-color: #d1c6bc;
+  transform: scale(1.1);
+  color: var(--turquoise);
+  border-color: var(--marron);
+}
+
+.footer_follow i {
+  position: relative;
+  top: -2px;
+}
+
+/* === Newsletter === */
+
+.footer.container-fluid em {
+  color: var(--turquoise);
+  font-weight: bold;
+}
+
+.footer_newsletter input::placeholder {
+  color: var(--gris-moyen);
+}
+
+.btn-dark {
+  background-color: var(--marron);
+  border-color: var(--marron);
+}
+
+.btn-dark:hover {
+  background-color: #d1c6bc;
+  transform: scale(1.1);
+  color: var(--turquoise);
+  border-color: var(--marron);
+}
+
+/* === Footer bas de page === */
+
+footer .bottom a {
+  color: var(--gris-moyen);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 300;
+}
+
+footer .bottom a:hover {
+  color: var(--turquoise);
+}
+
+footer .bottom nav li:not(:first-child) {
+  border-left: 1px solid #e5e5e5;
+}
+
+footer .bottom nav li {
+  padding: 0 0 0 12px;
+}
+
+.bottom {
+  font-size: 13px;
+}
+
+.copy {
+  text-align: center;
+}
+
+
+/* ==========================================================
+   CONTENU PRINCIPAL GÉNÉRIQUE
+   ---------------------------------------------------------- */
+
+.main {
+  padding: 20px;
+}
+
+/* ==========================================================
+   CALENDRIER FLATPICKR - Styles de base
+   ---------------------------------------------------------- */
+
+/* Conteneur principal du calendrier */
+.flatpickr-calendar {
+  width: 100% !important;
+  max-width: 450px !important;
+  margin: 0 auto !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+}
+
+/* En-tête du calendrier (mois/année) */
+.flatpickr-months {
+  padding: 10px 0 20px !important;
+}
+
+.flatpickr-current-month {
+  font-size: 1.3em !important;
+  padding: 10px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: normal !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  font-size: 1.2em !important;
+  padding: 5px 10px !important;
+  line-height: normal !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.flatpickr-current-month .numInputWrapper {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.numInputWrapper {
+  font-size: 1.2em !important;
+}
+
+/* Flèches de navigation */
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  padding: 10px !important;
+}
+
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Jours de la semaine */
+.flatpickr-weekdays {
+  margin-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.flatpickr-weekday {
+  font-size: 1em !important;
+  font-weight: 600 !important;
+  padding: 8px 0 !important;
+}
+
+/* Grille des jours */
+.flatpickr-days {
+  width: 100% !important;
+}
+
+.dayContainer {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Cellules des jours */
+.flatpickr-day {
+  height: 45px !important;
+  line-height: 45px !important;
+  max-width: none !important;
+  flex: 1 0 14.28% !important;
+  font-size: 1em !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  margin: 2px !important;
+}
+
+/* Jour sélectionné */
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background: var(--turquoise, #5fc8c2) !important;
+  border-color: var(--turquoise, #5fc8c2) !important;
+  font-weight: 600 !important;
+}
+
+/* Jours dans la plage */
+.flatpickr-day.inRange {
+  background: var(--turquoise-light, rgba(95, 200, 194, 0.2)) !important;
+  border-color: transparent !important;
+}
+
+/* Hover sur les jours */
+.flatpickr-day:hover {
+  background: var(--turquoise-light, rgba(95, 200, 194, 0.3)) !important;
+  border-color: var(--turquoise, #5fc8c2) !important;
+}
+
+/* Jour actuel */
+.flatpickr-day.today {
+  border-color: var(--turquoise, #5fc8c2) !important;
+  font-weight: 600 !important;
+}
+
+/* Conteneur du calendrier (pour centrer dans la page) */
+#flatpickr-calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+/* ==========================================================
+   FORMULAIRE MOBILE ALTERNATIF AU CALENDRIER
+   ---------------------------------------------------------- */
+
+/* Par défaut, masquer le formulaire mobile (affiché uniquement ≤ 390px via responsive.css) */
+.mobile-date-form {
+  display: none;
+}
+
+/* Styles pour les champs date mobile */
+.mobile-date-form .form-control[type="date"] {
+  height: 45px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 2px solid var(--turquoise-light);
+  transition: all 0.3s ease;
+}
+
+.mobile-date-form .form-control[type="date"]:focus {
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 0.2rem var(--turquoise-light);
+  outline: none;
+}
+
+.mobile-date-form .form-label {
+  color: var(--gris-fonce);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.mobile-date-form .form-label i {
+  color: var(--turquoise);
+}
+
+
+/* ==========================================================
+   MODAL GLOBAL
+   ---------------------------------------------------------- */
+
+.modal-custom .modal-content {
+  border-radius: 10px;
+  padding: 20px;
+  border: none;
+}
+
+.modal-custom .modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.modal-custom .modal-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.modal-custom .modal-body {
+  font-size: 1rem;
+  color: #555;
+}
+
+.modal-custom .modal-footer {
+  border-top: none;
+  padding-top: 0;
+}
+
+.btn-close.btn-close-white {
+  opacity: 1 !important;
+}
+
+/* Gérer UNIQUEMENT les flèches du carrousel dans modal */
+
+.modal-custom .carousel-control-prev,
+.modal-custom .carousel-control-next {
+  top: 50%;                 /* centre vertical */
+  transform: translateY(-50%);
+  width: 40px;              /* optionnel */
+  height: 40px;             /* optionnel */
+}
+
+/* Flèche gauche */
+.modal-custom .carousel-control-prev {
+  left: 15px;               /* décalage depuis le bord */
+}
+
+/* Flèche droite */
+.modal-custom .carousel-control-next {
+  right: 15px;              /* décalage depuis le bord */
+}
+
+/* ==========================================================
+   BOOKING.CSS - Page de réservation
+   Projet : Hôtel Booking (Bloc 1)
+   ========================================================== */
+
+/* ==========================================================
+   LAYOUT GÉNÉRAL
+   ========================================================== */
+
+.booking-main {
+  background-color: var(--marron-clair);
+}
+
+/* Fil d'Ariane */
+.breadcrumb {
+  background-color: transparent;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: var(--gris-moyen);
+}
+
+.breadcrumb-item a {
+  color: var(--turquoise);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--turquoise-hover);
+}
+
+/* ==========================================================
+   EN-TÊTE DE LA PAGE
+   ========================================================== */
+
+.booking-header {
+  background: var(--blanc);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.booking-header h1 {
+  font-size: 2rem;
+  color: var(--gris-fonce);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.booking-header p {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+/* ==========================================================
+   FORMULAIRE DE RÉSERVATION
+   ========================================================== */
+
+.booking-form {
+  background: var(--blanc);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Section du formulaire */
+.form-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* En-tête de section */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-number {
+  width: 40px;
+  height: 40px;
+  background: var(--turquoise);
+  color: var(--blanc);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  color: var(--gris-fonce);
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Champs de formulaire */
+.form-label {
+  font-weight: 500;
+  color: var(--gris-fonce);
+  margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.2s;
+  color: var(--gris-moyen);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 3px var(--turquoise-light);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ==========================================================
+   SECTION NOMBRE DE VOYAGEURS
+   ========================================================== */
+
+.guests-section {
+  background: var(--gris-clair);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  margin-top: 0.5rem;
+}
+
+.guests-section h6 {
+  color: var(--gris-fonce);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.guests-section h6 i {
+  color: var(--turquoise);
+  margin-right: 0.5rem;
+}
+
+.guests-section .form-label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--gris-fonce);
+}
+
+.guests-section .input-group {
+  width: 100%;
+  max-width: 250px;
+}
+
+.guests-section .btn-outline-secondary {
+  border-color: var(--turquoise);
+  color: var(--turquoise);
+  transition: all 0.2s;
+  padding: 0.5rem 1rem;
+}
+
+.guests-section .btn-outline-secondary:hover:not(:disabled) {
+  background-color: var(--turquoise);
+  color: var(--blanc);
+  border-color: var(--turquoise);
+}
+
+.guests-section .btn-outline-secondary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  color: #999;
+}
+
+.guests-section .form-control {
+  border-color: var(--turquoise);
+  font-weight: 600;
+  color: var(--gris-fonce);
+  font-size: 1.1rem;
+  background-color: var(--blanc);
+}
+
+.guests-section .alert {
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+}
+
+.guests-section .alert-info {
+  background-color: #bfe9e7;
+  border: 1px solid #b1dad7;
+  color: var(--gris-fonce);
+}
+
+.guests-section .alert-danger {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.guests-section #totalGuests {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+
+/* ==========================================================
+   SERVICES ADDITIONNELS
+   ========================================================== */
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.service-item {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+
+.service-item:hover {
+  border-color: var(--turquoise-light);
+  background-color: var(--turquoise-light);
+}
+
+.service-item .form-check {
+  margin: 0;
+}
+
+.service-item .form-check-input {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.service-item .form-check-input:checked {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+}
+
+.service-item .form-check-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  margin: 0;
+}
+
+.service-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.service-info i {
+  font-size: 1.8rem;
+  color: var(--turquoise);
+}
+
+.service-info strong {
+  display: block;
+  color: var(--gris-fonce);
+  font-size: 1.1rem;
+}
+
+.service-info small {
+  color: var(--gris-moyen) !important;
+}
+
+.service-price {
+  font-weight: 700;
+  color: var(--turquoise);
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+/* ==========================================================
+   INFORMATIONS DE PAIEMENT
+   ========================================================== */
+
+.payment-info-box {
+  background: var(--turquoise-light);
+  border-left: 4px solid var(--turquoise);
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.payment-info-box i {
+  font-size: 2rem;
+  color: var(--turquoise);
+}
+
+.payment-info-box p {
+  margin: 0;
+  color: var(--gris-fonce);
+}
+
+/* ==========================================================
+   CONDITIONS DE RÉSERVATION
+   ========================================================== */
+
+.conditions-box {
+  background: var(--gris-clair);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.conditions-box h6 {
+  color: var(--gris-fonce);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.conditions-box p {
+  margin-bottom: 0.5rem;
+  color: var(--gris-fonce);
+}
+
+.conditions-box ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.conditions-box li {
+  color: var(--gris-fonce);
+  margin-bottom: 0.25rem;
+}
+
+.form-check {
+  padding-left: 0;
+}
+
+.form-check-input {
+  margin-right: 0.5rem;
+}
+
+.form-check-label a {
+  color: var(--turquoise);
+  text-decoration: underline;
+}
+
+.form-check-label a:hover {
+  color: var(--turquoise-hover);
+}
+
+/* ==========================================================
+   RÉCAPITULATIF (SIDEBAR)
+   ========================================================== */
+
+.booking-summary {
+  background: var(--blanc);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  top: 2rem;
+}
+
+.booking-summary h3 {
+  font-size: 1.5rem;
+  color: var(--gris-fonce);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--turquoise);
+  padding-bottom: 0.75rem;
+}
+
+/* ==========================================================
+   NOM DE L'HÔTEL
+   ========================================================== */
+
+.summary-hotel-name {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-hotel-name small {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+  color: var(--gris-moyen);
+}
+
+.summary-hotel-name h6 {
+  font-size: 1rem;
+  color: var(--gris-fonce);
+  margin: 0;
+  font-weight: 600;
+}
+
+.summary-hotel-name i {
+  color: var(--turquoise);
+  margin-right: 0.25rem;
+}
+
+/* ==========================================================
+   CHAMBRE
+   ========================================================== */
+
+.summary-room {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-room-details {
+  display: flex;
+  gap: 1rem;
+}
+
+.summary-room-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.summary-room-info h5 {
+  font-size: 1.1rem;
+  color: var(--gris-fonce);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.summary-room-info p {
+  font-size: 0.9rem;
+}
+
+/* ==========================================================
+   DATES DU SÉJOUR
+   ========================================================== */
+
+.summary-dates {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-date-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.summary-date-item small {
+  font-size: 0.85rem;
+}
+
+.summary-date-item strong {
+  color: var(--gris-fonce);
+  font-size: 1rem;
+}
+
+.summary-separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summary-separator i {
+  color: var(--turquoise);
+  font-size: 1.2rem;
+}
+
+.summary-separator .badge {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  background-color: #bfe9e7;
+  border: 1px solid #b1dad7;
+}
+
+/* ==========================================================
+   PRIX
+   ========================================================== */
+
+.summary-pricing {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-pricing h6 {
+  font-size: 1rem;
+  color: var(--gris-fonce);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.price-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  color: var(--gris-fonce);
+}
+
+.price-line.service-line {
+  font-size: 0.9rem;
+  color: var(--gris-moyen);
+  padding: 0.35rem 0;
+}
+
+.price-line.price-total {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--turquoise);
+  font-size: 1.3rem;
+  color: var(--turquoise);
+}
+
+/* ==========================================================
+   AVANTAGES
+   ========================================================== */
+
+.summary-benefits {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.benefit-item i {
+  font-size: 1.2rem;
+}
+
+.benefit-item span {
+  color: var(--gris-fonce);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================
+   CONTACT
+   ========================================================== */
+
+.summary-contact h6 {
+  font-size: 1rem;
+  color: var(--gris-fonce);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.summary-contact p {
+  color: var(--gris-moyen);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summary-contact i {
+  color: var(--turquoise);
+}
+
+/* ==========================================================
+   BOUTON DE SOUMISSION
+   ========================================================== */
+
+.btn-primary {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  color: var(--blanc);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--turquoise-hover);
+  border-color: var(--turquoise-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(95, 200, 194, 0.3);
+}
+
+tact · CSS
+Copier
+
+/* ==========================================================
+   CONTACT.CSS - Page de contact
+   Projet : Hôtel Booking (Bloc 1)
+   ========================================================== */
+
+/* ==========================================================
+   LAYOUT GÉNÉRAL
+   ========================================================== */
+
+.contact-main {
+  padding: 2rem 0 4rem;
+  background-color: var(--gris-clair);
+  min-height: calc(100vh - 200px);
+}
+
+/* Fil d'Ariane */
+.breadcrumb {
+  background-color: transparent;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: var(--gris-moyen);
+}
+
+.breadcrumb-item a {
+  color: var(--turquoise);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--turquoise-hover);
+}
+
+/* ==========================================================
+   EN-TÊTE DE LA PAGE
+   ========================================================== */
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  color: var(--gris-fonce);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contact-header .lead {
+  font-size: 1.2rem;
+  color: var(--gris-moyen);
+}
+
+/* ==========================================================
+   CARTE GOOGLE MAPS
+   ========================================================== */
+
+.map-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+  height: 630px;
+}
+
+.map-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.map-info-box {
+  background: var(--blanc);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 300px;
+}
+
+.map-info-box h5 {
+  color: var(--turquoise);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.map-info-box h5 i {
+  margin-right: 0.5rem;
+}
+
+.map-info-box p {
+  color: var(--gris-fonce);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   CARTES D'INFORMATIONS
+   ========================================================== */
+
+.contact-info-cards {
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: var(--blanc);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(95, 200, 194, 0.2);
+}
+
+.info-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--turquoise-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-icon i {
+  font-size: 1.5rem;
+  color: var(--turquoise);
+}
+
+.info-content h6 {
+  color: var(--gris-fonce);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.info-content p {
+  color: var(--gris-moyen);
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.info-content a {
+  color: var(--turquoise);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.info-content a:hover {
+  color: var(--turquoise-hover);
+  text-decoration: underline;
+}
+
+/* ==========================================================
+   FORMULAIRE DE CONTACT
+   ========================================================== */
+
+.contact-form-wrapper {
+  background: var(--blanc);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 2rem;
+}
+
+.contact-form-wrapper h3 {
+  color: var(--gris-fonce);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.contact-form .form-label {
+  font-weight: 500;
+  color: var(--gris-fonce);
+  margin-bottom: 0.5rem;
+}
+
+.contact-form .form-control,
+.contact-form .form-select {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.contact-form .form-control:focus,
+.contact-form .form-select:focus {
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 3px var(--turquoise-light);
+}
+
+.contact-form textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form .btn-primary {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  color: var(--blanc);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.contact-form .btn-primary:hover {
+  background-color: var(--turquoise-hover);
+  border-color: var(--turquoise-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(95, 200, 194, 0.3);
+}
+
+.contact-form .alert-success {
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+.footer-principal {
+  background: var(--gris-fonce);
+  color: var(--blanc);
+  padding: 3rem 0 1rem;
+}
+
+.footer-principal h5 {
+  color: var(--turquoise);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-principal p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--turquoise);
+}
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li {
+  color: #ccc;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.footer-contact i {
+  color: var(--turquoise);
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+.footer-bottom p {
+  color: #999;
+  margin: 0;
+}
+
+/* ==========================================================
+   MODAL DE CONFIRMATION
+   ========================================================== */
+
+.confirmation-details .info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--gris-clair);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.confirmation-details .info-row i {
+  font-size: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.confirmation-details .info-row div {
+  flex: 1;
+}
+
+.confirmation-details .info-row small {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.confirmation-details .info-row p {
+  font-size: 1rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.modal-header.bg-success {
+  background-color: #28a745 !important;
+}
+
+.modal-content {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  border-radius: 12px 12px 0 0;
+  padding: 1.5rem;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  border-top: 1px solid #e0e0e0;
+  padding: 1rem 1.5rem;
+}
+
+.modal-footer .btn-primary {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  padding: 0.5rem 2rem;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: var(--turquoise-hover);
+  border-color: var(--turquoise-hover);
+}

@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projet fil rouge Bloc 2 - Application de réservation d'hôtel">
+  <title>Réservation d'hôtel - Book Your Travel</title>
+
+  <!-- ========== STYLES CSS ========== -->
+  <!-- Bootstrap 5.3.8 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Icônes Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Styles personnalisés -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icons/hotel.png">
+
+  <!-- ========== SCRIPTS JAVASCRIPT ========== -->
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+  <!-- Scripts personnalisés -->
+  <script src="js/utils.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                              HEADER GLOBAL                               ║
+       ║ Contient : Logo, Contact, Recherche, Ruban (Langue/Monnaie/Compte)       ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: HEADER -->
+  <header class="base-header position-relative">
+    <div class="container-fluid">
+      <div class="row header-top g-3">
+
+        <!-- ========== LOGO ========== -->
+        <div class="col-12 col-lg-6 order-0">
+          <div class="header_logo">
+            <a href="index.html" class="my-logo d-block">
+              <img src="assets/images/logo.png" alt="Book Your Travel" class="my-logo-img">
+            </a>
+          </div>
+        </div>
+
+        <!-- ========== BLOC CONTACT ========== -->
+        <!-- Affiche le numéro de téléphone avec icône -->
+        <div class="col-12 col-lg-3 order-2 order-lg-1">
+          <div class="header_contact">
+            <div class="bloc-contact">
+              <div class="bloc-contact-ico">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="text-contact">
+                <div class="bloc-contact-label">24/7 Support number</div>
+                <div class="bloc-contact-number">1-555-555-555</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== BARRE DE RECHERCHE HEADER ========== -->
+        <!-- Petite barre de recherche dans le header -->
+        <div class="col-12 col-lg-3 order-lg-2">
+          <div class="header_search">
+            <div class="bloc-search">
+              <form class="position-relative">
+                <input type="search" class="form-control bloc-search-input" placeholder="Search">
+                <i class="bi bi-search bloc-search-ico"></i>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ========== RUBAN TURQUOISE ========== -->
+      <!-- Ruban vertical droit avec : Mon compte, Pays, Monnaie -->
+      <div class="ribbon">
+        <nav class="d-flex gap-2 flex-column align-items-stretch">
+          
+          <!-- Bouton Mon Compte -->
+          <div class="dropdown">
+            <a class="btn btn-outline-dark w-100 pb-2 ribbon-btn" href="#" role="button">
+              MON COMPTE
+            </a>
+          </div>
+
+          <!-- Sélecteur de Pays -->
+          <div class="dropdown">
+            <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="langue">
+              PAYS
+            </button>
+            <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="#" onclick="translateTo('fr')">Français</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateTo('en')">English</a></li>
+<li><a class="dropdown-item" href="#" onclick="translateTo('it')">Italiano</a></li>
+            </ul>
+          </div>
+
+          <!-- Sélecteur de Monnaie -->
+          <div class="dropdown">
+            <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="monnaie">
+              MONNAIE
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">€ Euro</a></li>
+              <li><a class="dropdown-item" href="#">$ US Dollar</a></li>
+              <li><a class="dropdown-item" href="#">£ Pound</a></li>
+            </ul>
+          </div>
+
+        </nav>
+      </div>
+      <!-- FIN: Ruban turquoise -->
+
+    </div>
+  </header>
+  <!-- FIN BLOC: HEADER -->
+
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                         NAVIGATION PRINCIPALE                            ║
+       ║ Menu de navigation horizontal avec liens vers les pages du site          ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: NAVIGATION -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-brown">
+    <span class="navbar-brand d-lg-none">Menu</span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+      aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menuPrincipal">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="room.html">Template Hotel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="booking.html">Template Réservation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="documentations.html">Documentations</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- FIN BLOC: NAVIGATION -->
+
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                    CARROUSEL + BLOC DE RECHERCHE                         ║
+       ║ Carrousel d'images avec bloc de recherche superposé                      ║
+       ║ • Carrousel : 3 slides avec navigation (flèches + points)                ║
+       ║ • Recherche : Formulaire avec Type, Destination, Dates, Personnes        ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: CARROUSEL + RECHERCHE -->
+  <div id="hotelCarousel" class="hotel-carousel">
+    
+    <!-- ========== CARROUSEL: SLIDES ========== -->
+    <!-- DÉBUT: Slides du carrousel -->
+    <div class="hotel-slide">
+      <img src="assets/images/slide-1.jpg" alt="Chambre 1" style="width:100%">
+    </div>
+
+    <div class="hotel-slide">
+      <img src="assets/images/slide-2.jpg" alt="Chambre 2" style="width:100%">
+    </div>
+
+    <div class="hotel-slide">
+      <img src="assets/images/slide-3.jpg" alt="Chambre 3" style="width:100%">
+    </div>
+    <!-- FIN: Slides du carrousel -->
+
+    <!-- ========== CARROUSEL: BOUTONS DE NAVIGATION ========== -->
+    <!-- Flèches précédent/suivant -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- ========== CARROUSEL: POINTS INDICATEURS ========== -->
+    <!-- Points pour indiquer et changer de slide -->
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║                     BLOC DE RECHERCHE SUPERPOSÉ                        ║
+         ║ Formulaire de recherche en 4 colonnes :                                ║
+         ║ 1. What? (Type de réservation : Hotel, Flight, etc.)                   ║
+         ║ 2. Where? (Destination)                                                ║
+         ║ 3. When? (Check-in / Check-out)                                        ║
+         ║ 4. Who? (Rooms, Adults, Children)                                      ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- DÉBUT: Bloc de recherche -->
+    <div class="search-overlay-container">
+      <div class="search-overlay-content">
+        <div class="row g-0">
+
+          <!-- ========== COLONNE 1: TYPE DE RÉSERVATION (What?) ========== -->
+          <!-- Boutons radio pour choisir : Hotel, Flight, Flight & Hotel, etc. -->
+          <div class="col-12 col-lg-3 d-flex flex-column">
+            <h5 class="search-field-box-title"><em>01</em> What?</h5>
+            <div class="search-field-box">
+              <div class="row-buttons">
+
+                <!-- Colonne gauche des radios -->
+                <div class="search-col-button">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radio1">
+                    <label class="form-check-label" for="radio1">Hotel</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radio2">
+                    <label class="form-check-label" for="radio2">Flight</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radio3">
+                    <label class="form-check-label" for="radio3">Flight & Hotel</label>
+                  </div>
+                </div>
+
+                <!-- Colonne droite des radios -->
+                <div class="search-col-button">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radio4">
+                    <label class="form-check-label" for="radio4">Self Catering</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radio5">
+                    <label class="form-check-label" for="radio5">Cruise</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radio6">
+                    <label class="form-check-label" for="radio6">Rent a Car</label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- FIN: Colonne 1 (What?) -->
+
+          <!-- ========== COLONNE 2: DESTINATION (Where?) ========== -->
+          <!-- Champ texte pour saisir la destination -->
+          <div class="col-12 col-lg-3 d-flex flex-column">
+            <h5 class="search-field-box-title"><em>02</em> Where?</h5>
+            <div class="search-field-box">
+              <label for="hotelDestination">
+                <h5>Your destination</h5>
+              </label>
+              <input type="text" class="form-control" placeholder="City, region, district or specific hotel"
+                id="hotelDestination" name="hotelDestination">
+            </div>
+          </div>
+          <!-- FIN: Colonne 2 (Where?) -->
+
+          <!-- ========== COLONNE 3: DATES (When?) ========== -->
+          <!-- Check-in et Check-out -->
+          <div class="col-12 col-lg-3 d-flex flex-column">
+            <h5 class="search-field-box-title"><em>03</em> When?</h5>
+            <div class="search-field-box">
+              <div class="search-col-date d-flex flex-row">
+                
+                <!-- Check-in -->
+                <div class="mb-3">
+                  <label for="checkin">
+                    <h5>Check-in</h5>
+                  </label>
+                  <input type="date" class="form-control" id="checkin" name="checkin">
+                </div>
+
+                <!-- Check-out -->
+                <div class="mb-3">
+                  <label for="checkout">
+                    <h5>Check-out</h5>
+                  </label>
+                  <input type="date" class="form-control" id="checkout" name="checkout">
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- FIN: Colonne 3 (When?) -->
+
+          <!-- ========== COLONNE 4: NOMBRE DE PERSONNES (Who?) ========== -->
+          <!-- Rooms, Adults, Children -->
+          <div class="col-12 col-lg-3 d-flex flex-column">
+            <h5 class="search-field-box-title"><em>04</em> Who?</h5>
+            <div class="search-field-box">
+              <div class="search-col-who d-flex flex-row">
+                
+                <!-- Chambres -->
+                <div class="mb-3">
+                  <label for="rooms">
+                    <h5>Rooms</h5>
+                  </label>
+                  <input type="number" class="form-control" id="rooms" name="rooms" min="1" value="1">
+                </div>
+
+                <!-- Adultes -->
+                <div class="mb-3">
+                  <label for="adults">
+                    <h5>Adults</h5>
+                  </label>
+                  <input type="number" class="form-control" id="adults" name="adults" min="1" value="2">
+                </div>
+
+                <!-- Enfants -->
+                <div class="mb-3">
+                  <label for="children">
+                    <h5>Children</h5>
+                  </label>
+                  <input type="number" class="form-control" id="children" name="children" min="0" value="0">
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- FIN: Colonne 4 (Who?) -->
+
+        </div>
+        <!-- FIN: Row des 4 colonnes -->
+
+        <!-- ========== BOUTON DE VALIDATION ========== -->
+        <!-- Bouton pour lancer la recherche -->
+        <div class="searchProcess">
+          <button type="submit" class="btn px-3 pt-2 pb-1 btn-custom w-20">Proceed to results</button>
+        </div>
+
+      </div>
+    </div>
+    <!-- FIN: Bloc de recherche -->
+
+  </div>
+  <!-- FIN BLOC: CARROUSEL + RECHERCHE -->
+
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                            SECTION OFFRES                                ║
+       ║ 4 cards d'offres spéciales avec images, badges et boutons                ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: OFFRES -->
+  <section class="offres-section">
+    <div class="container ligneSeparation">
+      
+      <!-- Titre de la section -->
+      <div class="row">
+        <div class="col-12 text-center mb-4">
+          <h2 class="section-title">Explore our latest offers</h2>
+          <p class="section-subtitle">Discover amazing deals for your next adventure</p>
+        </div>
+      </div>
+
+      <!-- Grid des offres (4 colonnes sur desktop, empilées sur mobile) -->
+      <div class="row g-4">
+
+        <!-- ========== OFFRE 1 ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="offre-card">
+            <div class="offre-card-image">
+              <img src="assets/images/offre-1.jpg" alt="Winter Beach Escapes">
+              <div class="offre-badge">30% OFF</div>
+            </div>
+            <div class="offre-card-body">
+              <h3 class="offre-card-title">Winter Beach Escapes</h3>
+              <p class="offre-card-text">Enjoy sunny beaches with exclusive winter discounts</p>
+              <a href="#" class="btn btn-offre">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== OFFRE 2 ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="offre-card">
+            <div class="offre-card-image">
+              <img src="assets/images/offre-2.jpg" alt="City Break Paris">
+              <div class="offre-badge">PROMO</div>
+            </div>
+            <div class="offre-card-body">
+              <h3 class="offre-card-title">Spend New Year's Eve in Paris</h3>
+              <p class="offre-card-text">Experience the magic of Paris during the holidays</p>
+              <a href="#" class="btn btn-offre">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== OFFRE 3 ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="offre-card">
+            <div class="offre-card-image">
+              <img src="assets/images/nuit_de_noces.jpg" alt="Luxury in the Maldives">
+              <div class="offre-badge">HOT DEAL</div>
+            </div>
+            <div class="offre-card-body">
+              <h3 class="offre-card-title">A Heavenly Wedding Night</h3>
+              <p class="offre-card-text">Honeymoon night in the Maldives, total luxury facing the ocean</p>
+              <a href="#" class="btn btn-offre">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== OFFRE 4 ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="offre-card">
+            <div class="offre-card-image">
+              <img src="assets/images/offre-4.jpg" alt="Tahiti offer">
+              <div class="offre-badge">NEW</div>
+            </div>
+            <div class="offre-card-body">
+              <h3 class="offre-card-title">Our Weekly Top Offer: Tahiti</h3>
+              <p class="offre-card-text">Discover paradise with unbeatable prices</p>
+              <a href="#" class="btn btn-offre">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- FIN: Grid des offres -->
+
+    </div>
+  </section>
+  <!-- FIN BLOC: OFFRES -->
+
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                        SECTION DESTINATIONS                              ║
+       ║ 12 cards de destinations populaires avec overlay et statistiques         ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: DESTINATIONS -->
+  <section class="destinations-section">
+    <div class="container ligneSeparation">
+      
+      <!-- Titre de la section -->
+      <div class="row">
+        <div class="col-12 text-center mb-4">
+          <h2 class="section-title">Top Destinations Around the World</h2>
+          <p class="section-subtitle">Discover the most popular travel destinations</p>
+        </div>
+      </div>
+
+      <!-- Grid des destinations (12 cards sur 3 rangées) -->
+      <div class="row g-4">
+
+        <!-- ========== DESTINATION 1: Paris ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/paris.jpg" alt="Paris">
+              <div class="offre-badge">PROMO</div>
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">Paris</h3>
+                  <p class="destination-country">France</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 862 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $190</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== DESTINATION 2: Amsterdam ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/amsterdam.jpg" alt="Amsterdam">
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">Amsterdam</h3>
+                  <p class="destination-country">Netherlands</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 462 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $180</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== DESTINATION 3: St Petersburg ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/saint-petersburg.jpg" alt="St Petersburg">
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">St Petersburg</h3>
+                  <p class="destination-country">Russia</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 456 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $180</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== DESTINATION 4: Prague ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/prague.jpg" alt="Prague">
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">Prague</h3>
+                  <p class="destination-country">Czech Republic</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 402 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $190</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== DESTINATION 5: Tahiti ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/offre-4.jpg" alt="Tahiti paradise">
+              <div class="offre-badge">NEW</div>
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">Tahiti</h3>
+                  <p class="destination-country">Polynésie</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 350 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $1190</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== DESTINATION 6: Zanzibar ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/zanzibar.webp" alt="Zanzibar paradise">
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">Zanzibar</h3>
+                  <p class="destination-country">Indian Ocean</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 458 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $1180</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== DESTINATION 7: Maldives ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/maldives.jpg" alt="Maldives paradise">
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">Maldives</h3>
+                  <p class="destination-country">Indian Ocean</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 103 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $2320</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== DESTINATION 8: Cancun ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/cancun.jpg" alt="Cancun paradise">
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">Cancun</h3>
+                  <p class="destination-country">Mexico</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 865 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $1590</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== DESTINATION 9: Dubai ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/paris.jpg" alt="Dubai skyline">
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">Dubai</h3>
+                  <p class="destination-country">United Arab Emirates</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 540 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $310</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== DESTINATION 10: Bali ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/nuit_de_noces.jpg" alt="Bali beach">
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">Bali</h3>
+                  <p class="destination-country">Indonesia</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 620 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $1680</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== DESTINATION 11: New York ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/saint-petersburg.jpg" alt="New York skyline">
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">New York</h3>
+                  <p class="destination-country">United States</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 880 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $760</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== DESTINATION 12: Tokyo ========== -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="destination-card">
+            <div class="destination-card-image">
+              <img src="assets/images/prague.jpg" alt="Tokyo Shibuya">
+              <div class="destination-overlay">
+                <div class="destination-info">
+                  <h3 class="destination-name">Tokyo</h3>
+                  <p class="destination-country">Japan</p>
+                  <div class="destination-stats">
+                    <span><i class="bi bi-building"></i> 740 Hotels</span>
+                    <span><i class="bi bi-airplane"></i> From $980</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="destination-card-footer">
+              <a href="#" class="btn-destination">View Hotels <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- FIN: Grid des destinations -->
+
+    </div>
+  </section>
+  <!-- FIN BLOC: DESTINATIONS -->
+
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                      SECTION CRITÈRES DE SÉLECTION                       ║
+       ║ 8 cards présentant les avantages et garanties du service                 ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: CRITÈRES -->
+  <section class="criteres-section">
+    <div class="container">
+
+      <!-- Grid des critères (8 cards sur 2 rangées) -->
+      <div class="row g-4">
+
+        <!-- Critère 1 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-card h-100">
+            <div class="info-card-body">
+              <h3 class="info-card-title">Handpicked Hotels</h3>
+              <p class="info-card-text">
+                All Book Your Travel Hotels fulfil strict selection criteria.<br>
+                Each hotel is chosen individually and inclusion cannot be bought.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Critère 2 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-card h-100">
+            <div class="info-card-body">
+              <h3 class="info-card-title">Detailed Descriptions</h3>
+              <p class="info-card-text">
+                To give you an accurate impression of the hotel, we endeavor to publish transparent, balanced and
+                precise hotel descriptions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Critère 3 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-card h-100">
+            <div class="info-card-body">
+              <h3 class="info-card-title">Exclusive Knowledge</h3>
+              <p class="info-card-text">
+                We've done our research.<br>Our scouts are always busy finding out more about our hotels, the
+                surroundings and activities on offer nearby.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Critère 4 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-card h-100">
+            <div class="info-card-body">
+              <h3 class="info-card-title">Passionate Service</h3>
+              <p class="info-card-text">
+                Book Your Travel's team will cater to your special requests.<br>We offer expert and passionate advice
+                for finding the right hotel.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Critère 5 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-card h-100">
+            <div class="info-card-body">
+              <h3 class="info-card-title">Best Price Guarantee</h3>
+              <p class="info-card-text">
+                We offer the best hotels at the best prices.<br>If you find the same room category on the same dates
+                cheaper elsewhere, we will refund the difference.<br>Guaranteed, and quickly.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Critère 6 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-card h-100">
+            <div class="info-card-body">
+              <h3 class="info-card-title">Secure Booking</h3>
+              <p class="info-card-text">
+                Book Your Travel reservation system is secure and your credit card and personal information is
+                encrypted.<br>We work to high standards and guarantee your privacy.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Critère 7 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-card h-100">
+            <div class="info-card-body">
+              <h3 class="info-card-title">Benefits for Hoteliers</h3>
+              <p class="info-card-text">
+                We provide a cost-effective model, a network of over 5000 partners and a personalised account management
+                service to help you optimise your revenue.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Critère 8 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="info-card h-100">
+            <div class="info-card-body">
+              <h3 class="info-card-title">Any Questions?</h3>
+              <p class="info-card-text">
+                Call us on 1-555-555-555 for individual, tailored advice for your perfect stay or send us a message with
+                your hotel booking query.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- FIN: Grid des critères -->
+
+    </div>
+  </section>
+  <!-- FIN BLOC: CRITÈRES -->
+
+
+  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+       ║                              FOOTER                                      ║
+       ║ Pied de page avec : Contact, Support, Réseaux sociaux, Newsletter        ║
+       ╚══════════════════════════════════════════════════════════════════════════╝ -->
+  <!-- DÉBUT BLOC: FOOTER -->
+  <footer class="container-fluid mt-1">
+    <div>
+      <div class="row">
+        
+        <!-- ========== COLONNE 1: CONTACT ========== -->
+        <div class="col-lg-3 footer_contact">
+          <div class="p-3">
+            <h2>Book Your Travel</h2>
+            <p>1400 Pennsylvania Ave. Washington, DC</p>
+            <p><em>P:</em> 24/7 customer support: 1-555-555-5555</p>
+            <p><em>E:</em> booking@mail.com</p>
+          </div>
+        </div>
+
+        <!-- ========== COLONNE 2: SUPPORT CLIENT ========== -->
+        <div class="col-lg-3">
+          <div class="p-3 footer_support">
+            <h2>Customer Support</h2>
+            <ul>
+              <li><a href="#" title="Faq">FAQ</a></li>
+              <li><a href="#" title="How do I make a reservation?">How do I make a reservation?</a></li>
+              <li><a href="#" title="Payment options">Payment options</a></li>
+              <li><a href="#" title="Booking tips">Booking tips</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ========== COLONNE 3: RÉSEAUX SOCIAUX ========== -->
+        <div class="col-lg-3">
+          <div class="p-3 footer_follow">
+            <h2>Follow Us</h2>
+            <ul class="list-unstyled d-flex gap-2 mt-3">
+              <li><a href="#" title="Facebook"><i class="bi bi-facebook"></i></a></li>
+              <li><a href="#" title="YouTube"><i class="bi bi-youtube"></i></a></li>
+              <li><a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+              <li><a href="#" title="Twitter"><i class="bi bi-twitter-x"></i></a></li>
+              <li><a href="#" title="Pinterest"><i class="bi bi-pinterest"></i></a></li>
+              <li><a href="#" title="Vimeo"><i class="bi bi-vimeo"></i></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ========== COLONNE 4: NEWSLETTER ========== -->
+        <div class="col-lg-3">
+          <div class="p-3 footer_newsletter">
+            <h2>Newsletter</h2>
+            <p>Inscrivez-vous pour recevoir nos offres exclusives !</p>
+            <form>
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Votre email" required>
+                <button class="btn btn-dark" type="submit">OK</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== BAS DE PAGE: COPYRIGHT & LIENS ========== -->
+  <div class="bottom w-100 p-3">
+    <p class="copy">Copyright 2025 Réservation d'hôtel Formation Ilaria</p>
+    <nav>
+      <ul class="list-inline text-center mb-0">
+        <li class="list-inline-item"><a href="#" title="About us">About us</a></li>
+        <li class="list-inline-item"><a href="contact.html" title="Contact">Contact</a></li>
+        <li class="list-inline-item"><a href="#" title="Partners">Partners</a></li>
+        <li class="list-inline-item"><a href="#" title="Customer service">Customer service</a></li>
+        <li class="list-inline-item"><a href="#" title="FAQ">FAQ</a></li>
+        <li class="list-inline-item"><a href="#" title="Careers">Careers</a></li>
+        <li class="list-inline-item"><a href="#" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+      </ul>
+    </nav>
+  </div>
+  <!-- FIN BLOC: FOOTER -->
+
+</body>
+</html>

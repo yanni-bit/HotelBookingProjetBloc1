@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier Vanilla JS</title>
+    <link rel="stylesheet" href="calendrier_vanilla.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"> 
+</head>
+<body>
+
+    <div class="calendar-container">
+        
+        <header class="calendar-header">
+            <button id="prev-month" title="Mois précédent"><i class="bi bi-chevron-left"></i></button>
+            <h2 id="current-month-year">Mois Année</h2>
+            <button id="next-month" title="Mois suivant"><i class="bi bi-chevron-right"></i></button>
+        </header>
+
+        <div class="calendar-weekdays">
+            <span>Lun</span>
+            <span>Mar</span>
+            <span>Mer</span>
+            <span>Jeu</span>
+            <span>Ven</span>
+            <span>Sam</span>
+            <span>Dim</span>
+        </div>
+
+        <div class="calendar-grid" id="calendar-grid">
+            </div>
+
+        <div class="calendar-summary" id="summary">
+            <p>
+                **Arrivée :** <span id="check-in-display">--/--/----</span>
+            </p>
+            <p>
+                **Départ :** <span id="check-out-display">--/--/----</span>
+            </p>
+            <p>
+                **Nuits :** <span id="nights-display">0</span>
+            </p>
+            <p class="summary-price">
+                **Total :** <span id="price-display">0 €</span>
+            </p>
+            
+            <button id="confirm-booking" disabled>Confirmer la Réservation</button>
+        </div>
+    </div>
+
+    <script src="calendrier_vanilla.js"></script>
+</body>
+</html>
