@@ -14,19 +14,19 @@
    INITIALISATION DU RUBAN (LANGUE ET MONNAIE)
    ---------------------------------------------------------- */
 
-const choixLangue = "FRANCAIS (Fr)";
-const choixMonnaie = "EURO €";
+// const choixLangue = "FRANCAIS (Fr)";
+// const choixMonnaie = "EURO €";
 
-const langueElement = document.getElementById("langue");
-const monnaieElement = document.getElementById("monnaie");
+// const langueElement = document.getElementById("langue");
+// const monnaieElement = document.getElementById("monnaie");
 
-if (langueElement) {
-  langueElement.textContent = choixLangue;
-}
+// if (langueElement) {
+//   langueElement.textContent = choixLangue;
+// }
 
-if (monnaieElement) {
-  monnaieElement.textContent = choixMonnaie;
-}
+// if (monnaieElement) {
+//   monnaieElement.textContent = choixMonnaie;
+// }
 
 
 /* ==========================================================

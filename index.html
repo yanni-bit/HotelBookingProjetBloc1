@@ -10,7 +10,6 @@
   <meta name="author" content="Book Your Travel">
   <title>Book Your Travel - Réservation d'hôtel en ligne</title>
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Book Your Travel - Réservation d'hôtel">
   <meta property="og:description"
     content="Réservez votre hôtel parmi plus de 5000 établissements sélectionnés. Meilleur prix garanti et support 24/7.">
@@ -18,34 +17,27 @@
   <meta property="og:url" content="https://yanni-bit.github.io/HotelBookingProjetBloc1/">
   <meta property="og:type" content="website">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Book Your Travel - Réservation d'hôtel">
-  <meta name="twitter:description"
+  <meta property="twitter:description"
     content="Réservez votre hôtel parmi plus de 5000 établissements. Meilleur prix garanti.">
-  <meta name="twitter:image" content="https://yanni-bit.github.io/HotelBookingProjetBloc1/assets/images/logo.png">
+  <meta property="twitter:image" content="https://yanni-bit.github.io/HotelBookingProjetBloc1/assets/images/logo.png">
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://yanni-bit.github.io/HotelBookingProjetBloc1/">
 
-  <!-- ========== STYLES CSS ========== -->
-  <!-- Bootstrap 5.3.8 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Icônes Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Styles personnalisés -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/accessibilite.css">
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/icons/hotel.png">
 
-  <!-- ========== SCRIPTS JAVASCRIPT ========== -->
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
-  
-  <!-- Scripts personnalisés -->
+
+  <script src="js/translations.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+
   <script src="js/main.js" defer></script>
   <script src="js/accessibilite.js" defer></script>
 </head>
@@ -53,19 +45,12 @@
 <body>
 
 
-  <!-- Skip Link -->
-  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <a href="#main-content" class="skip-link" data-i18n="header.skipLink">Aller au contenu principal</a>
 
-  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
-       ║                              HEADER GLOBAL                               ║
-       ║ Contient : Logo, Contact, Recherche, Ruban (Langue/Monnaie/Compte)       ║
-       ╚══════════════════════════════════════════════════════════════════════════╝ -->
-  <!-- DÉBUT BLOC: HEADER -->
   <header class="base-header position-relative" role="banner">
     <div class="container-fluid">
       <div class="row header-top g-3">
 
-        <!-- ========== LOGO ========== -->
         <div class="col-12 col-lg-6 order-0">
           <div class="header_logo">
             <a href="index.html" class="my-logo d-block">
@@ -74,8 +59,6 @@
           </div>
         </div>
 
-        <!-- ========== BLOC CONTACT ========== -->
-        <!-- Affiche le numéro de téléphone avec icône -->
         <div class="col-12 col-lg-3 order-2 order-lg-1">
           <div class="header_contact">
             <div class="bloc-contact">
@@ -83,20 +66,18 @@
                 <i class="bi bi-telephone"></i>
               </div>
               <div class="text-contact">
-                <div class="bloc-contact-label">24/7 Support number</div>
+                <div class="bloc-contact-label" data-i18n="header.supportNumber">24/7 Support number</div>
                 <div class="bloc-contact-number">1-555-555-555</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ========== BARRE DE RECHERCHE HEADER ========== -->
-        <!-- Petite barre de recherche dans le header -->
         <div class="col-12 col-lg-3 order-lg-2">
           <div class="header_search">
             <div class="bloc-search" role="search" aria-label="Recherche rapide">
               <form class="position-relative">
-                <input type="search" class="form-control bloc-search-input" placeholder="Rechercher"
+                <input type="search" class="form-control bloc-search-input" placeholder="Rechercher" data-i18n="header.searchPlaceholder"
                   aria-label="Rechercher sur le site">
                 <i class="bi bi-search bloc-search-ico"></i>
               </form>
@@ -106,60 +87,45 @@
 
       </div>
 
-      <!-- ========== RUBAN TURQUOISE ========== -->
-      <!-- Ruban vertical droit avec : Mon compte, Pays, Monnaie -->
       <div class="ribbon">
         <nav class="d-flex gap-2 flex-column align-items-stretch">
 
-          <!-- Bouton Mon Compte -->
           <div class="dropdown">
-            <a class="btn btn-outline-dark w-100 pb-2 ribbon-btn" href="#" role="button">
+            <a class="btn btn-outline-dark w-100 pb-2 ribbon-btn" href="#" role="button" data-i18n="header.myAccount">
               MON COMPTE
             </a>
           </div>
 
-          <!-- Sélecteur de Pays -->
           <div class="dropdown">
             <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="langue"
-              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Sélectionner la langue">
+              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Sélectionner la langue" data-i18n="header.country">
               PAYS
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Français (Fr)</a></li>
-              <li><a class="dropdown-item" href="#">English (US)</a></li>
-              <li><a class="dropdown-item" href="#">Italiano (It)</a></li>
+              <li><a class="dropdown-item" href="#" data-lang="fr" data-i18n="languages.french">Français (Fr)</a></li>
+              <li><a class="dropdown-item" href="#" data-lang="en" data-i18n="languages.english">English (US)</a></li>
+              <li><a class="dropdown-item" href="#" data-lang="it" data-i18n="languages.italian">Italiano (It)</a></li>
             </ul>
           </div>
 
-          <!-- Sélecteur de Monnaie -->
           <div class="dropdown">
             <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="monnaie"
-              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Sélectionner la monnaie">
+              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Sélectionner la monnaie" data-i18n="header.currency">
               MONNAIE
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">€ Euro</a></li>
-              <li><a class="dropdown-item" href="#">$ US Dollar</a></li>
-              <li><a class="dropdown-item" href="#">£ Pound</a></li>
+              <li><a class="dropdown-item" href="#" data-i18n="currencies.euro">€ Euro</a></li>
+              <li><a class="dropdown-item" href="#" data-i18n="currencies.dollar">$ US Dollar</a></li>
+              <li><a class="dropdown-item" href="#" data-i18n="currencies.pound">£ Pound</a></li>
             </ul>
           </div>
 
         </nav>
       </div>
-      <!-- FIN: Ruban turquoise -->
-
-    </div>
+      </div>
   </header>
-  <!-- FIN BLOC: HEADER -->
-
-
-  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
-       ║                         NAVIGATION PRINCIPALE                            ║
-       ║ Menu de navigation horizontal avec liens vers les pages du site          ║
-       ╚══════════════════════════════════════════════════════════════════════════╝ -->
-  <!-- DÉBUT BLOC: NAVIGATION -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-brown" role="navigation" aria-label="Navigation principale">
-    <span class="navbar-brand d-lg-none">Menu</span>
+    <span class="navbar-brand d-lg-none" data-i18n="nav.menu">Menu</span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
       aria-controls="menuPrincipal" aria-expanded="false" aria-label="Ouvrir le menu de navigation">
       <span class="navbar-toggler-icon"></span>
@@ -168,37 +134,25 @@
     <div class="collapse navbar-collapse" id="menuPrincipal">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="index.html">Accueil</a>
+          <a class="nav-link active" href="index.html" data-i18n="nav.home">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="room.html">Template Hotel</a>
+          <a class="nav-link" href="room.html" data-i18n="nav.templateHotel">Template Hotel</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="booking.html">Template Réservation</a>
+          <a class="nav-link" href="booking.html" data-i18n="nav.templateBooking">Template Réservation</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
+          <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="documentations.html">Documentations</a>
+          <a class="nav-link" href="documentations.html" data-i18n="nav.documentations">Documentations</a>
         </li>
       </ul>
     </div>
   </nav>
-  <!-- FIN BLOC: NAVIGATION -->
-
-
-  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
-       ║                    CARROUSEL + BLOC DE RECHERCHE                         ║
-       ║ Carrousel d'images avec bloc de recherche superposé                      ║
-       ║ • Carrousel : 3 slides avec navigation (flèches + points)                ║
-       ║ • Recherche : Formulaire avec Type, Destination, Dates, Personnes        ║
-       ╚══════════════════════════════════════════════════════════════════════════╝ -->
-  <!-- DÉBUT BLOC: CARROUSEL + RECHERCHE -->
   <div id="hotelCarousel" class="hotel-carousel">
 
-    <!-- ========== CARROUSEL: SLIDES ========== -->
-    <!-- DÉBUT: Slides du carrousel -->
     <div class="hotel-slide">
       <img src="assets/images/slide-1.jpg" alt="Chambre 1" style="width:100%">
     </div>
@@ -210,111 +164,82 @@
     <div class="hotel-slide">
       <img src="assets/images/slide-3.jpg" alt="Chambre 3" style="width:100%">
     </div>
-    <!-- FIN: Slides du carrousel -->
+    <a class="prev" onclick="plusSlides(-1)" aria-label="Précédent">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)" aria-label="Suivant">&#10095;</a>
 
-    <!-- ========== CARROUSEL: BOUTONS DE NAVIGATION ========== -->
-    <!-- Flèches précédent/suivant -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <!-- ========== CARROUSEL: POINTS INDICATEURS ========== -->
-    <!-- Points pour indiquer et changer de slide -->
     <div class="dots">
       <span class="dot" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 
-    <!-- ╔════════════════════════════════════════════════════════════════════════╗
-         ║                     BLOC DE RECHERCHE SUPERPOSÉ                        ║
-         ║ Formulaire de recherche en 4 colonnes :                                ║
-         ║ 1. What? (Type de réservation : Hotel, Flight, etc.)                   ║
-         ║ 2. Where? (Destination)                                                ║
-         ║ 3. When? (Check-in / Check-out)                                        ║
-         ║ 4. Who? (Rooms, Adults, Children)                                      ║
-         ╚════════════════════════════════════════════════════════════════════════╝ -->
-    <!-- DÉBUT: Bloc de recherche -->
     <div class="search-overlay-container">
       <div class="search-overlay-content">
         <div class="row g-0">
 
-          <!-- ========== COLONNE 1: TYPE DE RÉSERVATION (What?) ========== -->
-          <!-- Boutons radio pour choisir : Hotel, Flight, Flight & Hotel, etc. -->
           <div class="col-12 col-lg-3 d-flex flex-column">
-            <h5 class="search-field-box-title"><em>01</em> What?</h5>
+            <h5 class="search-field-box-title" data-i18n="home.whatTitle"><em>01</em> Quoi?</h5>
             <div class="search-field-box">
               <div class="row-buttons">
 
-                <!-- Colonne gauche des radios -->
                 <div class="search-col-button">
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="radioDefault" id="radio1">
-                    <label class="form-check-label" for="radio1">Hotel</label>
+                    <label class="form-check-label" for="radio1" data-i18n="home.hotelRadio">Hotel</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="radioDefault" id="radio2">
-                    <label class="form-check-label" for="radio2">Vol</label>
+                    <label class="form-check-label" for="radio2" data-i18n="home.flightRadio">Vol</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radioDefault" id="radio3">
-                    <label class="form-check-label" for="radio3">Vol & Hotel</label>
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radio3" >
+                    <label class="form-check-label" for="radio3" data-i18n="home.flightHotelRadio">Vol & Hotel</label>
                   </div>
                 </div>
 
-                <!-- Colonne droite des radios -->
                 <div class="search-col-button">
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="radioDefault" id="radio4">
-                    <label class="form-check-label" for="radio4">Studio</label>
+                    <label class="form-check-label" for="radio4" data-i18n="home.studioRadio">Studio</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="radioDefault" id="radio5">
-                    <label class="form-check-label" for="radio5">Croisière</label>
+                    <label class="form-check-label" for="radio5" data-i18n="home.cruiseRadio">Croisière</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="radioDefault" id="radio6">
-                    <label class="form-check-label" for="radio6">Location voiture</label>
+                    <label class="form-check-label" for="radio6" data-i18n="home.carRentalRadio">Location voiture</label>
                   </div>
                 </div>
 
               </div>
             </div>
           </div>
-          <!-- FIN: Colonne 1 (What?) -->
-
-          <!-- ========== COLONNE 2: DESTINATION (Where?) ========== -->
-          <!-- Champ texte pour saisir la destination -->
           <div class="col-12 col-lg-3 d-flex flex-column">
-            <h5 class="search-field-box-title"><em>02</em> Où?</h5>
+            <h5 class="search-field-box-title" data-i18n="home.whereTitle"><em>02</em> Où?</h5>
             <div class="search-field-box">
               <label for="hotelDestination">
-                <h5>Votre destination</h5>
+                <h5 data-i18n="home.destination">Votre destination</h5>
               </label>
               <input type="text" class="form-control" placeholder="Ville, région, district ou hôtel spécifique"
-                id="hotelDestination" name="hotelDestination">
+                id="hotelDestination" name="hotelDestination" data-i18n="home.destinationPlaceholder" aria-label="Ville, région, district ou hôtel spécifique">
             </div>
           </div>
-          <!-- FIN: Colonne 2 (Where?) -->
-
-          <!-- ========== COLONNE 3: DATES (When?) ========== -->
-          <!-- Check-in et Check-out -->
           <div class="col-12 col-lg-3 d-flex flex-column">
-            <h5 class="search-field-box-title"><em>03</em> Quand?</h5>
+            <h5 class="search-field-box-title" data-i18n="home.whenTitle"><em>03</em> Quand?</h5>
             <div class="search-field-box">
               <div class="search-col-date d-flex flex-row">
 
-                <!-- Check-in -->
                 <div class="mb-3">
                   <label for="checkin">
-                    <h5>Check-in</h5>
+                    <h5 data-i18n="home.checkin">Check-in</h5>
                   </label>
                   <input type="date" class="form-control" id="checkin" name="checkin">
                 </div>
 
-                <!-- Check-out -->
                 <div class="mb-3">
                   <label for="checkout">
-                    <h5>Check-out</h5>
+                    <h5 data-i18n="home.checkout">Check-out</h5>
                   </label>
                   <input type="date" class="form-control" id="checkout" name="checkout">
                 </div>
@@ -322,35 +247,28 @@
               </div>
             </div>
           </div>
-          <!-- FIN: Colonne 3 (When?) -->
-
-          <!-- ========== COLONNE 4: NOMBRE DE PERSONNES (Who?) ========== -->
-          <!-- Rooms, Adults, Children -->
           <div class="col-12 col-lg-3 d-flex flex-column">
-            <h5 class="search-field-box-title"><em>04</em> Qui?</h5>
+            <h5 class="search-field-box-title" data-i18n="home.whoTitle"><em>04</em> Qui?</h5>
             <div class="search-field-box">
               <div class="search-col-who d-flex flex-row">
 
-                <!-- Chambres -->
                 <div class="mb-3">
                   <label for="rooms">
-                    <h5>Chambres</h5>
+                    <h5 data-i18n="home.rooms">Chambres</h5>
                   </label>
                   <input type="number" class="form-control" id="rooms" name="rooms" min="1" value="1">
                 </div>
 
-                <!-- Adultes -->
                 <div class="mb-3">
                   <label for="adults">
-                    <h5>Adultes</h5>
+                    <h5 data-i18n="home.adults">Adultes</h5>
                   </label>
                   <input type="number" class="form-control" id="adults" name="adults" min="1" value="2">
                 </div>
 
-                <!-- Enfants -->
                 <div class="mb-3">
                   <label for="children">
-                    <h5>Enfants</h5>
+                    <h5 data-i18n="home.children">Enfants</h5>
                   </label>
                   <input type="number" class="form-control" id="children" name="children" min="0" value="0">
                 </div>
@@ -358,156 +276,120 @@
               </div>
             </div>
           </div>
-          <!-- FIN: Colonne 4 (Who?) -->
-
-        </div>
-        <!-- FIN: Row des 4 colonnes -->
-
-        <!-- ========== BOUTON DE VALIDATION ========== -->
-        <!-- Bouton pour lancer la recherche -->
+          </div>
         <div class="searchProcess">
-          <button type="submit" class="btn px-3 pt-2 pb-1 btn-custom w-20">Voir les résultats</button>
+          <button type="submit" class="btn px-3 pt-2 pb-1 btn-custom w-20" data-i18n="home.searchButton">Voir les résultats</button>
         </div>
 
       </div>
     </div>
-    <!-- FIN: Bloc de recherche -->
-
-  </div>
-  <!-- FIN BLOC: CARROUSEL + RECHERCHE -->
-
-
-  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
-       ║                            SECTION OFFRES                                ║
-       ║ 4 cards d'offres spéciales avec images, badges et boutons                ║
-       ╚══════════════════════════════════════════════════════════════════════════╝ -->
-  <!-- DÉBUT BLOC: OFFRES -->
+    </div>
   <section class="offres-section">
     <div class="container ligneSeparation">
 
-      <!-- Titre de la section -->
       <div class="row">
         <div class="col-12 text-center mb-4">
-          <h2 class="section-title">Découvrez nos dernières offres</h2>
-          <p class="section-subtitle">Découvrez des offres incroyables pour votre prochaine aventure</p>
+          <h2 class="section-title" data-i18n="home.offersTitle">Découvrez nos dernières offres</h2>
+          <p class="section-subtitle" data-i18n="home.offersSubtitle">Découvrez des offres incroyables pour votre prochaine aventure</p>
         </div>
       </div>
 
-      <!-- Grid des offres (4 colonnes sur desktop, empilées sur mobile) -->
       <div class="row g-4">
 
-        <!-- ========== OFFRE 1 ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="offre-card">
             <div class="offre-card-image">
               <img src="assets/images/offre-1.jpg" alt="Escapades Hivernales à la Plage">
-              <div class="offre-badge">30% OFF</div>
+              <div class="offre-badge" data-i18n="home.badge30off">30% OFF</div>
             </div>
             <div class="offre-card-body">
-              <h3 class="offre-card-title">Escapades Hivernales à la Plage</h3>
-              <p class="offre-card-text">Profitez de plages ensoleillées avec des réductions hivernales exclusives</p>
-              <a href="#" class="btn btn-offre">Réserver Maintenant</a>
+              <h3 class="offre-card-title" data-i18n="home.offer1Title">Escapades Hivernales à la Plage</h3>
+              <p class="offre-card-text" data-i18n="home.offer1Text">Profitez de plages ensoleillées avec des réductions hivernales exclusives</p>
+              <a href="#" class="btn btn-offre" data-i18n="home.bookNowButton">Réserver Maintenant</a>
             </div>
           </div>
         </div>
 
-        <!-- ========== OFFRE 2 ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="offre-card">
             <div class="offre-card-image">
               <img src="assets/images/offre-2.jpg" alt="Passez le Réveillon à Paris">
-              <div class="offre-badge">PROMO</div>
+              <div class="offre-badge" data-i18n="home.badgePromo">PROMO</div>
             </div>
             <div class="offre-card-body">
-              <h3 class="offre-card-title">Passez le Réveillon à Paris</h3>
-              <p class="offre-card-text">Vivez la magie de Paris pendant les fêtes</p>
-              <a href="#" class="btn btn-offre">Réserver Maintenant</a>
+              <h3 class="offre-card-title" data-i18n="home.offer2Title">Passez le Réveillon à Paris</h3>
+              <p class="offre-card-text" data-i18n="home.offer2Text">Vivez la magie de Paris pendant les fêtes</p>
+              <a href="#" class="btn btn-offre" data-i18n="home.bookNowButton">Réserver Maintenant</a>
             </div>
           </div>
         </div>
 
-        <!-- ========== OFFRE 3 ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="offre-card">
             <div class="offre-card-image">
               <img src="assets/images/nuit_de_noces.jpg" alt="Luxe aux Maldives">
-              <div class="offre-badge">HOT DEAL</div>
+              <div class="offre-badge" data-i18n="home.badgeHotDeal">HOT DEAL</div>
             </div>
             <div class="offre-card-body">
-              <h3 class="offre-card-title">Une Nuit de Noces Paradisiaque</h3>
-              <p class="offre-card-text">Nuit de Noces aux Maldives, luxe total face à l'océan</p>
-              <a href="room.html" class="btn btn-offre" style="border-color: var(--rouge-erreur);">Réserver
+              <h3 class="offre-card-title" data-i18n="home.offer3Title">Une Nuit de Noces Paradisiaque</h3>
+              <p class="offre-card-text" data-i18n="home.offer3Text">Nuit de Noces aux Maldives, luxe total face à l'océan</p>
+              <a href="room.html" class="btn btn-offre" style="border-color: var(--rouge-erreur);" data-i18n="home.bookNowButton">Réserver
                 Maintenant</a>
             </div>
           </div>
         </div>
 
-        <!-- ========== OFFRE 4 ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="offre-card">
             <div class="offre-card-image">
               <img src="assets/images/offre-4.jpg" alt="Offre Tahiti">
-              <div class="offre-badge">NEW</div>
+              <div class="offre-badge" data-i18n="home.badgeNew">NEW</div>
             </div>
             <div class="offre-card-body">
-              <h3 class="offre-card-title">Notre Meilleure Offre de la Semaine : Tahiti</h3>
-              <p class="offre-card-text">Découvrez le paradis à des prix imbattables</p>
-              <a href="#" class="btn btn-offre">Réserver Maintenant</a>
+              <h3 class="offre-card-title" data-i18n="home.offer4Title">Notre Meilleure Offre de la Semaine : Tahiti</h3>
+              <p class="offre-card-text" data-i18n="home.offer4Text">Découvrez le paradis à des prix imbattables</p>
+              <a href="#" class="btn btn-offre" data-i18n="home.bookNowButton">Réserver Maintenant</a>
             </div>
           </div>
         </div>
 
       </div>
-      <!-- FIN: Grid des offres -->
-
-    </div>
+      </div>
   </section>
-  <!-- FIN BLOC: OFFRES -->
-
-
-  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
-       ║                        SECTION DESTINATIONS                              ║
-       ║ 12 cards de destinations populaires avec overlay et statistiques         ║
-       ╚══════════════════════════════════════════════════════════════════════════╝ -->
-  <!-- DÉBUT BLOC: DESTINATIONS -->
   <section class="destinations-section">
     <div class="container ligneSeparation">
 
-      <!-- Titre de la section -->
       <div class="row">
         <div class="col-12 text-center mb-4">
-          <h2 class="section-title">Meilleures Destinations Autour du Monde</h2>
-          <p class="section-subtitle">Découvrez les destinations de voyage les plus populaires</p>
+          <h2 class="section-title" data-i18n="home.exploreTitle">Meilleures Destinations Autour du Monde</h2>
+          <p class="section-subtitle" data-i18n="home.exploreSubtitle">Découvrez les destinations de voyage les plus populaires</p>
         </div>
       </div>
 
-      <!-- Grid des destinations (12 cards sur 3 rangées) -->
       <div class="row g-4">
 
-        <!-- ========== DESTINATION 1: Paris ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
               <img src="assets/images/paris.jpg" alt="Paris">
-              <div class="offre-badge">PROMO</div>
+              <div class="offre-badge" data-i18n="home.badgePromo">PROMO</div>
               <div class="destination-overlay">
                 <div class="destination-info">
                   <h3 class="destination-name">Paris</h3>
                   <p class="destination-country">France</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 862 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 190€</span>
+                    <span><i class="bi bi-building"></i> 862 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 190€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- ========== DESTINATION 2: Amsterdam ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -517,19 +399,18 @@
                   <h3 class="destination-name">Amsterdam</h3>
                   <p class="destination-country">Netherlands</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 462 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 180€</span>
+                    <span><i class="bi bi-building"></i> 462 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 180€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- ========== DESTINATION 3: St Petersburg ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -539,19 +420,18 @@
                   <h3 class="destination-name">St Petersburg</h3>
                   <p class="destination-country">Russie</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 456 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 180€</span>
+                    <span><i class="bi bi-building"></i> 456 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 180€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- ========== DESTINATION 4: Prague ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -561,42 +441,40 @@
                   <h3 class="destination-name">Prague</h3>
                   <p class="destination-country">République Tchèque</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 402 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 190€</span>
+                    <span><i class="bi bi-building"></i> 402 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 190€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- ========== DESTINATION 5: Tahiti ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
               <img src="assets/images/offre-4.jpg" alt="Tahiti, le paradis">
-              <div class="offre-badge">NEW</div>
+              <div class="offre-badge" data-i18n="home.badgeNew">NEW</div>
               <div class="destination-overlay">
                 <div class="destination-info">
                   <h3 class="destination-name">Tahiti</h3>
                   <p class="destination-country">Polynésie</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 350 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 1190€</span>
+                    <span><i class="bi bi-building"></i> 350 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 1190€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- ========== DESTINATION 6: Zanzibar ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -606,19 +484,18 @@
                   <h3 class="destination-name">Zanzibar</h3>
                   <p class="destination-country">Océan Indien</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 458 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 1180€</span>
+                    <span><i class="bi bi-building"></i> 458 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 1180€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- ========== DESTINATION 7: Maldives ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -628,19 +505,18 @@
                   <h3 class="destination-name">Maldives</h3>
                   <p class="destination-country">Océan Indien</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 103 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 2320€</span>
+                    <span><i class="bi bi-building"></i> 103 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 2320€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- ========== DESTINATION 8: Cancun ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -650,19 +526,18 @@
                   <h3 class="destination-name">Cancun</h3>
                   <p class="destination-country">Mexique</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 865 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 1590€</span>
+                    <span><i class="bi bi-building"></i> 865 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 1590€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- ========== DESTINATION 9: Dubai ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -672,19 +547,18 @@
                   <h3 class="destination-name">Dubai</h3>
                   <p class="destination-country">Émirats Arabes Unis</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 540 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 310€</span>
+                    <span><i class="bi bi-building"></i> 540 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 310€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- ========== DESTINATION 10: Bali ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -694,19 +568,18 @@
                   <h3 class="destination-name">Bali</h3>
                   <p class="destination-country">Indonesie</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 620 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 1680€</span>
+                    <span><i class="bi bi-building"></i> 620 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 1680€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- ========== DESTINATION 11: New York ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -716,19 +589,18 @@
                   <h3 class="destination-name">New York</h3>
                   <p class="destination-country">États-Unis</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 880 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 760€</span>
+                    <span><i class="bi bi-building"></i> 880 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 760€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- ========== DESTINATION 12: Tokyo ========== -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="destination-card">
             <div class="destination-card-image">
@@ -738,43 +610,31 @@
                   <h3 class="destination-name">Tokyo</h3>
                   <p class="destination-country">Japon</p>
                   <div class="destination-stats">
-                    <span><i class="bi bi-building"></i> 740 Hotels</span>
-                    <span><i class="bi bi-airplane"></i> À partir de 980€</span>
+                    <span><i class="bi bi-building"></i> 740 <span data-i18n="home.hotels">Hotels</span></span>
+                    <span><i class="bi bi-airplane"></i> <span data-i18n="home.startingFrom">À partir de</span> 980€</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="destination-card-footer">
-              <a href="#" class="btn-destination">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-destination" data-i18n="home.viewHotelsButton">Voir les Hôtels <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
       </div>
-      <!-- FIN: Grid des destinations -->
-
-    </div>
+      </div>
   </section>
-  <!-- FIN BLOC: DESTINATIONS -->
-
-
-  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
-       ║                      SECTION CRITÈRES DE SÉLECTION                       ║
-       ║ 8 cards présentant les avantages et garanties du service                 ║
-       ╚══════════════════════════════════════════════════════════════════════════╝ -->
-  <!-- DÉBUT BLOC: CRITÈRES -->
   <section class="criteres-section">
     <div class="container">
 
-      <!-- Grid des critères (8 cards sur 2 rangées) -->
       <div class="row g-4">
 
-        <!-- Critère 1 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
-              <h3 class="info-card-title">Hôtels Sélectionnés</h3>
-              <p class="info-card-text">
+              <h3 class="info-card-title" data-i18n="criteria.hotels">Hôtels Sélectionnés</h3>
+              <p class="info-card-text" data-i18n-html="criteria.hotelsDesc">
                 Tous les hôtels Book Your Travel répondent à des critères de sélection stricts.<br>
                 Chaque hôtel est choisi individuellement et son inclusion ne peut être achetée.
               </p>
@@ -782,12 +642,11 @@
           </div>
         </div>
 
-        <!-- Critère 2 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
-              <h3 class="info-card-title">Descriptions Détaillées</h3>
-              <p class="info-card-text">
+              <h3 class="info-card-title" data-i18n="criteria.detailedDescriptions">Descriptions Détaillées</h3>
+              <p class="info-card-text" data-i18n="criteria.detailedDescriptionsDesc">
                 Afin de vous donner une impression précise de l'hôtel, nous nous efforçons de publier des descriptions
                 transparentes, équilibrées et précises des hôtels.
               </p>
@@ -795,12 +654,11 @@
           </div>
         </div>
 
-        <!-- Critère 3 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
-              <h3 class="info-card-title">Connaissance Exclusive</h3>
-              <p class="info-card-text">
+              <h3 class="info-card-title" data-i18n="criteria.knowledge">Connaissance Exclusive</h3>
+              <p class="info-card-text" data-i18n-html="criteria.knowledgeDesc">
                 Nous avons fait nos recherches.<br>Nos éclaireurs sont toujours occupés à en apprendre davantage sur nos
                 hôtels, les environs et les activités proposées à proximité.
               </p>
@@ -808,12 +666,11 @@
           </div>
         </div>
 
-        <!-- Critère 4 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
-              <h3 class="info-card-title">Service Passionné</h3>
-              <p class="info-card-text">
+              <h3 class="info-card-title" data-i18n="criteria.service">Service Passionné</h3>
+              <p class="info-card-text" data-i18n-html="criteria.serviceDesc">
                 L'équipe de Book Your Travel répondra à vos demandes spéciales.<br>Nous offrons des conseils experts et
                 passionnés pour trouver le bon hôtel.
               </p>
@@ -821,12 +678,11 @@
           </div>
         </div>
 
-        <!-- Critère 5 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
-              <h3 class="info-card-title">Meilleur Prix Garanti</h3>
-              <p class="info-card-text">
+              <h3 class="info-card-title" data-i18n="criteria.bestPrice">Meilleur Prix Garanti</h3>
+              <p class="info-card-text" data-i18n-html="criteria.bestPriceDesc">
                 Nous offrons les meilleurs hôtels aux meilleurs prix.<br>Si vous trouvez la même catégorie de chambre
                 aux mêmes dates moins chère ailleurs, nous vous rembourserons la différence.<br>Garanti, et rapidement.
               </p>
@@ -834,12 +690,11 @@
           </div>
         </div>
 
-        <!-- Critère 6 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
-              <h3 class="info-card-title">Réservation Sécurisée</h3>
-              <p class="info-card-text">
+              <h3 class="info-card-title" data-i18n="criteria.secureBooking">Réservation Sécurisée</h3>
+              <p class="info-card-text" data-i18n-html="criteria.secureBookingDesc">
                 Le système de réservation de Book Your Travel est sécurisé et votre carte de crédit ainsi que vos
                 informations personnelles sont cryptées.<br>Nous travaillons selon des normes élevées et garantissons
                 votre confidentialité.
@@ -848,12 +703,11 @@
           </div>
         </div>
 
-        <!-- Critère 7 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
-              <h3 class="info-card-title">Avantages pour les Hôteliers</h3>
-              <p class="info-card-text">
+              <h3 class="info-card-title" data-i18n="criteria.hotelBenefits">Avantages pour les Hôteliers</h3>
+              <p class="info-card-text" data-i18n-html="criteria.hotelBenefitsDesc">
                 Nous fournissons un modèle rentable, un réseau de plus de 5000 partenaires et un service de gestion de
                 compte personnalisé pour vous aider à optimiser vos revenus.
               </p>
@@ -861,12 +715,11 @@
           </div>
         </div>
 
-        <!-- Critère 8 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="info-card h-100">
             <div class="info-card-body">
-              <h3 class="info-card-title">Des Questions ?</h3>
-              <p class="info-card-text">
+              <h3 class="info-card-title" data-i18n="criteria.questions">Des Questions ?</h3>
+              <p class="info-card-text" data-i18n="criteria.questionsDesc">
                 Appelez-nous au 1-555-555-555 pour des conseils personnalisés et sur mesure pour votre séjour parfait ou
                 envoyez-nous un message avec votre demande de réservation d'hôtel.
               </p>
@@ -875,50 +728,37 @@
         </div>
 
       </div>
-      <!-- FIN: Grid des critères -->
-
-    </div>
+      </div>
   </section>
-  <!-- FIN BLOC: CRITÈRES -->
-
-
-  <!-- ╔══════════════════════════════════════════════════════════════════════════╗
-       ║                              FOOTER                                      ║
-       ║ Pied de page avec : Contact, Support, Réseaux sociaux, Newsletter        ║
-       ╚══════════════════════════════════════════════════════════════════════════╝ -->
-  <!-- DÉBUT BLOC: FOOTER -->
   <footer class="container-fluid mt-1" role="contentinfo">
     <div>
       <div class="row">
 
-        <!-- ========== COLONNE 1: CONTACT ========== -->
         <div class="col-lg-3 footer_contact">
           <div class="p-3">
-            <h2>Book Your Travel</h2>
-            <p>1400 Pennsylvania Ave. Washington, DC</p>
-            <p><em>P:</em> 24/7 customer support: 1-555-555-5555</p>
+            <h2 data-i18n="footer.company">Book Your Travel</h2>
+            <p data-i18n="footer.address">1400 Pennsylvania Ave. Washington, DC</p>
+            <p data-i18n="footer.phone"><em>P:</em> 24/7 customer support: 1-555-555-5555</p>
             <p><em>E:</em> <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                data-cfemail="fa9895959193949dba979b9396d4999597">[email&#160;protected]</a></p>
+                data-cfemail="fa9895959193949dba979b9396d4999597" data-i18n="footer.email">[email&#160;protected]</a></p>
           </div>
         </div>
 
-        <!-- ========== COLONNE 2: SUPPORT CLIENT ========== -->
         <div class="col-lg-3">
           <div class="p-3 footer_support">
-            <h2>Customer Support</h2>
+            <h2 data-i18n="footer.customerSupport">Customer Support</h2>
             <ul>
-              <li><a href="#" title="Faq">FAQ</a></li>
-              <li><a href="#" title="How do I make a reservation?">Comment puis-je faire une réservation ?</a></li>
-              <li><a href="#" title="Payment options">Options de paiement</a></li>
-              <li><a href="#" title="Booking tips">Conseils de réservation</a></li>
+              <li><a href="#" title="Faq" data-i18n="footer.faq">FAQ</a></li>
+              <li><a href="#" title="How do I make a reservation?" data-i18n="footer.howToBook">Comment puis-je faire une réservation ?</a></li>
+              <li><a href="#" title="Payment options" data-i18n="footer.paymentOptions">Options de paiement</a></li>
+              <li><a href="#" title="Booking tips" data-i18n="footer.bookingTips">Conseils de réservation</a></li>
             </ul>
           </div>
         </div>
 
-        <!-- ========== COLONNE 3: RÉSEAUX SOCIAUX ========== -->
         <div class="col-lg-3">
           <div class="p-3 footer_follow">
-            <h2>Suivez-Nous</h2>
+            <h2 data-i18n="footer.followUs">Suivez-Nous</h2>
             <ul class="list-unstyled d-flex gap-2 mt-3">
               <li><a href="#" aria-label="Visitez notre page Facebook"><i class="bi bi-facebook"
                     aria-hidden="true"></i></a></li>
@@ -936,17 +776,16 @@
           </div>
         </div>
 
-        <!-- ========== COLONNE 4: NEWSLETTER ========== -->
         <div class="col-lg-3">
           <div class="p-3 footer_newsletter">
-            <h2>Newsletter</h2>
-            <p>Inscrivez-vous pour recevoir nos offres exclusives !</p>
+            <h2 data-i18n="footer.newsletter">Newsletter</h2>
+            <p data-i18n="footer.newsletterText">Inscrivez-vous pour recevoir nos offres exclusives !</p>
             <form>
-              <label for="newsletter-email" class="visually-hidden">Votre adresse email</label>
+              <label for="newsletter-email" class="visually-hidden" data-i18n="footer.emailPlaceholder">Votre adresse email</label>
               <div class="input-group">
-                <input type="email" id="newsletter-email" class="form-control" placeholder="Votre email" required
-                  aria-required="true">
-                <button class="btn btn-dark" type="submit" aria-label="S\'inscrire à la newsletter">OK</button>
+                <input type="email" id="newsletter-email" class="form-control" placeholder="Votre email" data-i18n="footer.emailPlaceholder" required
+                  aria-required="true" aria-label="Votre adresse email">
+                <button class="btn btn-dark" type="submit" aria-label="S\'inscrire à la newsletter" data-i18n="footer.subscribeButton">OK</button>
               </div>
             </form>
           </div>
@@ -956,15 +795,20 @@
     </div>
   </footer>
 
-  <!-- ========== BAS DE PAGE: COPYRIGHT & LIENS ========== -->
   <div class="bottom w-100 p-3">
-    <p class="copy">Copyright 2025 Réservation d'hôtel Formation Ilaria</p>
+    <p class="copy" data-i18n="footer.copyright">Copyright 2025 Réservation d'hôtel Formation Ilaria</p>
     <nav>
       <ul class="list-inline text-center mb-0">
-        <li class="list-inline-item"><a href="#" title="About us">About us</a></li>
-        <li class="list-inline-item"><a href="contact.html" title="Contact">Contact</a></li>
-        <li class="list-inline-item"><a href="#" title="Partners">Partners</a></li>
-        <li class="list-inline-item"><a href="#" title="Customer service">Customer service</a></li>
-        <li class="list-inline-item"><a href="#" title="FAQ">FAQ</a></li>
-        <li class="list-inline-item"><a href="#" title="Careers">Careers</a></li>
-        <li class="list-inline-item"><a href="#" title="Terms &amp; Conditio
+        <li class="list-inline-item"><a href="#" title="About us" data-i18n="footer.aboutUs">About us</a></li>
+        <li class="list-inline-item"><a href="contact.html" title="Contact" data-i18n="nav.contact">Contact</a></li>
+        <li class="list-inline-item"><a href="#" title="Partners" data-i18n="footer.partners">Partners</a></li>
+        <li class="list-inline-item"><a href="#" title="Customer service" data-i18n="footer.customerService">Customer service</a></li>
+        <li class="list-inline-item"><a href="#" title="FAQ" data-i18n="footer.faq">FAQ</a></li>
+        <li class="list-inline-item"><a href="#" title="Careers" data-i18n="footer.careers">Careers</a></li>
+        <li class="list-inline-item"><a href="#" title="Terms &amp; Conditio" data-i18n="footer.terms">Terms &amp; Conditions</a></li>
+      </ul>
+    </nav>
+  </div>
+</body>
+
+</html>
