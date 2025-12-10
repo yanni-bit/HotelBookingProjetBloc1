@@ -820,7 +820,7 @@
 /* ==========================================================
    FOOTER (index.html, room.html, booking.html, contact.html)
    ----------------------------------------------------------
-   Styles spécifiques au footer de base
+   Styles spécifiques au footer de base (non .footer-principal)
    ========================================================== */
 
 footer.container-fluid {
@@ -2591,47 +2591,24 @@ textarea.form-control {
   margin-top: 2rem;
 }
 
-/* Style de base des cartes (sera utilisé par les nouvelles structures) */
-.contact-info-cards .info-card-phone-new,
-.contact-info-cards .info-card-email-new {
+.contact-info-cards .info-card { /* Spécificité pour les cartes d'info contact */
   background: var(--blanc);
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
   transition: all 0.3s ease;
   height: 100%;
+  /* Suppression du background gradient présent dans .criteres-section .info-card */
 }
 
-.contact-info-cards .info-card-phone-new:hover,
-.contact-info-cards .info-card-email-new:hover {
+.contact-info-cards .info-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 16px rgba(95, 200, 194, 0.2);
 }
 
-/* Conteneurs de la nouvelle structure */
-.info-content-phone,
-.info-content-email {
-  width: 100%;
-}
-
-/* Ligne d'en-tête (Icône + Titre) */
-.phone-header-line,
-.email-header-line {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem; /* Espace avant le sous-titre/lien */
-  justify-content: flex-start;
-}
-
-.phone-header-line h6,
-.email-header-line h6 {
-  /* Assure l'alignement vertical et annule la marge h6 par défaut pour la flexbox */
-  margin-bottom: 0 !important;
-  line-height: 1;
-}
-
-/* Icone (cercle) */
 .info-icon {
   width: 50px;
   height: 50px;
@@ -2641,7 +2618,6 @@ textarea.form-control {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin: 0; 
 }
 
 .info-icon i {
@@ -2649,40 +2625,27 @@ textarea.form-control {
   color: var(--turquoise);
 }
 
-.info-content h6,
-.info-content-phone h6,
-.info-content-email h6 {
+.info-content h6 {
   color: var(--gris-fonce);
   font-weight: 600;
   margin-bottom: 0.5rem;
   font-size: 1rem;
 }
 
-.info-content p,
-.info-content-phone p,
-.info-content-email p {
+.info-content p {
   color: var(--gris-moyen);
   margin-bottom: 0.25rem;
   font-size: 0.9rem;
-  /* Aligner le texte d'information à gauche (par défaut), surtout après le align-right du header */
-  text-align: left;
 }
 
-.info-content a,
-.info-content-phone a,
-.info-content-email a {
+.info-content a {
   color: var(--turquoise);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s;
-  /* Aligner le lien à gauche (par défaut) */
-  text-align: left;
-  display: block; /* S'assurer que le lien prend la largeur pour que text-align fonctionne */
 }
 
-.info-content a:hover,
-.info-content-phone a:hover,
-.info-content-email a:hover {
+.info-content a:hover {
   color: var(--turquoise-hover);
   text-decoration: underline;
 }
@@ -2756,11 +2719,88 @@ textarea.form-control {
 }
 
 
+/* ==========================================================
+   FOOTER PRINCIPAL (contact.html - Non utilisé dans les autres fichiers)
+   ----------------------------------------------------------
+   Ce bloc n'est pas utilisé dans les HTML fournis, mais est
+   conservé et marqué pour le cas où il serait destiné à un
+   futur layout de footer différent.
+   ========================================================== */
+
+/*
+.footer-principal {
+  background: var(--gris-fonce);
+  color: var(--blanc);
+  padding: 3rem 0 1rem;
+}
+
+.footer-principal h5 {
+  color: var(--turquoise);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-principal p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--turquoise);
+}
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li {
+  color: #ccc;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.footer-contact i {
+  color: var(--turquoise);
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+.footer-bottom p {
+  color: #999;
+  margin: 0;
+}
+*/
+
 
 /* ==========================================================
    MODAL DE CONFIRMATION (contact.html)
-   ----------------------------------------------------------
-   ========================================================== */
+   ---------------------------------------------------------- */
 
 .confirmation-details .info-row {
   display: flex;

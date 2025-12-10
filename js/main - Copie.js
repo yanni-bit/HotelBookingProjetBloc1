@@ -11,6 +11,25 @@
    ========================================================== */
 
 /* ==========================================================
+   INITIALISATION DU RUBAN (LANGUE ET MONNAIE)
+   ---------------------------------------------------------- */
+
+// const choixLangue = "FRANCAIS (Fr)";
+// const choixMonnaie = "EURO €";
+
+// const langueElement = document.getElementById("langue");
+// const monnaieElement = document.getElementById("monnaie");
+
+// if (langueElement) {
+//   langueElement.textContent = choixLangue;
+// }
+
+// if (monnaieElement) {
+//   monnaieElement.textContent = choixMonnaie;
+// }
+
+
+/* ==========================================================
    MENU HAMBURGER (NAVIGATION MOBILE)
    ---------------------------------------------------------- */
 
@@ -24,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
 
 /* ==========================================================
    CARROUSEL INDEX (PAGE D'ACCUEIL)
@@ -40,9 +60,8 @@ if (indexCarousel) {
 }
 
 /**
- * Change de slide en fonction de l'incrément.
- * Réinitialise le timer du défilement automatique.
- * @param {number} n - Nombre de slides à avancer ou reculer (ex: 1 ou -1).
+ * Change de slide en fonction de l'incrément
+ * @param {number} n - Nombre de slides à avancer ou reculer
  */
 function plusSlides(n) {
   slideIndex += n;
@@ -51,9 +70,8 @@ function plusSlides(n) {
 }
 
 /**
- * Affiche une slide spécifique en utilisant son index basé sur 1.
- * Réinitialise le timer du défilement automatique.
- * @param {number} n - Index de la slide à afficher (commence à 1).
+ * Affiche une slide spécifique
+ * @param {number} n - Index de la slide (commence à 1)
  */
 function currentSlide(n) {
   slideIndex = n - 1;
@@ -62,9 +80,8 @@ function currentSlide(n) {
 }
 
 /**
- * Affiche la slide active et met à jour les points indicateurs.
- * Gère le bouclage du carrousel.
- * @param {number} n - Index de la slide à afficher.
+ * Affiche la slide active et met à jour les points indicateurs
+ * @param {number} n - Index de la slide à afficher
  */
 function showSlides(n) {
   const slides = document.getElementsByClassName("hotel-slide");
@@ -106,7 +123,7 @@ function showSlides(n) {
 }
 
 /**
- * Passe automatiquement à la slide suivante pour le défilement continu.
+ * Passe automatiquement à la slide suivante
  */
 function autoSlides() {
   slideIndex++;
@@ -114,7 +131,7 @@ function autoSlides() {
 }
 
 /**
- * Réinitialise le timer du défilement automatique.
+ * Réinitialise le timer du défilement automatique
  */
 function resetTimer() {
   if (document.getElementById("hotelCarousel")) {
@@ -122,6 +139,7 @@ function resetTimer() {
     timer = setInterval(autoSlides, 4500);
   }
 }
+
 
 /* ==========================================================
    CARROUSEL ROOM (PAGE DÉTAILS AVEC MINIATURES)
@@ -143,13 +161,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* Attente de l'initialisation complète de Bootstrap */
   setTimeout(function () {
-    /** @type {bootstrap.Carousel} */
+    /* Récupération ou création de l'instance Bootstrap Carousel */
     let bsCarousel = bootstrap.Carousel.getInstance(carousel);
 
     if (!bsCarousel) {
       bsCarousel = new bootstrap.Carousel(carousel, {
         interval: 5000,
-        wrap: true,
+        wrap: true
       });
     }
 
@@ -167,19 +185,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* Mise à jour de la miniature active lors du changement de slide */
     carousel.addEventListener("slide.bs.carousel", function (e) {
-      /** @type {number} */
-      const targetIndex = e.to;
-
       /* Retire la classe active de toutes les miniatures */
-      thumbnails.forEach((thumb) => thumb.classList.remove("active"));
+      thumbnails.forEach(thumb => thumb.classList.remove("active"));
 
       /* Ajoute la classe active à la miniature correspondante */
-      if (thumbnails[targetIndex]) {
-        thumbnails[targetIndex].classList.add("active");
+      if (thumbnails[e.to]) {
+        thumbnails[e.to].classList.add("active");
 
         /* Scroll automatique vers la miniature active */
         if (thumbnailsScroll) {
-          const activeThumbnail = thumbnails[targetIndex];
+          const activeThumbnail = thumbnails[e.to];
           const scrollLeft =
             activeThumbnail.offsetLeft -
             thumbnailsScroll.offsetWidth / 2 +
@@ -187,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           thumbnailsScroll.scrollTo({
             left: scrollLeft,
-            behavior: "smooth",
+            behavior: "smooth"
           });
         }
       }
@@ -196,34 +211,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* === Boutons de navigation des miniatures === */
 
-  /**
-   * Fait défiler les miniatures vers la gauche.
-   * @param {Event} e
-   */
+  /* Bouton scroll vers la gauche */
   if (scrollLeftBtn && thumbnailsScroll) {
     scrollLeftBtn.addEventListener("click", function (e) {
       e.preventDefault();
       thumbnailsScroll.scrollBy({
         left: -250,
-        behavior: "smooth",
+        behavior: "smooth"
       });
     });
   }
 
-  /**
-   * Fait défiler les miniatures vers la droite.
-   * @param {Event} e
-   */
+  /* Bouton scroll vers la droite */
   if (scrollRightBtn && thumbnailsScroll) {
     scrollRightBtn.addEventListener("click", function (e) {
       e.preventDefault();
       thumbnailsScroll.scrollBy({
         left: 250,
-        behavior: "smooth",
+        behavior: "smooth"
       });
     });
   }
 });
+
 
 /* ==========================================================
    FORMULAIRE DE RECHERCHE
@@ -251,7 +261,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("checkin")?.value || "Non renseignée";
       const checkout =
         document.getElementById("checkout")?.value || "Non renseignée";
-      const rooms = document.getElementById("rooms")?.value || "Non renseignée";
+      const rooms = 
+        document.getElementById("rooms")?.value || "Non renseignée";
       const adults =
         document.getElementById("adults")?.value || "Non renseignée";
       const children =

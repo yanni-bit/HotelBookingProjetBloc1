@@ -208,7 +208,7 @@
        MAIN - CONTENU PRINCIPAL
        Page Contact : Fil d'Ariane + Header + 2 colonnes (Map/Infos + Formulaire)
        ======================================== -->
-  <main id="main-content" class="pe-3 pb-5 contact-main" role="main">
+  <main id="main-content" class="pb-5 contact-main" role="main">
     <div class="container">
 
       <!-- ========================================
@@ -255,29 +255,38 @@
 
               <!-- Carte 1 : Téléphone -->
               <div class="col-md-6">
-                <div class="info-card">
-                  <div class="info-icon">
-                    <i class="bi bi-telephone-fill"></i>
-                  </div>
-                  <div class="info-content">
-                    <h6 data-i18n="contact.phoneTitle">Téléphone</h6>
+                <div class="info-card-phone-new">
+                  <div class="info-content-phone">
+
+                    <div class="phone-header-line">
+                      <div class="info-icon">
+                        <i class="bi bi-telephone-fill"></i>
+                      </div>
+                      <h6 data-i18n="contact.phoneTitle">Téléphone</h6>
+                    </div>
                     <p class="mb-0" data-i18n="contact.phoneSubtitle">Support 24/7</p>
                     <a href="tel:+33123456789" data-i18n="contact.phoneNumber">1-555-555-5555</a>
                   </div>
                 </div>
               </div>
+
               <!-- FIN : Carte téléphone -->
 
               <!-- Carte 2 : Email -->
               <div class="col-md-6">
-                <div class="info-card">
-                  <div class="info-icon">
-                    <i class="bi bi-envelope-fill"></i>
-                  </div>
-                  <div class="info-content">
-                    <h6 data-i18n="contact.emailTitle">Email</h6>
+                <div class="info-card-email-new">
+                  <div class="info-content-email">
+
+                    <div class="email-header-line">
+                      <div class="info-icon">
+                        <i class="bi bi-envelope-fill"></i>
+                      </div>
+                      <h6 data-i18n="contact.emailTitle">Email</h6>
+                    </div>
+
                     <p class="mb-0" data-i18n="contact.emailSubtitle">Réponse sous 24h</p>
-                    <a href="mailto:contact@bookyourtravel.com" data-i18n="footer.email">contact@bookyourtravel.com</a>
+                    <a href="mailto:contact@bookyourtravel.com" data-i18n="footer.email"
+                      class="js-replace-email">contact@bookyourtravel.com</a>
                   </div>
                 </div>
               </div>

@@ -2,67 +2,68 @@
    RESPONSIVE.CSS - Adaptations mobiles et tablettes
    Projet : Hôtel Booking (Bloc 1)
    ----------------------------------------------------------
-   Structure des Média-Requêtes :
-   1. DESKTOP XL (≥ 1200px)
-   2. DESKTOP/GRANDES TABLETTES (≥ 992px)
-   3. TABLETTES/MOBILES (≤ 991px)
-   4. TABLETTES MOYENNES (768px - 991px)
-   5. PETITES TABLETTES/GRANDS MOBILES (576px - 767px)
-   6. MOBILES MOYENS (391px - 575px)
-   7. PETITS MOBILES (≤ 390px)
-   8. TRÈS PETITS MOBILES (< 360px)
-   9. AMÉLIORATIONS TACTILES (Pointer: coarse)
-   10. RESPONSIVE PAGES SPÉCIFIQUES (Booking, Contact)
+   Structure :
+   1. Règles générales responsive (tous appareils)
+   2. Desktop et grandes tablettes (≥ 992px)
+   3. Tablettes moyennes (768px - 991px)
+   4. Petites tablettes et grands mobiles (576px - 767px)
+   5. Mobiles moyens (391px - 575px)
+   6. Petits mobiles (≤ 390px)
+   7. Très petits mobiles (< 360px)
+   8. Améliorations tactiles
    ========================================================== */
 
 
 /* ==========================================================
    RÈGLES GÉNÉRALES - Masquage par défaut
-   (Appliqué à tous les appareils)
    ---------------------------------------------------------- */
 
-/* [room.html] Le formulaire mobile est masqué par défaut (affiché uniquement ≤ 390px) */
+/* Le formulaire mobile est masqué par défaut (affiché uniquement ≤ 390px) */
 .mobile-date-form {
   display: none;
 }
 
 
 /* ==========================================================
-   1. DESKTOP XL (largeur ≥ 1200px)
-   ----------------------------------------------------------
-   Ciblé: room.html (Modals, Sidebar)
+   DESKTOP XL (≥1200px)
+   Correction flèche et close du modal qui pose problème de
+   Bootstrap qui décale la flèche droite et le X close hors
+   du conteneur quand l’image devient très large
    ========================================================== */
 
 @media (min-width: 1200px) {
 
-  /* [room.html] Décalage des étoiles de hotel-header pour éviter les sauts de ligne */
+  /* Décalage des étoiles de hotel-header */
   .col-star-hotel {
     gap: 2px;
     flex: 0;
   }
 
-  /* [room.html] Correction flèche et bouton fermeture du modal lightbox */
+  /* Correction flèche et close du modal qui pose problème de
+   Bootstrap qui décale la flèche droite et le X close hors
+   du conteneur quand l’image devient très large */
   .modal-custom .btn-close {
     position: absolute;
     top: 15px;
+    /* évite que X sorte de l’image */
     right: 115px;
+    /* replace X à bonne hauteur */
   }
 
-  /* [room.html] Flèche droite du modal lightbox */
+  /* Flèche droite */
   .modal-custom .carousel-control-next {
     right: 90px;
+    /* évite qu’elle sorte de l’image */
   }
 }
 
 /* ==========================================================
-   2. DESKTOP ET GRANDES TABLETTES (largeur ≥ 992px)
-   ----------------------------------------------------------
-   Ciblé: room.html (Calendrier Flatpickr)
-   ========================================================== */
+   DESKTOP ET GRANDES TABLETTES (largeur ≥ 992px)
+   ---------------------------------------------------------- */
 
 @media (min-width: 992px) {
 
-  /* === [room.html] CALENDRIER FLATPICKR === */
+  /* === CALENDRIER FLATPICKR === */
 
   .flatpickr-calendar {
     max-width: 500px !important;
@@ -82,14 +83,12 @@
 
 
 /* ==========================================================
-   3. TABLETTES ET MOBILES (largeur ≤ 991px)
-   ----------------------------------------------------------
-   Ciblé: Header, Carrousel/Formulaire de recherche, Contenu principal
-   ========================================================== */
+   TABLETTES ET MOBILES (largeur ≤ 991px)
+   ---------------------------------------------------------- */
 
 @media (max-width: 991px) {
 
-  /* === HEADER GLOBAL (index.html, room.html, booking.html, contact.html) === */
+  /* === HEADER === */
 
   .base-header {
     padding: 15px 0;
@@ -102,7 +101,6 @@
     margin-right: -10px;
   }
 
-  /* Alignement des blocs à gauche sur mobile/tablette */
   .header_logo,
   .header_contact,
   .header_search {
@@ -122,18 +120,17 @@
     padding-top: 0 !important;
   }
 
-  /* [room.html] Décalage des étoiles de hotel-header */
+  /* Décalage des étoiles de hotel-header */
   .col-star-hotel {
     display: inline;
     gap: 2px;
   }
 
-  /* [room.html] Padding bas de la section détails */
   .room-details {
     padding-bottom: 20px;
   }
 
-  /* === RUBAN (index.html, etc.) === */
+  /* === RUBAN === */
 
   .ribbon {
     right: 5px;
@@ -141,7 +138,7 @@
     padding: 12px 10px;
   }
 
-  /* === BLOC DE RECHERCHE PRINCIPAL (index.html) === */
+  /* === BLOC DE RECHERCHE === */
 
   /* Le bloc de recherche passe en position relative (dans le flux) */
   .search-overlay-container {
@@ -177,7 +174,7 @@
     border-left: none;
   }
 
-  /* === BLOC CONTACT HEADER (index.html, etc.) === */
+  /* === BLOC CONTACT === */
 
   .bloc-contact {
     justify-content: flex-start;
@@ -194,7 +191,7 @@
     font-size: 18px;
   }
 
-  /* === BLOC RECHERCHE HEADER (index.html, etc.) === */
+  /* === BLOC RECHERCHE HEADER === */
 
   .bloc-search {
     width: 100%;
@@ -202,7 +199,7 @@
     display: flex;
   }
 
-  /* === CARROUSEL INDEX (index.html) === */
+  /* === CARROUSEL === */
 
   /* Permet au bloc de recherche (qui passe en position relative)
      d'être visible en dessous du carrousel */
@@ -211,7 +208,7 @@
     overflow: visible;
   }
 
-  /* === SECTION DESTINATIONS (index.html) === */
+  /* === SECTION DESTINATIONS === */
 
   .destinations-section {
     padding: 40px 0;
@@ -225,7 +222,7 @@
     font-size: 22px;
   }
 
-  /* === FOOTER (index.html, etc.) === */
+  /* === FOOTER === */
 
   footer.container-fluid {
     margin-left: -15px;
@@ -234,19 +231,16 @@
 
 
 /* ==========================================================
-   4. TABLETTES MOYENNES (largeur 768px - 991px)
-   ----------------------------------------------------------
-   Ciblé: room.html (Calendrier, Avis clients)
-   ========================================================== */
+   TABLETTES MOYENNES (largeur 768px - 991px)
+   ---------------------------------------------------------- */
 
 @media (min-width: 768px) and (max-width: 991px) {
 
-  /* Centrage du container */
+  /* === CALENDRIER FLATPICKR === */
+
   .container {
     max-width: 95%;
   }
-
-  /* === [room.html] CALENDRIER FLATPICKR === */
 
   .flatpickr-calendar {
     max-width: 450px !important;
@@ -263,7 +257,8 @@
     font-size: 1.05em !important;
   }
 
-  /* [room.html] ONGLET AVIS CLIENTS - Empilement vertical */
+  /* ONGLET AVIS CLIENTS */
+
   .review-item {
     flex-direction: column;
   }
@@ -276,20 +271,17 @@
 
 
 /* ==========================================================
-   5. PETITES TABLETTES ET GRANDS MOBILES (576px - 767px)
-   ----------------------------------------------------------
-   Ciblé: room.html (Sidebar, Calendrier)
-   ========================================================== */
+   PETITES TABLETTES ET GRANDS MOBILES (576px - 767px)
+   ---------------------------------------------------------- */
 
 @media (min-width: 576px) and (max-width: 767px) {
 
-  /* === [room.html] SLIDEBAR GAUCHE (Onglets) === */
+  /* === SLIDEBAR GAUCHE === */
 
   .sidebar {
     margin-bottom: 0 !important;
   }
 
-  /* Retirer le triangle décoratif sur le côté pour les écrans étroits */
   .sidebar-nav a.nav-link.active::after {
     display: none;
   }
@@ -302,7 +294,7 @@
     padding-right: 15px !important;
   }
 
-  /* === [room.html] CALENDRIER FLATPICKR === */
+  /* === CALENDRIER FLATPICKR === */
 
   .flatpickr-calendar {
     max-width: 100% !important;
@@ -338,7 +330,8 @@
     font-size: 1em !important;
   }
 
-  /* [room.html] ONGLET AVIS CLIENTS - Empilement vertical */
+  /* ONGLET AVIS CLIENTS */
+
   .review-item {
     flex-direction: column;
   }
@@ -355,14 +348,12 @@
 
 
 /* ==========================================================
-   6. MOBILES MOYENS (391px - 575px)
-   ----------------------------------------------------------
-   Ciblé: room.html (Sidebar, Calendrier, Avis clients), Header
-   ========================================================== */
+   MOBILES MOYENS (391px - 575px)
+   ---------------------------------------------------------- */
 
 @media (min-width: 391px) and (max-width: 575px) {
 
-  /* === [room.html] SLIDEBAR GAUCHE (Onglets) === */
+  /* === SLIDEBAR GAUCHE === */
 
   .sidebar {
     margin-bottom: 0 !important;
@@ -380,7 +371,7 @@
     padding-right: 15px !important;
   }
 
-  /* === [room.html] CALENDRIER FLATPICKR === */
+  /* === CALENDRIER FLATPICKR === */
 
   .flatpickr-calendar {
     max-width: 100% !important;
@@ -428,7 +419,8 @@
     padding: 15px;
   }
 
-  /* [room.html] ONGLET AVIS CLIENTS - Empilement vertical */
+  /* ONGLET AVIS CLIENTS */
+
   .review-item {
     flex-direction: column;
   }
@@ -437,24 +429,24 @@
     min-width: auto;
   }
 
-  /* [Header] BLOC RECHERCHE HEADER - Réduction de la largeur */
+  
+     /* === BLOC RECHERCHE HEADER === */
   .bloc-search {
     width: 63%;
   }
+
 
 }
 
 
 /* ==========================================================
-   7. PETITS MOBILES (largeur ≤ 390px)
-   ----------------------------------------------------------
-   Ciblé: Header (changement de layout du Ruban), Formulaire recherche principal,
-          room.html (bascule calendrier -> inputs), Destinations
-   ========================================================== */
+   PETITS MOBILES (largeur ≤ 390px)
+   ---------------------------------------------------------- */
 
 @media (max-width: 390px) {
 
-  /* === [room.html] SLIDEBAR GAUCHE (Onglets) === */
+  /* === SLIDEBAR GAUCHE === */
+
   .sidebar {
     margin-bottom: 0 !important;
   }
@@ -471,21 +463,44 @@
     padding-right: 15px !important;
   }
 
-  /* === [room.html] INTERFACE MOBILE : FORMULAIRE AU LIEU DU CALENDRIER === */
+  /* === INTERFACE MOBILE : FORMULAIRE AU LIEU DU CALENDRIER === */
 
   /* Masquer le calendrier Flatpickr */
   #calendar-desktop {
     display: none !important;
   }
 
-  /* Afficher le formulaire mobile (défini dans base.css/style.css) */
+  /* Afficher le formulaire mobile */
   .mobile-date-form {
     display: block !important;
   }
 
-  /* === HEADER - Réorganisation pour très petit écran === */
+  /* === RUBAN === */
 
-  /* Réorganisation de l'ordre des blocs du header (Ruban passe en haut du flux) */
+  .ribbon {
+    font-size: 11px;
+    padding: 10px 8px;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  /* === BLOC CONTACT === */
+
+  .bloc-contact-label,
+  .bloc-contact-number {
+    font-size: 11px;
+  }
+
+  .bloc-contact-ico {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 16px;
+  }
+
+  /* === RÉORGANISATION DU HEADER === */
+
   .base-header {
     padding-top: 0%;
   }
@@ -493,13 +508,6 @@
   .base-header .container-fluid {
     display: flex;
     flex-direction: column;
-  }
-  
-  /* Retrait des pointes du ruban en mode full width (fix) */
-  .base-header .ribbon::before,
-  .base-header .ribbon::after {
-    content: none !important;
-    border-width: 0 !important;
   }
 
   .base-header .ribbon {
@@ -532,31 +540,17 @@
     color: #fff;
     border-radius: 0;
   }
+  
 
-  /* Ajustement de la taille des éléments du bloc contact */
-  .bloc-contact-label,
-  .bloc-contact-number {
-    font-size: 11px;
-  }
-
-  .bloc-contact-ico {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    min-height: 36px;
-    font-size: 16px;
-  }
-
-  /* === CARROUSEL INDEX (index.html) === */
+  /* === CARROUSEL === */
 
   .dot {
     height: 8px;
     width: 8px;
   }
 
-  /* === FORMULAIRE DE RECHERCHE PRINCIPAL (index.html) === */
+  /* === FORMULAIRE DE RECHERCHE === */
 
-  /* Empilement vertical des champs date et personnes */
   .search-col-date,
   .search-col-who {
     display: flex;
@@ -590,7 +584,7 @@
     margin-bottom: 5px;
   }
 
-  /* === SECTION DESTINATIONS (index.html) === */
+  /* === SECTION DESTINATIONS === */
 
   .destinations-section {
     padding: 30px 0;
@@ -604,7 +598,6 @@
     font-size: 20px;
   }
 
-  /* Empilement vertical des stats (Hôtels/Prix) */
   .destination-stats {
     flex-direction: column;
     gap: 5px;
@@ -614,28 +607,19 @@
     padding: 12px 15px;
   }
 
-  /* === FOOTER (index.html, etc.) === */
+  /* === FOOTER === */
 
   footer .bottom a {
     text-decoration: underline;
   }
 
-  /* Retrait des séparateurs verticaux entre les liens légaux */
   footer .bottom nav li {
     padding: 0;
     border: none !important;
   }
 
-  /* [room.html] ONGLET AVIS CLIENTS - Empilement vertical */
-  .review-item {
-    flex-direction: column;
-  }
+  /* === CALENDRIER FLATPICKR (masqué mais styles définis pour éviter erreurs) === */
 
-  .review-header {
-    min-width: auto;
-  }
-
-  /* Styles Flatpickr (pour cohérence, même si masqué) */
   .flatpickr-calendar {
     max-width: 100% !important;
     max-height: 370px !important;
@@ -694,24 +678,9 @@
   #flatpickr-calendar-container {
     padding: 10px;
   }
-}
 
+  /* ONGLET AVIS CLIENTS */
 
-/* ==========================================================
-   8. TRÈS PETITS MOBILES (largeur < 360px)
-   ----------------------------------------------------------
-   Ciblé: room.html (En-tête Sidebar), Flatpickr, Avis clients
-   ========================================================== */
-
-@media (max-width: 359px) {
-
-  /* [room.html] Décalage des étoiles de hotel-header pour éviter les chevauchements */
-  .col-star-hotel {
-    display: inline-flex;
-    gap: 2px;
-  }
-
-  /* [room.html] ONGLET AVIS CLIENTS - Empilement vertical */
   .review-item {
     flex-direction: column;
   }
@@ -719,8 +688,23 @@
   .review-header {
     min-width: auto;
   }
+}
 
-  /* Styles Flatpickr (plus compact) */
+
+/* ==========================================================
+   TRÈS PETITS MOBILES (largeur < 360px)
+   ---------------------------------------------------------- */
+
+@media (max-width: 359px) {
+
+  /* Décalage des étoiles de hotel-header */
+  .col-star-hotel {
+    display: inline-flex;
+    gap: 2px;
+  }
+
+  /* === CALENDRIER FLATPICKR (masqué mais styles définis) === */
+
   .flatpickr-calendar {
     max-height: 340px !important;
     padding: 6px !important;
@@ -752,14 +736,22 @@
     font-size: 0.75em !important;
     margin: 0.5px !important;
   }
+
+  /* ONGLET AVIS CLIENTS */
+
+  .review-item {
+    flex-direction: column;
+  }
+
+  .review-header {
+    min-width: auto;
+  }
 }
 
 
 /* ==========================================================
-   9. RESPONSIVE CARROUSEL ROOM (largeur ≤ 768px)
-   ----------------------------------------------------------
-   Ciblé: room.html (Galerie d'images)
-   ========================================================== */
+   RESPONSIVE CARROUSEL ROOM (largeur ≤ 768px)
+   ---------------------------------------------------------- */
 
 @media (max-width: 768px) {
 
@@ -784,20 +776,17 @@
 
 
 /* ==========================================================
-   10. AMÉLIORATIONS TACTILES (touch devices)
-   ----------------------------------------------------------
-   Ciblé: Flatpickr (Zones de clic)
-   ========================================================== */
+   AMÉLIORATIONS TACTILES (touch devices)
+   ---------------------------------------------------------- */
 
 @media (hover: none) and (pointer: coarse) {
 
-  /* [room.html] Augmente la zone tactile pour les jours du calendrier */
+  /* Augmente la zone tactile pour les appareils tactiles */
   .flatpickr-day {
     min-height: 44px !important;
     min-width: 44px !important;
   }
 
-  /* Augmente la zone tactile pour les flèches de navigation du calendrier */
   .flatpickr-prev-month,
   .flatpickr-next-month {
     min-height: 44px !important;
@@ -806,13 +795,10 @@
 }
 
 /* ==========================================================
-   11. RESPONSIVE PAGES SPÉCIFIQUES
-   ---------------------------------------------------------- */
-
-/* === PAGE BOOKING (booking.html) === */
+   RESPONSIVE RESERVATION
+   ========================================================== */
 
 @media (max-width: 991px) {
-  /* [booking.html] Le récapitulatif (sidebar) n'est plus sticky et revient dans le flux normal */
   .booking-summary {
     position: static !important;
     margin-top: 2rem;
@@ -820,7 +806,6 @@
 }
 
 @media (max-width: 767px) {
-  /* [booking.html] En-tête de page */
   .booking-header {
     padding: 1.5rem;
   }
@@ -829,7 +814,6 @@
     font-size: 1.5rem;
   }
 
-  /* [booking.html] Formulaire */
   .booking-form {
     padding: 1.5rem;
   }
@@ -838,7 +822,11 @@
     font-size: 1.25rem;
   }
 
-  /* [booking.html] Services additionnels - Empilement vertical */
+  /* .summary-dates {
+    flex-direction: column;
+    gap: 1rem;
+  } */
+
   .service-item .form-check-label {
     flex-direction: column;
     align-items: flex-start;
@@ -848,19 +836,18 @@
   .service-price {
     align-self: flex-start;
   }
-
-  /* [booking.html] Section invités - pleine largeur */
+  
+  /* Responsive pour la section guests */
   .guests-section .input-group {
     max-width: 100%;
   }
-
+  
   .guests-section h6 {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 575px) {
-  /* [booking.html] Pads réduits */
   .booking-header {
     padding: 1rem;
   }
@@ -869,7 +856,6 @@
     padding: 1rem;
   }
 
-  /* [booking.html] Numéro de section réduit */
   .section-number {
     width: 35px;
     height: 35px;
@@ -881,16 +867,16 @@
   }
 }
 
-/* === PAGE CONTACT (contact.html) === */
+/* ==========================================================
+   RESPONSIVE CONTACT
+   ========================================================== */
 
 @media (max-width: 991px) {
-  /* [contact.html] Le formulaire (sidebar sticky) revient dans le flux normal */
   .contact-form-wrapper {
     position: static;
     margin-top: 2rem;
   }
 
-  /* [contact.html] L'overlay d'information de la map passe en statique */
   .map-overlay {
     position: static;
     padding: 1rem;
@@ -899,7 +885,6 @@
 }
 
 @media (max-width: 767px) {
-  /* [contact.html] Taille du titre réduite */
   .contact-header h1 {
     font-size: 2rem;
   }
@@ -908,33 +893,37 @@
     font-size: 1rem;
   }
 
-  /* [contact.html] Hauteur de la map réduite */
   .map-container iframe {
     height: 300px;
   }
 
-  /* [contact.html] Cartes d'information - Empilement vertical */
   .info-card {
     flex-direction: column;
-    text-align: left;
+    text-align: center;
   }
 
   .info-icon {
-    margin: 0;
+    margin: 0 auto;
   }
 
   .social-links {
     justify-content: center;
   }
 
-  /* [contact.html] Formulaire et pads */
+  .faq-section {
+    padding: 2rem 1rem;
+  }
+
+  .faq-section h2 {
+    font-size: 1.5rem;
+  }
+
   .contact-form-wrapper {
     padding: 1.5rem;
   }
 }
 
 @media (max-width: 575px) {
-  /* [contact.html] Pads et taille du titre réduits */
   .contact-main {
     padding: 1rem 0 2rem;
   }
@@ -948,31 +937,15 @@
   }
 }
 
-@media (max-width: 280px) {
-  /* 1. Masquer l'adresse e-mail longue originale */
-    .js-replace-email {
-        color: transparent !important; /* Rend le texte invisible */
-        font-size: 0; /* Assure que le texte ne prend pas de hauteur */
-        white-space: nowrap; /* Empêche le débordement horizontal de l'élément vide */
-        display: inline-block; /* Nécessaire pour les dimensions et le pseudo-élément */
-    }
-
-    /* 2. Insérer le mot "Contact" via un pseudo-élément */
-    .js-replace-email::after {
-        content: "Contact"; /* Le nouveau texte COURT */
-        color: var(--turquoise); /* Rétablit la couleur d'origine */
-        font-size: 0.9rem; /* Rétablit la taille de police */
-    }
-}
-
-/* === MODAL DE CONFIRMATION (booking.html) === */
+/* ==========================================================
+   MODAL DE CONFIRMATION
+   ========================================================== */
 @media (max-width: 576px) {
-  /* [booking.html] Détails de la confirmation - Empilement vertical */
   .confirmation-details .info-row {
     flex-direction: column;
     text-align: center;
   }
-
+  
   .confirmation-details .info-row i {
     margin: 0 auto;
   }

@@ -1,104 +1,94 @@
 /* ==========================================================
-   CONTACT.JS - Logique de la page de contact
+   CONTACT.JS - Gestion du formulaire de contact
    Projet : Hôtel Booking (Bloc 1)
-   ----------------------------------------------------------
-   Contient :
-   - Gestion de la soumission du formulaire de contact
-   - Validation des données côté client (email, longueur message)
-   - Formatage automatique du champ Téléphone (ajout d'espaces)
-   - Affichage d'une modale de confirmation détaillée (récapitulatif)
-   - Gestion des erreurs de chargement de la carte Google Maps
    ========================================================== */
 
-/**
- * @file contact.js
- * @description Gère la soumission du formulaire de contact, la validation des données,
- * le formatage du téléphone, et l'affichage de la modale de succès.
- */
-
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function() {
+  
   // ==========================================================
   // GESTION DU FORMULAIRE DE CONTACT
   // ==========================================================
-
-  const contactForm = document.getElementById("contactForm");
-  const successMessage = document.getElementById("successMessage");
-  /** @type {HTMLInputElement | null} */
-  const phoneInput = document.getElementById("phone");
-
+  
+  const contactForm = document.getElementById('contactForm');
+  const successMessage = document.getElementById('successMessage');
+  
   if (contactForm) {
-    contactForm.addEventListener("submit", handleFormSubmit);
+    contactForm.addEventListener('submit', handleFormSubmit);
   }
-
-  // Formatage automatique du téléphone (ajout d'espaces)
+  
+  // Formatage automatique du téléphone
+  const phoneInput = document.getElementById('phone');
   if (phoneInput) {
-    phoneInput.addEventListener("input", function (e) {
-      let value = e.target.value.replace(/\D/g, "");
-      if (value.length > 0 && value[0] === "0") {
-        value = value.match(/.{1,2}/g)?.join(" ") || value;
+    phoneInput.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 0 && value[0] === '0') {
+        value = value.match(/.{1,2}/g)?.join(' ') || value;
       }
       e.target.value = value;
     });
   }
-
+  
   /**
-   * Gère la soumission du formulaire, valide et affiche la confirmation.
-   * @param {Event} e - L'événement de soumission du formulaire.
+   * Gère la soumission du formulaire
    */
   function handleFormSubmit(e) {
     e.preventDefault();
-
+    
+    // Récupérer les données du formulaire
     const formData = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      phone: phoneInput ? phoneInput.value : "",
-      subject: document.getElementById("subject").value,
-      message: document.getElementById("message").value,
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      subject: document.getElementById('subject').value,
+      message: document.getElementById('message').value
     };
-
-    // NOTE: La validation des champs requis est principalement gérée par accessibilite.js
+    
+    // Valider les champs
     if (!validateForm(formData)) {
       return;
     }
-
+    
+    // Afficher le message de confirmation
     displaySuccessMessage(formData);
+    
+    // Réinitialiser le formulaire
     contactForm.reset();
   }
-
+  
   /**
-   * Effectue une validation secondaire des données (longueur du message, etc.).
-   * @param {Object} data - Les données collectées du formulaire.
-   * @returns {boolean} Vrai si le formulaire est valide.
+   * Valide les données du formulaire
    */
   function validateForm(data) {
+    // Vérifier que les champs obligatoires sont remplis
     if (!data.name || !data.email || !data.subject || !data.message) {
-      // NOTE: Dans un environnement réel, on utiliserait la validation de accessibilite.js
-      // pour afficher des messages près des champs.
-      alert("Veuillez remplir tous les champs obligatoires.");
+      alert('Veuillez remplir tous les champs obligatoires.');
       return false;
     }
-
+    
+    // Vérifier le format de l'email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
-      alert("Veuillez entrer une adresse email valide.");
+      alert('Veuillez entrer une adresse email valide.');
       return false;
     }
-
+    
+    // Vérifier la longueur du message
     if (data.message.length < 10) {
-      alert("Votre message doit contenir au moins 10 caractères.");
+      alert('Votre message doit contenir au moins 10 caractères.');
       return false;
     }
-
+    
     return true;
   }
-
+  
   /**
-   * Affiche le message de succès dans une modale Bootstrap.
-   * @param {Object} data - Les données du formulaire soumises.
+   * Affiche le message de succès
    */
   function displaySuccessMessage(data) {
+    // Construire le message de confirmation
     const subjectText = getSubjectText(data.subject);
-
+    
+    // Créer une modal Bootstrap pour afficher le message
     const modalHTML = `
       <div class="modal fade" id="confirmationModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -130,9 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   </div>
                 </div>
                 
-                ${
-                  data.phone
-                    ? `
+                ${data.phone ? `
                 <div class="info-row">
                   <i class="bi bi-telephone-fill text-primary"></i>
                   <div>
@@ -140,9 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p class="mb-0"><strong>${data.phone}</strong></p>
                   </div>
                 </div>
-                `
-                    : ""
-                }
+                ` : ''}
                 
                 <div class="info-row">
                   <i class="bi bi-tag-fill text-primary"></i>
@@ -162,9 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                 <div class="alert alert-info mt-4 mb-0">
                   <i class="bi bi-info-circle-fill me-2"></i>
-                  <strong>Un email de confirmation a été envoyé à ${
-                    data.email
-                  }</strong>
+                  <strong>Un email de confirmation a été envoyé à ${data.email}</strong>
                   <p class="mb-0 mt-2">Notre équipe vous répondra dans les plus brefs délais (généralement sous 24h).</p>
                 </div>
                 
@@ -185,72 +169,68 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </div>
     `;
-
+    
     // Supprimer l'ancienne modal si elle existe
-    const oldModal = document.getElementById("confirmationModal");
+    const oldModal = document.getElementById('confirmationModal');
     if (oldModal) {
       oldModal.remove();
     }
-
-    // Ajouter la modal au body et l'afficher
-    document.body.insertAdjacentHTML("beforeend", modalHTML);
-
-    const modalElement = document.getElementById("confirmationModal");
-    if (modalElement) {
-      const modal = new bootstrap.Modal(modalElement);
-      modal.show();
-
-      // Nettoyer après fermeture
-      modalElement.addEventListener("hidden.bs.modal", function () {
-        this.remove();
-      });
-    }
-
-    // Afficher le message de succès dans la page
+    
+    // Ajouter la modal au body
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    // Afficher la modal
+    const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+    modal.show();
+    
+    // Nettoyer après fermeture
+    document.getElementById('confirmationModal').addEventListener('hidden.bs.modal', function() {
+      this.remove();
+    });
+    
+    // Afficher aussi le message de succès dans la page
     if (successMessage) {
-      successMessage.style.display = "block";
-
-      setTimeout(function () {
-        successMessage.style.display = "none";
+      successMessage.style.display = 'block';
+      
+      // Masquer après 5 secondes
+      setTimeout(function() {
+        successMessage.style.display = 'none';
       }, 5000);
-
-      successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+      
+      // Scroll vers le message
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
-
+  
   /**
-   * Retourne le texte complet correspondant à la valeur du sujet sélectionné.
-   * @param {string} subjectValue - La valeur technique (ex: 'reservation').
-   * @returns {string} Le texte descriptif (ex: 'Réservation').
+   * Retourne le texte correspondant au sujet
    */
   function getSubjectText(subjectValue) {
     const subjects = {
-      reservation: "Réservation",
-      information: "Demande d'information",
-      reclamation: "Réclamation",
-      autre: "Autre",
+      'reservation': 'Réservation',
+      'information': 'Demande d\'information',
+      'reclamation': 'Réclamation',
+      'autre': 'Autre'
     };
-
-    return subjects[subjectValue] || "Votre demande";
+    
+    return subjects[subjectValue] || 'Votre demande';
   }
-
+  
   // ==========================================================
-  // GESTION DE LA CARTE GOOGLE MAPS (Gestion des erreurs)
+  // GESTION DE LA CARTE GOOGLE MAPS
   // ==========================================================
-
-  window.addEventListener("load", function () {
-    const iframe = document.querySelector(".map-container iframe");
-
+  
+  // Gestion de l'erreur de chargement de Google Maps
+  window.addEventListener('load', function() {
+    const iframe = document.querySelector('.map-container iframe');
+    
     if (iframe) {
-      /**
-       * Gère l'événement d'erreur de chargement de l'iframe Google Maps.
-       */
-      iframe.addEventListener("error", function () {
-        console.error("Erreur de chargement de Google Maps");
-
-        const mapContainer = document.querySelector(".map-container");
+      iframe.addEventListener('error', function() {
+        console.error('Erreur de chargement de Google Maps');
+        
+        // Afficher un message d'erreur alternatif
+        const mapContainer = document.querySelector('.map-container');
         if (mapContainer) {
-          // Utilisation d'un template string pour le HTML alternatif
           mapContainer.innerHTML = `
             <div class="map-error" style="
               height: 400px;
@@ -278,21 +258,22 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-
+  
   // ==========================================================
-  // SMOOTH SCROLL POUR LES ANCRES (Déjà présent dans main.js, mais conservé ici)
+  // SMOOTH SCROLL POUR LES ANCRES
   // ==========================================================
-
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
+  
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
+      const target = document.querySelector(this.getAttribute('href'));
       if (target) {
         target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
+          behavior: 'smooth',
+          block: 'start'
         });
       }
     });
   });
+  
 });
