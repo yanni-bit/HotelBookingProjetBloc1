@@ -1,49 +1,84 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+<!-- ========================================
+     HEAD - MÉTADONNÉES ET RESSOURCES
+     Configuration complète du document
+     ======================================== -->
+
 <head>
+  <!-- === MÉTADONNÉES DE BASE === -->
+  <!-- Encodage UTF-8 pour support multilingue -->
   <meta charset="UTF-8">
+  <!-- Responsive design : adaptation mobile/tablette/desktop -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- === SEO - RÉFÉRENCEMENT NATUREL === -->
+  <!-- Meta description pour résultats de recherche Google -->
   <meta name="description"
-    content="Découvrez nos chambres d'hôtel luxueuses avec équipements haut de gamme. Wi-Fi gratuit, climatisation, TV écran plat. Réservation en ligne sécurisée." data-i18n="metadata.roomDescription">
-  <meta name="keywords" content="chambre hôtel, suite luxe, équipements hôtel, réservation chambre" data-i18n="metadata.roomKeywords">
+    content="Découvrez nos chambres d'hôtel luxueuses avec équipements haut de gamme. Wi-Fi gratuit, climatisation, TV écran plat. Réservation en ligne sécurisée."
+    data-i18n="metadata.roomDescription">
+  <!-- Mots-clés pour SEO (moins important aujourd'hui mais conservé) -->
+  <meta name="keywords" content="chambre hôtel, suite luxe, équipements hôtel, réservation chambre"
+    data-i18n="metadata.roomKeywords">
   <meta name="author" content="Book Your Travel">
   <title data-i18n="metadata.roomTitle">Nos Chambres - Book Your Travel</title>
 
+  <!-- === OPEN GRAPH - PARTAGE RÉSEAUX SOCIAUX === -->
+  <!-- Optimisation affichage sur Facebook, LinkedIn -->
   <meta property="og:title" content="Nos Chambres - Book Your Travel" data-i18n="metadata.roomTitle">
   <meta property="og:description"
-    content="Découvrez nos chambres luxueuses avec équipements haut de gamme et services premium." data-i18n="metadata.roomOGDescription">
+    content="Découvrez nos chambres luxueuses avec équipements haut de gamme et services premium."
+    data-i18n="metadata.roomOGDescription">
   <meta property="og:image" content="https://yanni-bit.github.io/HotelBookingProjetBloc1/assets/images/slide-1.jpg">
   <meta property="og:url" content="https://yanni-bit.github.io/HotelBookingProjetBloc1/room.html">
   <meta property="og:type" content="website">
 
+  <!-- === TWITTER CARD - PARTAGE TWITTER === -->
+  <!-- Optimisation affichage sur Twitter/X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Nos Chambres - Book Your Travel" data-i18n="metadata.roomTitle">
-  <meta name="twitter:description" content="Chambres luxueuses avec équipements premium." data-i18n="metadata.roomTwitterDescription">
+  <meta name="twitter:description" content="Chambres luxueuses avec équipements premium."
+    data-i18n="metadata.roomTwitterDescription">
   <meta name="twitter:image" content="https://yanni-bit.github.io/HotelBookingProjetBloc1/assets/images/slide-1.jpg">
 
+  <!-- === URL CANONIQUE === -->
+  <!-- Évite le duplicate content SEO -->
   <link rel="canonical" href="https://yanni-bit.github.io/HotelBookingProjetBloc1/room.html">
 
+  <!-- === FEUILLES DE STYLE CSS === -->
+  <!-- Bootstrap 5.3.8 : Framework CSS responsive -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons : Bibliothèque d'icônes -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
+  <!-- Flatpickr : Bibliothèque calendrier date picker -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
+  <!-- CSS personnalisés du projet -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/accessibilite.css">
 
+  <!-- Favicon : icône affichée dans l'onglet du navigateur -->
   <link rel="icon" type="image/png" href="assets/icons/hotel.png">
 
+  <!-- === SCRIPTS JAVASCRIPT === -->
+  <!-- Bootstrap JS : Composants interactifs (modals, dropdown, carrousel) -->
+  <!-- defer : charge après le HTML pour meilleure performance -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
 
+  <!-- Flatpickr : Bibliothèque calendrier interactif -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <!-- Flatpickr localisation française -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
 
+  <!-- Scripts du système de traduction i18n -->
   <script src="js/translations.js" defer></script>
   <script src="js/i18n.js" defer></script>
 
+  <!-- Scripts fonctionnels de la page -->
   <script src="js/main.js" defer></script>
   <script src="js/calendrier.js" defer></script>
   <script src="js/room-gallery.js" defer></script>
@@ -53,13 +88,24 @@
 
 <body>
 
-
+  <!-- ========================================
+       LIEN D'ÉVITEMENT (SKIP LINK)
+       Accessibilité clavier : permet de sauter directement au contenu
+       ======================================== -->
   <a href="#main-content" class="skip-link" data-i18n="header.skipLink">Aller au contenu principal</a>
 
+  <!-- ========================================
+       HEADER - EN-TÊTE DU SITE
+       Logo, Contact, Recherche, Ruban latéral (Compte/Langue/Monnaie)
+       ======================================== -->
   <header class="base-header position-relative" role="banner">
     <div class="container-fluid">
       <div class="row header-top g-3">
 
+        <!-- === COLONNE LOGO === 
+             col-12 : pleine largeur mobile
+             col-lg-6 : 6 colonnes sur 12 en desktop
+             order-0 : affiché en premier sur tous les écrans -->
         <div class="col-12 col-lg-6 order-0">
           <div class="header_logo">
             <a href="index.html" class="my-logo d-block">
@@ -68,26 +114,37 @@
           </div>
         </div>
 
+        <!-- === COLONNE CONTACT 24/7 === 
+             order-2 : 3ème position mobile
+             order-lg-1 : 2ème position desktop -->
         <div class="col-12 col-lg-3 order-2 order-lg-1">
           <div class="header_contact">
             <div class="bloc-contact">
+              <!-- Icône téléphone Bootstrap Icons -->
               <div class="bloc-contact-ico">
                 <i class="bi bi-telephone"></i>
               </div>
               <div class="text-contact">
+                <!-- Label support 24/7 -->
                 <div class="bloc-contact-label" data-i18n="header.supportNumber">24/7 Support number</div>
+                <!-- Numéro de téléphone -->
                 <div class="bloc-contact-number">1-555-555-555</div>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- === COLONNE RECHERCHE ===
+             order-lg-2 : dernière position desktop -->
         <div class="col-12 col-lg-3 order-lg-2">
           <div class="header_search">
+            <!-- role="search" : indique aux lecteurs d'écran que c'est une zone de recherche -->
             <div class="bloc-search" role="search" aria-label="Recherche rapide">
               <form class="position-relative">
-                <input type="search" class="form-control bloc-search-input" placeholder="Rechercher" data-i18n="header.searchPlaceholder"
-                  aria-label="Rechercher sur le site">
+                <!-- Input recherche avec placeholder traduisible -->
+                <input type="search" class="form-control bloc-search-input" placeholder="Rechercher"
+                  data-i18n="header.searchPlaceholder" aria-label="Rechercher sur le site">
+                <!-- Icône loupe positionnée par CSS -->
                 <i class="bi bi-search bloc-search-ico"></i>
               </form>
             </div>
@@ -96,20 +153,26 @@
 
       </div>
 
+      <!-- === RUBAN LATÉRAL (RIBBON) ===
+           Barre verticale fixe : Mon compte / Langue / Monnaie -->
       <div class="ribbon">
         <nav class="d-flex gap-2 flex-column align-items-stretch">
 
+          <!-- Lien Mon Compte -->
           <div class="dropdown">
             <a class="btn btn-outline-dark w-100 pb-2 ribbon-btn" href="#" role="button" data-i18n="header.myAccount">
               MON COMPTE
             </a>
           </div>
 
+          <!-- Menu déroulant Sélection Langue -->
           <div class="dropdown">
             <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="langue"
-              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-i18n="header.country" aria-label="Sélectionner la langue">
+              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-i18n="header.country"
+              aria-label="Sélectionner la langue">
               PAYS
             </button>
+            <!-- Dropdown avec 3 langues : FR / EN / IT -->
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-lang="fr" data-i18n="languages.french">Français (Fr)</a></li>
               <li><a class="dropdown-item" href="#" data-lang="en" data-i18n="languages.english">English (US)</a></li>
@@ -117,11 +180,14 @@
             </ul>
           </div>
 
+          <!-- Menu déroulant Sélection Monnaie -->
           <div class="dropdown">
             <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="monnaie"
-              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-i18n="header.currency" aria-label="Sélectionner la monnaie">
+              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-i18n="header.currency"
+              aria-label="Sélectionner la monnaie">
               MONNAIE
             </button>
+            <!-- Dropdown avec 3 devises : EUR / USD / GBP -->
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-i18n="currencies.euro">€ Euro</a></li>
               <li><a class="dropdown-item" href="#" data-i18n="currencies.dollar">$ US Dollar</a></li>
@@ -131,15 +197,24 @@
 
         </nav>
       </div>
-      </div>
+    </div>
   </header>
+
+  <!-- ========================================
+       NAVIGATION PRINCIPALE
+       Menu responsive avec hamburger sur mobile
+       ======================================== -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-brown" role="navigation" aria-label="Navigation principale">
+    <!-- Texte "Menu" affiché uniquement sur mobile -->
     <span class="navbar-brand d-lg-none" data-i18n="nav.menu">Menu</span>
+
+    <!-- Bouton hamburger mobile : affiche/cache le menu -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
       aria-controls="menuPrincipal" aria-expanded="false" aria-label="Ouvrir le menu de navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Contenu du menu (collapsible sur mobile) -->
     <div class="collapse navbar-collapse" id="menuPrincipal">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
@@ -160,9 +235,19 @@
       </ul>
     </div>
   </nav>
+
+  <!-- ========================================
+       MAIN - CONTENU PRINCIPAL
+       Page détail chambre d'hôtel
+       Layout 2 colonnes : 9 (contenu) + 3 (sidebar)
+       ======================================== -->
   <main id="main-content" class="pe-3 pb-5 room-page" role="main">
     <div class="container">
 
+      <!-- ========================================
+           FIL D'ARIANE (BREADCRUMB)
+           Navigation hiérarchique : Accueil > Hotel
+           ======================================== -->
       <nav aria-label="breadcrumb" class="mb-1">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html" data-i18n="nav.home">Accueil</a></li>
@@ -172,263 +257,378 @@
 
       <div class="row">
 
+        <!-- ========================================
+             COLONNE PRINCIPALE - CONTENU (9/12)
+             Galerie, Infos, Onglets (Description/Dispo/Avis/Localisation)
+             ======================================== -->
         <div class="col-lg-9">
 
+          <!-- ========================================
+               GALERIE PHOTOS PRINCIPALE
+               Carrousel Bootstrap + Miniatures défilantes
+               ======================================== -->
           <div class="room-gallery p-0 rounded mb-4">
 
+            <!-- === CARROUSEL BOOTSTRAP 5 === 
+                 9 images du Conrad Maldives -->
             <div id="roomCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+
+              <!-- Indicateurs de slides (petits points cliquables) -->
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="0" class="active"
-                  aria-current="true" aria-label="Slide 1" data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
-                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="1" aria-label="Slide 2" data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
-                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="2" aria-label="Slide 3" data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
-                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="3" aria-label="Slide 4" data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
-                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="4" aria-label="Slide 5" data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
-                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="5" aria-label="Slide 6" data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
-                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="6" aria-label="Slide 7" data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
-                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="7" aria-label="Slide 8" data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
-                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="8" aria-label="Slide 9" data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
+                  aria-current="true" aria-label="Slide 1" data-i18n="room.slideLabel"
+                  data-i18n-append-index="true"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="1" aria-label="Slide 2"
+                  data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="2" aria-label="Slide 3"
+                  data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="3" aria-label="Slide 4"
+                  data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="4" aria-label="Slide 5"
+                  data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="5" aria-label="Slide 6"
+                  data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="6" aria-label="Slide 7"
+                  data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="7" aria-label="Slide 8"
+                  data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="8" aria-label="Slide 9"
+                  data-i18n="room.slideLabel" data-i18n-append-index="true"></button>
               </div>
 
+              <!-- Container des slides -->
               <div class="carousel-inner">
+                <!-- Slide 1 : Image principale active -->
                 <div class="carousel-item active">
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-1.jpg" class="d-block w-100 carousel-image"
                     alt="Vue du Conrad Maldives Rangali Island 1" data-i18n="room.altHotelView1">
                 </div>
+                <!-- Slide 2 -->
                 <div class="carousel-item">
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-2.jpg" class="d-block w-100 carousel-image"
                     alt="Vue du Conrad Maldives Rangali Island 2" data-i18n="room.altHotelView2">
                 </div>
+                <!-- Slide 3 -->
                 <div class="carousel-item">
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-3.jpg" class="d-block w-100 carousel-image"
                     alt="Vue du Conrad Maldives Rangali Island 3" data-i18n="room.altHotelView3">
                 </div>
+                <!-- Slide 4 -->
                 <div class="carousel-item">
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-4.jpg" class="d-block w-100 carousel-image"
                     alt="Vue du Conrad Maldives Rangali Island 4" data-i18n="room.altHotelView4">
                 </div>
+                <!-- Slide 5 -->
                 <div class="carousel-item">
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-5.jpg" class="d-block w-100 carousel-image"
                     alt="Vue du Conrad Maldives Rangali Island 5" data-i18n="room.altHotelView5">
                 </div>
+                <!-- Slide 6 -->
                 <div class="carousel-item">
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-6.jpg" class="d-block w-100 carousel-image"
                     alt="Vue du Conrad Maldives Rangali Island 6" data-i18n="room.altHotelView6">
                 </div>
+                <!-- Slide 7 -->
                 <div class="carousel-item">
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-7.jpg" class="d-block w-100 carousel-image"
                     alt="Vue du Conrad Maldives Rangali Island 7" data-i18n="room.altHotelView7">
                 </div>
+                <!-- Slide 8 -->
                 <div class="carousel-item">
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-8.jpg" class="d-block w-100 carousel-image"
                     alt="Vue du Conrad Maldives Rangali Island 8" data-i18n="room.altHotelView8">
                 </div>
+                <!-- Slide 9 -->
                 <div class="carousel-item">
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-9.jpg" class="d-block w-100 carousel-image"
                     alt="Vue du Conrad Maldives Rangali Island 9" data-i18n="room.altHotelView9">
                 </div>
               </div>
 
-              <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev" aria-label="Précédent" data-i18n-aria-label="room.previous">
+              <!-- Boutons de navigation gauche/droite -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev"
+                aria-label="Précédent" data-i18n-aria-label="room.previous">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden" data-i18n="room.previous">Précédent</span>
               </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next" aria-label="Suivant" data-i18n-aria-label="room.next">
+              <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next"
+                aria-label="Suivant" data-i18n-aria-label="room.next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden" data-i18n="room.next">Suivant</span>
               </button>
             </div>
 
+            <!-- ========================================
+                 BANDE DE MINIATURES DÉFILANTES
+                 Scroll horizontal avec boutons < >
+                 ======================================== -->
             <div class="thumbnails-container position-relative">
-              <button class="thumbnail-nav thumbnail-nav-left" id="scrollLeft" aria-label="Défiler les miniatures vers la gauche" data-i18n-aria-label="room.scrollLeft">
+
+              <!-- Bouton scroll vers la gauche -->
+              <button class="thumbnail-nav thumbnail-nav-left" id="scrollLeft"
+                aria-label="Défiler les miniatures vers la gauche" data-i18n-aria-label="room.scrollLeft">
                 <i class="bi bi-chevron-left"></i>
               </button>
 
+              <!-- Wrapper pour le scroll horizontal -->
               <div class="thumbnails-wrapper">
+                <!-- Container scrollable avec les 9 miniatures -->
                 <div class="thumbnails-scroll" id="thumbnailsScroll">
+                  <!-- Miniature 1 : active par défaut (correspond au slide actif) -->
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-1.jpg" class="carousel-thumbnail active"
                     data-bs-slide-to="0" alt="Miniature 1" data-i18n="room.thumbnailAlt" data-i18n-append-index="true">
+                  <!-- Miniature 2 -->
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-2.jpg" class="carousel-thumbnail"
                     data-bs-slide-to="1" alt="Miniature 2" data-i18n="room.thumbnailAlt" data-i18n-append-index="true">
+                  <!-- Miniature 3 -->
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-3.jpg" class="carousel-thumbnail"
                     data-bs-slide-to="2" alt="Miniature 3" data-i18n="room.thumbnailAlt" data-i18n-append-index="true">
+                  <!-- Miniature 4 -->
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-4.jpg" class="carousel-thumbnail"
                     data-bs-slide-to="3" alt="Miniature 4" data-i18n="room.thumbnailAlt" data-i18n-append-index="true">
+                  <!-- Miniature 5 -->
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-5.jpg" class="carousel-thumbnail"
                     data-bs-slide-to="4" alt="Miniature 5" data-i18n="room.thumbnailAlt" data-i18n-append-index="true">
+                  <!-- Miniature 6 -->
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-6.jpg" class="carousel-thumbnail"
                     data-bs-slide-to="5" alt="Miniature 6" data-i18n="room.thumbnailAlt" data-i18n-append-index="true">
+                  <!-- Miniature 7 -->
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-7.jpg" class="carousel-thumbnail"
                     data-bs-slide-to="6" alt="Miniature 7" data-i18n="room.thumbnailAlt" data-i18n-append-index="true">
+                  <!-- Miniature 8 -->
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-8.jpg" class="carousel-thumbnail"
                     data-bs-slide-to="7" alt="Miniature 8" data-i18n="room.thumbnailAlt" data-i18n-append-index="true">
+                  <!-- Miniature 9 -->
                   <img src="assets/images/ConradMaldivesRangaliIsland/conrad-9.jpg" class="carousel-thumbnail"
                     data-bs-slide-to="8" alt="Miniature 9" data-i18n="room.thumbnailAlt" data-i18n-append-index="true">
                 </div>
               </div>
 
-              <button class="thumbnail-nav thumbnail-nav-right" id="scrollRight" aria-label="Défiler les miniatures vers la droite" data-i18n-aria-label="room.scrollRight">
+              <!-- Bouton scroll vers la droite -->
+              <button class="thumbnail-nav thumbnail-nav-right" id="scrollRight"
+                aria-label="Défiler les miniatures vers la droite" data-i18n-aria-label="room.scrollRight">
                 <i class="bi bi-chevron-right"></i>
               </button>
             </div>
           </div>
+          <!-- FIN : Galerie photos principale -->
 
-
+          <!-- ========================================
+            SYSTÈME D'ONGLETS ET CONTENUS
+            Navigation verticale + 5 onglets : Description/Dispo/Équipements/Avis/Localisation
+            ======================================== -->
           <div class="row">
 
             <div class="col-md-3 pe-0">
-              <aside class="sidebar ordre p-1 mb-4 rounded sticky-top" style="top: 20px;">
 
+              <!-- ========================================
+               SYSTÈME D'ONGLETS (TABS) BOOTSTRAP
+               4 onglets : Description / Disponibilité / Avis / Localisation
+               ======================================== -->
+              <aside class="sidebar ordre p-1 mb-4 rounded" style="top: 20px;">
+
+                <!-- === NAVIGATION TABS (EN-TÊTES DES ONGLETS) === -->
                 <nav class="nav flex-column nav-pills sidebar-nav gy-2 mb-4" id="roomDetailsNav" role="tablist">
 
+                  <!-- Onglet 1 : Description (actif par défaut) -->
                   <a class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description"
-                    type="button" role="tab" aria-controls="description" aria-selected="true" data-i18n="room.tabDescription" href="#">
+                    type="button" role="tab" aria-controls="description" aria-selected="true"
+                    data-i18n="room.tabDescription" href="#">
                     <i class="bi bi-file-text me-2"></i> Description
                   </a>
 
+                  <!-- Onglet 2 : Disponibilité & Réservation -->
                   <a class="nav-link" id="availability-tab" data-bs-toggle="tab" data-bs-target="#availability"
-                    type="button" role="tab" aria-controls="availability" aria-selected="false" data-i18n="room.tabAvailability" href="#">
+                    type="button" role="tab" aria-controls="availability" aria-selected="false"
+                    data-i18n="room.tabAvailability" href="#">
                     <i class="bi bi-calendar-check me-2"></i> Disponibilité
                   </a>
 
+                  <!-- Onglet 3 : Équipements -->
                   <a class="nav-link" id="amenities-tab" data-bs-toggle="tab" data-bs-target="#amenities" type="button"
                     role="tab" aria-controls="amenities" aria-selected="false" data-i18n="room.tabAmenities" href="#">
                     <i class="bi bi-star me-2"></i> Équipements
                   </a>
 
+                  <!-- Onglet 4 : Avis clients -->
                   <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button"
                     role="tab" aria-controls="reviews" aria-selected="false" data-i18n="room.tabReviews" href="#">
                     <i class="bi bi-chat-left-text me-2"></i> Avis
                   </a>
 
+                  <!-- Onglet 5 : Localisation -->
                   <a class="nav-link" id="location-tab" data-bs-toggle="tab" data-bs-target="#location" type="button"
                     role="tab" aria-controls="location" aria-selected="false" data-i18n="room.tabLocation" href="#">
                     <i class="bi bi-geo-alt me-2"></i> Localisation
                   </a>
                 </nav>
+              </aside>
 
-                <aside class="ordre bg-light p-3 mb-4 rounded" style="top: 20px;">
-                  <h3 class="h6 text-uppercase fw-bold text-center pb-2 border-bottom border-marron couleur-titre" data-i18n="room.helpTitle">
-                    <i class="bi bi-info-circle-fill me-2"></i>Aide & Contact
-                  </h3>
+              <!-- === WIDGET : AIDE & CONTACT === -->
+              <!-- Bloc d'assistance avec numéro support 24/7 -->
+              <aside class="ordre bg-light p-3 mb-4 rounded" style="top: 20px;">
+                <h3 class="h6 text-uppercase fw-bold text-center pb-2 border-bottom border-marron couleur-titre"
+                  data-i18n="room.helpTitle">
+                  <i class="bi bi-info-circle-fill me-2"></i>Aide & Contact
+                </h3>
 
-                  <div class="widget-contact pt-3 text-muted text-center ">
-                    <p data-i18n="room.helpText">Appelez notre service client au numéro ci-dessous pour parler à l’un de nos conseillers, qui vous
-                      aidera pour tous vos besoins liés à vos vacances.</p>
-                    <p class="small mb-1 fw-bold fs-6 text-center couleur-soustitre" data-i18n-html="room.helpPhone">
-                      <i class="bi bi-telephone-fill me-1"></i>24/7
-                      Support<br>1-555-555-5555
-                    </p>
-                  </div>
-                </aside>
+                <div class="pt-3 text-muted text-center ">
+                  <p data-i18n="room.helpText">Appelez notre service client au numéro ci-dessous pour parler à l’un de
+                    nos conseillers, qui vous
+                    aidera pour tous vos besoins liés à vos vacances.</p>
+                  <p class="small mb-1 fw-bold fs-6 text-center couleur-soustitre" data-i18n-html="room.helpPhone">
+                    <i class="bi bi-telephone-fill me-1"></i>24/7
+                    Support<br>1-555-555-5555
+                  </p>
+                </div>
+
               </aside>
             </div>
 
 
-
+            <!-- === CONTENU DES ONGLETS (TAB PANES) === -->
             <div class="col-md-9">
               <section class="room-details">
                 <div class="tab-content" id="roomDetailsContent">
 
+                  <!-- ==========================================
+                   ONGLET 1 : DESCRIPTION DE L'ÉTABLISSEMENT
+                   8 paragraphes de présentation détaillée
+                   ========================================== -->
                   <div class="tab-pane fade show active" id="description" role="tabpanel"
                     aria-labelledby="description-tab">
-                    <h2 class="h4 mb-3 border-bottom pb-2 couleur-titre" data-i18n="room.descriptionHotelTitle">Description de l'hotel</h2>
+                    <h2 class="h4 mb-3 border-bottom pb-2 couleur-titre" data-i18n="room.descriptionHotelTitle">
+                      Description de l'hotel</h2>
                     <div class="bg-white p-4 border rounded shadow-sm text-muted">
-                      <p data-i18n="room.descP1">Profitez des services haut de gamme de l'établissement Conrad Maldives Rangali Island</p>
-                      <p data-i18n-html="room.descP2">Situé sur 2 îles reliées par un pont, le luxueux Conrad Maldives Rangali Island propose des
+                      <p data-i18n="room.descP1">Profitez des services haut de gamme de l'établissement Conrad Maldives
+                        Rangali Island</p>
+                      <p data-i18n-html="room.descP2">Situé sur 2 îles reliées par un pont, le luxueux Conrad Maldives
+                        Rangali Island propose des
                         villas privées spacieuses. L'établissement abrite le restaurant sous-marin Ithaa tout en verre
                         et 2 spas primés.</p>
-                      <p data-i18n="room.descP3">S'avançant jusqu'à 500 mètres dans l'océan Indien, les villas du Conrad Rangali Island
+                      <p data-i18n="room.descP3">S'avançant jusqu'à 500 mètres dans l'océan Indien, les villas du Conrad
+                        Rangali Island
                         disposent de tout le confort nécessaire, notamment d'une connexion Wi-Fi gratuite, d'une
                         télévision à écran plat et d'un lecteur DVD. Les baies vitrées en bois offrent des vues
                         magnifiques sur la mer ou la plage.</p>
-                      <p data-i18n="room.descP4">Lors de votre séjour, vous pourrez profiter de moments de relaxation au spa Retreat sur le
+                      <p data-i18n="room.descP4">Lors de votre séjour, vous pourrez profiter de moments de relaxation au
+                        spa Retreat sur le
                         lagon, ou au spa Over-Water, qui surplombe la mer. Pour un séjour encore plus enrichissant, vous
                         pourrez vous rendre à la boutique italienne sur place ou découvrir la culture locale lors d'une
                         excursion d'une journée sur l'une des îles environnantes.</p>
-                      <p data-i18n="room.descP5">Bénéficiant d'une renommée mondiale, les 12 bars et restaurants du Conrad Maldives servent une
+                      <p data-i18n="room.descP5">Bénéficiant d'une renommée mondiale, les 12 bars et restaurants du
+                        Conrad Maldives servent une
                         variété de spécialités internationales, de plats méditerranéens et de grillades. Le Wine Cellar
                         propose plus de 600 bouteilles de vin de qualité.</p>
-                      <p data-i18n-html="room.descP6">Ce complexe hôtelier vous propose des expériences sur deux îles voisines. L'île familiale,
+                      <p data-i18n-html="room.descP6">Ce complexe hôtelier vous propose des expériences sur deux îles
+                        voisines. L'île familiale,
                         Rangali-Finolhu, accueille les enfants de tous âges. Les enfants de moins de 16 ans ne peuvent
                         pas séjourner dans les villas sur pilotis, ni accéder à la piscine de la zone paisible située
                         sur l'île isolée de Rangali réservée aux adultes. Le pavillon Rangali de 2 chambres avec piscine
                         et vue sur l'océan peut cependant accueillir une famille de 6 personnes, enfants compris.</p>
-                      <p data-i18n="room.descP7">Le Conrad Maldives Rangali Island est accessible en hydravion, un vol pittoresque d'une durée
+                      <p data-i18n="room.descP7">Le Conrad Maldives Rangali Island est accessible en hydravion, un vol
+                        pittoresque d'une durée
                         de 30 minutes, depuis l'aéroport international de Malé.</p>
-                      <p data-i18n="room.descP8">Les couples apprécient particulièrement l'emplacement de cet établissement. Ils lui donnent la
+                      <p data-i18n="room.descP8">Les couples apprécient particulièrement l'emplacement de cet
+                        établissement. Ils lui donnent la
                         note de 10,0 pour un séjour à deux.</p>
                     </div>
                   </div>
 
+                  <!-- ==========================================
+                   ONGLET 2 : DISPONIBILITÉ & RÉSERVATION
+                   Carte offre chambre + Calendrier Flatpickr
+                   ========================================== -->
                   <div class="tab-pane fade" id="availability" role="tabpanel" aria-labelledby="availability-tab">
                     <div>
+
+                      <!-- === CARTE OFFRE CHAMBRE ===
+                       Layout 2 colonnes : Carrousel photos + Infos/Prix -->
                       <div class="card room-offer-card mb-4 border-0 shadow-sm">
                         <div class="card-body p-0">
 
                           <div class="row g-0">
 
+                            <!-- === COLONNE GAUCHE : CARROUSEL PHOTOS CHAMBRE ===
+                             7 photos de la Villa sur l'eau
+                             Cliquables pour ouvrir le modal lightbox -->
                             <div class="col-md-6">
                               <div id="roomOfferCarousel" class="carousel slide" data-bs-ride="false">
 
                                 <div class="carousel-inner p-1">
+
+                                  <!-- Photo 1 : active -->
                                   <div class="carousel-item active">
                                     <button type="button" class="btn p-0 border-0 w-100" data-bs-toggle="modal"
                                       data-bs-target="#offerModalLightbox" data-slide-index="0">
                                       <img src="assets/images/ConradMaldivesRangaliIsland/conrad-room-1.jpg"
-                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 1" data-i18n="room.altRoomView1">
+                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 1"
+                                        data-i18n="room.altRoomView1">
                                     </button>
                                   </div>
 
+                                  <!-- Photo 2 -->
                                   <div class="carousel-item">
                                     <button type="button" class="btn p-0 border-0 w-100" data-bs-toggle="modal"
                                       data-bs-target="#offerModalLightbox" data-slide-index="1">
                                       <img src="assets/images/ConradMaldivesRangaliIsland/conrad-room-2.jpg"
-                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 2" data-i18n="room.altRoomView2">
+                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 2"
+                                        data-i18n="room.altRoomView2">
                                     </button>
                                   </div>
 
+                                  <!-- Photo 3 -->
                                   <div class="carousel-item">
                                     <button type="button" class="btn p-0 border-0 w-100" data-bs-toggle="modal"
                                       data-bs-target="#offerModalLightbox" data-slide-index="2">
                                       <img src="assets/images/ConradMaldivesRangaliIsland/conrad-room-3.jpg"
-                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 3" data-i18n="room.altRoomView3">
+                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 3"
+                                        data-i18n="room.altRoomView3">
                                     </button>
                                   </div>
 
+                                  <!-- Photo 4 -->
                                   <div class="carousel-item">
                                     <button type="button" class="btn p-0 border-0 w-100" data-bs-toggle="modal"
                                       data-bs-target="#offerModalLightbox" data-slide-index="3">
                                       <img src="assets/images/ConradMaldivesRangaliIsland/conrad-room-4.jpg"
-                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 4" data-i18n="room.altRoomView4">
+                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 4"
+                                        data-i18n="room.altRoomView4">
                                     </button>
                                   </div>
 
+                                  <!-- Photo 5 -->
                                   <div class="carousel-item">
                                     <button type="button" class="btn p-0 border-0 w-100" data-bs-toggle="modal"
                                       data-bs-target="#offerModalLightbox" data-slide-index="4">
                                       <img src="assets/images/ConradMaldivesRangaliIsland/conrad-room-5.jpg"
-                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 5" data-i18n="room.altRoomView5">
+                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 5"
+                                        data-i18n="room.altRoomView5">
                                     </button>
                                   </div>
 
+                                  <!-- Photo 6 -->
                                   <div class="carousel-item">
                                     <button type="button" class="btn p-0 border-0 w-100" data-bs-toggle="modal"
                                       data-bs-target="#offerModalLightbox" data-slide-index="5">
                                       <img src="assets/images/ConradMaldivesRangaliIsland/conrad-room-6.jpg"
-                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 6" data-i18n="room.altRoomView6">
+                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 6"
+                                        data-i18n="room.altRoomView6">
                                     </button>
                                   </div>
 
+                                  <!-- Photo 7 -->
                                   <div class="carousel-item">
                                     <button type="button" class="btn p-0 border-0 w-100" data-bs-toggle="modal"
                                       data-bs-target="#offerModalLightbox" data-slide-index="6">
                                       <img src="assets/images/ConradMaldivesRangaliIsland/conrad-room-7.jpg"
-                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 7" data-i18n="room.altRoomView7">
+                                        class="d-block w-100 rounded offer-carousel-image" alt="Chambre vue 7"
+                                        data-i18n="room.altRoomView7">
                                     </button>
                                   </div>
                                 </div>
 
+                                <!-- Boutons navigation carrousel -->
                                 <button class="carousel-control-prev" type="button" data-bs-target="#roomOfferCarousel"
                                   data-bs-slide="prev" aria-label="Précédent" data-i18n-aria-label="room.previous">
                                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -442,19 +642,25 @@
                               </div>
                             </div>
 
+                            <!-- === COLONNE DROITE : INFOS ET PRIX ===
+                             Titre, capacité, prix, badges, bouton réservation -->
                             <div class="col-md-6">
                               <div class="p-4">
 
                                 <div class="row">
+                                  <!-- Bloc titre et infos prix -->
                                   <div class="col-title-info">
-                                    <h3 class="h5 fw-bold mb-2 room-title" data-i18n="room.roomOfferTitle">Villa sur l'eau</h3>
+                                    <h3 class="h5 fw-bold mb-2 room-title" data-i18n="room.roomOfferTitle">Villa sur
+                                      l'eau</h3>
                                     <p class="text-muted small mb-0" data-i18n="room.pricePerNight">
                                       Prix par nuit
                                       <span class="badge bg-card ms-2" data-i18n="room.vatBadge">TVA 20%</span>
                                     </p>
-                                    <p class="text-muted small mb-0" data-i18n="room.includedInPrice">Inclue dans le prix</p>
+                                    <p class="text-muted small mb-0" data-i18n="room.includedInPrice">Inclue dans le
+                                      prix</p>
                                   </div>
 
+                                  <!-- Bloc capacité et prix -->
                                   <div class="col-price-info text-end">
                                     <p class="text-muted small mb-0" data-i18n="room.maxCapacity">
                                       Max :
@@ -462,17 +668,24 @@
                                       <i class="bi bi-person-fill" aria-label="Personne"></i>
                                       <i class="bi bi-person-fill" aria-label="Personne"></i>
                                     </p>
-                                    <p class="h4 fw-bold text-prix mb-0" data-i18n-html="room.priceValue">Prix: 770 €</p>
+                                    <p class="h4 fw-bold text-prix mb-0" data-i18n-html="room.priceValue">Prix: 770 €
+                                    </p>
                                   </div>
                                 </div>
 
+                                <!-- Badges conditions -->
                                 <div class="mb-3">
-                                  <span class="badge bg-card me-2" data-i18n="room.nonRefundable">Non remboursable</span>
-                                  <span class="badge bg-card" data-i18n="room.breakfastPrice">Petit-déjeuner complet 24,80 €</span>
+                                  <span class="badge bg-card me-2" data-i18n="room.nonRefundable">Non
+                                    remboursable</span>
+                                  <span class="badge bg-card" data-i18n="room.breakfastPrice">Petit-déjeuner complet
+                                    24,80 €</span>
                                 </div>
 
+                                <!-- Bouton réservation (ancre vers calendrier) -->
                                 <div class="mt-3">
-                                  <a href="#calendar-section" class="btn btn-primary btn-book-now px-4" data-i18n="room.bookNowButton" aria-label="Réserver maintenant, aller à la section du calendrier">
+                                  <a href="#calendar-section" class="btn btn-primary btn-book-now px-4"
+                                    data-i18n="room.bookNowButton"
+                                    aria-label="Réserver maintenant, aller à la section du calendrier">
                                     BOOK NOW
                                   </a>
                                 </div>
@@ -482,6 +695,8 @@
 
                           </div>
 
+                          <!-- === DESCRIPTION DÉTAILLÉE CHAMBRE ===
+                           Type de chambre + Équipements -->
                           <div class="row g-0">
                             <div class="col-12">
                               <div class="p-4 pt-4">
@@ -494,13 +709,15 @@
                                   meublées avec des panneaux de sol en verre et un éclairage encastré.
                                 </p>
 
-                                <p class="fw-semibold mb-1 couleur-titre" data-i18n="room.roomTypeTitle">Type de chambre</p>
+                                <p class="fw-semibold mb-1 couleur-titre" data-i18n="room.roomTypeTitle">Type de chambre
+                                </p>
                                 <p class="text-muted mb-3" data-i18n-html="room.roomTypeValue">
                                   Villa entière de 86 m<sup class="expo">2</sup> avec terrasse privée, jacuzzi et deux
                                   lits king-size.
                                 </p>
 
-                                <p class="fw-bold mb-2 couleur-titre" data-i18n="room.roomAmenitiesTitle">Équipements de la chambre :</p>
+                                <p class="fw-bold mb-2 couleur-titre" data-i18n="room.roomAmenitiesTitle">Équipements de
+                                  la chambre :</p>
                                 <p class="text-muted mb-3" data-i18n="room.roomAmenitiesList">
                                   Balcon, Vue sur la mer, Salle de bains privative dans l'hébergement avec douche et
                                   baignoire spa, Télévision à écran plat, Minibar, Wi-Fi Gratuit, Sèche-linge,
@@ -513,29 +730,42 @@
 
                         </div>
                       </div>
+
+                      <!-- ========================================
+                       CALENDRIER DE RÉSERVATION
+                       Flatpickr (desktop) + inputs date (mobile)
+                       ======================================== -->
                       <div class="calendar-header text-center">
                         <h2 class="h5 mb-1" data-i18n="room.availabilityTitle">
                           <i class="bi bi-calendar-event me-2 couleur-titre"></i>Vérifier la disponibilité <em
-                            class="mb-0 fs-6 couleur-titre" data-i18n="room.availabilitySubtitle">Sélectionnez vos dates et heures d'arrivée et de départ</em>
+                            class="mb-0 fs-6 couleur-titre" data-i18n="room.availabilitySubtitle">Sélectionnez vos dates
+                            et heures d'arrivée et de départ</em>
                         </h2>
                       </div>
 
                       <div class="p-3" id="calendar-section">
+
+                        <!-- === CALENDRIER DESKTOP (FLATPICKR) ===
+                         Calendrier visuel interactif affiché sur grand écran -->
                         <div class="mb-4 flex-center" id="calendar-desktop">
-                          <input type="text" id="flatpickr-calendar" data-i18n="room.calendarPlaceholder" placeholder="Sélectionnez vos dates"
-                            style="display: none;">
+                          <input type="text" id="flatpickr-calendar" data-i18n="room.calendarPlaceholder"
+                            placeholder="Sélectionnez vos dates" style="display: none;">
                         </div>
 
+                        <!-- === CALENDRIER MOBILE (INPUTS DATE HTML5) ===
+                         Inputs natifs mobiles pour meilleure UX -->
                         <div class="mobile-date-form" id="mobile-date-form">
                           <div class="row g-3 mb-3">
                             <div class="col-12">
-                              <label for="mobileCheckIn" class="form-label small fw-bold" data-i18n="room.checkInDateLabel">
+                              <label for="mobileCheckIn" class="form-label small fw-bold"
+                                data-i18n="room.checkInDateLabel">
                                 <i class="bi bi-calendar-check me-1"></i> Date d'arrivée
                               </label>
                               <input type="date" id="mobileCheckIn" class="form-control" aria-label="Date d'arrivée">
                             </div>
                             <div class="col-12">
-                              <label for="mobileCheckOut" class="form-label small fw-bold" data-i18n="room.checkOutDateLabel">
+                              <label for="mobileCheckOut" class="form-label small fw-bold"
+                                data-i18n="room.checkOutDateLabel">
                                 <i class="bi bi-calendar-x me-1"></i> Date de départ
                               </label>
                               <input type="date" id="mobileCheckOut" class="form-control" aria-label="Date de départ">
@@ -543,21 +773,31 @@
                           </div>
                         </div>
 
+                        <!-- === SÉLECTION DES HEURES ===
+                         Check-in 15h00 / Check-out 11h00 par défaut -->
                         <div class="row g-3 mb-2 time-selectors-row couleur-titre">
+                          <!-- Heure d'arrivée -->
                           <div class="col-md-6">
                             <label for="checkInTime" class="form-label small fw-bold" data-i18n="room.checkInTimeLabel">
                               <i class="bi bi-box-arrow-in-right me-1"></i> Heure d'arrivée
                             </label>
-                            <input type="time" id="checkInTime" class="form-control" value="15:00" aria-label="Heure d'arrivée par défaut 15h00">
+                            <input type="time" id="checkInTime" class="form-control" value="15:00"
+                              aria-label="Heure d'arrivée par défaut 15h00">
                           </div>
+                          <!-- Heure de départ -->
                           <div class="col-md-6">
-                            <label for="checkOutTime" class="form-label small fw-bold" data-i18n="room.checkOutTimeLabel">
+                            <label for="checkOutTime" class="form-label small fw-bold"
+                              data-i18n="room.checkOutTimeLabel">
                               <i class="bi bi-box-arrow-right me-1"></i> Heure de départ
                             </label>
-                            <input type="time" id="checkOutTime" class="form-control" value="11:00" aria-label="Heure de départ par défaut 11h00">
+                            <input type="time" id="checkOutTime" class="form-control" value="11:00"
+                              aria-label="Heure de départ par défaut 11h00">
                           </div>
                         </div>
 
+                        <!-- === RÉCAPITULATIF DYNAMIQUE ===
+                         Affiche dates sélectionnées + nombre de nuits
+                         Géré par JS calendrier.js -->
                         <div class="mb-3">
                           <div class="info-line mb-1" id="checkInInfo" style="display:none;">
                             <i class="bi bi-info-circle me-2 couleur-titre"></i>
@@ -573,9 +813,11 @@
                           style="display:none;">
                           <i class="bi bi-moon-stars"></i>
                           <span id="nightsNumber">0</span> <span data-i18n="room.nightsPlural">nuit(s)</span>
-                          <div class="small mt-1" data-i18n-html="room.totalPrice">Prix total: <span id="totalPrice">0€</span></div>
+                          <div class="small mt-1" data-i18n-html="room.totalPrice">Prix total: <span
+                              id="totalPrice">0€</span></div>
                         </div>
 
+                        <!-- Boutons confirmation réservation et réinitialisation -->
                         <div class="d-grid gap-2">
                           <button class="btn btn-reserver" id="confirmBtn" disabled data-i18n="room.reserveButton">
                             <i class="bi bi-check-circle"></i> Réserver maintenant
@@ -589,10 +831,18 @@
                     </div>
                   </div>
 
+                  <!-- ==========================================
+                   ONGLET 3 : ÉQUIPEMENTS
+                   Liste équipements
+                   ========================================== -->
                   <div class="tab-pane fade" id="amenities" role="tabpanel" aria-labelledby="amenities-tab">
                     <div class="amenities-section">
-                      <h2 class="h4 mb-3 border-bottom pb-2 couleur-titre" data-i18n="room.amenitiesTitle">Services et équipements de l'hotel</h2>
+                      <h2 class="h4 mb-3 border-bottom pb-2 couleur-titre" data-i18n="room.amenitiesTitle">Services et
+                        équipements de l'hotel</h2>
+
                       <div class="bg-white p-4 border rounded shadow-sm text-muted">
+
+                        <!-- Liste équipements en extérieur -->
                         <h3 class="couleur-soustitre" data-i18n="room.amenitiesOutdoorsTitle">En extérieur :</h3>
                         <div class="amenities-grid">
                           <div class="amenity-item" data-i18n="room.amenityPools">✓ 3 piscines</div>
@@ -604,11 +854,13 @@
                           <div class="amenity-item" data-i18n="room.amenityParasols">✓ Parasols</div>
                           <div class="amenity-item" data-i18n="room.amenityPlayground">✓ Aire de jeux plein air</div>
                           <div class="amenity-item" data-i18n="room.amenityPingPong">✓ Tennis de table</div>
-                          <div class="amenity-item" data-i18n="room.amenityWaterFacilities">✓ Installations nautiques</div>
+                          <div class="amenity-item" data-i18n="room.amenityWaterFacilities">✓ Installations nautiques
+                          </div>
                           <div class="amenity-item" data-i18n="room.amenityNightclub">✓ Discothèque</div>
                           <div class="amenity-item" data-i18n="room.amenityParking">✓ Parking</div>
                         </div>
 
+                        <!-- Liste équipements bien-être -->
                         <h3 class="couleur-soustitre" data-i18n="room.amenitiesWellnessTitle">Bien-être :</h3>
                         <div class="amenities-grid">
                           <div class="amenity-item" data-i18n="room.amenitySpa">✓ Spa et centre de bien-être</div>
@@ -619,27 +871,40 @@
                           <div class="amenity-item" data-i18n="room.amenityHairdressing">✓ Coiffure</div>
                         </div>
 
+                        <!-- Liste équipements restauration -->
                         <h3 class="couleur-soustitre" data-i18n="room.amenitiesFoodTitle">Restauration :</h3>
                         <div class="amenities-grid">
                           <div class="amenity-item" data-i18n="room.amenityWine">✓ Vin/champagne</div>
-                          <div class="amenity-item" data-i18n="room.amenityKidsBuffet">✓ Buffet avec options enfants</div>
+                          <div class="amenity-item" data-i18n="room.amenityKidsBuffet">✓ Buffet avec options enfants
+                          </div>
                           <div class="amenity-item" data-i18n="room.amenityKidsMenus">✓ Menus enfants</div>
-                          <div class="amenity-item" data-i18n="room.amenitySpecialDiets">✓ Menus pour régimes spéciaux</div>
-                          <div class="amenity-item" data-i18n="room.amenityTraditionalFood">✓ Restauration traditionnelle</div>
-                          <div class="amenity-item" data-i18n="room.amenityVegetarianFood">✓ Restauration végétarienne</div>
+                          <div class="amenity-item" data-i18n="room.amenitySpecialDiets">✓ Menus pour régimes spéciaux
+                          </div>
+                          <div class="amenity-item" data-i18n="room.amenityTraditionalFood">✓ Restauration
+                            traditionnelle</div>
+                          <div class="amenity-item" data-i18n="room.amenityVegetarianFood">✓ Restauration végétarienne
+                          </div>
                           <div class="amenity-item" data-i18n="room.amenitySnacks24h">✓ Snaking 24/24</div>
-                          <div class="amenity-item" data-i18n="room.amenityRoomBreakfast">✓ Petit-déjeuner en chambre</div>
+                          <div class="amenity-item" data-i18n="room.amenityRoomBreakfast">✓ Petit-déjeuner en chambre
+                          </div>
                           <div class="amenity-item" data-i18n="room.amenityBar">✓ Bar</div>
                         </div>
                       </div>
                     </div>
                   </div>
 
+                  <!-- ==========================================
+                   ONGLET 4 : AVIS CLIENTS
+                   5 avis avec points positifs/négatifs
+                   ========================================== -->
                   <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                     <div class="reviews-section">
-                      <h3 class="h4 mb-3 border-bottom pb-2 couleur-titre" data-i18n="room.reviewsTitle">Avis clients</h3>
+                      <h3 class="h4 mb-3 border-bottom pb-2 couleur-titre" data-i18n="room.reviewsTitle">Avis clients
+                      </h3>
 
+                      <!-- === AVIS 1 === -->
                       <div class="review-item">
+                        <!-- En-tête avis : avatar + infos client -->
                         <div class="review-header">
                           <img src="assets/images/avatar-1.png" alt="Guest" class="review-avatar">
                           <div class="review-info">
@@ -648,19 +913,27 @@
                             <div class="review-date">19/05/2025</div>
                           </div>
                         </div>
+                        <!-- Contenu avis : points + et - -->
                         <div class="review-content">
+                          <!-- Point positif -->
                           <div class="review-comment positive">
                             <span class="icon-positive">+</span>
-                            <span data-i18n="room.reviewPositive1">L'hôtel était chaleureux et accueillant. Très bien situé avec un accès facile aux commerces et aux transports. Personnel très agréable et serviable.</span>
+                            <span data-i18n="room.reviewPositive1">L'hôtel était chaleureux et accueillant. Très bien
+                              situé avec un accès facile aux commerces et aux transports. Personnel très agréable et
+                              serviable.</span>
                           </div>
+                          <!-- Point négatif -->
                           <div class="review-comment negative">
                             <span class="icon-negative">-</span>
-                            <span data-i18n="room.reviewNegative1">Le bruit des voisins a gâché l'atmosphère plutôt calme de l'établissement. Isolation sonore insuffisante entre les chambres.</span>
+                            <span data-i18n="room.reviewNegative1">Le bruit des voisins a gâché l'atmosphère plutôt
+                              calme de l'établissement. Isolation sonore insuffisante entre les chambres.</span>
                           </div>
                         </div>
                       </div>
 
+                      <!-- === AVIS 2 === -->
                       <div class="review-item">
+                        <!-- En-tête avis : avatar + infos client -->
                         <div class="review-header">
                           <img src="assets/images/avatar-2.png" alt="Guest" class="review-avatar">
                           <div class="review-info">
@@ -669,19 +942,28 @@
                             <div class="review-date">06/04/2025</div>
                           </div>
                         </div>
+                        <!-- Contenu avis : points + et - -->
                         <div class="review-content">
+                          <!-- Point positif -->
                           <div class="review-comment positive">
                             <span class="icon-positive">+</span>
-                            <span data-i18n="room.reviewPositive2">Magnifique établissement avec une vue exceptionnelle sur la mer. Les chambres sont spacieuses et très bien équipées. Le personnel était aux petits soins.</span>
+                            <span data-i18n="room.reviewPositive2">Magnifique établissement avec une vue exceptionnelle
+                              sur la mer. Les chambres sont spacieuses et très bien équipées. Le personnel était aux
+                              petits soins.</span>
                           </div>
+                          <!-- Point négatif -->
                           <div class="review-comment negative">
                             <span class="icon-negative">-</span>
-                            <span data-i18n="room.reviewNegative2">Le rapport qualité-prix n'est pas optimal. Les prestations ne correspondent pas tout à fait au tarif pratiqué. Déçu par certains services payants en supplément.</span>
+                            <span data-i18n="room.reviewNegative2">Le rapport qualité-prix n'est pas optimal. Les
+                              prestations ne correspondent pas tout à fait au tarif pratiqué. Déçu par certains services
+                              payants en supplément.</span>
                           </div>
                         </div>
                       </div>
 
+                      <!-- === AVIS 3 === -->
                       <div class="review-item">
+                        <!-- En-tête avis : avatar + infos client -->
                         <div class="review-header">
                           <img src="assets/images/avatar-3.png" alt="Guest" class="review-avatar">
                           <div class="review-info">
@@ -690,19 +972,27 @@
                             <div class="review-date">14/03/2025</div>
                           </div>
                         </div>
+                        <!-- Contenu avis : points + et - -->
                         <div class="review-content">
+                          <!-- Point positif -->
                           <div class="review-comment positive">
                             <span class="icon-positive">+</span>
-                            <span data-i18n="room.reviewPositive3">Séjour absolument parfait ! La piscine privée était un vrai plus. Le petit-déjeuner était délicieux avec un large choix. Nous avons adoré notre expérience.</span>
+                            <span data-i18n="room.reviewPositive3">Séjour absolument parfait ! La piscine privée était
+                              un vrai plus. Le petit-déjeuner était délicieux avec un large choix. Nous avons adoré
+                              notre expérience.</span>
                           </div>
+                          <!-- Point négatif -->
                           <div class="review-comment negative">
                             <span class="icon-negative">-</span>
-                            <span data-i18n="room.reviewNegative3">Wifi très instable dans la chambre. Problèmes de connexion récurrents. Dommage pour un établissement de ce standing.</span>
+                            <span data-i18n="room.reviewNegative3">Wifi très instable dans la chambre. Problèmes de
+                              connexion récurrents. Dommage pour un établissement de ce standing.</span>
                           </div>
                         </div>
                       </div>
 
+                      <!-- === AVIS 4 === -->
                       <div class="review-item">
+                        <!-- En-tête avis : avatar + infos client -->
                         <div class="review-header">
                           <img src="assets/images/avatar-4.png" alt="Guest" class="review-avatar">
                           <div class="review-info">
@@ -711,19 +1001,28 @@
                             <div class="review-date">22/01/2025</div>
                           </div>
                         </div>
+                        <!-- Contenu avis : points + et - -->
                         <div class="review-content">
+                          <!-- Point positif -->
                           <div class="review-comment positive">
                             <span class="icon-positive">+</span>
-                            <span data-i18n="room.reviewPositive4">Emplacement idéal pour profiter de la plage. Les équipements sont modernes et de qualité. Le spa était très relaxant. Service impeccable du début à la fin.</span>
+                            <span data-i18n="room.reviewPositive4">Emplacement idéal pour profiter de la plage. Les
+                              équipements sont modernes et de qualité. Le spa était très relaxant. Service impeccable du
+                              début à la fin.</span>
                           </div>
+                          <!-- Point négatif -->
                           <div class="review-comment negative">
                             <span class="icon-negative">-</span>
-                            <span data-i18n="room.reviewNegative4">L'entretien de la piscine laissait à désirer lors de notre séjour. Eau trouble certains jours. Le service de nettoyage pourrait être plus régulier.</span>
+                            <span data-i18n="room.reviewNegative4">L'entretien de la piscine laissait à désirer lors de
+                              notre séjour. Eau trouble certains jours. Le service de nettoyage pourrait être plus
+                              régulier.</span>
                           </div>
                         </div>
                       </div>
 
+                      <!-- === AVIS 5 === -->
                       <div class="review-item">
+                        <!-- En-tête avis : avatar + infos client -->
                         <div class="review-header">
                           <img src="assets/images/avatar-5.png" alt="Guest" class="review-avatar">
                           <div class="review-info">
@@ -732,48 +1031,69 @@
                             <div class="review-date">13/05/2024</div>
                           </div>
                         </div>
+                        <!-- Contenu avis : points + et - -->
                         <div class="review-content">
+                          <!-- Point positif -->
                           <div class="review-comment positive">
                             <span class="icon-positive">+</span>
-                            <span data-i18n="room.reviewPositive5">Hôtel de luxe qui mérite ses étoiles. La propreté est irréprochable. Les installations sont magnifiques. Une expérience inoubliable que nous recommandons vivement.</span>
+                            <span data-i18n="room.reviewPositive5">Hôtel de luxe qui mérite ses étoiles. La propreté est
+                              irréprochable. Les installations sont magnifiques. Une expérience inoubliable que nous
+                              recommandons vivement.</span>
                           </div>
+                          <!-- Point négatif -->
                           <div class="review-comment negative">
                             <span class="icon-negative">-</span>
-                            <span data-i18n="room.reviewNegative5">Attente trop longue au restaurant le soir. Service parfois débordé en haute saison. Nous avons dû patienter plus de 40 minutes avant d'être servis.</span>
+                            <span data-i18n="room.reviewNegative5">Attente trop longue au restaurant le soir. Service
+                              parfois débordé en haute saison. Nous avons dû patienter plus de 40 minutes avant d'être
+                              servis.</span>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="amenities-tab">
-                    <div class="amenities-section">
-                      <h2 class="h4 mb-3 border-bottom pb-2 couleur-titre" data-i18n="room.locationTitle">Localisation de l'hotel</h2>
+                  <!-- ==========================================
+                   ONGLET 5 : LOCALISATION
+                   Dernier onglet
+                   ========================================== -->
+                  <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="location-tab">
+                    <div class="localisation-section">
+                      <h2 class="h4 mb-3 border-bottom pb-2 couleur-titre" data-i18n="room.locationTitle">Localisation
+                        de l'hotel</h2>
                       <div class="bg-white p-4 border rounded shadow-sm text-muted">
                         <div><img class="pb-4" src="assets/images/ConradMaldivesRangaliIsland/conrad.jpg"
-                            alt="Localisation de l'hôtel Conrad Maldives Rangali Island" data-i18n="room.altLocationMap"></div>
+                            alt="Localisation de l'hôtel Conrad Maldives Rangali Island"
+                            data-i18n="room.altLocationMap"></div>
                         <h3 class="couleur-soustitre" data-i18n="room.locationAddressTitle">Adresse :</h3>
                         <div class="adresse-conrad pb-4">
                           <div class="hotel-localisation fs-3 text-uppercase">Conrad Maldives</div>
-                          <div class="adresse-localisation" data-i18n="room.locationAddressValue">RANGALI ISLAND, 20077, MALDIVES</div>
-                          <div class="telephone-localisation" data-i18n-html="room.locationPhone"><i class="bi bi-telephone"></i> TELEPHONE: +960 668 0629
+                          <div class="adresse-localisation" data-i18n="room.locationAddressValue">RANGALI ISLAND, 20077,
+                            MALDIVES</div>
+                          <div class="telephone-localisation" data-i18n-html="room.locationPhone"><i
+                              class="bi bi-telephone"></i> TELEPHONE: +960 668 0629
                           </div>
-                          <div class="whatsapp-localisation" data-i18n-html="room.locationWhatsapp"><i class="bi bi-whatsapp"></i> WHATSAPP: +960 799 4840
+                          <div class="whatsapp-localisation" data-i18n-html="room.locationWhatsapp"><i
+                              class="bi bi-whatsapp"></i> WHATSAPP: +960 799 4840
                           </div>
                         </div>
 
-                        <h3 class="couleur-soustitre" data-i18n="room.airportTitle"><i class="bi bi-airplane"></i> Aéroport le plus proche :</h3>
+                        <h3 class="couleur-soustitre" data-i18n="room.airportTitle"><i class="bi bi-airplane"></i>
+                          Aéroport le plus proche :</h3>
                         <div class="localisation-grid">
-                          <div class="amenity-item pb-4" data-i18n="room.airportValue">Aéroport de Maamigili 19 km.</div>
+                          <div class="localisation-item pb-4" data-i18n="room.airportValue">Aéroport de Maamigili 19 km.
+                          </div>
                         </div>
 
-                        <h3 class="couleur-soustitre" data-i18n="room.shuttleTitle"><i class="bi bi-taxi-front"></i> Navette :</h3>
+                        <h3 class="couleur-soustitre" data-i18n="room.shuttleTitle"><i class="bi bi-taxi-front"></i>
+                          Navette :</h3>
                         <div class="localisation-grid">
-                          <div class="amenity-item pb-4" data-i18n="room.shuttleValue">Possibilité de navette aéroport.</div>
+                          <div class="localisation-item pb-4" data-i18n="room.shuttleValue">Possibilité de navette
+                            aéroport.
+                          </div>
                         </div>
 
-                        <h3 class="couleur-soustitre"><a href="contact.html" title="Contact" data-i18n="room.contactUsLink"><i
-                              class="bi bi-at me-1"></i>Contactez nous</a></h3>
+                        <h3 class="couleur-soustitre"><a href="contact.html" title="Contact"
+                            data-i18n="room.contactUsLink"><i class="bi bi-at me-1"></i>Contactez nous</a></h3>
                       </div>
                     </div>
                   </div>
@@ -784,16 +1104,25 @@
             </div>
 
           </div>
+          <!-- FIN : Bloc système d'onglets et contenus -->
         </div>
+        <!-- FIN : Colonne principale contenu (9/12) -->
 
         <div class="col-lg-3">
 
+          <!-- ========================================
+               EN-TÊTE INFORMATIONS CHAMBRE
+               Nom hôtel, localisation, étoiles, note
+               ======================================== -->
           <div class="hotel-header-box card p-3 mb-4 border-0 shadow-sm">
 
+            <!-- === LIGNE 1 : NOM HÔTEL + ÉTOILES === -->
             <div class="d-flex justify-content-between align-items-start">
-              <h2 class="col-name-hotel h5 fw-bold mb-1 couleur-titre" data-i18n="room.hotelName">Conrad Maldives Rangali Island</h2>
+              <h2 class="col-name-hotel h5 fw-bold mb-1 couleur-titre" data-i18n="room.hotelName">Conrad Maldives
+                Rangali Island</h2>
 
-              <div class="col-star-hotel stars-header fs-6 ms-2 text-end" aria-label="5 étoiles">
+              <!-- Classification 5 étoiles (icônes Bootstrap Icons) -->
+              <div class="col-star-hotel stars-header fs-6 ms-2 text-end" role="img" aria-label="5 étoiles">
                 <i class="bi bi-star-fill text-warning"></i>
                 <i class="bi bi-star-fill text-warning"></i>
                 <i class="bi bi-star-fill text-warning"></i>
@@ -802,16 +1131,19 @@
               </div>
             </div>
 
+            <!-- === LIGNE 2 : LOCALISATION + NOTE DE SATISFACTION === -->
             <div class="d-flex justify-content-between align-items-center mb-1">
               <p class="small text-muted mb-0" data-i18n="room.hotelLocation">Rangali Island, Maldives</p>
 
               <div class="rating small text-muted">
-                <i class="bi bi-hand-thumbs-up me-1 mb-0" data-i18n="room.hotelRating"> 10/10</i>
+                <i class="bi bi-hand-thumbs-up me-1" aria-hidden="true"></i>
+                <span data-i18n="room.hotelRating">10/10</span>
               </div>
             </div>
 
             <hr class="mb-2 mt-2">
 
+            <!-- === DESCRIPTION COURTE === -->
             <p class="text-muted mb-1" data-i18n="room.hotelShortDescription">
               Le Conrad Maldives Rangali Island propose de luxueux séjours sur deux îles privées, avec des villas sur la
               plage et sur l'eau.
@@ -819,6 +1151,7 @@
 
             <hr class="mb-2 mt-2">
 
+            <!-- === TAGS THÉMATIQUES === -->
             <div class="d-flex flex-wrap gap-2">
               <span class="hotel-tag" data-i18n="room.tagWellness">
                 <i class="point"></i> Bien-être
@@ -843,40 +1176,56 @@
 
           </div>
 
+          <!-- === WIDGET : POURQUOI RÉSERVER CHEZ NOUS === -->
           <aside class="ordre bg-light p-3 mb-4 rounded" style="top: 20px;">
-            <h3 class="h-titre text-uppercase fw-bold pb-2 border-bottom border-marron couleur-titre" data-i18n="room.whyBookTitle">
+
+            <!-- Titre du widget -->
+            <h3 class="h-titre text-uppercase fw-bold pb-2 border-bottom border-marron couleur-titre"
+              data-i18n="room.whyBookTitle">
               Pourquoi réserver chez nous ?
             </h3>
 
-            <div class="widget-contact pt-2 text-muted">
+            <div class="pt-2 text-muted">
 
+              <!-- === ARGUMENT 1 : TARIFS BAS === -->
               <p class="fw-semibold fs-5 couleur-soustitre" data-i18n="room.whyBookLowPricesTitle">Tarifs bas</p>
               <p data-i18n="room.whyBookLowPricesP1">Obtenez les meilleurs prix ou soyez remboursé.</p>
               <p data-i18n="room.whyBookLowPricesP2">Aucun frais de réservation.</p>
               <p class="mb-2" data-i18n="room.whyBookLowPricesP3">Économisez de l’argent !</p>
 
-              <p class="fw-semibold fs-5 couleur-soustitre" data-i18n="room.whyBookLargestChoiceTitle">Le plus grand choix</p>
+              <!-- === ARGUMENT 2 : LARGE CATALOGUE === -->
+              <p class="fw-semibold fs-5 couleur-soustitre" data-i18n="room.whyBookLargestChoiceTitle">Le plus grand
+                choix</p>
               <p data-i18n="room.whyBookLargestChoiceP1">Plus de 140 000 hôtels dans le monde</p>
               <p data-i18n="room.whyBookLargestChoiceP2">Plus de 130 compagnies aériennes</p>
               <p class="mb-2" data-i18n="room.whyBookLargestChoiceP3">Plus de 3 millions d’avis clients</p>
 
-              <p class="fw-semibold fs-5 couleur-soustitre" data-i18n="room.whyBookCustomerSupportTitle">Toujours à votre écoute</p>
+              <!-- === ARGUMENT 3 : SUPPORT CLIENT 24/7 === -->
+              <p class="fw-semibold fs-5 couleur-soustitre" data-i18n="room.whyBookCustomerSupportTitle">Toujours à
+                votre écoute</p>
               <p data-i18n="room.whyBookCustomerSupportP1">Appelez-nous ou envoyez-nous un e-mail à tout moment.</p>
               <p data-i18n="room.whyBookCustomerSupportP2">Plus de 130 compagnies aériennes</p>
-              <p data-i18n="room.whyBookCustomerSupportP3">Service client disponible 24h/24, avant, pendant et après votre voyage.</p>
+              <p data-i18n="room.whyBookCustomerSupportP3">Service client disponible 24h/24, avant, pendant et après
+                votre voyage.</p>
             </div>
           </aside>
 
+          <!-- === WIDGET : HÔTELS POPULAIRES DANS LA RÉGION === -->
           <aside class="ordre bg-light p-3 mb-4 rounded" style="top: 20px;">
-            <h3 class="h-titre text-uppercase fw-bold pb-2 border-bottom border-marron couleur-titre" data-i18n="room.popularHotelsTitle">
+
+            <!-- Titre du widget -->
+            <h3 class="h-titre text-uppercase fw-bold pb-2 border-bottom border-marron couleur-titre"
+              data-i18n="room.popularHotelsTitle">
               Hôtels populaires dans la région
             </h3>
 
-            <div class="widget-contact pt-2 text-muted">
+            <!-- Contenu du widget -->
+            <div class="pt-2 text-muted">
 
+              <!-- === HÔTEL POPULAIRE 1 : Gili Lankanfushi === -->
               <a href="#" title="Gili Lankanfushi Maldives" class="name-populaire fw-bold fs-6">
                 <span data-i18n="room.popularHotel1Name">Gili Lankanfushi Maldives</span>
-                <span class="stars" aria-label="5 étoiles">
+                <span class="stars" role="img" aria-label="5 étoiles">
                   <i class="bi bi-star-fill text-warning"></i>
                   <i class="bi bi-star-fill text-warning"></i>
                   <i class="bi bi-star-fill text-warning"></i>
@@ -888,14 +1237,15 @@
                 <span class="info-prix" data-i18n-html="room.popularHotel1Price">à partir de 1250€/nuit</span>
                 <span class="note">
                   <i class="bi bi-hand-thumbs-up me-1 mb-0"></i>
-                  <em class="pouce-note" data-i18n="room.popularHotel1Rating"> 9.8/10</em></i>
+                  <em class="pouce-note" data-i18n="room.popularHotel1Rating"> 9.8/10</em>
                 </span>
               </p>
               <hr class="mb-2 mt-2">
 
+              <!-- === HÔTEL POPULAIRE 2 : Soneva Fushi === -->
               <a href="#" title="Soneva Fushi Resort" class="name-populaire fw-bold fs-6">
                 <span data-i18n="room.popularHotel2Name">Soneva Fushi Resort</span>
-                <span class="stars" aria-label="5 étoiles">
+                <span class="stars" role="img" aria-label="5 étoiles">
                   <i class="bi bi-star-fill text-warning"></i>
                   <i class="bi bi-star-fill text-warning"></i>
                   <i class="bi bi-star-fill text-warning"></i>
@@ -907,14 +1257,15 @@
                 <span class="info-prix" data-i18n-html="room.popularHotel2Price">à partir de 1150€/nuit</span>
                 <span class="note">
                   <i class="bi bi-hand-thumbs-up me-1 mb-0"></i>
-                  <em class="pouce-note" data-i18n="room.popularHotel2Rating"> 9.6/10</em></i>
+                  <em class="pouce-note" data-i18n="room.popularHotel2Rating"> 9.6/10</em>
                 </span>
               </p>
               <hr class="mb-2 mt-2">
 
+              <!-- === HÔTEL POPULAIRE 3 : Velaa Private Island === -->
               <a href="#" title="Velaa Private Island" class="name-populaire fw-bold fs-6">
                 <span data-i18n="room.popularHotel3Name">Velaa Private Island</span>
-                <span class="stars" aria-label="5 étoiles">
+                <span class="stars" role="img" aria-label="5 étoiles">
                   <i class="bi bi-star-fill text-warning"></i>
                   <i class="bi bi-star-fill text-warning"></i>
                   <i class="bi bi-star-fill text-warning"></i>
@@ -926,14 +1277,15 @@
                 <span class="info-prix" data-i18n-html="room.popularHotel3Price">à partir de 2100€/nuit</span>
                 <span class="note">
                   <i class="bi bi-hand-thumbs-up me-1 mb-0"></i>
-                  <em class="pouce-note" data-i18n="room.popularHotel3Rating"> 10/10</em></i>
+                  <em class="pouce-note" data-i18n="room.popularHotel3Rating"> 10/10</em>
                 </span>
               </p>
               <hr class="mb-2 mt-2">
 
+              <!-- === HÔTEL POPULAIRE 4 : Baros Maldives === -->
               <a href="#" title="Baros Maldives" class="name-populaire fw-bold fs-6">
                 <span data-i18n="room.popularHotel4Name">Baros Maldives</span>
-                <span class="stars" aria-label="5 étoiles">
+                <span class="stars" role="img" aria-label="5 étoiles">
                   <i class="bi bi-star-fill text-warning"></i>
                   <i class="bi bi-star-fill text-warning"></i>
                   <i class="bi bi-star-fill text-warning"></i>
@@ -945,86 +1297,111 @@
                 <span class="info-prix" data-i18n-html="room.popularHotel4Price">à partir de 750€/nuit</span>
                 <span class="note">
                   <i class="bi bi-hand-thumbs-up me-1 mb-0"></i>
-                  <em class="pouce-note" data-i18n="room.popularHotel4Rating"> 9.4/10</em></i>
+                  <em class="pouce-note" data-i18n="room.popularHotel4Rating"> 9.4/10</em>
                 </span>
               </p>
 
             </div>
           </aside>
 
+          <!-- === WIDGET : OFFRE DU JOUR === -->
           <aside class="ordre bg-light p-3 mb-4 rounded" style="top: 20px;">
-            <h3 class="h-titre text-uppercase fw-bold pb-2 border-bottom border-marron couleur-titre" data-i18n="room.dealOfTheDayTitle">
+
+            <!-- Titre du widget -->
+            <h3 class="h-titre text-uppercase fw-bold pb-2 border-bottom border-marron couleur-titre"
+              data-i18n="room.dealOfTheDayTitle">
               Offre du jour !
             </h3>
 
-            <div class="widget-contact pt-2 text-muted">
-              <div class="widget-contact pt-2 text-muted">
+            <!-- Contenu du widget -->
+            <div class="pt-2 text-muted">
 
-                <div class="deal-of-day">
-                  <img src="assets/images/BarosMaldives/barros.jpg" alt="Baros Maldives - Offre du jour" class="img-fluid rounded mb-3" data-i18n="room.altDealOfTheDay">
+              <div class="deal-of-day">
 
-                  <a href="#" title="Baros Maldives" class="name-offredujour fw-bold fs-5 d-block mb-2" data-i18n="room.dealOfTheDayName">
-                    Baros Maldives
-                  </a>
+                <!-- Image de l'hôtel en promotion -->
+                <img src="assets/images/BarosMaldives/barros.jpg" alt="Baros Maldives - Offre du jour"
+                  class="img-fluid rounded mb-3" data-i18n="room.altDealOfTheDay">
 
-                  <div class="mb-2" aria-label="5 étoiles">
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                  </div>
+                <!-- Nom de l'hôtel (lien cliquable) -->
+                <a href="#" title="Baros Maldives" class="name-offredujour fw-bold fs-5 d-block mb-2"
+                  data-i18n="room.dealOfTheDayName">
+                  Baros Maldives
+                </a>
 
-                  <p class="deal-prix mb-2">
-                    <span class="fw-bold fs-5 couleur-soustitre" data-i18n="room.dealOfTheDayPrice">À partir de 750€</span>
-                    <span class="small text-muted" data-i18n="room.dealOfTheDayPriceSuffix">/ par nuit</span>
-                  </p>
-
-                  <p class="deal-note mb-0">
-                    <i class="bi bi-hand-thumbs-up me-1"></i>
-                    <span class="fw-semibold pouce-note" data-i18n="room.dealOfTheDayRating">9.4/10</span>
-                  </p>
+                <!-- Classification 5 étoiles -->
+                <div class="mb-2" role="img" aria-label="5 étoiles">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
                 </div>
 
+                <!-- Prix -->
+                <p class="deal-prix mb-2">
+                  <span class="fw-bold fs-5 couleur-soustitre" data-i18n="room.dealOfTheDayPrice">À partir de
+                    750€</span>
+                  <span class="small text-muted" data-i18n="room.dealOfTheDayPriceSuffix">/ par nuit</span>
+                </p>
+
+                <!-- Note de satisfaction client -->
+                <p class="deal-note mb-0">
+                  <i class="bi bi-hand-thumbs-up me-1"></i>
+                  <span class="fw-semibold pouce-note" data-i18n="room.dealOfTheDayRating">9.4/10</span>
+                </p>
               </div>
 
             </div>
           </aside>
         </div>
-
+        <!-- FIN : Colonne latérale sidebar (3/12) -->
 
       </div>
+      <!-- FIN : Row principale (layout 9+3 colonnes) -->
 
     </div>
-    </div>
+    <!-- FIN : Container -->
+
   </main>
+  <!-- FIN : Main - Contenu principal page chambre -->
 
+  <!-- ========================================
+       FOOTER - PIED DE PAGE
+       4 colonnes : Contact, Support, Réseaux, Newsletter
+       ======================================== -->
   <footer class="container-fluid mt-1" role="contentinfo">
     <div>
       <div class="row">
 
+        <!-- === COLONNE 1 : Coordonnées === -->
         <div class="col-lg-3 footer_contact">
           <div class="p-3">
             <h2 data-i18n="footer.company">Book Your Travel</h2>
             <p data-i18n="footer.address">1400 Pennsylvania Ave. Washington, DC</p>
             <p data-i18n="footer.phone"><em>P:</em> 24/7 customer support: 1-555-555-5555</p>
-            <p><em>E:</em> <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                data-cfemail="7d1f12121614131a3d101c1411531e1210" data-i18n="footer.email">[email&#160;protected]</a></p>
+            <p><em>E:</em> <a href="mailto:contact@bookyourtravel.com"
+                data-i18n="footer.email">contact@bookyourtravel.com</a></p>
+
           </div>
         </div>
+        <!-- FIN : Colonne coordonnées -->
 
+        <!-- === COLONNE 2 : Support Client === -->
         <div class="col-lg-3">
           <div class="p-3 footer_support">
             <h2 data-i18n="footer.customerSupport">Customer Support</h2>
             <ul>
               <li><a href="#" title="Faq" data-i18n="footer.faq">FAQ</a></li>
-              <li><a href="#" title="How do I make a reservation?" data-i18n="footer.howToBook">Comment puis-je faire une réservation ?</a></li>
+              <li><a href="#" title="How do I make a reservation?" data-i18n="footer.howToBook">Comment puis-je faire
+                  une réservation ?</a></li>
               <li><a href="#" title="Payment options" data-i18n="footer.paymentOptions">Options de paiement</a></li>
               <li><a href="#" title="Booking tips" data-i18n="footer.bookingTips">Conseils de réservation</a></li>
             </ul>
           </div>
         </div>
+        <!-- FIN : Colonne support client -->
 
+        <!-- === COLONNE 3 : Réseaux Sociaux === -->
         <div class="col-lg-3">
           <div class="p-3 footer_follow">
             <h2 data-i18n="footer.followUs">Suivez-Nous</h2>
@@ -1044,62 +1421,98 @@
             </ul>
           </div>
         </div>
+        <!-- FIN : Colonne réseaux sociaux -->
 
+        <!-- === COLONNE 4 : Newsletter === -->
         <div class="col-lg-3">
           <div class="p-3 footer_newsletter">
             <h2 data-i18n="footer.newsletter">Newsletter</h2>
             <p data-i18n="footer.newsletterText">Inscrivez-vous pour recevoir nos offres exclusives !</p>
             <form>
-              <label for="newsletter-email" class="visually-hidden" data-i18n="footer.emailPlaceholder">Votre adresse email</label>
+              <label for="newsletter-email" class="visually-hidden" data-i18n="footer.emailPlaceholder">Votre adresse
+                email</label>
               <div class="input-group">
-                <input type="email" id="newsletter-email" class="form-control" placeholder="Votre email" data-i18n="footer.emailPlaceholder" required
-                  aria-required="true" aria-label="Votre adresse email">
-                <button class="btn btn-dark" type="submit" aria-label="S\'inscrire à la newsletter" data-i18n="footer.subscribeButton">OK</button>
+                <input type="email" id="newsletter-email" class="form-control" placeholder="Votre email"
+                  data-i18n="footer.emailPlaceholder" required aria-required="true" aria-label="Votre adresse email">
+                <button class="btn btn-dark" type="submit" aria-label="S\'inscrire à la newsletter"
+                  data-i18n="footer.subscribeButton">OK</button>
               </div>
             </form>
           </div>
         </div>
+        <!-- FIN : Colonne newsletter -->
 
       </div>
+      <!-- FIN : Row colonnes footer -->
     </div>
+    <!-- FIN : Container footer -->
   </footer>
+  <!-- FIN : Footer -->
 
+  <!-- ========================================
+     BARRE INFÉRIEURE - COPYRIGHT ET LIENS
+     ======================================== -->
   <div class="bottom w-100 p-3">
+    <!-- Copyright -->
     <p class="copy" data-i18n="footer.copyright">Copyright 2025 Réservation d'hôtel Formation Ilaria</p>
+
+    <!-- Navigation liens légaux et informations -->
     <nav>
       <ul class="list-inline text-center mb-0">
         <li class="list-inline-item"><a href="#" title="About us" data-i18n="footer.aboutUs">About us</a></li>
         <li class="list-inline-item"><a href="contact.html" title="Contact" data-i18n="nav.contact">Contact</a></li>
         <li class="list-inline-item"><a href="#" title="Partners" data-i18n="footer.partners">Partners</a></li>
-        <li class="list-inline-item"><a href="#" title="Customer service" data-i18n="footer.customerService">Customer service</a></li>
+        <li class="list-inline-item"><a href="#" title="Customer service" data-i18n="footer.customerService">Customer
+            service</a></li>
         <li class="list-inline-item"><a href="#" title="FAQ" data-i18n="footer.faq">FAQ</a></li>
         <li class="list-inline-item"><a href="#" title="Careers" data-i18n="footer.careers">Careers</a></li>
-        <li class="list-inline-item"><a href="#" title="Terms &amp; Conditions" data-i18n="footer.terms">Terms &amp; Conditions</a></li>
+        <li class="list-inline-item"><a href="#" title="Terms &amp; Conditions" data-i18n="footer.terms">Terms &amp;
+            Conditions</a></li>
       </ul>
     </nav>
   </div>
+  <!-- FIN : Barre inférieure copyright -->
+
+  <!-- ========================================
+     MODAL LIGHTBOX
+     Affichage plein écran des photos de chambre
+     Navigation précédent/suivant entre les images
+     ======================================== -->
   <div class="modal fade modal-custom" id="offerModalLightbox" tabindex="-1" aria-labelledby="offerModalLightboxLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content bg-transparent border-0">
 
+        <!-- En-tête modal : bouton fermeture uniquement -->
         <div class="modal-header border-0 p-3">
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer" data-i18n-aria-label="room.modalClose"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"
+            data-i18n-aria-label="room.modalClose"></button>
         </div>
 
+        <!-- Corps du modal : image affichée en grand format -->
         <div class="modal-body text-center p-0">
-          <img src="" id="lightboxImage" class="img-fluid rounded" alt="Image agrandie de la chambre" data-i18n="room.lightboxAlt">
+          <img src="" id="lightboxImage" class="img-fluid rounded" alt="Image agrandie de la chambre"
+            data-i18n="room.lightboxAlt">
         </div>
 
-        <button class="carousel-control-prev" type="button" id="lightboxPrev" aria-label="Image précédente" data-i18n-aria-label="room.previousImage">
+        <!-- Bouton navigation : image précédente -->
+        <button class="carousel-control-prev" type="button" id="lightboxPrev" aria-label="Image précédente"
+          data-i18n-aria-label="room.previousImage">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </button>
-        <button class="carousel-control-next" type="button" id="lightboxNext" aria-label="Image suivante" data-i18n-aria-label="room.nextImage">
+
+        <!-- Bouton navigation : image suivante -->
+        <button class="carousel-control-next" type="button" id="lightboxNext" aria-label="Image suivante"
+          data-i18n-aria-label="room.nextImage">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
       </div>
+      <!-- FIN : Modal content -->
     </div>
+    <!-- FIN : Modal dialog -->
   </div>
+  <!-- FIN : Modal lightbox -->
+
 </body>
 
 </html>
