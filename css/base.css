@@ -3,9 +3,10 @@
    ----------------------------------------------------------
    Contient :
    1. Variables globales (couleurs, typographies, espacements)
-   2. Reset CSS (Eric Meyer)
-   3. Styles généraux (body, titres, textes, liens)
-   4. Utilitaires CSS (flexbox, overflow, alignements)
+   2. Police dyslexie (OpenDyslexic - Critère WCAG Cr 1.c.2)
+   3. Reset CSS (Eric Meyer)
+   4. Styles généraux (body, titres, textes, liens)
+   5. Utilitaires CSS (flexbox, overflow, alignements)
    ========================================================== */
 
 
@@ -45,6 +46,7 @@
   /* === Typographie === */
   --font-principale: "Open Sans", Arial, sans-serif;
   --font-secondaire: "Montserrat", sans-serif;
+  --font-dyslexique: 'OpenDyslexic', Arial, sans-serif;
 
   /* === Espacements === */
   --espace-xs: 4px;
@@ -59,7 +61,36 @@
 
 
 /* ==========================================================
-   2. RESET CSS (Eric Meyer)
+   2. POLICE DYSLEXIE - OpenDyslexic (Critère WCAG Cr 1.c.2)
+   ----------------------------------------------------------
+   Police adaptée pour personnes dyslexiques
+   Activable via bouton dans le header
+   ========================================================== */
+
+/* Import de la police OpenDyslexic depuis CDN */
+@import url('https://cdn.jsdelivr.net/npm/opendyslexic@1.0.3/opendyslexic-regular.css');
+
+/* 
+ * Mode dyslexie : applique la police OpenDyslexic sur tout le body
+ * Activé via JavaScript quand l'utilisateur clique sur le bouton dyslexie
+ * La préférence est sauvegardée en localStorage
+ */
+body.dyslexie-mode,
+body.dyslexie-mode * {
+  font-family: var(--font-dyslexique) !important;
+}
+
+/* 
+ * Classe alternative pour application ciblée
+ * Utilisable sur des éléments spécifiques si nécessaire
+ */
+.font-dyslexie {
+  font-family: var(--font-dyslexique) !important;
+}
+
+
+/* ==========================================================
+   3. RESET CSS (Eric Meyer)
    ---------------------------------------------------------- */
 
 html, body, div, span, applet, object, iframe,
@@ -110,7 +141,7 @@ table {
 
 
 /* ==========================================================
-   3. STYLES GÉNÉRAUX
+   4. STYLES GÉNÉRAUX
    ---------------------------------------------------------- */
 
    /* BASE TYPOGRAPHIQUE */
@@ -156,7 +187,7 @@ ul {
 
 
 /* ==========================================================
-   4. UTILITAIRES CSS - Flexbox, Alignement & Overflow
+   5. UTILITAIRES CSS - Flexbox, Alignement & Overflow
    ---------------------------------------------------------- */
 
 /* === Alignements flexbox === */
@@ -263,7 +294,7 @@ ul {
     text-align: justify;
 }
 
-/* Rétablir le gras après le reset css et évitee les conflit */
+/* Rétablir le gras après le reset css et éviter les conflits */
 b, strong {
     font-weight: bold !important;
 }

@@ -84,6 +84,7 @@
   <script src="js/room-gallery.js" defer></script>
   <script src="js/room-responsive-matchmedia.js" defer></script>
   <script src="js/accessibilite.js" defer></script>
+  <script src="js/dyslexie.js" defer></script>
 </head>
 
 <body>
@@ -96,7 +97,7 @@
 
   <!-- ========================================
        HEADER - EN-TÊTE DU SITE
-       Logo, Contact, Recherche, Ruban latéral (Compte/Langue/Monnaie)
+       Logo, Dyslexie, Contact, Recherche, Ruban latéral (Compte/Langue/Monnaie)
        ======================================== -->
   <header class="base-header position-relative" role="banner">
     <div class="container-fluid">
@@ -104,9 +105,9 @@
 
         <!-- === COLONNE LOGO === 
              col-12 : pleine largeur mobile
-             col-lg-6 : 6 colonnes sur 12 en desktop
+             col-lg-5 : 5 colonnes sur 12 en desktop (réduit pour laisser place au bouton dyslexie)
              order-0 : affiché en premier sur tous les écrans -->
-        <div class="col-12 col-lg-6 order-0">
+        <div class="col-12 col-lg-5 order-0">
           <div class="header_logo">
             <a href="index.html" class="my-logo d-block">
               <img src="assets/images/logo.png" alt="Book Your Travel" class="my-logo-img">
@@ -114,10 +115,27 @@
           </div>
         </div>
 
+        <!-- === COLONNE BOUTON DYSLEXIE (Critère WCAG Cr 1.c.2) ===
+             col-12 : pleine largeur mobile
+             col-lg-1 : 1 colonne sur 12 en desktop
+             order-1 : 2ème position sur tous les écrans
+             Flexbox : centre le bouton verticalement et horizontalement -->
+        <div class="col-12 col-lg-1 order-1 d-flex align-items-center justify-content-center">
+          <button id="toggle-dyslexie" class="btn btn-outline-secondary btn-sm"
+            aria-label="Activer la police adaptée aux personnes dyslexiques" aria-pressed="false"
+            title="Police pour dyslexie">
+            <!-- Icône accessibilité universelle -->
+            <i class="bi bi-universal-access"></i>
+            <!-- Texte visible uniquement sur desktop (≥992px) -->
+            <span class="btn-text d-none d-lg-inline ms-1">Dyslexie</span>
+          </button>
+        </div>
+
         <!-- === COLONNE CONTACT 24/7 === 
-             order-2 : 3ème position mobile
-             order-lg-1 : 2ème position desktop -->
-        <div class="col-12 col-lg-3 order-2 order-lg-1">
+             col-12 : pleine largeur mobile
+             col-lg-3 : 3 colonnes sur 12 en desktop
+             order-2 : 3ème position sur tous les écrans -->
+        <div class="col-12 col-lg-3 order-2">
           <div class="header_contact">
             <div class="bloc-contact">
               <!-- Icône téléphone Bootstrap Icons -->
@@ -135,8 +153,10 @@
         </div>
 
         <!-- === COLONNE RECHERCHE ===
-             order-lg-2 : dernière position desktop -->
-        <div class="col-12 col-lg-3 order-lg-2">
+             col-12 : pleine largeur mobile
+             col-lg-3 : 3 colonnes sur 12 en desktop
+             order-3 : dernière position sur tous les écrans -->
+        <div class="col-12 col-lg-3 order-3">
           <div class="header_search">
             <!-- role="search" : indique aux lecteurs d'écran que c'est une zone de recherche -->
             <div class="bloc-search" role="search" aria-label="Recherche rapide">
@@ -152,6 +172,7 @@
         </div>
 
       </div>
+      <!-- FIN : Row header-top -->
 
       <!-- === RUBAN LATÉRAL (RIBBON) ===
            Barre verticale fixe : Mon compte / Langue / Monnaie -->
@@ -197,8 +218,12 @@
 
         </nav>
       </div>
+      <!-- FIN : Ribbon -->
+
     </div>
+    <!-- FIN : Container-fluid -->
   </header>
+  <!-- FIN : Header -->
 
   <!-- ========================================
        NAVIGATION PRINCIPALE

@@ -55,6 +55,7 @@
 
   <script src="js/main.js" defer></script>
   <script src="js/accessibilite.js" defer></script>
+  <script src="js/dyslexie.js" defer></script>
 </head>
 
 <body>
@@ -66,15 +67,15 @@
   <a href="#main-content" class="skip-link" data-i18n="header.skipLink">Aller au contenu principal</a>
 
   <!-- ========================================
-       HEADER - EN-TÊTE DU SITE
-       Contient : Logo, Contact, Recherche, Ruban latéral
-       ======================================== -->
+     HEADER - EN-TÊTE DU SITE
+     Contient : Logo, Bouton Dyslexie, Contact, Recherche, Ruban latéral
+     ======================================== -->
   <header class="base-header position-relative" role="banner">
     <div class="container-fluid">
       <div class="row header-top g-3">
 
         <!-- === BLOC LOGO === -->
-        <div class="col-12 col-lg-6 order-0">
+        <div class="col-12 col-lg-5 order-0">
           <div class="header_logo">
             <a href="index.html" class="my-logo d-block">
               <img src="assets/images/logo.png" alt="Book Your Travel" class="my-logo-img">
@@ -83,8 +84,19 @@
         </div>
         <!-- FIN : Bloc logo -->
 
+        <!-- === BOUTON DYSLEXIE (Critère WCAG Cr 1.c.2) === -->
+        <div class="col-12 col-lg-1 order-1 d-flex align-items-center justify-content-center">
+          <button id="toggle-dyslexie" class="btn btn-outline-secondary btn-sm"
+            aria-label="Activer la police adaptée aux personnes dyslexiques" aria-pressed="false"
+            title="Police pour dyslexie">
+            <i class="bi bi-universal-access"></i>
+            <span class="btn-text d-none d-lg-inline ms-1">Dyslexie</span>
+          </button>
+        </div>
+        <!-- FIN : Bloc dyslexie -->
+
         <!-- === BLOC CONTACT (Téléphone 24/7) === -->
-        <div class="col-12 col-lg-3 order-2 order-lg-1">
+        <div class="col-12 col-lg-3 order-2">
           <div class="header_contact">
             <div class="bloc-contact">
               <div class="bloc-contact-ico">
@@ -100,7 +112,7 @@
         <!-- FIN : Bloc contact -->
 
         <!-- === BLOC RECHERCHE === -->
-        <div class="col-12 col-lg-3 order-lg-2">
+        <div class="col-12 col-lg-3 order-3">
           <div class="header_search">
             <div class="bloc-search" role="search" aria-label="Recherche rapide">
               <form class="position-relative">
@@ -1015,7 +1027,7 @@
     </nav>
   </div>
   <!-- FIN : Barre inférieure copyright -->
-   
+
 </body>
 
 </html>

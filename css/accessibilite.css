@@ -108,3 +108,67 @@ input[type="submit"],
 input[type="reset"] {
   min-height: 44px;
 }
+
+
+/* ============================================
+   BOUTON DYSLEXIE - Critère WCAG Cr 1.c.2
+   Style pour le bouton d'activation de la police dyslexie
+   ============================================ */
+
+/* 
+ * Bouton toggle pour activer/désactiver la police dyslexie
+ * Positionné dans le header de chaque page
+ */
+#toggle-dyslexie {
+  transition: all 0.3s ease;
+  border-color: var(--turquoise, #5fc8c2);
+  color: var(--turquoise, #5fc8c2);
+  background-color: transparent;
+}
+
+/* État hover : arrière-plan léger */
+#toggle-dyslexie:hover {
+  background-color: var(--turquoise-light, rgba(95, 200, 194, 0.1));
+  border-color: var(--turquoise-hover, #3db3aa);
+  color: var(--turquoise-hover, #3db3aa);
+}
+
+/* État actif : police dyslexie activée */
+#toggle-dyslexie.active {
+  background-color: var(--turquoise, #5fc8c2);
+  border-color: var(--turquoise, #5fc8c2);
+  color: var(--blanc, #ffffff);
+}
+
+/* Icône du bouton légèrement plus grande */
+#toggle-dyslexie i {
+  font-size: 1.1rem;
+}
+
+/* Focus visible pour navigation clavier */
+#toggle-dyslexie:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 95, 204, 0.25);
+}
+
+/* Responsive : ajustement sur mobile */
+@media (max-width: 767px) {
+  #toggle-dyslexie {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Texte masqué sur petits écrans, icône seule visible */
+  #toggle-dyslexie .btn-text {
+    display: none;
+  }
+}
+
+/* Sur tablettes et desktop, afficher le texte */
+@media (min-width: 768px) {
+  #toggle-dyslexie .btn-text {
+    display: inline;
+    margin-left: 0.25rem;
+  }
+}

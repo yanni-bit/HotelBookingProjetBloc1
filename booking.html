@@ -67,6 +67,7 @@
   <script src="js/booking.js" defer></script>
   <script src="js/booking-responsive-matchmedia.js" defer></script>
   <script src="js/accessibilite.js" defer></script>
+  <script src="js/dyslexie.js" defer></script>
 </head>
 
 <body>
@@ -78,54 +79,87 @@
        ======================================== -->
   <a href="#main-content" class="skip-link" data-i18n="header.skipLink">Aller au contenu principal</a>
 
+  <!-- ========================================
+       HEADER - EN-TÊTE DU SITE
+       Logo, Dyslexie, Contact, Recherche, Ruban latéral (Compte/Langue/Monnaie)
+       ======================================== -->
   <header class="base-header position-relative" role="banner">
     <div class="container-fluid">
       <div class="row header-top g-3">
 
-        <!-- === BLOC LOGO === -->
-        <div class="col-12 col-lg-6 order-0">
+        <!-- === COLONNE LOGO === 
+             col-12 : pleine largeur mobile
+             col-lg-5 : 5 colonnes sur 12 en desktop (réduit pour laisser place au bouton dyslexie)
+             order-0 : affiché en premier sur tous les écrans -->
+        <div class="col-12 col-lg-5 order-0">
           <div class="header_logo">
             <a href="index.html" class="my-logo d-block">
               <img src="assets/images/logo.png" alt="Book Your Travel" class="my-logo-img">
             </a>
           </div>
         </div>
-        <!-- FIN : Bloc logo -->
 
-        <!-- === BLOC CONTACT (Téléphone 24/7) === -->
-        <div class="col-12 col-lg-3 order-2 order-lg-1">
+        <!-- === COLONNE BOUTON DYSLEXIE (Critère WCAG Cr 1.c.2) ===
+             col-12 : pleine largeur mobile
+             col-lg-1 : 1 colonne sur 12 en desktop
+             order-1 : 2ème position sur tous les écrans
+             Flexbox : centre le bouton verticalement et horizontalement -->
+        <div class="col-12 col-lg-1 order-1 d-flex align-items-center justify-content-center">
+          <button id="toggle-dyslexie" class="btn btn-outline-secondary btn-sm"
+            aria-label="Activer la police adaptée aux personnes dyslexiques" aria-pressed="false"
+            title="Police pour dyslexie">
+            <!-- Icône accessibilité universelle -->
+            <i class="bi bi-universal-access"></i>
+            <!-- Texte visible uniquement sur desktop (≥992px) -->
+            <span class="btn-text d-none d-lg-inline ms-1">Dyslexie</span>
+          </button>
+        </div>
+
+        <!-- === COLONNE CONTACT 24/7 === 
+             col-12 : pleine largeur mobile
+             col-lg-3 : 3 colonnes sur 12 en desktop
+             order-2 : 3ème position sur tous les écrans -->
+        <div class="col-12 col-lg-3 order-2">
           <div class="header_contact">
             <div class="bloc-contact">
+              <!-- Icône téléphone Bootstrap Icons -->
               <div class="bloc-contact-ico">
                 <i class="bi bi-telephone"></i>
               </div>
               <div class="text-contact">
+                <!-- Label support 24/7 -->
                 <div class="bloc-contact-label" data-i18n="header.supportNumber">24/7 Support number</div>
+                <!-- Numéro de téléphone -->
                 <div class="bloc-contact-number">1-555-555-555</div>
               </div>
             </div>
           </div>
         </div>
-        <!-- FIN : Bloc contact -->
 
-        <!-- === BLOC RECHERCHE === -->
-        <div class="col-12 col-lg-3 order-lg-2">
+        <!-- === COLONNE RECHERCHE ===
+             col-12 : pleine largeur mobile
+             col-lg-3 : 3 colonnes sur 12 en desktop
+             order-3 : dernière position sur tous les écrans -->
+        <div class="col-12 col-lg-3 order-3">
           <div class="header_search">
+            <!-- role="search" : indique aux lecteurs d'écran que c'est une zone de recherche -->
             <div class="bloc-search" role="search" aria-label="Recherche rapide">
               <form class="position-relative">
+                <!-- Input recherche avec placeholder traduisible -->
                 <input type="search" class="form-control bloc-search-input" placeholder="Rechercher"
                   data-i18n="header.searchPlaceholder" aria-label="Rechercher sur le site">
+                <!-- Icône loupe positionnée par CSS -->
                 <i class="bi bi-search bloc-search-ico"></i>
               </form>
             </div>
           </div>
         </div>
-        <!-- FIN : Bloc recherche -->
 
       </div>
       <!-- FIN : Row header-top -->
 
-      <!-- === RUBAN LATÉRAL (Mon compte, Langue, Monnaie) === -->
+      <!-- === RUBAN LATÉRAL (RIBBON) ===
+           Barre verticale fixe : Mon compte / Langue / Monnaie -->
       <div class="ribbon">
         <nav class="d-flex gap-2 flex-column align-items-stretch">
 
@@ -136,13 +170,14 @@
             </a>
           </div>
 
-          <!-- Menu déroulant Langue -->
+          <!-- Menu déroulant Sélection Langue -->
           <div class="dropdown">
             <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="langue"
-              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Sélectionner la langue"
-              data-i18n="header.country">
+              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-i18n="header.country"
+              aria-label="Sélectionner la langue">
               PAYS
             </button>
+            <!-- Dropdown avec 3 langues : FR / EN / IT -->
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-lang="fr" data-i18n="languages.french">Français (Fr)</a></li>
               <li><a class="dropdown-item" href="#" data-lang="en" data-i18n="languages.english">English (US)</a></li>
@@ -150,13 +185,14 @@
             </ul>
           </div>
 
-          <!-- Menu déroulant Monnaie -->
+          <!-- Menu déroulant Sélection Monnaie -->
           <div class="dropdown">
             <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="monnaie"
-              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Sélectionner la monnaie"
-              data-i18n="header.currency">
+              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-i18n="header.currency"
+              aria-label="Sélectionner la monnaie">
               MONNAIE
             </button>
+            <!-- Dropdown avec 3 devises : EUR / USD / GBP -->
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-i18n="currencies.euro">€ Euro</a></li>
               <li><a class="dropdown-item" href="#" data-i18n="currencies.dollar">$ US Dollar</a></li>
@@ -166,9 +202,10 @@
 
         </nav>
       </div>
-      <!-- FIN : Ruban latéral -->
+      <!-- FIN : Ribbon -->
+
     </div>
-    <!-- FIN : Container fluid -->
+    <!-- FIN : Container-fluid -->
   </header>
   <!-- FIN : Header -->
 
