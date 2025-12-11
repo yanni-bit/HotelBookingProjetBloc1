@@ -1,13 +1,11 @@
 /* ==========================================================
-   MAIN.JS - Fonctionnalités principales
+   ROOM-GALLERY.JS - Gestion de la galerie lightbox
    Projet : Hôtel Booking (Bloc 1)
    ----------------------------------------------------------
    Contient :
-   - Initialisation du ruban (langue et monnaie)
-   - Gestion du menu hamburger
-   - Carrousel de la page index
-   - Carrousel de la page room avec miniatures
-   - Formulaire de recherche
+   - Ouverture de la lightbox pour les images
+   - Synchronisation avec le carrousel Bootstrap
+   - Navigation par clavier (flèches gauche/droite)
    ========================================================== */
 
 /**

@@ -20,21 +20,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const PRIX_PAR_NUIT = 770;
 
   // Éléments DOM
-  const checkInInfo = document.getElementById("checkInInfo");
-  const checkOutInfo = document.getElementById("checkOutInfo");
-  const checkInText = document.getElementById("checkInText");
-  const checkOutText = document.getElementById("checkOutText");
-  /** @type {HTMLInputElement | null} */
-  const checkInTimeInput = document.getElementById("checkInTime");
-  /** @type {HTMLInputElement | null} */
-  const checkOutTimeInput = document.getElementById("checkOutTime");
-  const nightsCount = document.getElementById("nightsCount");
-  const nightsNumber = document.getElementById("nightsNumber");
-  const totalPrice = document.getElementById("totalPrice");
-  /** @type {HTMLButtonElement | null} */
-  const confirmBtn = document.getElementById("confirmBtn");
-  /** @type {HTMLButtonElement | null} */
-  const resetBtn = document.getElementById("resetBtn");
+/** @type {HTMLElement | null} */
+const checkInInfo = document.getElementById("checkInInfo");
+/** @type {HTMLElement | null} */
+const checkOutInfo = document.getElementById("checkOutInfo");
+/** @type {HTMLElement | null} */
+const checkInText = document.getElementById("checkInText");
+/** @type {HTMLElement | null} */
+const checkOutText = document.getElementById("checkOutText");
+/** @type {HTMLInputElement | null} */
+const checkInTimeInput = document.getElementById("checkInTime");
+/** @type {HTMLInputElement | null} */
+const checkOutTimeInput = document.getElementById("checkOutTime");
+/** @type {HTMLElement | null} */
+const nightsCount = document.getElementById("nightsCount");
+/** @type {HTMLElement | null} */
+const nightsNumber = document.getElementById("nightsNumber");
+/** @type {HTMLElement | null} */
+const totalPrice = document.getElementById("totalPrice");
+/** @type {HTMLButtonElement | null} */
+const confirmBtn = document.getElementById("confirmBtn");
+/** @type {HTMLButtonElement | null} */
+const resetBtn = document.getElementById("resetBtn");
 
   // Variables pour stocker les dates et l'instance Flatpickr
   /** @type {Date | null} */
@@ -86,8 +93,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       },
 
+      /**
+       * Callback Flatpickr pour personnaliser l'apparence des jours.
+       * @param {Date[]} datesObj - Tableau des dates affichées.
+       * @param {string} dStr - Date formatée en string.
+       * @param {Object} fp - Instance Flatpickr.
+       * @param {HTMLElement} dayElem - Élément DOM du jour.
+       */
       onDayCreate: function (datesObj, dStr, fp, dayElem) {
-        // Personnalisation des jours
+        // Personnalisation des jours (actuellement vide)
       },
     });
 

@@ -2,8 +2,168 @@
    STYLE.CSS - Mise en page principale
    Projet : Hôtel Booking (Bloc 1)
    ----------------------------------------------------------
-   Contient les styles visuels des sections principales, triés
-   par composant et annotés pour la référence HTML.
+   TABLE DES MATIÈRES
+   
+   ══════════════════════════════════════════════════════════
+   1. COMPOSANTS GLOBAUX (TOUTES PAGES)
+   ══════════════════════════════════════════════════════════
+   
+   1.1. Header Global ................................. ligne 171
+        - Structure Flex du header .................... ligne 189
+        - Logo ........................................ ligne 211
+   
+   1.2. Bloc Contact .................................. ligne 219
+        - Icône du contact ............................ ligne 228
+        - Texte du contact ............................ ligne 245
+   
+   1.3. Bloc Recherche Header ......................... ligne 256
+   
+   1.4. Ruban Turquoise ............................... ligne 296
+        - Boutons du ruban ............................ ligne 324
+        - Dropdown du ruban ........................... ligne 339
+        - Triangles décoratifs (::before, ::after) .... ligne 353
+   
+   1.5. Navigation Principale ......................... ligne 395
+   
+   1.6. Footer ........................................ ligne 981
+        - Sections du footer .......................... ligne 997
+        - Réseaux sociaux ............................. ligne 1025
+        - Newsletter .................................. ligne 1064
+        - Copyright & Liens légaux .................... ligne 1085
+   
+   1.7. Calendrier Flatpickr (Global) ................. ligne 1147
+        - Conteneur principal ......................... ligne 1155
+        - En-tête du calendrier ....................... ligne 1163
+        - Jours de la semaine ......................... ligne 1200
+        - Grille des jours ............................ ligne 1209
+   
+   1.8. Modal Global .................................. ligne 1285
+   
+   ══════════════════════════════════════════════════════════
+   2. PAGE INDEX (index.html)
+   ══════════════════════════════════════════════════════════
+   
+   2.1. Carrousel Principal ........................... ligne 421
+        - Boutons flèches ............................. ligne 445
+        - Points indicateurs .......................... ligne 480
+        - Animation fondu ............................. ligne 502
+   
+   2.2. Bloc Recherche Superposé ...................... ligne 505
+        - Boîtes de champs formulaire ................. ligne 540
+        - Colonnes dates et personnes ................. ligne 601
+        - Bouton de validation ........................ ligne 637
+   
+   2.3. Section Offres Spéciales ...................... ligne 680
+        - Titres de section ........................... ligne 688
+        - Cards des offres (.offre-card) .............. ligne 702
+   
+   2.4. Section Destinations .......................... ligne 835
+        - Cards destinations (.destination-card) ...... ligne 843
+        - Image avec overlay .......................... ligne 855
+        - Informations destination .................... ligne 894
+   
+   2.5. Section Critères de Sélection ................. ligne 985
+        - Cards d'information (.info-card) ............ ligne 996
+   
+   ══════════════════════════════════════════════════════════
+   3. PAGE ROOM (room.html)
+   ══════════════════════════════════════════════════════════
+   
+   3.1. Layout Général ................................ ligne 1371
+        - Surcharges Flatpickr pour room .............. ligne 1378
+   
+   3.2. Menu Latéral avec Onglets (Sidebar) ........... ligne 1406
+        - Liens du menu ............................... ligne 1413
+        - Onglet actif ................................ ligne 1433
+        - Flèche de l'onglet actif (::after) .......... ligne 1442
+   
+   3.3. Fiche Hôtel Room (En-tête Sidebar) ............ ligne 1480
+        - Variables de largeur personnalisées ......... ligne 1482
+        - Taille des étoiles .......................... ligne 1500
+        - Tag ......................................... ligne 1505
+   
+   3.4. Hôtels Populaires / Offre du Jour ............. ligne 1522
+        - Nom de l'hôtel et étoiles ................... ligne 1526
+        - Prix et note ................................ ligne 1545
+   
+   3.5. Carrousel Room - Galerie d'Images ............. ligne 1571
+        - Images principales .......................... ligne 1576
+        - Miniatures .................................. ligne 1586
+        - Miniatures scrollables ...................... ligne 1620
+        - Boutons de navigation ....................... ligne 1658
+   
+   3.6. Card Offre de Chambre (Disponibilité) ......... ligne 1680
+        - Variables de largeur personnalisées ......... ligne 1682
+        - Card principale ............................. ligne 1696
+        - Mini carrousel de la card ................... ligne 1706
+        - Bouton BOOK NOW ............................. ligne 1728
+        - Smooth scroll & animation ................... ligne 1743
+   
+   3.7. Équipements (Onglet) .......................... ligne 1758
+   
+   3.8. Avis Clients (Onglet) ......................... ligne 1776
+   
+   3.9. Localisation (Onglet) ......................... ligne 1861
+   
+   ══════════════════════════════════════════════════════════
+   4. PAGE BOOKING (booking.html)
+   ══════════════════════════════════════════════════════════
+   
+   4.1. Layout Général ................................ ligne 2038
+        - Fil d'Ariane ................................ ligne 2045
+   
+   4.2. En-tête de la Page ............................ ligne 2062
+   
+   4.3. Formulaire de Réservation ..................... ligne 2081
+        - Section du formulaire ....................... ligne 2090
+        - En-tête de section .......................... ligne 2102
+        - Champs de formulaire ........................ ligne 2122
+   
+   4.4. Section Nombre de Voyageurs ................... ligne 2143
+        - Boutons +/- ................................. ligne 2166
+        - Alertes ..................................... ligne 2192
+   
+   4.5. Services Additionnels ......................... ligne 2217
+   
+   4.6. Informations de Paiement ...................... ligne 2269
+   
+   4.7. Conditions de Réservation ..................... ligne 2288
+   
+   4.8. Récapitulatif (Sidebar) ....................... ligne 2323
+        - Résumé nom de l'hôtel ....................... ligne 2338
+        - Résumé chambre .............................. ligne 2357
+        - Résumé dates du séjour ...................... ligne 2380
+        - Résumé prix ................................. ligne 2416
+        - Résumé avantages ............................ ligne 2443
+        - Résumé contact .............................. ligne 2460
+   
+   4.9. Bouton de Soumission .......................... ligne 2477
+   
+   ══════════════════════════════════════════════════════════
+   5. PAGE CONTACT (contact.html)
+   ══════════════════════════════════════════════════════════
+   
+   5.1. Layout Général ................................ ligne 2664
+   
+   5.2. En-tête de la Page ............................ ligne 2675
+   
+   5.3. Carte Google Maps ............................. ligne 2687
+   
+   5.4. Cartes d'Informations ......................... ligne 2718
+        - Style de base des cartes .................... ligne 2725
+        - Conteneurs nouvelle structure ............... ligne 2738
+        - Ligne d'en-tête (Icône + Titre) ............. ligne 2744
+   
+   5.5. Formulaire de Contact ......................... ligne 2788
+   
+   5.6. Modal de Confirmation ......................... ligne 2833
+   
+   ══════════════════════════════════════════════════════════
+   
+   TOTAL : 2991 lignes
+   SECTIONS PRINCIPALES : 5 grandes parties
+   SOUS-SECTIONS : 50+ composants détaillés
+   
    ========================================================== */
 
 

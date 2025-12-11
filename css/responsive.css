@@ -2,19 +2,94 @@
    RESPONSIVE.CSS - Adaptations mobiles et tablettes
    Projet : Hôtel Booking (Bloc 1)
    ----------------------------------------------------------
+   TABLE DES MATIÈRES
+   
    Structure des Média-Requêtes :
-   1. DESKTOP XL (≥ 1200px)
-   2. DESKTOP/GRANDES TABLETTES (≥ 992px)
-   3. TABLETTES/MOBILES (≤ 991px)
-   4. TABLETTES MOYENNES (768px - 991px)
-   5. PETITES TABLETTES/GRANDS MOBILES (576px - 767px)
-   6. MOBILES MOYENS (391px - 575px)
-   7. PETITS MOBILES (≤ 390px)
-   8. TRÈS PETITS MOBILES (< 360px)
-   9. AMÉLIORATIONS TACTILES (Pointer: coarse)
-   10. RESPONSIVE PAGES SPÉCIFIQUES (Booking, Contact)
+   
+   1. DESKTOP XL (≥ 1200px) ...................... ligne 100
+      - Room: Modals, Sidebar
+   
+   2. DESKTOP/GRANDES TABLETTES (≥ 992px) ........ ligne 127
+      - Room: Calendrier Flatpickr
+   
+   3. TABLETTES/MOBILES (≤ 991px) ................ ligne 154
+      - Header global, Carrousel, Recherche
+      - Destinations, Footer
+   
+   4. TABLETTES MOYENNES (768px - 991px) ......... ligne 306
+      - Room: Calendrier, Avis clients
+   
+   5. PETITES TABLETTES/GRANDS MOBILES (576px - 767px) ... ligne 348
+      - Room: Sidebar, Calendrier, Avis
+   
+   6. MOBILES MOYENS (391px - 575px) ............. ligne 427
+      - Room: Sidebar, Calendrier, Avis
+      - Header: Bloc recherche réduit
+   
+   7. PETITS MOBILES (≤ 390px) ................... ligne 519
+      - Interface mobile : Formulaire au lieu calendrier
+      - Header : Réorganisation ruban
+      - Carrousel, Recherche, Destinations
+      - Footer, Avis clients, Flatpickr compact
+   
+   8. TRÈS PETITS MOBILES (< 360px) .............. ligne 770
+      - Room: En-tête sidebar, Avis
+      - Flatpickr : Version ultra-compacte
+   
+   9. CARROUSEL ROOM (≤ 768px) ................... ligne 828
+      - Galerie d'images responsive
+   
+   10. AMÉLIORATIONS TACTILES (touch devices) .... ligne 856
+       - Zones tactiles 44px minimum (WCAG AAA)
+   
+   11. RESPONSIVE PAGES SPÉCIFIQUES .............. ligne 878
+       
+       A. PAGE BOOKING (booking.html)
+          - ≤ 991px : Récapitulatif non sticky ... ligne 878
+          - ≤ 767px : Formulaire, Services ....... ligne 886
+          - ≤ 575px : Pads réduits ............... ligne 926
+       
+       B. PAGE CONTACT (contact.html)
+          - ≤ 991px : Formulaire non sticky ...... ligne 950
+          - ≤ 767px : Map, Cartes info ........... ligne 965
+          - ≤ 575px : Pads réduits ............... ligne 1000
+       
+       C. EDGE CASE (≤ 280px)
+          - Email long → "Contact" ............... ligne 1015
+       
+       D. MODAL CONFIRMATION (≤ 576px)
+          - Détails verticaux .................... ligne 1033
+   
+   ══════════════════════════════════════════════════════════
+   
+   TOTAL : 1042 lignes
+   MEDIA QUERIES : 18 breakpoints
+   !IMPORTANT : 104 occurrences (plugins/Bootstrap override)
+   COMMENTAIRES : 71 annotations
+   
    ========================================================== */
 
+
+/* ==========================================================
+   RÈGLES GÉNÉRALES - Masquage par défaut
+   (Appliqué à tous les appareils)
+   ---------------------------------------------------------- */
+
+/* [room.html] Le formulaire mobile est masqué par défaut (affiché uniquement ≤ 390px) */
+.mobile-date-form {
+  display: none;
+}
+
+
+/* ==========================================================
+   RÈGLES GÉNÉRALES - Masquage par défaut
+   (Appliqué à tous les appareils)
+   ---------------------------------------------------------- */
+
+/* [room.html] Le formulaire mobile est masqué par défaut (affiché uniquement ≤ 390px) */
+.mobile-date-form {
+  display: none;
+}
 
 /* ==========================================================
    RÈGLES GÉNÉRALES - Masquage par défaut

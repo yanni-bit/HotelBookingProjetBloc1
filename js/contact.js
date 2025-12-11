@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Formatage automatique du téléphone (ajout d'espaces)
   if (phoneInput) {
+    /**
+     * Formate automatiquement le numéro de téléphone (ajoute des espaces).
+     * @param {Event} e - L'événement input.
+     */
     phoneInput.addEventListener("input", function (e) {
       let value = e.target.value.replace(/\D/g, "");
       if (value.length > 0 && value[0] === "0") {
@@ -284,6 +288,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==========================================================
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    /**
+     * Gère le scroll fluide vers l'ancre cliquée.
+     * @param {Event} e - L'événement de clic.
+     */
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute("href"));

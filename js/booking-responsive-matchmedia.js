@@ -134,6 +134,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Écouter les changements de media query
   if (mediaQuery.addEventListener) {
+    /**
+     * Écoute les changements de breakpoint responsive (mobile ↔ desktop).
+     * @listens MediaQueryList#change
+     */
     mediaQuery.addEventListener("change", handleMediaQueryChange);
   } else {
     mediaQuery.addListener(handleMediaQueryChange);

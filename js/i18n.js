@@ -198,7 +198,14 @@ class I18n {
 }
 
 // Créer une instance globale
-/** @type {I18n | null} */
+/**
+ * Instance globale du système de traduction.
+ * Accessible depuis tous les scripts pour traduire dynamiquement.
+ * @type {I18n | null}
+ * @example
+ * // Utilisation dans un autre script
+ * const translatedText = i18n.t('nav.home');
+ */
 let i18n;
 
 // Initialiser dès que possible

@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuPrincipal = document.getElementById("menuPrincipal");
 
   if (hamburgerButton && menuPrincipal) {
+    /**
+     * Bascule l'affichage du menu mobile (classe 'show').
+     */
     hamburgerButton.addEventListener("click", function () {
       menuPrincipal.classList.toggle("show");
     });
@@ -29,7 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
    CARROUSEL INDEX (PAGE D'ACCUEIL)
    ---------------------------------------------------------- */
 
+/** @type {number} */
 let slideIndex = 0;
+
+/** @type {number | null} */
 let timer = null;
 
 /* Initialise le carrousel seulement s'il existe sur la page */
@@ -142,6 +148,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const scrollRightBtn = document.getElementById("scrollRight");
 
   /* Attente de l'initialisation complète de Bootstrap */
+  /**
+   * Initialise le carrousel Bootstrap après un court délai.
+   */
   setTimeout(function () {
     /** @type {bootstrap.Carousel} */
     let bsCarousel = bootstrap.Carousel.getInstance(carousel);
@@ -197,8 +206,8 @@ document.addEventListener("DOMContentLoaded", function () {
   /* === Boutons de navigation des miniatures === */
 
   /**
-   * Fait défiler les miniatures vers la gauche.
-   * @param {Event} e
+   * Fait défiler les miniatures vers la gauche de 250px.
+   * @param {Event} e - L'événement de clic sur le bouton.
    */
   if (scrollLeftBtn && thumbnailsScroll) {
     scrollLeftBtn.addEventListener("click", function (e) {
@@ -211,8 +220,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
-   * Fait défiler les miniatures vers la droite.
-   * @param {Event} e
+   * Fait défiler les miniatures vers la droite de 250px.
+   * @param {Event} e - L'événement de clic sur le bouton.
    */
   if (scrollRightBtn && thumbnailsScroll) {
     scrollRightBtn.addEventListener("click", function (e) {
