@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESPONSIVE DESIGN - Hôtel Booking</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  
+  <style>
+    body {
+      font-family: var(--font-principale, "Open Sans", Arial, sans-serif);
+      line-height: 1.8;
+      color: var(--gris-fonce, #333333);
+      background-color: var(--blanc, #ffffff);
+      padding: 2rem 1rem;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    h2 {
+      color: var(--gris-fonce, #333333);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--gris-clair, #f7f7f7);
+    }
+    
+    h3 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      color: var(--gris-fonce, #333333);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    
+    ul, ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    code {
+      background-color: var(--gris-clair, #f7f7f7);
+      color: var(--turquoise-hover, #3db3aa);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    
+    pre {
+      background-color: var(--gris-clair, #f7f7f7);
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    pre code {
+      background-color: transparent;
+      padding: 0;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    strong {
+      font-weight: 600;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    a {
+      color: var(--turquoise, "#5fc8c2");
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    a:hover {
+      color: var(--turquoise-hover, #3db3aa);
+      text-decoration: underline;
+    }
+    
+    .info-box {
+      background-color: var(--turquoise-light, rgba(95, 200, 194, 0.1));
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 5px;
+    }
+
+    /* Style spécifique pour la NOTE IMPORTANTE */
+    .note-importante {
+        background-color: #fcebeb; /* Rouge très clair */
+        border-left: 5px solid var(--rouge-erreur, #e74c3c); 
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+    }
+    
+    .note-importante h1 {
+        color: var(--rouge-erreur, #e74c3c) !important;
+        font-size: 1.75rem;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .note-importante p {
+        text-align: left;
+        margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <hr>
+    
+    <div class="note-importante">
+        <h1>⚠️ NOTE IMPORTANTE SUR L'ÉTAT DU PROJET</h1>
+        <p>Ce document reflète les choix de conception et l'architecture du projet à la fin de la phase de développement initial.</p>
+        <p>Les optimisations de performance (CSS critique, Lazy Loading, etc.), les corrections de robustesse (Sécurité XSS) et les ajustements finaux d'accessibilité identifiés lors des audits de validation (Lighthouse, WAVE) ne sont <strong>pas encore intégrés</strong> dans le code ou la description détaillée de ce fichier.</p>
+        <p>Le plan d'actions pour l'amélioration continue est documenté séparément dans le fichier <strong>RAPPORT_D_AMELIORATION.md</strong>.</p>
+    </div>
+    
+    <hr>
+    
+    <h1>Responsive Design - Hôtel Booking</h1>
+
+    <h2>Introduction</h2>
+    
+    <p>Ce document détaille l'approche responsive mise en œuvre dans le projet Hôtel Booking pour garantir une expérience utilisateur optimale sur tous les types d'appareils (smartphones, tablettes, ordinateurs de bureau). Le responsive design est une exigence du référentiel RNCP Bloc 1 (Critère C1.b).</p>
+    
+    <h2>Approche générale</h2>
+    
+    <h3>Stratégie Mobile-First</h3>
+    
+    <p><strong>Principe</strong> : Les styles de base sont conçus pour les mobiles, puis enrichis progressivement pour les écrans plus larges.</p>
+    
+    <p><strong>Avantages</strong> :</p>
+    <ul>
+      <li>Priorité au mobile (statistiques d'usage actuelles)</li>
+      <li>Performance optimisée (chargement progressif)</li>
+      <li>Cascade CSS naturelle</li>
+      <li>Maintenance facilitée</li>
+    </ul>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>/* Styles de base : mobile */
+.element {
+  font-size: 14px;
+  padding: 0.5rem;
+}
+
+/* Enrichissement pour tablette */
+@media (min-width: 768px) {
+  .element {
+    font-size: 16px;
+    padding: 1rem;
+  }
+}
+
+/* Enrichissement pour desktop */
+@media (min-width: 992px) {
+  .element {
+    font-size: 18px;
+    padding: 1.5rem;
+  }
+}</code></pre>
+    
+    <h3>Techniques utilisées</h3>
+    
+    <ol>
+      <li><strong>Media queries CSS</strong> : Adaptations par taille d'écran.</li>
+      <li><strong>Système de grille Bootstrap</strong> : Organisation du contenu en colonnes.</li>
+      <li><strong>Classes utilitaires Bootstrap</strong> : Affichage/masquage d'éléments selon le breakpoint.</li>
+      <li><strong>Flexbox et Grid CSS</strong> : Mise en page avancée et réorganisation des éléments.</li>
+      <li><strong>Unité de mesure relatives</strong> : Utilisation de <code>rem</code>, <code>em</code>, <code>%</code> et <code>vw</code>.</li>
+      <li><strong><code>window.matchMedia()</code> JavaScript</strong> : Réorganisation complexe du DOM pour les grands écrans (voir ANNEXE_MATCHMEDIA.md).</li>
+    </ol>
+    
+    <h2>Breakpoints du projet</h2>
+    
+    <p>Le projet utilise la grille Bootstrap v5 par défaut, enrichie de classes utilitaires et de media queries personnalisées. Les breakpoints sont basés sur les standards de l'industrie :</p>
+    
+    <div class="info-box">
+        <p><strong>Règle générale</strong> : Le projet est conçu pour être fluide (s'adapte entre les breakpoints) et non statique (fixe aux breakpoints).</p>
+    </div>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Taille</th>
+          <th>Breakpoint (CSS)</th>
+          <th>Utilisation typique</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Extra Small (xs)</td>
+          <td>&lt; 576px</td>
+          <td>Smartphones (portraits)</td>
+        </tr>
+        <tr>
+          <td>Small (sm)</td>
+          <td>≥ 576px</td>
+          <td>Smartphones (paysage)</td>
+        </tr>
+        <tr>
+          <td>Medium (md)</td>
+          <td>≥ 768px</td>
+          <td>Tablettes (portrait)</td>
+        </tr>
+        <tr>
+          <td>Large (lg)</td>
+          <td>≥ 992px</td>
+          <td>Tablettes (paysage) / Petits Desktops</td>
+        </tr>
+        <tr>
+          <td>Extra Large (xl)</td>
+          <td>≥ 1200px</td>
+          <td>Desktops standards</td>
+        </tr>
+        <tr>
+          <td>Extra Extra Large (xxl)</td>
+          <td>≥ 1400px</td>
+          <td>Grands écrans / TV</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h3>Configuration des media queries (CSS)</h3>
+    
+    <p><strong>Exemple (<code>style.css</code>)</strong> :</p>
+    <pre><code>/* Masquer le texte du bouton sur les petits écrans */
+@media (max-width: 767px) {
+  .btn-avec-texte .btn-text {
+    display: none;
+  }
+}
+
+/* Réorganiser le formulaire de recherche sur les tablettes */
+@media (min-width: 768px) and (max-width: 991px) {
+  .search-form {
+    flex-direction: column;
+  }
+}</code></pre>
+    
+    <h2>Réorganisation du DOM avec JavaScript (matchMedia)</h2>
+    
+    <p>Pour certaines réorganisations complexes impossibles en CSS pur (comme déplacer un élément dans une structure DOM différente), l'API native <code>window.matchMedia()</code> est utilisée.</p>
+    
+    <h3>Cas d'usage : Modèle de chambre sur mobile</h3>
+    
+    <p>Sur mobile, l'information de prix doit être déplacée à côté du bouton de réservation. Sur desktop, elle doit rester dans la colonne d'information.</p>
+    
+    <p><strong>Code JavaScript (<code>responsive.js</code>)</strong> :</p>
+    <pre><code>const mqMobile = window.matchMedia('(max-width: 767px)');
+const priceElement = document.getElementById('room-price');
+const targetMobile = document.getElementById('reservation-button-wrapper');
+const targetDesktop = document.getElementById('info-column-summary');
+
+function handlePricePosition(e) {
+  if (e.matches) {
+    // Mobile : déplacer le prix à côté du bouton
+    targetMobile.prepend(priceElement);
+  } else {
+    // Tablette/Desktop : restaurer le prix dans la colonne d'info
+    targetDesktop.appendChild(priceElement);
+  }
+}
+
+// Lancement initial
+handlePricePosition(mqMobile);
+
+// Écoute des changements de breakpoint
+mqMobile.addEventListener('change', handlePricePosition);</code></pre>
+    
+    <p><strong>Avantages de <code>matchMedia</code></strong> :</p>
+    <ul>
+      <li>API native et performante</li>
+      <li>Évite l'écoute gourmande en ressources de l'événement <code>window.resize</code></li>
+      <li>Code asynchrone pour les changements de média (meilleure performance)</li>
+    </ul>
+    
+    <h2>Gestion des images et médias</h2>
+    
+    <h3>Images fluides (Fluid Images)</h3>
+    
+    <p>Toutes les images sont fluides et respectent leur conteneur :</p>
+    
+    <p><strong>Implémentation CSS</strong> :</p>
+    <pre><code>/* Règle générale Bootstrap (ou équivalent) */
+img {
+  max-width: 100%; /* L'image ne dépasse jamais son conteneur */
+  height: auto;   /* Préserve le ratio */
+  display: block; /* Évite les marges sous les images */
+}
+
+/* Images décoratives non critiques */
+.img-lazy {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}</code></pre>
+    
+    <h3>Icônes et graphiques</h3>
+    
+    <p>Utilisation d'icônes vectorielles (SVG via Bootstrap Icons) pour garantir une qualité d'affichage parfaite et une taille de fichier minimale sur tous les niveaux de zoom et toutes les résolutions (Retina).</p>
+    
+    <h2>Tests de validation responsive</h2>
+    
+    <p>Les tests manuels et automatisés sont effectués sur les critères suivants :</p>
+    
+    <p><strong>Mise en page générale</strong> :</p>
+    <ul>
+      <li>Pas de scroll horizontal (sauf en cas de besoin absolu, ex: grandes tables de données).</li>
+      <li>Éléments correctement alignés et empilés.</li>
+    </ul>
+    
+    <p><strong>Navigation</strong> :</p>
+    <ul>
+      <li>Menu hamburger fonctionnel sur mobile.</li>
+      <li>Liens cliquables et zones tactiles adaptées (44px min).</li>
+    </ul>
+    
+    <p><strong>Images</strong> :</p>
+    <ul>
+      <li>Pas de débordement</li>
+      <li>Ratio préservé</li>
+      <li>Chargement correct</li>
+    </ul>
+    
+    <p><strong>Formulaires</strong> :</p>
+    <ul>
+      <li>Champs de taille appropriée</li>
+      <li>Labels visibles</li>
+      <li>Validation claire</li>
+    </ul>
+    
+    <p><strong>Typographie</strong> :</p>
+    <ul>
+      <li>Lisibilité sur tous écrans</li>
+      <li>Taille adaptée</li>
+      <li>Line-height confortable</li>
+    </ul>
+    
+    <p><strong>Espacements</strong> :</p>
+    <ul>
+      <li>Marges cohérentes</li>
+      <li>Padding adapté</li>
+      <li>Pas de chevauchement</li>
+    </ul>
+    
+    <h2>Conclusion</h2>
+    
+    <p>Le projet Hôtel Booking implémente une approche responsive complète combinant :</p>
+    <ul>
+      <li>Stratégie mobile-first</li>
+      <li>Grille Bootstrap 12 colonnes</li>
+      <li>Media queries CSS custom (18 breakpoints)</li>
+      <li>Classes utilitaires Bootstrap</li>
+      <li>MatchMedia JavaScript pour réorganisation DOM</li>
+      <li>Images et typographie responsive</li>
+      <li>Support multi-appareils (mobile, tablette, desktop)</li>
+    </ul>
+    
+    <p>Cette approche garantit une expérience utilisateur optimale sur tous les types d'appareils, conformément aux exigences du référentiel RNCP Bloc 1 (Critère C1.b).</p>
+    
+    <h2>Liens et ressources</h2>
+    
+    <h3>Bootstrap responsive</h3>
+    
+    <ul>
+      <li><strong>Bootstrap Grid</strong> : <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank">https://getbootstrap.com/docs/5.3/layout/grid/</a></li>
+      <li><strong>Bootstrap Breakpoints</strong> : <a href="https://getbootstrap.com/docs/5.3/layout/breakpoints/" target="_blank">https://getbootstrap.com/docs/5.3/layout/breakpoints/</a></li>
+      <li><strong>Bootstrap Utilities</strong> : <a href="https://getbootstrap.com/docs/5.3/utilities/display/" target="_blank">https://getbootstrap.com/docs/5.3/utilities/display/</a></li>
+    </ul>
+    
+    <h3>Techniques responsive</h3>
+    
+    <ul>
+      <li><strong>MDN Responsive Design</strong> : <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank">https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design</a></li>
+      <li><strong>CSS-Tricks Media Queries</strong> : <a href="https://css-tricks.com/snippets/css/media-queries-for-standard-devices/" target="_blank">https://css-tricks.com/snippets/css/media-queries-for-standard-devices/</a></li>
+      <li><strong>Viewport meta tag</strong> : <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag</a></li>
+    </ul>
+    
+    </div>
+</body>
+</html>

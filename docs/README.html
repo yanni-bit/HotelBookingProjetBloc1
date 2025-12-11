@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation - Hôtel Booking</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  
+  <style>
+    body {
+      font-family: var(--font-principale, "Open Sans", Arial, sans-serif);
+      line-height: 1.8;
+      color: var(--gris-fonce, #333333);
+      background-color: var(--blanc, #ffffff);
+      padding: 2rem 1rem;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    h2 {
+      color: var(--gris-fonce, #333333);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--gris-clair, #f7f7f7);
+    }
+    
+    h3 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    h4 {
+      color: var(--gris-fonce, #333333);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    
+    ul, ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    code {
+      background-color: var(--gris-clair, #f7f7f7);
+      color: var(--turquoise-hover, #3db3aa);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    
+    pre {
+      background-color: var(--gris-clair, #f7f7f7);
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    pre code {
+      background-color: transparent;
+      padding: 0;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    strong {
+      font-weight: 600;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    a {
+      color: var(--turquoise, "#5fc8c2");
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    a:hover {
+      color: var(--turquoise-hover, #3db3aa);
+      text-decoration: underline;
+    }
+    
+    .info-box {
+      background-color: var(--turquoise-light, rgba(95, 200, 194, 0.1));
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 5px;
+    }
+
+    /* Style spécifique pour la NOTE IMPORTANTE */
+    .note-importante {
+        background-color: #fcebeb; /* Rouge très clair */
+        border-left: 5px solid var(--rouge-erreur, #e74c3c); 
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+    }
+    
+    .note-importante h1 {
+        color: var(--rouge-erreur, #e74c3c) !important;
+        font-size: 1.75rem;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .note-importante p {
+        text-align: left;
+        margin-bottom: 0.5rem;
+    }
+    
+    .structure-box {
+      background-color: var(--gris-clair, #f7f7f7);
+      padding: 1rem;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      margin-bottom: 1.5rem;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    
+    th {
+      background-color: var(--turquoise, "#5fc8c2");
+      color: var(--blanc, #ffffff);
+      padding: 0.75rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--gris-clair, #f7f7f7);
+    }
+    
+    tr:nth-child(even) {
+      background-color: var(--gris-clair, #f7f7f7);
+    }
+    
+    @media print {
+      body {
+        padding: 0;
+      }
+      
+      h2 {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <div class="note-importante">
+        <h1>⚠️ NOTE IMPORTANTE SUR L'ÉTAT DU PROJET</h1>
+        <p>Ce document reflète les choix de conception et l'architecture du projet à la fin de la phase de développement initial.</p>
+        <p>Les optimisations de performance (CSS critique, Lazy Loading, etc.), les corrections de robustesse (Sécurité XSS) et les ajustements finaux d'accessibilité identifiés lors des audits de validation (Lighthouse, WAVE) ne sont **pas encore intégrés** dans le code ou la description détaillée de ce fichier.</p>
+        <p>Le plan d'actions pour l'amélioration continue est documenté séparément dans le fichier **RAPPORT_D_AMELIORATION.md**.</p>
+    </div>
+    <h1>Hôtel Booking - Application Web de Réservation</h1>
+    
+    <p>Projet réalisé dans le cadre de la formation Développeur Web - Bloc 1 : Développement Front-End de sites et applications web.</p>
+    
+    <h2>Informations générales</h2>
+    
+    <div class="info-box">
+      <p><strong>Nom du projet</strong> : Hôtel Booking (Bloc 1)</p>
+      <p><strong>Type</strong> : Application web de réservation d'hôtel en ligne</p>
+      <p><strong>Auteur</strong> : Yannick</p>
+      <p><strong>Formation</strong> : Ilaria Academy - Certification RNCP Développeur Web</p>
+      <p><strong>Version</strong> : 1.0.0</p>
+      <p style="margin-bottom: 0;"><strong>Déploiement</strong> : <a href="https://yanni-bit.github.io/HotelBookingProjetBloc1/" target="_blank">https://yanni-bit.github.io/HotelBookingProjetBloc1/</a></p>
+    </div>
+    
+    <h2>Description du projet</h2>
+    
+    <p>Application web responsive permettant aux utilisateurs de consulter des offres d'hébergement, visualiser les détails des chambres via une galerie interactive, sélectionner des dates de réservation avec un calendrier dynamique, et finaliser leur réservation via un formulaire complet. Le projet répond aux exigences du référentiel de compétences RNCP pour le Bloc 1 (Front-End) et intègre les standards d'accessibilité WCAG 2.1 AA.</p>
+    
+    <h2>Fonctionnalités principales</h2>
+    
+    <h3>Pages et navigation</h3>
+    <ul>
+      <li><strong>Page d'accueil (index.html)</strong> : Présentation de l'hôtel avec carrousel d'images, formulaire de recherche, offres spéciales</li>
+      <li><strong>Page des chambres (room.html)</strong> : Galerie photos interactive, détails de la chambre, calendrier de disponibilité, système d'onglets</li>
+      <li><strong>Page de réservation (booking.html)</strong> : Formulaire multi-sections avec récapitulatif dynamique, validation temps réel</li>
+      <li><strong>Page de contact (contact.html)</strong> : Formulaire de contact avec validation, carte Google Maps, informations pratiques</li>
+      <li><strong>Page de documentation (documentations.html)</strong> : Documentation technique du projet</li>
+    </ul>
+    
+    <h3>Fonctionnalités techniques</h3>
+    <ul>
+      <li><strong>Calendrier interactif</strong> : Sélection de dates avec Flatpickr, calcul automatique du nombre de nuits et du prix total</li>
+      <li><strong>Galerie lightbox</strong> : Visualisation plein écran des images avec navigation au clavier</li>
+      <li><strong>Système d'internationalisation</strong> : Support de 3 langues (français, anglais, italien) avec sauvegarde de préférence</li>
+      <li><strong>Validation de formulaires</strong> : Contrôle en temps réel avec messages d'erreur contextuels et attributs ARIA</li>
+      <li><strong>Accessibilité</strong> : Police dyslexie OpenDyslexic, navigation clavier complète, rôles ARIA, respect WCAG 2.1 AA</li>
+      <li><strong>Responsive design</strong> : Adaptation aux mobiles, tablettes et desktop avec media queries et matchMedia</li>
+    </ul>
+    
+    <h2>Technologies utilisées</h2>
+    
+    <h3>Langages</h3>
+    <ul>
+      <li><strong>HTML5</strong> : Structure sémantique, balises ARIA, métadonnées SEO</li>
+      <li><strong>CSS3</strong> : Variables CSS, Flexbox, Grid, animations, media queries</li>
+      <li><strong>JavaScript ES6+</strong> : Modules, classes, arrow functions, async/await, manipulation DOM</li>
+    </ul>
+    
+    <h3>Frameworks et librairies</h3>
+    <ul>
+      <li><strong>Bootstrap 5.3.8</strong> : Framework CSS pour la grille responsive et composants UI</li>
+      <li><strong>Bootstrap Icons</strong> : Bibliothèque d'icônes</li>
+      <li><strong>Flatpickr</strong> : Calendrier interactif pour la sélection de dates</li>
+      <li><strong>OpenDyslexic</strong> : Police adaptée aux personnes dyslexiques (critère WCAG Cr 1.c.2)</li>
+    </ul>
+    
+    <h3>Outils de développement</h3>
+    <ul>
+      <li><strong>Visual Studio Code</strong> : Éditeur de code</li>
+      <li><strong>Git / GitHub</strong> : Gestion de versions et hébergement</li>
+      <li><strong>GitHub Pages</strong> : Déploiement et hébergement statique</li>
+    </ul>
+    
+    <h2>Structure du projet</h2>
+    
+    <div class="structure-box">
+<pre>HOTELBOOKINGPROJETBLOC1/
+├── assets/
+│   ├── icons/              # Icônes (favicon, etc.)
+│   └── images/             # Images du site
+├── css/
+│   ├── base.css           # Variables, reset, utilitaires
+│   ├── style.css          # Styles principaux (2991 lignes)
+│   ├── responsive.css     # Media queries (1042 lignes)
+│   └── accessibilite.css  # Styles d'accessibilité WCAG
+├── js/
+│   ├── main.js                           # Fonctionnalités principales
+│   ├── i18n.js                           # Système d'internationalisation
+│   ├── translations.js                   # Fichier de traductions
+│   ├── accessibilite.js                  # Validation et ARIA
+│   ├── calendrier.js                     # Gestion du calendrier Flatpickr
+│   ├── booking.js                        # Logique page réservation
+│   ├── booking-responsive-matchmedia.js  # Réorganisation DOM mobile
+│   ├── contact.js                        # Formulaire de contact
+│   ├── dyslexie.js                       # Police dyslexie (WCAG Cr 1.c.2)
+│   ├── room-gallery.js                   # Lightbox galerie photos
+│   └── room-responsive-matchmedia.js     # Réorganisation DOM mobile
+├── docs/                  # Documentation technique
+├── index.html            # Page d'accueil
+├── room.html             # Page détails chambre
+├── booking.html          # Page réservation
+├── contact.html          # Page contact
+├── documentations.html   # Page documentation
+└── README.md             # Vue d'ensemble</pre>
+    </div>
+    
+    <h2>Installation et utilisation</h2>
+    
+    <h3>Prérequis</h3>
+    <p>Aucun prérequis technique. L'application fonctionne directement dans un navigateur web moderne.</p>
+    
+    <h3>Installation locale</h3>
+    <ol>
+      <li>Cloner le dépôt :
+        <pre><code>git clone https://github.com/yanni-bit/HotelBookingProjetBloc1.git
+cd HotelBookingProjetBloc1</code></pre>
+      </li>
+      <li>Ouvrir le fichier <code>index.html</code> dans un navigateur web moderne</li>
+    </ol>
+    
+    <h3>Déploiement en ligne</h3>
+    <p>Le projet est déployé sur GitHub Pages : <a href="https://yanni-bit.github.io/HotelBookingProjetBloc1/" target="_blank">https://yanni-bit.github.io/HotelBookingProjetBloc1/</a></p>
+    
+    <h2>Conformité et standards</h2>
+    
+    <h3>Accessibilité WCAG 2.1 AA</h3>
+    <p>Le projet respecte les critères d'accessibilité suivants :</p>
+    
+    <h4>Critère Cr 1.c.1 : Attributs pour lecteurs d'écran</h4>
+    <ul>
+      <li>Utilisation systématique des attributs <code>alt</code> sur les images</li>
+      <li>Attributs <code>aria-label</code> et <code>aria-describedby</code> sur les éléments interactifs</li>
+      <li>Rôles ARIA (<code>role="search"</code>, <code>role="alert"</code>, <code>role="status"</code>)</li>
+    </ul>
+    
+    <h4>Critère Cr 1.c.2 : Police dyslexie</h4>
+    <ul>
+      <li>Police OpenDyslexic intégrée via CDN</li>
+      <li>Bouton d'activation dans le header de chaque page</li>
+      <li>Sauvegarde de la préférence utilisateur en localStorage</li>
+      <li>Classes CSS <code>.dyslexie-mode</code> et <code>.font-dyslexie</code></li>
+    </ul>
+    
+    <h4>Critère Cr 1.c.3 : Information non uniquement par couleur</h4>
+    <ul>
+      <li>Messages d'erreur textuels en plus des bordures rouges</li>
+      <li>Icônes accompagnant les codes couleur</li>
+      <li>États visuels multiples (couleur + texte + icône)</li>
+    </ul>
+    
+    <h4>Critère Cr 1.c.4 : Navigation clavier</h4>
+    <ul>
+      <li>Focus visible sur tous les éléments interactifs (<code>:focus-visible</code>)</li>
+      <li>Outline de 3px avec offset de 2px</li>
+      <li>Navigation au clavier dans les carrousels et modales</li>
+      <li>Skip link pour accès direct au contenu principal</li>
+      <li>Zones tactiles minimales de 44px (WCAG AAA)</li>
+    </ul>
+    
+    <h4>Autres fonctionnalités d'accessibilité</h4>
+    <ul>
+      <li>Support de <code>prefers-reduced-motion</code> pour animations réduites</li>
+      <li>Classes <code>.visually-hidden</code> pour contenu accessible uniquement aux lecteurs d'écran</li>
+      <li>Validation de formulaires avec messages d'erreur contextuels</li>
+      <li>Attributs <code>aria-invalid</code>, <code>aria-pressed</code>, <code>aria-expanded</code></li>
+    </ul>
+    
+    <h3>SEO et référencement</h3>
+    
+    <h4>Balises meta uniques par page</h4>
+    <ul>
+      <li>Titles uniques (50-60 caractères)</li>
+      <li>Meta descriptions uniques (150-160 caractères)</li>
+      <li>Meta keywords ciblés par page</li>
+      <li>Balises Open Graph pour réseaux sociaux</li>
+      <li>Twitter Cards pour partage optimisé</li>
+    </ul>
+    
+    <h4>Balises canoniques</h4>
+    <ul>
+      <li>URL canoniques sur toutes les pages</li>
+      <li>Prévention du duplicate content</li>
+    </ul>
+    
+    <h4>Structure sémantique</h4>
+    <ul>
+      <li>Balises HTML5 (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>)</li>
+      <li>Hiérarchie des titres respectée (h1 → h6)</li>
+      <li>Attributs <code>alt</code> sur toutes les images</li>
+      <li>Liens avec attribut <code>title</code> descriptif</li>
+    </ul>
+    
+    <h4>Performance</h4>
+    <ul>
+      <li>Images optimisées</li>
+      <li>CSS et JavaScript minifiés</li>
+      <li>Favicon intégré</li>
+      <li>Navigation entre pages fluide</li>
+    </ul>
+    
+    <h3>Responsive Design</h3>
+    
+    <h4>Breakpoints utilisés</h4>
+    <ul>
+      <li>Mobile : &lt; 576px</li>
+      <li>Petites tablettes : 576px - 767px</li>
+      <li>Tablettes : 768px - 991px</li>
+      <li>Desktop : ≥ 992px</li>
+      <li>Desktop XL : ≥ 1200px</li>
+    </ul>
+    
+    <h4>Breakpoints custom</h4>
+    <ul>
+      <li>Très petits mobiles : &lt; 360px (Galaxy Fold)</li>
+      <li>Petits mobiles : 360px - 390px</li>
+      <li>Mobiles moyens : 391px - 575px</li>
+    </ul>
+    
+    <h4>Techniques responsive</h4>
+    <ul>
+      <li>Media queries CSS standard</li>
+      <li>MatchMedia JavaScript pour réorganisation DOM dynamique</li>
+      <li>Grille Bootstrap 12 colonnes</li>
+      <li>Classes utilitaires Bootstrap (d-none, d-md-block, etc.)</li>
+      <li>Images responsive (<code>max-width: 100%</code>, <code>height: auto</code>)</li>
+    </ul>
+    
+    <h3>Validation W3C</h3>
+    <ul>
+      <li>HTML5 : Validation W3C en cours</li>
+      <li>CSS3 : Validation W3C en cours</li>
+      <li>Accessibilité : Tests Google Lighthouse en cours</li>
+    </ul>
+    
+    <h2>Organisation du code</h2>
+    
+    <h3>CSS</h3>
+    <ul>
+      <li><strong>base.css</strong> : 283 lignes - Variables globales, reset CSS, utilitaires</li>
+      <li><strong>style.css</strong> : 2991 lignes - Styles principaux organisés par composants</li>
+      <li><strong>responsive.css</strong> : 1042 lignes - 18 media queries pour adaptation multi-écrans</li>
+      <li><strong>accessibilite.css</strong> : 109 lignes - Styles WCAG (focus, dyslexie, zones tactiles)</li>
+    </ul>
+    
+    <h3>JavaScript</h3>
+    <ul>
+      <li><strong>Architecture modulaire</strong> : Chaque fichier JS a une responsabilité unique</li>
+      <li><strong>JSDoc complète</strong> : Commentaires détaillés avec types, paramètres, exemples</li>
+      <li><strong>ES6+</strong> : Classes, arrow functions, destructuring, async/await</li>
+      <li><strong>Gestion d'événements</strong> : DOMContentLoaded, event delegation</li>
+      <li><strong>LocalStorage</strong> : Sauvegarde préférences (langue, police dyslexie)</li>
+    </ul>
+    
+    <h3>Conventions de nommage</h3>
+    <ul>
+      <li><strong>Variables CSS</strong> : <code>--nom-de-variable</code> (kebab-case)</li>
+      <li><strong>Classes CSS</strong> : <code>.nom-classe</code> (kebab-case)</li>
+      <li><strong>IDs HTML</strong> : <code>idCamelCase</code> (camelCase)</li>
+      <li><strong>Fonctions JS</strong> : <code>nomFonction()</code> (camelCase)</li>
+      <li><strong>Constantes JS</strong> : <code>NOM_CONSTANTE</code> (SCREAMING_SNAKE_CASE)</li>
+    </ul>
+    
+    <h3>Commentaires</h3>
+    <ul>
+      <li>Commentaires de section avec délimiteurs visuels</li>
+      <li>Commentaires inline explicatifs</li>
+      <li>JSDoc pour toutes les fonctions JavaScript</li>
+      <li>Commentaires HTML pour structure des blocs</li>
+    </ul>
+    
+    <h2>Tests et validation</h2>
+    
+    <h3>Tests à réaliser</h3>
+    
+    <h4>Tests de responsivité</h4>
+    <ul>
+      <li>BrowserStack : Tests multi-navigateurs et multi-appareils</li>
+      <li>Chrome DevTools : Tests des breakpoints</li>
+      <li>Validation visuelle sur smartphones, tablettes, desktop</li>
+    </ul>
+    
+    <h4>Tests d'accessibilité</h4>
+    <ul>
+      <li>Google Lighthouse : Audit accessibilité (score cible ≥ 90)</li>
+      <li>WAVE : Évaluation des critères WCAG</li>
+      <li>Tests navigation clavier</li>
+      <li>Tests lecteurs d'écran (NVDA, JAWS)</li>
+    </ul>
+    
+    <h4>Tests de performance</h4>
+    <ul>
+      <li>Google Lighthouse : Performance (score cible ≥ 85)</li>
+      <li>PageSpeed Insights : Optimisation des ressources</li>
+      <li>Temps de chargement &lt; 3s</li>
+    </ul>
+    
+    <h4>Tests de compatibilité navigateurs</h4>
+    <ul>
+      <li>Chrome (dernière version)</li>
+      <li>Firefox (dernière version)</li>
+      <li>Safari (dernière version)</li>
+      <li>Edge (dernière version)</li>
+    </ul>
+    
+    <h3>Tests fonctionnels à valider</h3>
+    <ul>
+      <li>Calendrier : Sélection de dates, calcul du prix, redirection vers booking</li>
+      <li>Formulaires : Validation en temps réel, messages d'erreur, soumission</li>
+      <li>Navigation : Liens entre pages, ancres internes, skip link</li>
+      <li>Internationalisation : Changement de langue, sauvegarde préférence</li>
+      <li>Galerie : Lightbox, navigation clavier, synchronisation avec carrousel</li>
+      <li>Responsive : Réorganisation DOM mobile (room.html, booking.html)</li>
+    </ul>
+    
+    <h2>Critères d'évaluation RNCP couverts</h2>
+    
+    <h3>Activité 1 : Traduction de la maquette en code</h3>
+    
+    <h4>C1.a : Langages HTML et CSS</h4>
+    <ul>
+      <li>Cr 1.a.1 : Intégration conforme à la maquette</li>
+      <li>Cr 1.a.2 : Code respecte normes W3C et accessibilité</li>
+      <li>Cr 1.a.3 : Code passe tests validateur</li>
+      <li>Cr 1.a.4 : Code commenté et indenté</li>
+      <li>Cr 1.a.5 : Balises sémantiques utilisées</li>
+    </ul>
+    
+    <h4>C1.b : Responsive design</h4>
+    <ul>
+      <li>Cr 1.b.1 : Adaptation aux différentes résolutions</li>
+      <li>Cr 1.b.2 : Compatibilité navigateurs</li>
+      <li>Cr 1.b.3 : Alternatives pour incompatibilités</li>
+    </ul>
+    
+    <h4>C1.c : Accessibilité</h4>
+    <ul>
+      <li>Cr 1.c.1 : Attributs pour lecteurs d'écran</li>
+      <li>Cr 1.c.2 : Police dyslexie intégrée</li>
+      <li>Cr 1.c.3 : Information non uniquement par couleur</li>
+      <li>Cr 1.c.4 : Navigation clavier complète</li>
+    </ul>
+    
+    <h4>C1.d : Organisation CSS</h4>
+    <ul>
+      <li>Cr 1.d.1 : Nommage pertinent et réutilisable</li>
+      <li>Cr 1.d.2 : CSS organisé et commenté</li>
+      <li>Cr 1.d.3 : Classes regroupées par thématiques</li>
+      <li>Cr 1.d.4 : Code synthétique sans répétitions</li>
+    </ul>
+    
+    <h4>C1.e : Référencement naturel</h4>
+    <ul>
+      <li>Cr 1.e.1 : Textes hiérarchisés et titrés</li>
+      <li>Cr 1.e.2 : Expressions clés mises en exergue</li>
+      <li>Cr 1.e.3 : Balisage enrichissement contenu (schema.org)</li>
+      <li>Cr 1.e.4 : Sémantique respectée (article, aside, nav)</li>
+      <li>Cr 1.e.5 : Balises meta uniques et optimisées</li>
+      <li>Cr 1.e.6 : Pages canoniques renseignées</li>
+      <li>Cr 1.e.7 : Alt images et titres liens présents</li>
+      <li>Cr 1.e.8 : Temps chargement optimisés</li>
+      <li>Cr 1.e.9 : Favicon intégré</li>
+      <li>Cr 1.e.10 : Navigation entre pages implémentée</li>
+      <li>Cr 1.e.11 : Ancres pour navigation interne</li>
+    </ul>
+    
+    <h3>Activité 2 : Développement fonctionnalités front-end</h3>
+    
+    <h4>C2.a : JavaScript - Interactions et animations</h4>
+    <ul>
+      <li>Cr 2.a.1 : Syntaxes modernes ES6+ acquises</li>
+      <li>Cr 2.a.2 : Manipulation DOM maîtrisée</li>
+      <li>Cr 2.a.3 : Animations améliorent UX</li>
+      <li>Cr 2.a.4 : Animations fonctionnelles multi-navigateurs</li>
+      <li>Cr 2.a.5 : Programmation orientée objet et événementielle</li>
+    </ul>
+    
+    <h4>C2.b : Validation de données</h4>
+    <ul>
+      <li>Cr 2.b.1 : Contrôle temps réel pendant saisie</li>
+      <li>Cr 2.b.2 : Méthodes cohérentes (regex)</li>
+      <li>Cr 2.b.3 : Messages d'erreur clairs</li>
+    </ul>
+    
+    <h4>C2.c : Requêtes asynchrones</h4>
+    <ul>
+      <li>Cr 2.c.1 : Requêtes asynchrones fonctionnelles</li>
+      <li>Cr 2.c.2 : Pas de données sensibles exposées</li>
+      <li>Cr 2.c.3 : Réponses serveur traitées</li>
+      <li>Cr 2.c.4 : Gestion erreurs sans interruption</li>
+    </ul>
+    
+    <h4>C2.d : Librairies JavaScript</h4>
+    <ul>
+      <li>Cr 2.d.1 : Librairies répondent à un besoin (Flatpickr)</li>
+      <li>Cr 2.d.2 : Implémentation selon documentation</li>
+      <li>Cr 2.d.3 : Explication fonctionnement global</li>
+    </ul>
+    
+    <h2>Documentation complémentaire</h2>
+    
+    <p>La documentation complète du projet comprend :</p>
+    <ul>
+      <li><strong>README.md</strong> : Vue d'ensemble et guide d'installation</li>
+      <li><strong>CHOIX_TECHNIQUES.md</strong> : Justification des choix technologiques</li>
+      <li><strong>ARCHITECTURE.md</strong> : Structure détaillée du code</li>
+      <li><strong>ACCESSIBILITE.md</strong> : Conformité WCAG et tests</li>
+      <li><strong>RESPONSIVE.md</strong> : Approche responsive et breakpoints</li>
+      <li><strong>ANNEXE_MATCHMEDIA.md</strong> : Guide technique window.matchMedia()</li>
+      <li><strong>ANNEXE_TESTS_VALIDATION.md</strong> : Rapport synthétique et résultats des tests</li>
+      <li><strong>RAPPORT_D_AMELIORATION.md</strong> : modifications apportées suite aux tests</li>
+    </ul>
+    
+    <h2>Licence</h2>
+    
+    <p>Ce projet est réalisé dans un cadre pédagogique pour la certification RNCP Développeur Web (Ilaria Academy). Tous droits réservés.</p>
+    
+    <h2>Contact</h2>
+    
+    <div class="info-box">
+      <p><strong>Auteur</strong> : Yannick</p>
+      <p><strong>Formation</strong> : Ilaria Academy - Développeur Web</p>
+      <p><strong>Projet</strong> : Bloc 1 - Front-End</p>
+      <p style="margin-bottom: 0;"><strong>GitHub</strong> : <a href="https://github.com/yanni-bit/HotelBookingProjetBloc1" target="_blank">https://github.com/yanni-bit/HotelBookingProjetBloc1</a></p>
+    </div>
+    
+    <h2>Remerciements</h2>
+    
+    <ul>
+      <li>Ilaria Academy pour l'encadrement pédagogique</li>
+      <li>Flatpickr pour le calendrier interactif</li>
+      <li>Bootstrap pour le framework CSS</li>
+      <li>OpenDyslexic pour la police d'accessibilité</li>
+      <li>La communauté des développeurs web pour les ressources et bonnes pratiques</li>
+    </ul>
+    
+  </div>
+</body>
+</html>

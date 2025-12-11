@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHOIX TECHNIQUES - Hôtel Booking</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  
+  <style>
+    body {
+      font-family: var(--font-principale, "Open Sans", Arial, sans-serif);
+      line-height: 1.8;
+      color: var(--gris-fonce, #333333);
+      background-color: var(--blanc, #ffffff);
+      padding: 2rem 1rem;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    h2 {
+      color: var(--gris-fonce, #333333);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--gris-clair, #f7f7f7);
+    }
+    
+    h3 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      color: var(--gris-fonce, #333333);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    
+    ul, ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    code {
+      background-color: var(--gris-clair, #f7f7f7);
+      color: var(--turquoise-hover, #3db3aa);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    
+    pre {
+      background-color: var(--gris-clair, #f7f7f7);
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    pre code {
+      background-color: transparent;
+      padding: 0;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    strong {
+      font-weight: 600;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    a {
+      color: var(--turquoise, "#5fc8c2");
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    a:hover {
+      color: var(--turquoise-hover, #3db3aa);
+      text-decoration: underline;
+    }
+    
+    .info-box {
+      background-color: var(--turquoise-light, rgba(95, 200, 194, 0.1));
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 5px;
+    }
+
+    /* Style spécifique pour la NOTE IMPORTANTE */
+    .note-importante {
+        background-color: #fcebeb; /* Rouge très clair */
+        border-left: 5px solid var(--rouge-erreur, #e74c3c); 
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+    }
+    
+    .note-importante h1 {
+        color: var(--rouge-erreur, #e74c3c) !important;
+        font-size: 1.75rem;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .note-importante p {
+        text-align: left;
+        margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <hr>
+    
+    <div class="note-importante">
+        <h1>⚠️ NOTE IMPORTANTE SUR L'ÉTAT DU PROJET</h1>
+        <p>Ce document reflète les choix de conception et l'architecture du projet à la fin de la phase de développement initial.</p>
+        <p>Les optimisations de performance (CSS critique, Lazy Loading, etc.), les corrections de robustesse (Sécurité XSS) et les ajustements finaux d'accessibilité identifiés lors des audits de validation (Lighthouse, WAVE) ne sont <strong>pas encore intégrés</strong> dans le code ou la description détaillée de ce fichier.</p>
+        <p>Le plan d'actions pour l'amélioration continue est documenté séparément dans le fichier <strong>RAPPORT_D_AMELIORATION.md</strong>.</p>
+    </div>
+    
+    <hr>
+    
+    <h1>Choix techniques - Hôtel Booking</h1>
+
+    <h2>Introduction</h2>
+    
+    <p>Ce document présente et justifie l'ensemble des choix techniques effectués pour le développement de l'application Hôtel Booking. Chaque décision a été prise en tenant compte des contraintes du projet, des exigences du référentiel RNCP Bloc 1, et des bonnes pratiques du développement web moderne.</p>
+    
+    <h2>Technologies fondamentales</h2>
+    
+    <h3>HTML5</h3>
+    
+    <p><strong>Choix</strong> : Utilisation du standard HTML5 pour la structure du site.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Standard actuel du web, supporté par tous les navigateurs modernes</li>
+      <li>Balises sémantiques enrichies (header, nav, main, article, aside, footer)</li>
+      <li>Support natif des attributs ARIA pour l'accessibilité</li>
+      <li>Amélioration du référencement naturel grâce à la sémantique</li>
+      <li>Validation W3C facilitée</li>
+    </ul>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <ul>
+      <li>Doctype HTML5 : <code>&lt;!DOCTYPE html&gt;</code></li>
+      <li>Attribut <code>lang="fr"</code> sur la balise html pour définir la langue</li>
+      <li>Balises sémantiques pour structurer chaque page</li>
+      <li>Attributs ARIA pour améliorer l'accessibilité (aria-label, aria-describedby, role)</li>
+    </ul>
+    
+    <h3>CSS3</h3>
+    
+    <p><strong>Choix</strong> : CSS3 natif sans préprocesseur (SASS/LESS).</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Variables CSS natives (custom properties) suffisantes pour le projet</li>
+      <li>Pas de dépendance à un outil de compilation</li>
+      <li>Support moderne des navigateurs pour les fonctionnalités avancées</li>
+      <li>Simplification du déploiement (pas de build step)</li>
+      <li>Performance optimale (pas de surcharge due à un préprocesseur)</li>
+    </ul>
+    
+    <p><strong>Fonctionnalités CSS3 utilisées</strong> :</p>
+    <ul>
+      <li>Variables CSS (--turquoise, --font-principale, etc.)</li>
+      <li>Flexbox pour les layouts flexibles</li>
+      <li>Grid CSS pour certaines mises en page complexes</li>
+      <li>Media queries pour le responsive</li>
+      <li>Transitions et animations CSS</li>
+      <li>Pseudo-classes modernes (:focus-visible, :nth-child, etc.)</li>
+    </ul>
+    
+    <h3>JavaScript ES6+</h3>
+    
+    <p><strong>Choix</strong> : JavaScript moderne (ES6+) sans framework frontend.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Contrainte du Bloc 1 : pas de framework frontend (React/Angular/Vue)</li>
+      <li>Manipulation DOM native suffisante pour les besoins du projet</li>
+      <li>Performance optimale sans surcharge d'un framework</li>
+      <li>Apprentissage des fondamentaux du JavaScript</li>
+      <li>Code plus léger et chargement plus rapide</li>
+    </ul>
+    
+    <p><strong>Fonctionnalités ES6+ utilisées</strong> :</p>
+    <ul>
+      <li>Classes et POO</li>
+      <li>Arrow functions</li>
+      <li>Template literals</li>
+      <li>Destructuring</li>
+      <li>Const et let (block scope)</li>
+      <li>Modules (import/export conceptuel)</li>
+      <li>Async/await pour opérations asynchrones</li>
+      <li>Spread operator</li>
+    </ul>
+    
+    <h2>Frameworks et librairies</h2>
+    
+    <h3>Bootstrap 5.3.8</h3>
+    
+    <p><strong>Choix</strong> : Bootstrap comme framework CSS principal.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Framework CSS mature et largement utilisé en entreprise</li>
+      <li>Système de grille responsive 12 colonnes éprouvé</li>
+      <li>Composants UI prêts à l'emploi (modales, formulaires, navigation)</li>
+      <li>Gain de temps sur le développement</li>
+      <li>Documentation exhaustive</li>
+      <li>Compatibilité cross-browser garantie</li>
+      <li>Composants accessibles par défaut</li>
+    </ul>
+    
+    <p><strong>Utilisation</strong> :</p>
+    <ul>
+      <li>Grille responsive (container, row, col-*)</li>
+      <li>Classes utilitaires (d-flex, mb-3, text-center, etc.)</li>
+      <li>Composants (modals, carousels, dropdowns, forms)</li>
+      <li>Classes responsive (d-none, d-md-block, etc.)</li>
+    </ul>
+    
+    <p><strong>Alternative envisagée</strong> : Tailwind CSS</p>
+    <p><strong>Rejet</strong> : Apprentissage plus long, syntaxe moins intuitive, nécessite un build step</p>
+    
+    <h3>Bootstrap Icons</h3>
+    
+    <p><strong>Choix</strong> : Bootstrap Icons comme bibliothèque d'icônes.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Intégration native avec Bootstrap</li>
+      <li>Grande variété d'icônes (1800+)</li>
+      <li>Facile à utiliser (classes CSS simples)</li>
+      <li>Chargement via CDN (pas de gestion de fichiers)</li>
+      <li>Performance optimisée (font-based)</li>
+    </ul>
+    
+    <p><strong>Alternative envisagée</strong> : Font Awesome</p>
+    <p><strong>Rejet</strong> : Plus lourd, version gratuite limitée, Bootstrap Icons suffit</p>
+    
+    <h3>Flatpickr</h3>
+    
+    <p><strong>Choix</strong> : Flatpickr pour le calendrier de sélection de dates.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Librairie légère (moins de 20KB minifié)</li>
+      <li>Interface utilisateur intuitive et moderne</li>
+      <li>Support du mode "range" (sélection de deux dates)</li>
+      <li>Personnalisation complète (styles, locales, callbacks)</li>
+      <li>Pas de dépendances (jQuery-free)</li>
+      <li>Bonne documentation et exemples</li>
+      <li>Support de l'accessibilité (navigation clavier)</li>
+    </ul>
+    
+    <p><strong>Configuration</strong> :</p>
+    <ul>
+      <li>Mode range pour check-in / check-out</li>
+      <li>Locale française</li>
+      <li>Date minimale (aujourd'hui)</li>
+      <li>Calendrier inline pour affichage permanent</li>
+      <li>Callbacks personnalisés (onChange, onDayCreate)</li>
+    </ul>
+    
+    <p><strong>Alternatives envisagées</strong> :</p>
+    <ul>
+      <li>Date picker natif HTML5 : Manque de personnalisation, support limité</li>
+      <li>Air Datepicker : Plus lourd, moins populaire</li>
+      <li>Pikaday : Projet abandonné</li>
+    </ul>
+    
+    <h3>OpenDyslexic</h3>
+    
+    <p><strong>Choix</strong> : Police OpenDyslexic pour l'accessibilité.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Exigence WCAG Cr 1.c.2 : Police spécifique pour personnes dyslexiques</li>
+      <li>Police open-source spécialement conçue pour faciliter la lecture</li>
+      <li>Caractéristiques visuelles distinctives (lettres alourdies à la base)</li>
+      <li>Chargement via CDN</li>
+      <li>Facile à intégrer avec CSS</li>
+    </ul>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <ul>
+      <li>Import via CDN dans base.css</li>
+      <li>Classe CSS .dyslexie-mode pour activation globale</li>
+      <li>Bouton toggle dans le header</li>
+      <li>Sauvegarde préférence en localStorage</li>
+    </ul>
+    
+    <h2>Architecture du code</h2>
+    
+    <h3>Organisation des fichiers CSS</h3>
+    
+    <p><strong>Choix</strong> : Séparation en 4 fichiers CSS distincts.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li><strong>base.css</strong> : Variables globales, reset, utilitaires réutilisables</li>
+      <li><strong>style.css</strong> : Styles spécifiques des composants et pages</li>
+      <li><strong>responsive.css</strong> : Media queries isolées pour meilleure lisibilité</li>
+      <li><strong>accessibilite.css</strong> : Styles WCAG isolés pour maintenance facilitée</li>
+    </ul>
+    
+    <p><strong>Avantages</strong> :</p>
+    <ul>
+      <li>Meilleure organisation et maintenabilité</li>
+      <li>Facilité de débogage (fichier ciblé)</li>
+      <li>Possibilité de charger conditionnellement</li>
+      <li>Séparation des responsabilités</li>
+    </ul>
+    
+    <p><strong>Alternative envisagée</strong> : Tout dans un seul fichier</p>
+    <p><strong>Rejet</strong> : Fichier trop volumineux (4000+ lignes), difficulté de maintenance</p>
+    
+    <h3>Organisation des fichiers JavaScript</h3>
+    
+    <p><strong>Choix</strong> : Un fichier JS par fonctionnalité.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Principe de responsabilité unique (Single Responsibility)</li>
+      <li>Facilité de maintenance et de débogage</li>
+      <li>Chargement modulaire possible</li>
+      <li>Réutilisabilité des modules</li>
+    </ul>
+    
+    <p><strong>Fichiers JavaScript</strong> :</p>
+    <ul>
+      <li><strong>main.js</strong> : Fonctionnalités générales (carrousels, menu)</li>
+      <li><strong>i18n.js</strong> : Système d'internationalisation</li>
+      <li><strong>translations.js</strong> : Fichier de traductions</li>
+      <li><strong>accessibilite.js</strong> : Validation formulaires et ARIA</li>
+      <li><strong>calendrier.js</strong> : Gestion Flatpickr et calculs</li>
+      <li><strong>booking.js</strong> : Logique spécifique page réservation</li>
+      <li><strong>contact.js</strong> : Logique spécifique page contact</li>
+      <li><strong>dyslexie.js</strong> : Gestion police dyslexie</li>
+      <li><strong>room-gallery.js</strong> : Lightbox galerie</li>
+      <li><strong>room-responsive-matchmedia.js</strong> : Réorganisation DOM mobile room</li>
+      <li><strong>booking-responsive-matchmedia.js</strong> : Réorganisation DOM mobile booking</li>
+    </ul>
+    
+    <h3>JSDoc et commentaires</h3>
+    
+    <p><strong>Choix</strong> : Documentation complète avec JSDoc.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Standard de documentation JavaScript</li>
+      <li>Autocomplétion dans les IDE</li>
+      <li>Génération automatique de documentation possible</li>
+      <li>Aide à la compréhension du code</li>
+      <li>Facilite la maintenance</li>
+      <li>Exigence du Bloc 1 : code commenté</li>
+    </ul>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <ul>
+      <li>JSDoc sur toutes les fonctions (@param, @returns, @description)</li>
+      <li>Commentaires de section avec délimiteurs visuels</li>
+      <li>Commentaires inline pour logique complexe</li>
+      <li>Types JavaScript documentés (@type)</li>
+    </ul>
+    
+    <h2>Approches techniques</h2>
+    
+    <h3>Responsive Design</h3>
+    
+    <p><strong>Choix</strong> : Approche mobile-first avec media queries.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Priorité au mobile (statistiques d'usage)</li>
+      <li>Performance optimisée (chargement progressif)</li>
+      <li>Cascade CSS naturelle (du plus petit au plus grand)</li>
+      <li>Exigence du Bloc 1 : responsive multi-devices</li>
+    </ul>
+    
+    <p><strong>Breakpoints</strong> :</p>
+    <ul>
+      <li>Mobile : &lt; 576px (base)</li>
+      <li>Tablette : 768px - 991px</li>
+      <li>Desktop : ≥ 992px</li>
+      <li>Desktop XL : ≥ 1200px</li>
+    </ul>
+    
+    <p><strong>Techniques</strong> :</p>
+    <ul>
+      <li>Media queries CSS standard (@media)</li>
+      <li>MatchMedia JavaScript pour réorganisation DOM dynamique</li>
+      <li>Grille Bootstrap responsive</li>
+      <li>Images responsive (max-width: 100%)</li>
+      <li>Unités relatives (rem, em, %)</li>
+    </ul>
+    
+    <p><strong>Choix MatchMedia JavaScript</strong> :</p>
+    <ul>
+      <li>Réorganisation DOM impossible en CSS pur</li>
+      <li>Performance meilleure que resize events</li>
+      <li>API native du navigateur</li>
+      <li>Callbacks déclenchés uniquement au franchissement de breakpoint</li>
+    </ul>
+    
+    <h3>Gestion de l'accessibilité</h3>
+    
+    <p><strong>Choix</strong> : Conformité WCAG 2.1 niveau AA avec éléments AAA.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Exigence du Bloc 1 : accessibilité WCAG/RGAA</li>
+      <li>Standard international reconnu</li>
+      <li>Amélioration de l'expérience pour tous les utilisateurs</li>
+      <li>Élargissement de l'audience</li>
+      <li>Obligation légale en France (RGAA)</li>
+    </ul>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <ul>
+      <li>Attributs ARIA (role, aria-label, aria-describedby, aria-invalid, etc.)</li>
+      <li>Navigation clavier complète (focus-visible, tabindex)</li>
+      <li>Skip link pour accès direct au contenu</li>
+      <li>Messages d'erreur contextuels et visibles</li>
+      <li>Police dyslexie activable</li>
+      <li>Zones tactiles 44px minimum (AAA)</li>
+      <li>Support prefers-reduced-motion</li>
+      <li>Contrastes de couleurs conformes</li>
+      <li>Texte redimensionnable</li>
+    </ul>
+    
+    <h3>Internationalisation (i18n)</h3>
+    
+    <p><strong>Choix</strong> : Système i18n custom en JavaScript.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Besoin simple (3 langues, contenu statique)</li>
+      <li>Pas de framework backend disponible (Bloc 1)</li>
+      <li>Contrôle total sur l'implémentation</li>
+      <li>Légèreté (pas de librairie externe lourde)</li>
+      <li>Apprentissage des concepts i18n</li>
+    </ul>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <ul>
+      <li>Classe I18n en JavaScript</li>
+      <li>Fichier translations.js avec objets JSON</li>
+      <li>Attributs data-i18n dans le HTML</li>
+      <li>Sauvegarde langue en localStorage</li>
+      <li>Support innerHTML pour balises HTML dans traductions</li>
+    </ul>
+    
+    <p><strong>Alternative envisagée</strong> : i18next</p>
+    <p><strong>Rejet</strong> : Trop lourd pour le besoin, dépendance externe</p>
+    
+    <h3>Validation de formulaires</h3>
+    
+    <p><strong>Choix</strong> : Validation JavaScript côté client en temps réel.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Meilleure expérience utilisateur (feedback immédiat)</li>
+      <li>Réduction des erreurs avant soumission</li>
+      <li>Exigence du Bloc 1 : validation JavaScript</li>
+      <li>Attributs HTML5 (required, type="email") en complément</li>
+      <li>Messages d'erreur contextuels accessibles</li>
+    </ul>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <ul>
+      <li>Validation au blur (perte de focus)</li>
+      <li>Re-validation à l'input si champ déjà invalide</li>
+      <li>Classes Bootstrap is-valid / is-invalid</li>
+      <li>Attributs ARIA aria-invalid et aria-describedby</li>
+      <li>Messages d'erreur avec role="alert"</li>
+      <li>Regex pour validation email et téléphone</li>
+    </ul>
+    
+    <h3>Gestion des images</h3>
+    
+    <p><strong>Choix</strong> : Images optimisées manuellement, pas de lazy loading.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Projet de taille moyenne (pas de problème de performance)</li>
+      <li>Simplification du développement</li>
+      <li>Images déjà optimisées à la source</li>
+      <li>Pas de dépendance JavaScript supplémentaire</li>
+    </ul>
+    
+    <p><strong>Optimisations</strong> :</p>
+    <ul>
+      <li>Format JPEG pour photos (compression)</li>
+      <li>Format PNG pour logos et icônes</li>
+      <li>Attributs width et height pour éviter CLS</li>
+      <li>Attribut alt systématique</li>
+      <li>max-width: 100% pour responsive</li>
+    </ul>
+    
+    <p><strong>Alternative envisagée</strong> : Lazy loading natif (loading="lazy")</p>
+    <p><strong>Décision</strong> : À implémenter si problèmes de performance détectés</p>
+    
+    <h2>Choix de déploiement</h2>
+    
+    <h3>GitHub Pages</h3>
+    
+    <p><strong>Choix</strong> : Hébergement sur GitHub Pages.</p>
+    
+    <p><strong>Justification</strong> :</p>
+    <ul>
+      <li>Gratuit et illimité</li>
+      <li>Intégration native avec GitHub</li>
+      <li>HTTPS automatique</li>
+      <li>Déploiement automatisé (git push)</li>
+      <li>Parfait pour sites statiques</li>
+      <li>URL professionnelle (github.io)</li>
+      <li>Aucune configuration serveur nécessaire</li>
+    </ul>
+    
+    <p><strong>Processus</strong> :</p>
+    <ol>
+      <li>Repository GitHub public</li>
+      <li>Activation GitHub Pages dans Settings</li>
+      <li>Branche main comme source</li>
+      <li>URL générée automatiquement</li>
+    </ol>
+    
+    <h2>Normes et standards respectés</h2>
+    
+    <h3>Standards web</h3>
+    
+    <ul>
+      <li>HTML5 (W3C)</li>
+      <li>CSS3 (W3C)</li>
+      <li>ECMAScript 6+ (ECMA-262)</li>
+      <li>WCAG 2.1 niveau AA</li>
+      <li>RGAA (Référentiel Général d'Amélioration de l'Accessibilité)</li>
+    </ul>
+    
+    <h3>Conventions de code</h3>
+    
+    <ul>
+      <li>Nommage cohérent (camelCase JS, kebab-case CSS)</li>
+      <li>Indentation 2 espaces</li>
+      <li>Commentaires en français</li>
+      <li>JSDoc pour fonctions JavaScript</li>
+      <li>Sémantique HTML respectée</li>
+    </ul>
+    
+    <h3>Compatibilité navigateurs</h3>
+    
+    <p>Support des navigateurs modernes :</p>
+    <ul>
+      <li>Chrome 90+</li>
+      <li>Firefox 88+</li>
+      <li>Safari 14+</li>
+      <li>Edge 90+</li>
+    </ul>
+    
+    <p>Pas de support Internet Explorer (obsolète depuis juin 2022).</p>
+    
+    <h2>Outils de développement</h2>
+    
+    <h3>Éditeur de code</h3>
+    
+    <p><strong>Visual Studio Code</strong></p>
+    
+    <p>Extensions utilisées :</p>
+    <ul>
+      <li>Prettier (formatage automatique)</li>
+      <li>ESLint (lint JavaScript)</li>
+      <li>HTML CSS Support</li>
+      <li>Auto Rename Tag</li>
+      <li>Live Server</li>
+    </ul>
+    
+    <h3>Gestion de versions</h3>
+    
+    <p><strong>Git / GitHub</strong></p>
+    
+    <ul>
+      <li>Repository public</li>
+      <li>Commits réguliers avec messages explicites</li>
+      <li>Branches pour fonctionnalités (optionnel)</li>
+      <li>GitHub Pages pour déploiement</li>
+    </ul>
+    
+    <h3>Outils de test</h3>
+    
+    <p><strong>Prévus pour validation</strong> :</p>
+    <ul>
+      <li>W3C Validator (HTML/CSS)</li>
+      <li>Google Lighthouse (performance, accessibilité)</li>
+      <li>BrowserStack (tests multi-navigateurs)</li>
+      <li>WAVE (accessibilité)</li>
+    </ul>
+    
+    <h2>Conclusion</h2>
+    
+    <p>Les choix techniques effectués pour le projet Hôtel Booking répondent aux exigences du référentiel RNCP Bloc 1 tout en respectant les bonnes pratiques du développement web moderne. L'approche privilégie la simplicité, la maintenabilité et la conformité aux standards.</p>
+    
+    <p>Chaque décision a été prise en tenant compte :</p>
+    <ul>
+      <li>Des contraintes pédagogiques du Bloc 1</li>
+      <li>Des performances et de l'accessibilité</li>
+      <li>De la maintenabilité du code</li>
+      <li>Des standards web actuels</li>
+      <li>De l'expérience utilisateur</li>
+    </ul>
+    
+    <p>Le projet démontre la maîtrise des technologies fondamentales du web (HTML5, CSS3, JavaScript ES6+) et des concepts essentiels (responsive design, accessibilité, validation, internationalisation) sans dépendre de frameworks complexes, conformément aux objectifs de formation du Bloc 1.</p>
+    
+    </div>
+</body>
+</html>

@@ -1,95 +1,155 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<!-- ========================================
-     HEAD - MÉTADONNÉES ET RESSOURCES
-     Configuration complète du document
-     ======================================== -->
-
 <head>
-  <!-- === MÉTADONNÉES DE BASE === -->
-
-  <!-- === SEO - RÉFÉRENCEMENT === -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Contactez Book Your Travel - Support client 24/7 au 1-555-555-5555 ou par email. Notre équipe répond à toutes vos questions sur vos réservations d'hôtel."
-    data-i18n="contact.metaDescription">
-  <meta name="keywords" content="contact hôtel, service client, support 24/7, aide réservation"
-    data-i18n="contact.metaKeywords">
+  <meta name="description" content="Documentation technique complète du projet Hôtel Booking : Architecture, Choix techniques, Responsive Design (MatchMedia) et rapports d'audit Qualité (XSS, Performance, Accessibilité WCAG).">
   <meta name="author" content="Book Your Travel">
 
-  <title data-i18n="contact.metaTitle">Nous contacter - Book Your Travel</title>
+  <title>Documentation technique et rapports d'audit du projet Hôtel Booking (RNCP Bloc 1).</title>
 
-  <!-- === OPEN GRAPH - RÉSEAUX SOCIAUX === -->
-  <meta property="og:title" content="Contact - Book Your Travel" data-i18n="contact.metaOGTitle">
-  <meta property="og:description" content="Contactez notre équipe 24/7 pour toute question sur vos réservations."
-    data-i18n="contact.metaOGDescription">
-  <meta property="og:image" content="https://yanni-bit.github.io/HotelBookingProjetBloc1/assets/images/logo.png">
-  <meta property="og:url" content="https://yanni-bit.github.io/HotelBookingProjetBloc1/contact.html">
-  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://yanni-bit.github.io/HotelBookingProjetBloc1/documentations.html">
 
-  <!-- === TWITTER CARD === -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact - Book Your Travel" data-i18n="contact.metaTwitterTitle">
-  <meta name="twitter:description" content="Support client 24/7 - Nous répondons à toutes vos questions."
-    data-i18n="contact.metaTwitterDescription">
-  <meta name="twitter:image" content="https://yanni-bit.github.io/HotelBookingProjetBloc1/assets/images/logo.png">
-
-  <!-- === URL CANONIQUE === -->
-  <link rel="canonical" href="https://yanni-bit.github.io/HotelBookingProjetBloc1/contact.html">
-
-  <!-- === FEUILLES DE STYLE CSS === -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/accessibilite.css">
 
-  <!-- Favicon : icône affichée dans l'onglet du navigateur -->
   <link rel="icon" type="image/png" href="assets/icons/hotel.png">
 
-  <!-- === SCRIPTS JAVASCRIPT === -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
 
   <script src="js/translations.js" defer></script>
   <script src="js/i18n.js" defer></script>
 
   <script src="js/main.js" defer></script>
-  <script src="js/calendrier.js" defer></script>
-  <script src="js/contact.js" defer></script>
   <script src="js/accessibilite.js" defer></script>
   <script src="js/dyslexie.js" defer></script>
+
+  <style>
+    /* Réutilisation du thème de couleur de base.css */
+    body {
+      background-color: var(--gris-clair, #f7f7f7);
+      color: var(--gris-fonce, #333333);
+      font-family: var(--font-principale, "Open Sans", Arial, sans-serif);
+      line-height: 1.6;
+    }
+
+    .docs-section {
+      padding: 60px 0;
+    }
+
+    .docs-header {
+      background-color: var(--marron, #d6c8c0); /* Couleur marron du thème */
+      color: var(--gris-fonce, #333333);
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+      border-bottom: 5px solid var(--turquoise, #5fc8c2);
+    }
+
+    .docs-header h1 {
+      color: var(--gris-fonce, #333333);
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .docs-list-group-title {
+      color: var(--turquoise, #5fc8c2);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--turquoise-light, rgba(95, 200, 194, 0.5));
+    }
+
+    .doc-link-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      background-color: var(--blanc, #ffffff);
+      transition: background-color 0.2s, transform 0.2s;
+      border: 1px solid var(--gris-clair, #f7f7f7);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .doc-link-item:hover {
+      background-color: var(--gris-clair, #f7f7f7);
+      transform: translateY(-2px);
+    }
+
+    .doc-link-item a {
+      color: var(--gris-fonce, #333333);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .doc-link-item a:hover {
+      color: var(--turquoise-hover, #3db3aa);
+      text-decoration: none;
+    }
+    
+    .doc-link-item .bi-box-arrow-up-right {
+        color: var(--turquoise, #5fc8c2);
+    }
+
+    /* Style pour les fichiers qui n'existent pas encore (futurs rapports) */
+    .doc-link-item.future {
+        background-color: var(--marron-clair, #E9E6E0);
+        opacity: 0.7;
+    }
+
+    .doc-link-item.future a {
+        color: var(--gris-moyen, #858585);
+        cursor: not-allowed;
+    }
+
+    .doc-link-item.future .bi-box-arrow-up-right {
+        color: var(--gris-moyen, #858585);
+    }
+
+    /* Style pour la NOTE D'ATTENTION - Ajouté ici */
+    .note-attention {
+        background-color: var(--marron-clair, #E9E6E0); 
+        border-left: 5px solid var(--turquoise, #5fc8c2); 
+        padding: 15px;
+        margin-top: 15px;
+        margin-bottom: 25px; /* Espace après la note */
+        border-radius: 4px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: var(--gris-fonce, #333333);
+    }
+
+    .note-attention strong {
+        font-weight: 700;
+    }
+
+    .note-attention .note-icon {
+        font-size: 1.2rem;
+        margin-right: 8px;
+        color: var(--turquoise, #5fc8c2); 
+    }
+  </style>
 </head>
 
 <body>
 
 
-  <!-- ========================================
-       LIEN D'ÉVITEMENT (SKIP LINK)
-       Pour navigation clavier
-       ======================================== -->
   <a href="#main-content" class="skip-link" data-i18n="header.skipLink">Aller au contenu principal</a>
 
-  <!-- ========================================
-       HEADER - EN-TÊTE DU SITE
-       Logo, Dyslexie, Contact, Recherche, Ruban latéral (Compte/Langue/Monnaie)
-       ======================================== -->
   <header class="base-header position-relative" role="banner">
     <div class="container-fluid">
       <div class="row header-top g-3">
 
-        <!-- === COLONNE LOGO === 
-             col-12 : pleine largeur mobile
-             col-lg-5 : 5 colonnes sur 12 en desktop (réduit pour laisser place au bouton dyslexie)
-             order-0 : affiché en premier sur tous les écrans -->
         <div class="col-12 col-lg-5 order-0">
           <div class="header_logo">
             <a href="index.html" class="my-logo d-block">
@@ -98,56 +158,35 @@
           </div>
         </div>
 
-        <!-- === COLONNE BOUTON DYSLEXIE (Critère WCAG Cr 1.c.2) ===
-             col-12 : pleine largeur mobile
-             col-lg-1 : 1 colonne sur 12 en desktop
-             order-1 : 2ème position sur tous les écrans
-             Flexbox : centre le bouton verticalement et horizontalement -->
         <div class="col-12 col-lg-1 order-1 d-flex align-items-center justify-content-center">
           <button id="toggle-dyslexie" class="btn btn-outline-secondary btn-sm"
             aria-label="Activer la police adaptée aux personnes dyslexiques" aria-pressed="false"
             title="Police pour dyslexie">
-            <!-- Icône accessibilité universelle -->
             <i class="bi bi-universal-access"></i>
-            <!-- Texte visible uniquement sur desktop (≥992px) -->
             <span class="btn-text d-none d-lg-inline ms-1">Dyslexie</span>
           </button>
         </div>
 
-        <!-- === COLONNE CONTACT 24/7 === 
-             col-12 : pleine largeur mobile
-             col-lg-3 : 3 colonnes sur 12 en desktop
-             order-2 : 3ème position sur tous les écrans -->
         <div class="col-12 col-lg-3 order-2">
           <div class="header_contact">
             <div class="bloc-contact">
-              <!-- Icône téléphone Bootstrap Icons -->
               <div class="bloc-contact-ico">
                 <i class="bi bi-telephone"></i>
               </div>
               <div class="text-contact">
-                <!-- Label support 24/7 -->
                 <div class="bloc-contact-label" data-i18n="header.supportNumber">24/7 Support number</div>
-                <!-- Numéro de téléphone -->
                 <div class="bloc-contact-number">1-555-555-555</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- === COLONNE RECHERCHE ===
-             col-12 : pleine largeur mobile
-             col-lg-3 : 3 colonnes sur 12 en desktop
-             order-3 : dernière position sur tous les écrans -->
         <div class="col-12 col-lg-3 order-3">
           <div class="header_search">
-            <!-- role="search" : indique aux lecteurs d'écran que c'est une zone de recherche -->
             <div class="bloc-search" role="search" aria-label="Recherche rapide">
               <form class="position-relative">
-                <!-- Input recherche avec placeholder traduisible -->
                 <input type="search" class="form-control bloc-search-input" placeholder="Rechercher"
                   data-i18n="header.searchPlaceholder" aria-label="Rechercher sur le site">
-                <!-- Icône loupe positionnée par CSS -->
                 <i class="bi bi-search bloc-search-ico"></i>
               </form>
             </div>
@@ -155,28 +194,21 @@
         </div>
 
       </div>
-      <!-- FIN : Row header-top -->
-
-      <!-- === RUBAN LATÉRAL (RIBBON) ===
-           Barre verticale fixe : Mon compte / Langue / Monnaie -->
       <div class="ribbon">
         <nav class="d-flex gap-2 flex-column align-items-stretch">
 
-          <!-- Lien Mon Compte -->
           <div class="dropdown">
             <a class="btn btn-outline-dark w-100 pb-2 ribbon-btn" href="#" role="button" data-i18n="header.myAccount">
               MON COMPTE
             </a>
           </div>
 
-          <!-- Menu déroulant Sélection Langue -->
           <div class="dropdown">
             <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="langue"
               data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-i18n="header.country"
               aria-label="Sélectionner la langue">
               PAYS
             </button>
-            <!-- Dropdown avec 3 langues : FR / EN / IT -->
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-lang="fr" data-i18n="languages.french">Français (Fr)</a></li>
               <li><a class="dropdown-item" href="#" data-lang="en" data-i18n="languages.english">English (US)</a></li>
@@ -184,14 +216,12 @@
             </ul>
           </div>
 
-          <!-- Menu déroulant Sélection Monnaie -->
           <div class="dropdown">
             <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="monnaie"
               data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-i18n="header.currency"
               aria-label="Sélectionner la monnaie">
               MONNAIE
             </button>
-            <!-- Dropdown avec 3 devises : EUR / USD / GBP -->
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-i18n="currencies.euro">€ Euro</a></li>
               <li><a class="dropdown-item" href="#" data-i18n="currencies.dollar">$ US Dollar</a></li>
@@ -201,18 +231,8 @@
 
         </nav>
       </div>
-      <!-- FIN : Ribbon -->
-
-    </div>
-    <!-- FIN : Container-fluid -->
-  </header>
-  <!-- FIN : Header -->
-
-
-  <!-- ========================================
-       NAVIGATION PRINCIPALE
-       Menu responsive avec hamburger mobile
-       ======================================== -->
+      </div>
+    </header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-brown" role="navigation" aria-label="Navigation principale">
     <span class="navbar-brand d-lg-none" data-i18n="nav.menu">Menu</span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
@@ -240,25 +260,121 @@
       </ul>
     </div>
   </nav>
-  <!-- FIN : Navigation principale -->
+  <main id="main-content" role="main" class="docs-section">
+    <div class="docs-header text-center">
+        <div class="container">
+            <h1>Documentation Technique du Projet</h1>
+            <p class="lead">Accédez aux fichiers d'architecture, de conception et aux rapports de validation du Bloc 1 RNCP.</p>
+        </div>
+    </div>
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-12">
+            <h2 class="docs-list-group-title">1. Documentation de Conception et Annexes Techniques</h2>
+            <p>Ces documents décrivent l'architecture et les choix techniques et d'accessibilité du projet à la fin de la phase de développement initial.</p>
+            
+            <div class="note-attention">
+                <span class="note-icon"><i class="bi bi-exclamation-triangle-fill"></i></span>
+                Les optimisations de performance (CSS critique, Lazy Loading, etc.), les corrections de robustesse (Sécurité XSS) et les ajustements finaux d'accessibilité identifiés lors des audits de validation (Lighthouse, WAVE) ne sont <strong>pas encore intégrés</strong> dans le code ou la description détaillée de ce fichier.
+                <br>
+                Le plan d'actions pour l'amélioration continue est documenté séparément dans le fichier <strong>RAPPORT_D_AMELIORATION.md</strong>.
+            </div>
+            </div>
+      </div>
 
-  <!-- ==========================================================
-       CONTENU PRINCIPAL
-       ========================================================== -->
+      <div class="row g-3">
+        
+        <div class="col-12 col-md-6">
+            <div class="doc-link-item">
+                <a href="docs/README.html" target="_blank" title="Vue d'ensemble et guide d'installation">
+                    <i class="bi bi-file-text"></i> README.html
+                </a>
+                <i class="bi bi-box-arrow-up-right"></i>
+            </div>
+        </div>
 
-  <main class="pb-5 contact-main">
+        <div class="col-12 col-md-6">
+            <div class="doc-link-item">
+                <a href="docs/CHOIX_TECHNIQUES.html" target="_blank" title="Justification des choix technologiques">
+                    <i class="bi bi-file-code"></i> CHOIX_TECHNIQUES.html
+                </a>
+                <i class="bi bi-box-arrow-up-right"></i>
+            </div>
+        </div>
 
+        <div class="col-12 col-md-6">
+            <div class="doc-link-item">
+                <a href="docs/ARCHITECTURE.html" target="_blank" title="Structure détaillée du code">
+                    <i class="bi bi-columns-gap"></i> ARCHITECTURE.html
+                </a>
+                <i class="bi bi-box-arrow-up-right"></i>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="doc-link-item">
+                <a href="docs/RESPONSIVE.html" target="_blank" title="Approche mobile-first et media queries">
+                    <i class="bi bi-phone"></i> RESPONSIVE.html
+                </a>
+                <i class="bi bi-box-arrow-up-right"></i>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="doc-link-item">
+                <a href="docs/ACCESSIBILITE.html" target="_blank" title="Conformité WCAG 2.1 AA et implémentation ARIA">
+                    <i class="bi bi-universal-access"></i> ACCESSIBILITE.html
+                </a>
+                <i class="bi bi-box-arrow-up-right"></i>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="doc-link-item">
+                <a href="docs/ANNEXE_MATCHMEDIA.html" target="_blank" title="Guide technique window.matchMedia()">
+                    <i class="bi bi-file-earmark-code"></i> ANNEXE_MATCHMEDIA.html
+                </a>
+                <i class="bi bi-box-arrow-up-right"></i>
+            </div>
+        </div>
+
+      </div>
+      <div class="row mt-5">
+        <div class="col-12">
+            <h2 class="docs-list-group-title">2. Audits, Tests et Plan d'Amélioration (Post-Validation)</h2>
+            <p>Ces rapports seront générés suite aux audits de validation pour documenter les résultats et les modifications apportées (voir <strong>RAPPORT_D_AMELIORATION.md</strong>).</p>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        
+        <div class="col-12 col-md-6">
+            <div class="doc-link-item">
+                <a href="#" target="_blank" title="Rapport synthétique et résultats des audits Lighthouse, WAVE, W3C">
+                    <i class="bi bi-clipboard-check"></i> ANNEXE_TESTS_VALIDATION.html
+                </a>
+                <i class="bi bi-box-arrow-up-right"></i>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="doc-link-item">
+                <a href="#" target="_blank" title="Modifications apportées suite aux audits de performance et de robustesse">
+                    <i class="bi bi-pencil-square"></i> RAPPORT_D_AMELIORATION.html
+                </a>
+                <i class="bi bi-box-arrow-up-right"></i>
+            </div>
+        </div>
+
+      </div>
+      </div>
   </main>
 
-  <!-- ========================================
-       FOOTER - PIED DE PAGE
-       4 colonnes : Contact, Support, Réseaux, Newsletter
-       ======================================== -->
   <footer class="container-fluid mt-1" role="contentinfo">
     <div>
       <div class="row">
 
-        <!-- === COLONNE 1 : Coordonnées === -->
         <div class="col-lg-3 footer_contact">
           <div class="p-3">
             <h2 data-i18n="footer.company">Book Your Travel</h2>
@@ -269,9 +385,6 @@
 
           </div>
         </div>
-        <!-- FIN : Colonne coordonnées -->
-
-        <!-- === COLONNE 2 : Support Client === -->
         <div class="col-lg-3">
           <div class="p-3 footer_support">
             <h2 data-i18n="footer.customerSupport">Customer Support</h2>
@@ -284,9 +397,6 @@
             </ul>
           </div>
         </div>
-        <!-- FIN : Colonne support client -->
-
-        <!-- === COLONNE 3 : Réseaux Sociaux === -->
         <div class="col-lg-3">
           <div class="p-3 footer_follow">
             <h2 data-i18n="footer.followUs">Suivez-Nous</h2>
@@ -306,9 +416,6 @@
             </ul>
           </div>
         </div>
-        <!-- FIN : Colonne réseaux sociaux -->
-
-        <!-- === COLONNE 4 : Newsletter === -->
         <div class="col-lg-3">
           <div class="p-3 footer_newsletter">
             <h2 data-i18n="footer.newsletter">Newsletter</h2>
@@ -325,23 +432,12 @@
             </form>
           </div>
         </div>
-        <!-- FIN : Colonne newsletter -->
-
+        </div>
       </div>
-      <!-- FIN : Row colonnes footer -->
-    </div>
-    <!-- FIN : Container footer -->
-  </footer>
-  <!-- FIN : Footer -->
-
-  <!-- ========================================
-     BARRE INFÉRIEURE - COPYRIGHT ET LIENS
-     ======================================== -->
+    </footer>
   <div class="bottom w-100 p-3">
-    <!-- Copyright -->
     <p class="copy" data-i18n="footer.copyright">Copyright 2025 Réservation d'hôtel Formation Ilaria</p>
 
-    <!-- Navigation liens légaux et informations -->
     <nav>
       <ul class="list-inline text-center mb-0">
         <li class="list-inline-item"><a href="#" title="About us" data-i18n="footer.aboutUs">About us</a></li>
@@ -356,9 +452,5 @@
       </ul>
     </nav>
   </div>
-  <!-- FIN : Barre inférieure copyright -->
-
-</body>
-<!-- FIN : Body -->
-
+  </body>
 </html>

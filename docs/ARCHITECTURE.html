@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHITECTURE - Hôtel Booking</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  
+  <style>
+    body {
+      font-family: var(--font-principale, "Open Sans", Arial, sans-serif);
+      line-height: 1.8;
+      color: var(--gris-fonce, #333333);
+      background-color: var(--blanc, #ffffff);
+      padding: 2rem 1rem;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    h2 {
+      color: var(--gris-fonce, #333333);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--gris-clair, #f7f7f7);
+    }
+    
+    h3 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      color: var(--gris-fonce, #333333);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    
+    ul, ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    code {
+      background-color: var(--gris-clair, #f7f7f7);
+      color: var(--turquoise-hover, #3db3aa);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    
+    pre {
+      background-color: var(--gris-clair, #f7f7f7);
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    pre code {
+      background-color: transparent;
+      padding: 0;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    strong {
+      font-weight: 600;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    a {
+      color: var(--turquoise, "#5fc8c2");
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    a:hover {
+      color: var(--turquoise-hover, #3db3aa);
+      text-decoration: underline;
+    }
+    
+    .info-box {
+      background-color: var(--turquoise-light, rgba(95, 200, 194, 0.1));
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 5px;
+    }
+
+    /* Style spécifique pour la NOTE IMPORTANTE */
+    .note-importante {
+        background-color: #fcebeb; /* Rouge très clair */
+        border-left: 5px solid var(--rouge-erreur, #e74c3c); 
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+    }
+    
+    .note-importante h1 {
+        color: var(--rouge-erreur, #e74c3c) !important;
+        font-size: 1.75rem;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .note-importante p {
+        text-align: left;
+        margin-bottom: 0.5rem;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1.5rem;
+    }
+    
+    th, td {
+        padding: 0.75rem;
+        border: 1px solid var(--gris-clair, #f7f7f7);
+        text-align: left;
+    }
+    
+    th {
+        background-color: var(--turquoise, #5fc8c2);
+        color: var(--blanc, #ffffff);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <hr>
+    
+    <div class="note-importante">
+        <h1>⚠️ NOTE IMPORTANTE SUR L'ÉTAT DU PROJET</h1>
+        <p>Ce document reflète les choix de conception et l'architecture du projet à la fin de la phase de développement initial.</p>
+        <p>Les optimisations de performance (CSS critique, Lazy Loading, etc.), les corrections de robustesse (Sécurité XSS) et les ajustements finaux d'accessibilité identifiés lors des audits de validation (Lighthouse, WAVE) ne sont <strong>pas encore intégrés</strong> dans le code ou la description détaillée de ce fichier.</p>
+        <p>Le plan d'actions pour l'amélioration continue est documenté séparément dans le fichier <strong>RAPPORT_D_AMELIORATION.md</strong>.</p>
+    </div>
+    
+    <hr>
+    
+    <h1>Architecture - Hôtel Booking</h1>
+
+    <h2>Introduction</h2>
+    
+    <p>Ce document décrit l'architecture complète du projet Hôtel Booking, incluant la structure des fichiers, l'organisation du code, les conventions de nommage, et les interactions entre les différents modules. L'architecture a été conçue pour être maintenable, évolutive et conforme aux bonnes pratiques du développement web.</p>
+    
+    <h2>Vue d'ensemble de l'architecture</h2>
+    
+    <p>Le projet suit une architecture <strong>MVC simplifiée côté client</strong> :</p>
+    <ul>
+      <li><strong>Model</strong> : Données gérées en localStorage et objets JavaScript</li>
+      <li><strong>View</strong> : Pages HTML avec structure sémantique</li>
+      <li><strong>Controller</strong> : Fichiers JavaScript gérant la logique métier</li>
+    </ul>
+    
+    <p>L'architecture est <strong>modulaire</strong> avec séparation des responsabilités :</p>
+    <ul>
+      <li>Un fichier CSS par préoccupation (base, style, responsive, accessibilité)</li>
+      <li>Un fichier JavaScript par fonctionnalité (calendrier, validation, i18n, etc.)</li>
+      <li>Des pages HTML structurées de manière cohérente</li>
+    </ul>
+    
+    <h2>Arborescence du projet</h2>
+    
+    <pre><code>HOTELBOOKINGPROJETBLOC1/
+│
+├── assets/
+│   ├── icons/
+│   │   └── hotel.png              # Favicon du site
+│   │
+│   └── images/
+│       ├── slide-1.jpg            # Images carrousel index
+│       ├── slide-2.jpg
+│       ├── slide-3.jpg
+│       ├── room-*.jpg             # Images chambres
+│       ├── offer-*.jpg            # Images offres
+│       └── ...                    # Autres images
+│
+├── css/
+│   ├── base.css                   # Variables, reset, utilitaires
+│   ├── style.css                  # Styles principaux
+│   ├── responsive.css             # Media queries
+│   └── accessibilite.css          # Styles WCAG
+│
+├── js/
+│   ├── main.js                               # Carrousels, menu, recherche
+│   ├── i18n.js                               # Système internationalisation
+│   ├── translations.js                       # Fichier de traductions
+│   ├── accessibilite.js                      # Validation formulaires, ARIA
+│   ├── calendrier.js                         # Flatpickr, calcul prix
+│   ├── booking.js                            # Logique page réservation
+│   ├── booking-responsive-matchmedia.js      # Réorganisation DOM booking mobile
+│   ├── contact.js                            # Formulaire contact, modale
+│   ├── dyslexie.js                           # Police dyslexie
+│   ├── room-gallery.js                       # Lightbox galerie
+│   └── room-responsive-matchmedia.js         # Réorganisation DOM room mobile
+│
+├── documentations/                # Documentation (cahiers des charges, maquettes ...)
+│
+├── docs/                          # Documentation technique
+│
+├── index.html                     # Page d'accueil
+├── room.html                      # Page détails chambre
+├── booking.html                   # Page réservation
+├── contact.html                   # Page contact
+├── documentations.html            # Page documentation
+│
+└── README.md                      # Documentation principale
+</code></pre>
+    
+    <h2>Architecture des fichiers CSS</h2>
+    
+    <h3>base.css (283 lignes)</h3>
+    
+    <p><strong>Rôle</strong> : Fondations CSS du projet.</p>
+    
+    <p><strong>Contenu</strong> :</p>
+    <ol>
+      <li>Variables CSS globales (couleurs, typographies, espacements)</li>
+      <li>Police dyslexie OpenDyslexic (import CDN + classes)</li>
+      <li>Reset CSS (Eric Meyer)</li>
+      <li>Styles généraux (body, titres, liens, images)</li>
+      <li>Utilitaires CSS (flexbox, overflow, alignements)</li>
+    </ol>
+    
+    <p><strong>Variables principales</strong> :</p>
+    <pre><code>:root {
+  /* Couleurs */
+  --turquoise: #5fc8c2;
+  --turquoise-hover: #3db3aa;
+  --gris-clair: #f7f7f7;
+  --gris-fonce: #333333;
+  
+  /* Typographies */
+  --font-principale: "Open Sans", Arial, sans-serif;
+  --font-secondaire: "Montserrat", sans-serif;
+  --font-dyslexique: 'OpenDyslexic', Arial, sans-serif;
+  
+  /* Espacements */
+  --espace-xs: 4px;
+  --espace-sm: 8px;
+  --espace-md: 16px;
+  --espace-lg: 32px;
+}</code></pre>
+    
+    <p><strong>Utilité</strong> :</p>
+    <ul>
+      <li>Centralisation des variables pour maintenance facile</li>
+      <li>Reset CSS pour uniformiser les navigateurs</li>
+      <li>Utilitaires réutilisables dans tout le projet</li>
+    </ul>
+    
+    <h3>style.css (2991 lignes)</h3>
+    
+    <p><strong>Rôle</strong> : Styles spécifiques de tous les composants et pages.</p>
+    
+    <p><strong>Organisation par sections</strong> :</p>
+    <ol>
+      <li>Ruban supérieur (header-ribbon)</li>
+      <li>Header principal (logo, recherche, contact, dyslexie)</li>
+      <li>Navigation principale (navbar)</li>
+      <li>Carrousel index (hotelCarousel)</li>
+      <li>Formulaire de recherche (search-section)</li>
+      <li>Sections index (offres, why-choose, discover)</li>
+      <li>Footer</li>
+      <li>Page Room (galerie, détails, onglets, sidebar)</li>
+      <li>Page Booking (formulaire, récapitulatif)</li>
+      <li>Page Contact (formulaire, carte, sections)</li>
+    </ol>
+    
+    <p><strong>Structure type d'un composant</strong> :</p>
+    <pre><code>/* ==========================================================
+   COMPOSANT - Description
+   ========================================================== */
+
+.composant {
+  /* Styles de base */
+}
+
+.composant__element {
+  /* Sous-élément */
+}
+
+.composant--modifier {
+  /* Variante */
+}</code></pre>
+    
+    <p><strong>Conventions BEM partielles</strong> :</p>
+    <ul>
+      <li><code>.block</code> : Composant principal</li>
+      <li><code>.block__element</code> : Élément du composant</li>
+      <li><code>.block--modifier</code> : Variante du composant</li>
+    </ul>
+    
+    <h3>responsive.css (1042 lignes)</h3>
+    
+    <p><strong>Rôle</strong> : Adaptations responsive pour tous les breakpoints.</p>
+    
+    <p><strong>Organisation</strong> :</p>
+    <ul>
+      <li>18 media queries organisées de la plus large à la plus petite</li>
+      <li>Adaptations par composant dans chaque media query</li>
+      <li>Commentaires clairs indiquant les breakpoints</li>
+    </ul>
+    
+    <p><strong>Breakpoints principaux</strong> :</p>
+    <pre><code>/* Desktop XL (≥1400px) */
+@media (min-width: 1400px) { }
+
+/* Desktop (≥1200px) */
+@media (min-width: 1200px) { }
+
+/* Desktop (≥992px) */
+@media (min-width: 992px) { }
+
+/* Tablettes (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) { }
+
+/* Mobile large (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) { }
+
+/* Mobile (&lt; 576px) */
+@media (max-width: 575px) { }
+
+/* Mobile small (&lt; 400px) */
+@media (max-width: 399px) { }</code></pre>
+    
+    <p><strong>Approche</strong> :</p>
+    <ul>
+      <li>Mobile-first pour les styles de base</li>
+      <li>Media queries progressives pour enrichir sur desktop</li>
+      <li>Réorganisation DOM via JavaScript (matchMedia) quand nécessaire</li>
+    </ul>
+    
+    <h3>accessibilite.css (169 lignes)</h3>
+    
+    <p><strong>Rôle</strong> : Styles dédiés à l'accessibilité WCAG 2.1 AA.</p>
+    
+    <p><strong>Contenu</strong> :</p>
+    <ol>
+      <li>Classes utilitaires (.visually-hidden, .skip-link)</li>
+      <li>Styles de focus (:focus-visible)</li>
+      <li>Validation de formulaires (is-invalid, is-valid)</li>
+      <li>Support prefers-reduced-motion</li>
+      <li>Zones tactiles minimales (44px)</li>
+      <li>Styles bouton dyslexie (#toggle-dyslexie)</li>
+    </ol>
+    
+    <p><strong>Exemples</strong> :</p>
+    <pre><code>/* Focus visible pour navigation clavier */
+*:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Support reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}</code></pre>
+    
+    <h2>Architecture des fichiers JavaScript</h2>
+    
+    <h3>Principes d'organisation</h3>
+    
+    <p><strong>Architecture modulaire</strong> :</p>
+    <ul>
+      <li>Un fichier = Une responsabilité</li>
+      <li>Pas de dépendances circulaires</li>
+      <li>Fonctions réutilisables et documentées</li>
+      <li>JSDoc complète sur toutes les fonctions</li>
+    </ul>
+    
+    <p><strong>Chargement des scripts</strong> :</p>
+    <pre><code>&lt;!-- Ordre de chargement dans toutes les pages --&gt;
+&lt;script src="js/main.js"&gt;&lt;/script&gt;
+&lt;script src="js/i18n.js"&gt;&lt;/script&gt;
+&lt;script src="js/accessibilite.js"&gt;&lt;/script&gt;
+&lt;script src="js/dyslexie.js"&gt;&lt;/script&gt;
+
+&lt;!-- Scripts spécifiques aux pages --&gt;
+&lt;script src="js/calendrier.js"&gt;&lt;/script&gt;      &lt;!-- room.html --&gt;
+&lt;script src="js/room-gallery.js"&gt;&lt;/script&gt;    &lt;!-- room.html --&gt;
+&lt;script src="js/booking.js"&gt;&lt;/script&gt;         &lt;!-- booking.html --&gt;
+&lt;script src="js/contact.js"&gt;&lt;/script&gt;         &lt;!-- contact.html --&gt;</code></pre>
+    
+    <h3>Fichiers JavaScript détaillés</h3>
+    
+    <h4>main.js</h4>
+    
+    <p><strong>Responsabilité</strong> : Fonctionnalités générales partagées.</p>
+    
+    <p><strong>Fonctions principales</strong> :</p>
+    <ul>
+      <li><code>plusSlides(n)</code> : Navigation carrousel index</li>
+      <li><code>currentSlide(n)</code> : Sélection slide spécifique</li>
+      <li><code>showSlides(n)</code> : Affichage slide active</li>
+      <li><code>autoSlides()</code> : Défilement automatique</li>
+      <li><code>resetTimer()</code> : Réinitialisation timer</li>
+    </ul>
+    
+    <p><strong>Fonctionnalités</strong> :</p>
+    <ol>
+      <li>Menu hamburger (navigation mobile)</li>
+      <li>Carrousel page index (4.5s auto-scroll)</li>
+      <li>Carrousel page room avec miniatures</li>
+      <li>Formulaire de recherche (alerte données)</li>
+    </ol>
+    
+    <p><strong>Variables globales</strong> :</p>
+    <pre><code>let slideIndex = 0;           // Index slide courante
+let timer = null;             // Timer auto-scroll
+</code></pre>
+    
+    <h4>i18n.js</h4>
+    
+    <p><strong>Responsabilité</strong> : Système d'internationalisation.</p>
+    
+    <p><strong>Architecture</strong> :</p>
+    <pre><code>class I18n {
+  constructor() {
+    this.currentLang = localStorage.getItem("language") || "fr";
+    this.init();
+  }
+  
+  init() { }
+  setupEventListeners() { }
+  changeLanguage(lang) { }
+  updateLanguageButton() { }
+  applyTranslations() { }
+  getTranslation(key) { }
+  t(key) { }
+}
+
+// Instance globale
+let i18n = new I18n();</code></pre>
+    
+    <p><strong>Fonctionnement</strong> :</p>
+    <ol>
+      <li>Détection de la langue sauvegardée ou français par défaut</li>
+      <li>Configuration des écouteurs sur les liens de langue</li>
+      <li>Application des traductions via attributs <code>data-i18n</code></li>
+      <li>Sauvegarde de la préférence en localStorage</li>
+    </ol>
+    
+    <p><strong>Traductions supportées</strong> :</p>
+    <ul>
+      <li>Français (fr) : Langue par défaut</li>
+      <li>Anglais (en)</li>
+      <li>Italien (it)</li>
+    </ul>
+    
+    <h4>translations.js</h4>
+    
+    <p><strong>Responsabilité</strong> : Contient tous les textes traduits.</p>
+    
+    <p><strong>Structure</strong> :</p>
+    <pre><code>const translations = {
+  fr: {
+    nav: {
+      home: "Accueil",
+      rooms: "Nos chambres",
+      // ...
+    },
+    search: {
+      title: "Trouvez votre séjour idéal",
+      // ...
+    },
+    // ...
+  },
+  en: { /* ... */ },
+  it: { /* ... */ }
+};</code></pre>
+    
+    <p><strong>Organisation</strong> :</p>
+    <ul>
+      <li>Objets imbriqués par section (nav, search, booking, etc.)</li>
+      <li>Clés cohérentes entre les langues</li>
+      <li>Support HTML dans les traductions (data-i18n-html)</li>
+    </ul>
+    
+    <h4>accessibilite.js</h4>
+    
+    <p><strong>Responsabilité</strong> : Validation de formulaires et gestion ARIA.</p>
+    
+    <p><strong>Fonctions principales</strong> :</p>
+    <ul>
+      <li><code>validateField(field)</code> : Valide un champ (requis, email, tel)</li>
+      <li><code>announceFormStatus(message, type)</code> : Annonce statut aux lecteurs d'écran</li>
+      <li><code>setupAccessibleDropdowns()</code> : Gestion ARIA dropdowns Bootstrap</li>
+      <li><code>setupAccessibleNavigation()</code> : Attribut aria-current sur lien actif</li>
+    </ul>
+    
+    <p><strong>Validation</strong> :</p>
+    <pre><code>// Types de validation
+1. Champs requis (required, aria-required)
+2. Format email (regex)
+3. Format téléphone (regex)
+
+// Attributs ARIA mis à jour
+- aria-invalid (true/false)
+- aria-describedby (id message erreur)
+- Classes Bootstrap (is-valid, is-invalid)
+</code></pre>
+    
+    <p><strong>Écouteurs</strong> :</p>
+    <ul>
+      <li><code>submit</code> : Validation complète avant envoi</li>
+      <li><code>blur</code> : Validation à la perte de focus</li>
+      <li><code>input</code> : Re-validation si champ invalide</li>
+    </ul>
+    
+    <h4>calendrier.js</h4>
+    
+    <p><strong>Responsabilité</strong> : Gestion du calendrier Flatpickr et calculs.</p>
+    
+    <p><strong>Architecture</strong> :</p>
+    <pre><code>const PRIX_PAR_NUIT = 770;
+
+let checkInDate = null;
+let checkOutDate = null;
+let flatpickrInstance = null;
+
+function initializeFlatpickr() { }
+function updateInfo() { }
+function formatDateLong(date) { }
+function updateDisplay(checkIn, checkOut, nights) { }
+function resetDisplay() { }
+function handleReset() { }
+function handleConfirm() { }
+function calculateMobileBooking() { }</code></pre>
+    
+    <p><strong>Fonctionnalités</strong> :</p>
+    <ol>
+      <li>Initialisation Flatpickr (mode range, locale fr, inline)</li>
+      <li>Calcul du nombre de nuits entre deux dates</li>
+      <li>Calcul du prix total (nuits × 770€)</li>
+      <li>Affichage des informations de réservation</li>
+      <li>Support formulaire mobile alternatif (&lt; 400px)</li>
+      <li>Redirection vers booking.html avec paramètres URL</li>
+    </ol>
+    
+    <p><strong>Configuration Flatpickr</strong> :</p>
+    <pre><code>flatpickr("#flatpickr-calendar", {
+  mode: "range",
+  minDate: "today",
+  dateFormat: "Y-m-d",
+  locale: "fr",
+  inline: true,
+  showMonths: 1,
+  onChange: function(selectedDates) { /* ... */ }
+});</code></pre>
+    
+    <h4>dyslexie.js</h4>
+    
+    <p><strong>Responsabilité</strong> : Gestion de la police dyslexie OpenDyslexic.</p>
+    
+    <p><strong>Architecture</strong> :</p>
+    <pre><code>// Constantes
+const STORAGE_KEY = 'dyslexie-mode';
+const DYSLEXIE_CLASS = 'dyslexie-mode';
+const BUTTON_ACTIVE_CLASS = 'active';
+const BUTTON_ID = 'toggle-dyslexie';
+
+// Fonctions
+function initDyslexieMode() { }
+function toggleDyslexieMode(button) { }
+function updateButtonState(button, isActive) { }
+function saveUserPreference(isActive) { }
+function restoreUserPreference(button) { }</code></pre>
+    
+    <p><strong>Fonctionnement</strong> :</p>
+    <ol>
+      <li>Au chargement : restauration préférence localStorage</li>
+      <li>Au clic : toggle classe <code>dyslexie-mode</code> sur body</li>
+      <li>Sauvegarde : localStorage pour persistance entre pages</li>
+      <li>Attributs ARIA : <code>aria-pressed</code> pour état du bouton</li>
+    </ol>
+    
+    <p><strong>Critère WCAG</strong> : Cr 1.c.2 (Police spécifique dyslexie)</p>
+    
+    <h4>room-gallery.js</h4>
+    
+    <p><strong>Responsabilité</strong> : Gestion de la lightbox galerie photos.</p>
+    
+    <p><strong>Fonctionnalités</strong> :</p>
+    <ol>
+      <li>Ouverture lightbox au clic sur image carrousel</li>
+      <li>Navigation lightbox (précédent/suivant)</li>
+      <li>Synchronisation avec carrousel principal</li>
+      <li>Navigation clavier (flèches gauche/droite)</li>
+    </ol>
+    
+    <p><strong>Architecture</strong> :</p>
+    <pre><code>const carouselImages = Array.from(/* images */);
+let currentImageIndex = 0;
+
+function updateLightboxImage(index) {
+  // Met à jour l'image affichée
+  // Synchronise le carrousel principal
+}
+
+// Écouteurs
+- show.bs.modal : Initialisation index
+- click (boutons prev/next)
+- keydown (ArrowLeft, ArrowRight)</code></pre>
+    
+    <h4>room-responsive-matchmedia.js</h4>
+    
+    <p><strong>Responsabilité</strong> : Réorganisation DOM mobile pour room.html.</p>
+    
+    <p><strong>Problématique</strong> :</p>
+    <ul>
+      <li>Desktop : Sidebar (col-lg-3) à droite du contenu</li>
+      <li>Mobile : Widgets sidebar doivent apparaître entre galerie et onglets</li>
+    </ul>
+    
+    <p><strong>Solution matchMedia</strong> :</p>
+    <pre><code>const mediaQuery = window.matchMedia("(max-width: 991px)");
+
+function reorganizeForMobile(elements) {
+  // Déplace widgets sidebar dans col-lg-9
+  // Insère AVANT la section onglets
+}
+
+function restoreDesktopLayout(elements) {
+  // Remet widgets dans col-lg-3
+  // Restaure positions originales
+}
+
+mediaQuery.addEventListener('change', handleMediaQueryChange);</code></pre>
+    
+    <p><strong>Avantages matchMedia</strong> :</p>
+    <ul>
+      <li>Callback uniquement au franchissement de breakpoint</li>
+      <li>Performance meilleure que resize events</li>
+      <li>Sauvegarde positions originales pour restauration</li>
+    </ul>
+    
+    <h4>booking-responsive-matchmedia.js</h4>
+    
+    <p><strong>Responsabilité</strong> : Réorganisation DOM mobile pour booking.html.</p>
+    
+    <p><strong>Problématique</strong> :</p>
+    <ul>
+      <li>Desktop : Récapitulatif (col-lg-4) à droite du formulaire</li>
+      <li>Mobile : Récapitulatif doit apparaître AVANT section paiement</li>
+    </ul>
+    
+    <p><strong>Même principe</strong> que room-responsive-matchmedia.js.</p>
+    
+    <h4>booking.js</h4>
+    
+    <p><strong>Responsabilité</strong> : Logique spécifique page réservation.</p>
+    
+    <p><strong>Fonctionnalités</strong> :</p>
+    <ol>
+      <li>Récupération paramètres URL (dates, prix, chambre)</li>
+      <li>Pré-remplissage du formulaire</li>
+      <li>Calcul du prix total avec options</li>
+      <li>Validation spécifique réservation</li>
+      <li>Soumission et affichage confirmation</li>
+    </ol>
+    
+    <h4>contact.js</h4>
+    
+    <p><strong>Responsabilité</strong> : Formulaire de contact et carte Google Maps.</p>
+    
+    <p><strong>Fonctionnalités</strong> :</p>
+    <ol>
+      <li>Validation formulaire contact</li>
+      <li>Formatage automatique numéro téléphone</li>
+      <li>Affichage modale de confirmation détaillée</li>
+      <li>Gestion erreurs chargement carte Google Maps</li>
+      <li>Smooth scroll vers ancres</li>
+    </ol>
+    
+    <p><strong>Modale de confirmation</strong> :</p>
+    <ul>
+      <li>Récapitulatif complet des données saisies</li>
+      <li>Design professionnel avec icônes</li>
+      <li>Alertes (confirmation envoi, urgence téléphone)</li>
+      <li>Nettoyage automatique après fermeture</li>
+    </ul>
+    
+    <h2>Architecture des pages HTML</h2>
+    
+    <h3>Structure commune à toutes les pages</h3>
+    
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+  &lt;!-- Meta charset et viewport --&gt;
+  &lt;!-- Title unique par page --&gt;
+  &lt;!-- Meta description unique --&gt;
+  &lt;!-- Meta keywords --&gt;
+  &lt;!-- Canonical URL --&gt;
+  &lt;!-- Open Graph --&gt;
+  &lt;!-- Twitter Card --&gt;
+  &lt;!-- Favicon --&gt;
+  &lt;!-- CSS Bootstrap --&gt;
+  &lt;!-- CSS customs --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Skip link --&gt;
+  
+  &lt;!-- Header Ribbon (langue, monnaie) --&gt;
+  
+  &lt;!-- Header Principal --&gt;
+  &lt;header&gt;
+    &lt;!-- Logo, Dyslexie, Contact, Recherche --&gt;
+  &lt;/header&gt;
+  
+  &lt;!-- Navigation --&gt;
+  &lt;nav&gt;
+    &lt;!-- Menu principal --&gt;
+  &lt;/nav&gt;
+  
+  &lt;!-- Main Content --&gt;
+  &lt;main id="main-content"&gt;
+    &lt;!-- Contenu spécifique de la page --&gt;
+  &lt;/main&gt;
+  
+  &lt;!-- Footer --&gt;
+  &lt;footer&gt;
+    &lt;!-- Footer content --&gt;
+  &lt;/footer&gt;
+  
+  &lt;!-- Scripts Bootstrap --&gt;
+  &lt;!-- Scripts customs --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    
+    <h3>Ordre de chargement CSS</h3>
+    
+    <pre><code>&lt;!-- Bootstrap (framework) --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"&gt;
+
+&lt;!-- Bootstrap Icons --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"&gt;
+
+&lt;!-- Flatpickr (si page avec calendrier) --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"&gt;
+
+&lt;!-- CSS customs (ordre important) --&gt;
+&lt;link rel="stylesheet" href="css/base.css"&gt;
+&lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;link rel="stylesheet" href="css/responsive.css"&gt;
+&lt;link rel="stylesheet" href="css/accessibilite.css"&gt;</code></pre>
+    
+    <h3>Ordre de chargement JavaScript</h3>
+    
+    <p><strong>Note importante</strong> : Tous les scripts customs sont chargés avec l'attribut <code>defer</code> pour optimiser le chargement de la page.</p>
+    
+    <pre><code>&lt;!-- Bootstrap Bundle (Popper inclus) --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Flatpickr (si page avec calendrier) --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/flatpickr"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"&gt;&lt;/script&gt;
+
+&lt;!-- Scripts customs (ordre important, chargement avec defer) --&gt;
+&lt;script src="js/main.js" defer&gt;&lt;/script&gt;
+&lt;script src="js/translations.js" defer&gt;&lt;/script&gt;
+&lt;script src="js/i18n.js" defer&gt;&lt;/script&gt;
+&lt;script src="js/accessibilite.js" defer&gt;&lt;/script&gt;
+&lt;script src="js/dyslexie.js" defer&gt;&lt;/script&gt;
+
+&lt;!-- Scripts spécifiques pages (avec defer) --&gt;
+&lt;script src="js/calendrier.js" defer&gt;&lt;/script&gt;        &lt;!-- room.html uniquement --&gt;
+&lt;script src="js/room-gallery.js" defer&gt;&lt;/script&gt;      &lt;!-- room.html uniquement --&gt;
+&lt;script src="js/room-responsive-matchmedia.js" defer&gt; &lt;!-- room.html uniquement --&gt;
+&lt;script src="js/booking.js" defer&gt;&lt;/script&gt;           &lt;!-- booking.html uniquement --&gt;
+&lt;script src="js/booking-responsive-matchmedia.js" defer&gt; &lt;!-- booking.html uniquement --&gt;
+&lt;script src="js/contact.js" defer&gt;&lt;/script&gt;           &lt;!-- contact.html uniquement --&gt;</code></pre>
+    
+    <p><strong>Avantages de l'attribut defer</strong> :</p>
+    <ul>
+      <li>Scripts téléchargés en parallèle sans bloquer le parsing HTML</li>
+      <li>Exécution dans l'ordre d'apparition dans le HTML</li>
+      <li>Exécution après le parsing complet du DOM</li>
+      <li>Amélioration des performances de chargement initial</li>
+    </ul>
+    
+    <h2>Conventions de nommage</h2>
+    
+    <h3>HTML</h3>
+    
+    <p><strong>IDs</strong> : camelCase</p>
+    <pre><code>&lt;div id="hotelCarousel"&gt;
+&lt;input id="checkInDate"&gt;
+&lt;button id="toggleDyslexie"&gt;</code></pre>
+    
+    <p><strong>Classes</strong> : kebab-case</p>
+    <pre><code>&lt;div class="hotel-header"&gt;
+&lt;section class="search-section"&gt;
+&lt;button class="btn-custom"&gt;</code></pre>
+    
+    <p><strong>Attributs data</strong> : kebab-case</p>
+    <pre><code>&lt;span data-i18n="nav.home"&gt;
+&lt;button data-slide-index="2"&gt;</code></pre>
+    
+    <h3>CSS</h3>
+    
+    <p><strong>Classes</strong> : kebab-case</p>
+    <pre><code>.hotel-carousel { }
+.search-form { }
+.footer-links { }</code></pre>
+    
+    <p><strong>Variables</strong> : kebab-case avec double tiret</p>
+    <pre><code>--turquoise: #5fc8c2;
+--font-principale: "Open Sans";
+--espace-md: 16px;</code></pre>
+    
+    <p><strong>Modificateurs BEM</strong> : double tiret</p>
+    <pre><code>.btn { }
+.btn--primary { }
+.btn--large { }</code></pre>
+    
+    <h3>JavaScript</h3>
+    
+    <p><strong>Variables</strong> : camelCase</p>
+    <pre><code>let slideIndex = 0;
+const checkInDate = null;
+let flatpickrInstance = null;</code></pre>
+    
+    <p><strong>Constantes</strong> : SCREAMING_SNAKE_CASE</p>
+    <pre><code>const STORAGE_KEY = 'dyslexie-mode';
+const PRIX_PAR_NUIT = 770;
+const BUTTON_ID = 'toggle-dyslexie';</code></pre>
+    
+    <p><strong>Fonctions</strong> : camelCase</p>
+    <pre><code>function initializeFlatpickr() { }
+function toggleDyslexieMode() { }
+function handleFormSubmit() { }</code></pre>
+    
+    <p><strong>Classes</strong> : PascalCase</p>
+    <pre><code>class I18n { }
+class FormValidator { }</code></pre>
+    
+    <h2>Flux de données</h2>
+    
+    <h3>LocalStorage</h3>
+    
+    <p><strong>Données persistées</strong> :</p>
+    <pre><code>// Langue sélectionnée
+localStorage.setItem('language', 'fr');
+localStorage.getItem('language');
+
+// Mode dyslexie
+localStorage.setItem('dyslexie-mode', 'true');
+localStorage.getItem('dyslexie-mode');</code></pre>
+    
+    <p><strong>Avantages</strong> :</p>
+    <ul>
+      <li>Persistance entre sessions</li>
+      <li>Persistance entre pages</li>
+      <li>Aucune configuration serveur nécessaire</li>
+    </ul>
+    
+    <p><strong>Limitations</strong> :</p>
+    <ul>
+      <li>Données stockées côté client uniquement</li>
+      <li>Limite de 5-10MB par domaine</li>
+      <li>Pas de synchronisation multi-appareils</li>
+    </ul>
+    
+    <h3>Paramètres URL</h3>
+    
+    <p><strong>Transmission de données entre pages</strong> :</p>
+    
+    <p>Exemple room.html → booking.html :</p>
+    <pre><code>// Création des paramètres
+const params = new URLSearchParams({
+  checkIn: '2025-12-15',
+  checkOut: '2025-12-17',
+  checkInTime: '15:00',
+  checkOutTime: '11:00',
+  nights: 2,
+  price: 770,
+  roomName: 'Villa sur l\'eau',
+  adults: 2
+});
+
+// Redirection
+window.location.href = `booking.html?${params.toString()}`;</code></pre>
+    
+    <p>Récupération dans booking.html :</p>
+    <pre><code>const urlParams = new URLSearchParams(window.location.search);
+const checkIn = urlParams.get('checkIn');
+const nights = urlParams.get('nights');
+// ...</code></pre>
+    
+    <h2>Interactions entre modules</h2>
+    
+    <h3>Diagramme de dépendances</h3>
+    
+    <pre><code>main.js
+  ↓
+i18n.js → translations.js
+  ↓
+accessibilite.js
+  ↓
+dyslexie.js
+
+Pages spécifiques :
+  room.html → calendrier.js → Flatpickr
+           → room-gallery.js → Bootstrap Carousel
+           → room-responsive-matchmedia.js → matchMedia API
+           
+  booking.html → booking.js → URLSearchParams
+              → booking-responsive-matchmedia.js
+              
+  contact.html → contact.js → Google Maps API</code></pre>
+    
+    <h3>Événements et écouteurs</h3>
+    
+    <p><strong>DOMContentLoaded</strong> :</p>
+    <ul>
+      <li>Tous les fichiers JS s'initialisent sur cet événement</li>
+      <li>Garantit que le DOM est complètement chargé</li>
+      <li>Évite les erreurs de sélection d'éléments inexistants</li>
+    </ul>
+    
+    <p><strong>Événements formulaires</strong> :</p>
+    <ul>
+      <li><code>submit</code> : Validation avant envoi</li>
+      <li><code>blur</code> : Validation à la perte de focus</li>
+      <li><code>input</code> : Re-validation temps réel</li>
+    </ul>
+    
+    <p><strong>Événements Bootstrap</strong> :</p>
+    <ul>
+      <li><code>show.bs.modal</code> : Avant ouverture modale</li>
+      <li><code>hidden.bs.modal</code> : Après fermeture modale</li>
+      <li><code>shown.bs.tab</code> : Après affichage onglet</li>
+      <li><code>slide.bs.carousel</code> : Changement de slide</li>
+    </ul>
+    
+    <p><strong>Événements customs</strong> :</p>
+    <ul>
+      <li><code>change</code> (matchMedia) : Changement de breakpoint</li>
+      <li><code>click</code> : Actions utilisateur</li>
+      <li><code>keydown</code> : Navigation clavier</li>
+    </ul>
+    
+    <h2>Performance et optimisation</h2>
+    
+    <h3>Stratégies d'optimisation</h3>
+    
+    <p><strong>CSS</strong> :</p>
+    <ol>
+      <li>Regroupement des sélecteurs similaires</li>
+      <li>Éviter les sélecteurs trop profonds (max 3 niveaux)</li>
+      <li>Utilisation de classes réutilisables</li>
+      <li>Variables CSS pour éviter répétitions</li>
+    </ol>
+    
+    <p><strong>JavaScript</strong> :</p>
+    <ol>
+      <li>Event delegation quand possible</li>
+      <li>Debouncing sur événements fréquents (resize, scroll)</li>
+      <li>LocalStorage pour éviter calculs répétés</li>
+      <li>Lazy initialization (Flatpickr au clic onglet)</li>
+    </ol>
+    
+    <p><strong>Images</strong> :</p>
+    <ol>
+      <li>Compression JPEG pour photos</li>
+      <li>PNG pour logos et icônes</li>
+      <li>Attributs width/height pour éviter CLS</li>
+      <li>Chargement progressif possible (à implémenter)</li>
+    </ol>
+    
+    <h3>Gestion de la mémoire</h3>
+    
+    <p><strong>Nettoyage des écouteurs</strong> :</p>
+    <pre><code>// Modale de confirmation contact.js
+modalElement.addEventListener('hidden.bs.modal', function () {
+  this.remove(); // Nettoyage DOM
+});</code></pre>
+    
+    <p><strong>Variables globales limitées</strong> :</p>
+    <ul>
+      <li>Encapsulation dans fonctions ou classes</li>
+      <li>Variables locales privilégiées</li>
+      <li>Pas de pollution du scope global</li>
+    </ul>
+    
+    <h2>Extensibilité</h2>
+    
+    <h3>Ajout d'une nouvelle page</h3>
+    
+    <ol>
+      <li>Créer le fichier HTML avec structure commune</li>
+      <li>Créer le fichier JS spécifique si nécessaire</li>
+      <li>Ajouter les styles spécifiques dans style.css</li>
+      <li>Ajouter les traductions dans translations.js</li>
+      <li>Mettre à jour la navigation (navbar)</li>
+    </ol>
+    
+    <h3>Ajout d'une nouvelle langue</h3>
+    
+    <ol>
+      <li>Ajouter l'objet langue dans translations.js :</li>
+    </ol>
+    <pre><code>const translations = {
+  fr: { /* ... */ },
+  en: { /* ... */ },
+  it: { /* ... */ },
+  es: { /* nouveau */ }
+};</code></pre>
+    
+    <ol>
+      <li>Ajouter le lien dans le dropdown :</li>
+    </ol>
+    <pre><code>&lt;a href="#" data-lang="es"&gt;ESPAÑOL (ES)&lt;/a&gt;</code></pre>
+    
+    <ol>
+      <li>Mettre à jour i18n.js (langNames) si nécessaire</li>
+    </ol>
+    
+    <h3>Ajout d'une nouvelle fonctionnalité</h3>
+    
+    <ol>
+      <li>Créer un nouveau fichier JS dédié</li>
+      <li>Documenter avec JSDoc</li>
+      <li>Charger le script dans les pages concernées</li>
+      <li>Ajouter les styles nécessaires</li>
+      <li>Ajouter les traductions</li>
+    </ol>
+    
+    <h2>Sécurité</h2>
+    
+    <h3>Validation côté client</h3>
+    
+    <p><strong>Principe</strong> : Ne jamais faire confiance aux données utilisateur.</p>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>// Validation format email
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Validation format téléphone
+const phoneRegex = /^[\d\s\+\-\(\)]+$/;
+
+// Échappement HTML (à implémenter si backend)
+function escapeHtml(text) {
+  const map = {
+    '&amp;': '&amp;amp;',
+    '&lt;': '&amp;lt;',
+    '&gt;': '&amp;gt;',
+    '"': '&amp;quot;',
+    "'": '&amp;#039;'
+  };
+  return text.replace(/[&amp;<>"']/g, m => map[m]);
+}</code></pre>
+    
+    <p><strong>Limitations</strong> :</p>
+    <ul>
+      <li>Validation client facilement contournable</li>
+      <li>Backend nécessaire pour sécurité réelle</li>
+      <li>Bloc 1 : pas de backend, validation client uniquement</li>
+    </ul>
+    
+    <h3>Protection des données</h3>
+    
+    <p><strong>LocalStorage</strong> :</p>
+    <ul>
+      <li>Données non sensibles uniquement (langue, préférences UI)</li>
+      <li>Jamais de mots de passe, tokens, données personnelles</li>
+      <li>Pas de cookies (Bloc 1)</li>
+    </ul>
+    
+    <h2>Maintenance et évolutivité</h2>
+    
+    <h3>Bonnes pratiques respectées</h3>
+    
+    <p><strong>Code propre</strong> :</p>
+    <ul>
+      <li>Indentation cohérente (2 espaces)</li>
+      <li>Nommage explicite et cohérent</li>
+      <li>Commentaires pertinents</li>
+      <li>JSDoc complète</li>
+      <li>Séparation des responsabilités</li>
+    </ul>
+    
+    <p><strong>Modularité</strong> :</p>
+    <ul>
+      <li>Fichiers petits et ciblés</li>
+      <li>Couplage faible entre modules</li>
+      <li>Haute cohésion interne</li>
+      <li>Réutilisabilité des composants</li>
+    </ul>
+    
+    <p><strong>Documentation</strong> :</p>
+    <ul>
+      <li>README.md complet</li>
+      <li>Documentation technique (ce fichier)</li>
+      <li>Commentaires dans le code</li>
+      <li>JSDoc pour les fonctions</li>
+    </ul>
+    
+    <h3>Points d'amélioration futurs</h3>
+    
+    <p>Documentation en cours de rédaction (tests et optimisations à définir après validation).</p>
+    
+    <h2>Conclusion</h2>
+    
+    <p>L'architecture du projet Hôtel Booking a été conçue pour être :</p>
+    <ul>
+      <li><strong>Maintenable</strong> : Code clair, organisé, documenté</li>
+      <li><strong>Modulaire</strong> : Séparation des responsabilités</li>
+      <li><strong>Performante</strong> : Optimisations appliquées</li>
+      <li><strong>Accessible</strong> : Conformité WCAG 2.1 AA</li>
+      <li><strong>Responsive</strong> : Adaptation multi-devices</li>
+    </ul>
+    
+    <p>Cette architecture respecte les bonnes pratiques du développement web moderne tout en restant simple et adaptée aux contraintes du Bloc 1 (vanilla JavaScript, pas de framework).</p>
+    
+    </div>
+</body>
+</html>

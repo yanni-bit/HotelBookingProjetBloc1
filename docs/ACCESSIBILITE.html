@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACCESSIBILITÉ - Hôtel Booking</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  
+  <style>
+    body {
+      font-family: var(--font-principale, "Open Sans", Arial, sans-serif);
+      line-height: 1.8;
+      color: var(--gris-fonce, #333333);
+      background-color: var(--blanc, #ffffff);
+      padding: 2rem 1rem;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    h2 {
+      color: var(--gris-fonce, #333333);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--gris-clair, #f7f7f7);
+    }
+    
+    h3 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      color: var(--gris-fonce, #333333);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    
+    ul, ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    code {
+      background-color: var(--gris-clair, #f7f7f7);
+      color: var(--turquoise-hover, #3db3aa);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    
+    pre {
+      background-color: var(--gris-clair, #f7f7f7);
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    pre code {
+      background-color: transparent;
+      padding: 0;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    strong {
+      font-weight: 600;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    a {
+      color: var(--turquoise, "#5fc8c2");
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    a:hover {
+      color: var(--turquoise-hover, #3db3aa);
+      text-decoration: underline;
+    }
+    
+    .info-box {
+      background-color: var(--turquoise-light, rgba(95, 200, 194, 0.1));
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 5px;
+    }
+
+    /* Style spécifique pour la NOTE IMPORTANTE - utilisé pour la cohérence visuelle */
+    .note-importante {
+        background-color: #fcebeb; /* Rouge très clair */
+        border-left: 5px solid var(--rouge-erreur, #e74c3c); 
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+    }
+    
+    .note-importante h1 {
+        color: var(--rouge-erreur, #e74c3c) !important;
+        font-size: 1.75rem;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .note-importante p {
+        text-align: left;
+        margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <hr>
+    
+    <div class="note-importante">
+        <h1>⚠️ NOTE IMPORTANTE SUR L'ÉTAT DU PROJET</h1>
+        <p>Ce document reflète les choix de conception et l'architecture du projet à la fin de la phase de développement initial.</p>
+        <p>Les optimisations de performance (CSS critique, Lazy Loading, etc.), les corrections de robustesse (Sécurité XSS) et les ajustements finaux d'accessibilité identifiés lors des audits de validation (Lighthouse, WAVE) ne sont <strong>pas encore intégrés</strong> dans le code ou la description détaillée de ce fichier.</p>
+        <p>Le plan d'actions pour l'amélioration continue est documenté séparément dans le fichier <strong>RAPPORT_D_AMELIORATION.md</strong>.</p>
+    </div>
+    
+    <hr>
+    
+    <h1>Accessibilité - Hôtel Booking</h1>
+
+    <h2>Introduction</h2>
+    
+    <p>Ce document détaille l'ensemble des mesures d'accessibilité mises en œuvre dans le projet Hôtel Booking pour garantir la conformité aux normes WCAG 2.1 niveau AA. L'accessibilité est une exigence du référentiel RNCP Bloc 1 et un engagement pour rendre le site utilisable par tous, y compris les personnes en situation de handicap.</p>
+    
+    <h2>Conformité aux normes</h2>
+    
+    <h3>Normes respectées</h3>
+    
+    <ul>
+      <li><strong>WCAG 2.1</strong> : Web Content Accessibility Guidelines niveau AA</li>
+      <li><strong>RGAA</strong> : Référentiel Général d'Amélioration de l'Accessibilité (France)</li>
+      <li><strong>Section 508</strong> : Standard américain d'accessibilité</li>
+      <li><strong>EN 301 549</strong> : Norme européenne d'accessibilité</li>
+    </ul>
+    
+    <h3>Niveau de conformité visé</h3>
+    
+    <p><strong>Niveau AA (Double-A)</strong> avec certains critères AAA implémentés :</p>
+    <ul>
+      <li>Zones tactiles minimales de 44px (AAA)</li>
+      <li>Contraste de couleurs renforcé sur certains éléments</li>
+      <li>Navigation clavier complète et optimisée</li>
+    </ul>
+    
+    <h2>Critères WCAG implémentés</h2>
+    
+    <h3>Cr 1.c.1 : Attributs pour lecteurs d'écran</h3>
+    
+    <h4>Attributs alt sur les images</h4>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>&lt;!-- Images décoratives --&gt;
+&lt;img src="slide-1.jpg" alt="Vue panoramique de la villa sur l'eau au coucher du soleil"&gt;
+
+&lt;!-- Logos --&gt;
+&lt;img src="logo.png" alt="Book Your Travel - Logo de l'hôtel"&gt;
+
+&lt;!-- Icônes décoratives sans alt --&gt;
+&lt;i class="bi bi-star-fill" aria-hidden="true"&gt;&lt;/i&gt;</code></pre>
+    
+    <p><strong>Justification</strong> : Assure que le contenu visuel est interprété de manière adéquate par les technologies d'assistance. Les icônes purement décoratives sont masquées avec <code>aria-hidden="true"</code>.</p>
+    
+    <h4>Attributs ARIA pour l'état et le rôle</h4>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>&lt;!-- Boutons toggle --&gt;
+&lt;button aria-expanded="true" aria-controls="menu-principal"&gt;...&lt;/button&gt;
+
+&lt;!-- Barres de progression/statut --&gt;
+&lt;div role="status"&gt;Votre formulaire a été envoyé.&lt;/div&gt;
+
+&lt;!-- Zones d'alerte --&gt;
+&lt;div role="alert"&gt;Veuillez corriger les erreurs.&lt;/div&gt;
+
+&lt;!-- Inputs invalides --&gt;
+&lt;input aria-invalid="true" aria-describedby="erreur-nom"&gt;</code></pre>
+    
+    <p><strong>Justification</strong> : Permet aux lecteurs d'écran de comprendre le rôle des éléments non standards (comme un bouton qui ouvre/ferme un menu) et l'état des éléments interactifs.</p>
+    
+    <h3>Cr 1.c.2 : Police dyslexie</h3>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <ul>
+      <li>Intégration de la police <strong>OpenDyslexic</strong> via CDN.</li>
+      <li>Mécanisme de bascule (toggle) en haut à droite du header.</li>
+      <li>Utilisation de <code>localStorage</code> pour mémoriser le choix de l'utilisateur.</li>
+    </ul>
+    
+    <pre><code>/* Styles pour le mode dyslexie */
+.dyslexie-mode body {
+  font-family: 'OpenDyslexic', sans-serif !important;
+}</code></pre>
+    
+    <p><strong>Justification</strong> : Répond au critère AAA qui recommande la possibilité d'adapter la police pour les utilisateurs ayant des troubles de la lecture.</p>
+    
+    <h3>Cr 1.c.3 : Information non uniquement par couleur</h3>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <ul>
+      <li>Les champs de formulaire invalides sont signalés par une bordure rouge (couleur), un message d'erreur textuel (texte), et un attribut <code>aria-invalid="true"</code> (code/rôle).</li>
+      <li>Les indicateurs de statut utilisent toujours une icône en complément de la couleur.</li>
+    </ul>
+    
+    <p><strong>Justification</strong> : Les utilisateurs malvoyants ou daltoniens ne doivent pas dépendre uniquement de la couleur pour comprendre une information ou un état.</p>
+    
+    <h3>Cr 1.c.4 : Navigation clavier complète</h3>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <ul>
+      <li>Tous les éléments interactifs (liens, boutons, inputs, zones cliquables JavaScript) sont atteignables via la touche <kbd>Tab</kbd>.</li>
+      <li>Utilisation de la pseudo-classe CSS <code>:focus-visible</code> pour garantir un indicateur de focus clair et visible pour tous les éléments.</li>
+      <li>Le <code>outline</code> du focus est personnalisé avec un offset et une couleur à fort contraste.</li>
+      <li>L'ordre de tabulation (<code>tabindex</code>) est logique et suit l'ordre visuel (par défaut grâce au HTML sémantique).</li>
+      <li>Mise en place d'un "skip link" (lien d'évitement) pour accéder directement au contenu principal.</li>
+    </ul>
+    
+    <pre><code>/* Indicateur de focus clair */
+:focus-visible {
+  outline: 3px solid var(--turquoise-dark) !important;
+  outline-offset: 2px;
+}</code></pre>
+    
+    <h2>Autres mesures d'accessibilité (WCAG AAA)</h2>
+    
+    <h3>Contraste des couleurs</h3>
+    <ul>
+      <li>Le ratio de contraste entre le texte (<code>--gris-fonce</code>) et l'arrière-plan (<code>--blanc</code>) est supérieur à 4.5:1 (niveau AA).</li>
+      <li>Les éléments décoratifs (comme les lignes de séparation) ont un contraste suffisant avec l'arrière-plan (minimum 3:1).</li>
+      <li>Vérification des contrastes à l'aide de l'outil WAVE et Google Lighthouse.</li>
+    </ul>
+    
+    <h3>Zones tactiles minimales</h3>
+    <ul>
+      <li>Tous les éléments cliquables ou tactiles (boutons, liens, champs de formulaire) ont une zone d'interaction d'au moins <strong>44px par 44px</strong>, répondant au critère AAA pour l'ergonomie mobile.</li>
+    </ul>
+    
+    <h3>Redimensionnement du texte</h3>
+    <ul>
+      <li>L'utilisation des unités relatives (<code>rem</code>, <code>em</code>) permet aux utilisateurs de zoomer jusqu'à 200% sans perte de contenu ou de fonctionnalité.</li>
+    </ul>
+    
+    <h2>Validation des formulaires (JavaScript)</h2>
+    
+    <p>La validation côté client est essentielle pour l'accessibilité :</p>
+    <ul>
+      <li>Les erreurs sont annoncées par des messages textuels clairs et en temps réel.</li>
+      <li>Le focus est ramené automatiquement sur le premier champ en erreur après une tentative de soumission, permettant aux utilisateurs de lecteurs d'écran de corriger rapidement.</li>
+      <li>L'attribut <code>aria-describedby</code> lie le champ invalide à son message d'erreur, facilitant la lecture du problème par le lecteur d'écran.</li>
+    </ul>
+    
+    <h2>Synthèse de l'approche</h2>
+    
+    <p>La stratégie d'accessibilité du projet est intégrée dès la conception :</p>
+    <ul>
+      <li>Sémantique HTML correcte et valide</li>
+      <li>Navigation clavier fonctionnelle et visible</li>
+      <li>Contrastes de couleurs conformes</li>
+      <li>Validation de formulaires accessible</li>
+      <li>Support des technologies d'assistance</li>
+    </ul>
+    
+    <p>Cette approche garantit que le site est utilisable par le plus grand nombre, conformément aux exigences du référentiel RNCP et aux obligations légales françaises (RGAA).</p>
+    
+    <h2>Liens et ressources</h2>
+    
+    <h3>Normes et référentiels</h3>
+    
+    <ul>
+      <li><strong>WCAG 2.1</strong> : <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">https://www.w3.org/WAI/WCAG21/quickref/</a></li>
+      <li><strong>RGAA 4.1</strong> : <a href="https://accessibilite.numerique.gouv.fr/" target="_blank">https://accessibilite.numerique.gouv.fr/</a></li>
+      <li><strong>Section 508</strong> : <a href="https://www.section508.gov/" target="_blank">https://www.section508.gov/</a></li>
+      <li><strong>EN 301 549</strong> : <a href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf" target="_blank">EN 301 549</a></li>
+    </ul>
+    
+    <h3>Technologies d'accessibilité</h3>
+    
+    <ul>
+      <li><strong>OpenDyslexic</strong> : <a href="https://opendyslexic.org/" target="_blank">https://opendyslexic.org/</a></li>
+      <li><strong>Bootstrap Accessibility</strong> : <a href="https://getbootstrap.com/docs/5.3/getting-started/accessibility/" target="_blank">Bootstrap Accessibility</a></li>
+      <li><strong>ARIA Authoring Practices</strong> : <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank">ARIA Authoring Practices</a></li>
+    </ul>
+    
+    <h3>Outils de test</h3>
+    
+    <ul>
+      <li><strong>Google Lighthouse</strong> : <a href="https://developers.google.com/web/tools/lighthouse" target="_blank">https://developers.google.com/web/tools/lighthouse</a></li>
+      <li><strong>WAVE</strong> : <a href="https://wave.webaim.org/" target="_blank">https://wave.webaim.org/</a></li>
+      <li><strong>axe DevTools</strong> : Outil de test d'accessibilité</li>
+      <li><strong>NVDA / JAWS</strong> : Lecteurs d'écran (tests manuels)</li>
+    </ul>
+    
+    </div>
+</body>
+</html>

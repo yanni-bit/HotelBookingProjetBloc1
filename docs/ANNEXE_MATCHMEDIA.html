@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESPONSIVE DESIGN - Hôtel Booking</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  
+  <style>
+    body {
+      font-family: var(--font-principale, "Open Sans", Arial, sans-serif);
+      line-height: 1.8;
+      color: var(--gris-fonce, #333333);
+      background-color: var(--blanc, #ffffff);
+      padding: 2rem 1rem;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    h2 {
+      color: var(--gris-fonce, #333333);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--gris-clair, #f7f7f7);
+    }
+    
+    h3 {
+      color: var(--turquoise, "#5fc8c2");
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      color: var(--gris-fonce, #333333);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    
+    ul, ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    code {
+      background-color: var(--gris-clair, #f7f7f7);
+      color: var(--turquoise-hover, #3db3aa);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    
+    pre {
+      background-color: var(--gris-clair, #f7f7f7);
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+    }
+    
+    pre code {
+      background-color: transparent;
+      padding: 0;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    strong {
+      font-weight: 600;
+      color: var(--gris-fonce, #333333);
+    }
+    
+    a {
+      color: var(--turquoise, "#5fc8c2");
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    a:hover {
+      color: var(--turquoise-hover, #3db3aa);
+      text-decoration: underline;
+    }
+    
+    .info-box {
+      background-color: var(--turquoise-light, rgba(95, 200, 194, 0.1));
+      border-left: 4px solid var(--turquoise, "#5fc8c2");
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 5px;
+    }
+
+    /* Style spécifique pour la NOTE IMPORTANTE */
+    .note-importante {
+        background-color: #fcebeb; /* Rouge très clair */
+        border-left: 5px solid var(--rouge-erreur, #e74c3c); 
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+    }
+    
+    .note-importante h1 {
+        color: var(--rouge-erreur, #e74c3c) !important;
+        font-size: 1.75rem;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .note-importante p {
+        text-align: left;
+        margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <hr>
+    
+    <div class="note-importante">
+        <h1>⚠️ NOTE IMPORTANTE SUR L'ÉTAT DU PROJET</h1>
+        <p>Ce document reflète les choix de conception et l'architecture du projet à la fin de la phase de développement initial.</p>
+        <p>Les optimisations de performance (CSS critique, Lazy Loading, etc.), les corrections de robustesse (Sécurité XSS) et les ajustements finaux d'accessibilité identifiés lors des audits de validation (Lighthouse, WAVE) ne sont <strong>pas encore intégrés</strong> dans le code ou la description détaillée de ce fichier.</p>
+        <p>Le plan d'actions pour l'amélioration continue est documenté séparément dans le fichier <strong>RAPPORT_D_AMELIORATION.md</strong>.</p>
+    </div>
+    
+    <hr>
+    
+    <h1>Responsive Design - Hôtel Booking</h1>
+
+    <h2>Introduction</h2>
+    
+    <p>Ce document détaille l'approche responsive mise en œuvre dans le projet Hôtel Booking pour garantir une expérience utilisateur optimale sur tous les types d'appareils (smartphones, tablettes, ordinateurs de bureau). Le responsive design est une exigence du référentiel RNCP Bloc 1 (Critère C1.b).</p>
+    
+    <h2>Approche générale</h2>
+    
+    <h3>Stratégie Mobile-First</h3>
+    
+    <p><strong>Principe</strong> : Les styles de base sont conçus pour les mobiles, puis enrichis progressivement pour les écrans plus larges.</p>
+    
+    <p><strong>Avantages</strong> :</p>
+    <ul>
+      <li>Priorité au mobile (statistiques d'usage actuelles)</li>
+      <li>Performance optimisée (chargement progressif)</li>
+      <li>Cascade CSS naturelle</li>
+      <li>Maintenance facilitée</li>
+    </ul>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>/* Styles de base : mobile */
+.element {
+  font-size: 14px;
+  padding: 0.5rem;
+}
+
+/* Enrichissement pour tablette */
+@media (min-width: 768px) {
+  .element {
+    font-size: 16px;
+    padding: 1rem;
+  }
+}
+
+/* Enrichissement pour desktop */
+@media (min-width: 992px) {
+  .element {
+    font-size: 18px;
+    padding: 1.5rem;
+  }
+}</code></pre>
+    
+    <h3>Techniques utilisées</h3>
+    
+    <ol>
+      <li><strong>Media queries CSS</strong> : Adaptations par breakpoints</li>
+      <li><strong>Grille Bootstrap</strong> : Système 12 colonnes responsive</li>
+      <li><strong>Classes utilitaires Bootstrap</strong> : Affichage conditionnel (d-none, d-md-block, etc.)</li>
+      <li><strong>Flexbox et Grid CSS</strong> : Layouts flexibles</li>
+      <li><strong>MatchMedia JavaScript</strong> : Réorganisation DOM dynamique</li>
+      <li><strong>Unités relatives</strong> : rem, em, % pour fluidité</li>
+    </ol>
+    
+    <h2>Breakpoints</h2>
+    
+    <h3>Breakpoints Bootstrap standards</h3>
+    
+    <p>Le projet utilise les breakpoints standards de Bootstrap 5.3.8 :</p>
+    
+    <pre><code>/* Extra small (mobile) - Default */
+/* &lt; 576px */
+
+/* Small (mobile large) */
+@media (min-width: 576px) { }
+
+/* Medium (tablettes) */
+@media (min-width: 768px) { }
+
+/* Large (desktop) */
+@media (min-width: 992px) { }
+
+/* Extra large (desktop XL) */
+@media (min-width: 1200px) { }
+
+/* Extra extra large */
+@media (min-width: 1400px) { }</code></pre>
+    
+    <h3>Breakpoints custom additionnels</h3>
+    
+    <p>Le projet ajoute des breakpoints custom pour gérer les très petits mobiles :</p>
+    
+    <pre><code>/* Très petits mobiles (Galaxy Fold, etc.) */
+@media (max-width: 359px) { }
+
+/* Petits mobiles */
+@media (min-width: 360px) and (max-width: 390px) { }
+
+/* Mobiles moyens */
+@media (min-width: 391px) and (max-width: 575px) { }
+
+/* Tablettes portrait */
+@media (min-width: 768px) and (max-width: 991px) { }</code></pre>
+    
+    <h3>Appareils ciblés</h3>
+    
+    <p><strong>Mobiles (&lt; 576px)</strong> :</p>
+    <ul>
+      <li>iPhone SE (375×667)</li>
+      <li>iPhone 12/13 (390×844)</li>
+      <li>Samsung Galaxy S21 (360×800)</li>
+      <li>Galaxy Fold (280×653 plié)</li>
+    </ul>
+    
+    <p><strong>Tablettes (576px - 991px)</strong> :</p>
+    <ul>
+      <li>iPad Mini (744×1133)</li>
+      <li>iPad (768×1024)</li>
+      <li>iPad Air (820×1180)</li>
+      <li>iPad Pro 11" (834×1194)</li>
+    </ul>
+    
+    <p><strong>Desktop (≥ 992px)</strong> :</p>
+    <ul>
+      <li>MacBook Air (1280×832)</li>
+      <li>Desktop HD (1920×1080)</li>
+      <li>Desktop 2K (2560×1440)</li>
+      <li>Desktop 4K (3840×2160)</li>
+    </ul>
+    
+    <h2>Système de grille Bootstrap</h2>
+    
+    <h3>Principe de la grille 12 colonnes</h3>
+    
+    <p><strong>Classe de base</strong> : <code>.container</code> ou <code>.container-fluid</code></p>
+    
+    <p><strong>Classes de colonnes</strong> :</p>
+    <pre><code>&lt;!-- Mobile : pleine largeur, Desktop : 6 colonnes --&gt;
+&lt;div class="col-12 col-lg-6"&gt;&lt;/div&gt;
+
+&lt;!-- Mobile : pleine largeur, Tablette : 6 col, Desktop : 4 col --&gt;
+&lt;div class="col-12 col-md-6 col-lg-4"&gt;&lt;/div&gt;</code></pre>
+    
+    <p><strong>Préfixes de breakpoints</strong> :</p>
+    <ul>
+      <li><code>col-</code> : &lt; 576px (tous)</li>
+      <li><code>col-sm-</code> : ≥ 576px</li>
+      <li><code>col-md-</code> : ≥ 768px</li>
+      <li><code>col-lg-</code> : ≥ 992px</li>
+      <li><code>col-xl-</code> : ≥ 1200px</li>
+      <li><code>col-xxl-</code> : ≥ 1400px</li>
+    </ul>
+    
+    <h3>Exemple : Header principal</h3>
+    
+    <p><strong>Structure desktop</strong> :</p>
+    <pre><code>[Logo: 5 col] [Dyslexie: 1 col] [Contact: 3 col] [Recherche: 3 col]</code></pre>
+    
+    <p><strong>Structure mobile</strong> :</p>
+    <pre><code>[Logo]       (12 col)
+[Dyslexie]   (12 col)
+[Contact]    (12 col)
+[Recherche]  (12 col)</code></pre>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>&lt;div class="row header-top g-3"&gt;
+  &lt;!-- Logo --&gt;
+  &lt;div class="col-12 col-lg-5 order-0"&gt;
+    &lt;div class="header_logo"&gt;
+      &lt;a href="index.html"&gt;
+        &lt;img src="assets/images/logo.png" alt="Book Your Travel"&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Dyslexie --&gt;
+  &lt;div class="col-12 col-lg-1 order-1 d-flex align-items-center justify-content-center"&gt;
+    &lt;button id="toggle-dyslexie" class="btn btn-outline-secondary btn-sm"&gt;
+      &lt;i class="bi bi-universal-access"&gt;&lt;/i&gt;
+      &lt;span class="btn-text d-none d-lg-inline ms-1"&gt;Dyslexie&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Contact --&gt;
+  &lt;div class="col-12 col-lg-3 order-2"&gt;
+    &lt;div class="header_contact"&gt;
+      &lt;!-- Contenu --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Recherche --&gt;
+  &lt;div class="col-12 col-lg-3 order-3"&gt;
+    &lt;div class="header_search"&gt;
+      &lt;!-- Contenu --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    
+    <h2>Classes utilitaires Bootstrap</h2>
+    
+    <h3>Affichage conditionnel</h3>
+    
+    <p><strong>Classes d'affichage</strong> :</p>
+    <pre><code>&lt;!-- Visible uniquement sur mobile --&gt;
+&lt;div class="d-block d-md-none"&gt;Mobile seulement&lt;/div&gt;
+
+&lt;!-- Visible uniquement sur tablette et + --&gt;
+&lt;div class="d-none d-md-block"&gt;Tablette et desktop&lt;/div&gt;
+
+&lt;!-- Visible uniquement sur desktop --&gt;
+&lt;div class="d-none d-lg-block"&gt;Desktop seulement&lt;/div&gt;
+
+&lt;!-- Masqué sur mobile --&gt;
+&lt;div class="d-none d-sm-block"&gt;Masqué mobile&lt;/div&gt;</code></pre>
+    
+    <p><strong>Préfixes disponibles</strong> :</p>
+    <ul>
+      <li><code>d-none</code> : Masquer</li>
+      <li><code>d-block</code> : Afficher en block</li>
+      <li><code>d-inline</code> : Afficher en inline</li>
+      <li><code>d-inline-block</code> : Afficher en inline-block</li>
+      <li><code>d-flex</code> : Afficher en flexbox</li>
+      <li><code>d-grid</code> : Afficher en grid</li>
+    </ul>
+    
+    <h3>Espacements responsifs</h3>
+    
+    <pre><code>&lt;!-- Margin responsive --&gt;
+&lt;div class="mb-3 mb-md-4 mb-lg-5"&gt;
+  Marge bottom : 1rem (mobile), 1.5rem (tablette), 3rem (desktop)
+&lt;/div&gt;
+
+&lt;!-- Padding responsive --&gt;
+&lt;div class="p-2 p-md-3 p-lg-4"&gt;
+  Padding : 0.5rem (mobile), 1rem (tablette), 1.5rem (desktop)
+&lt;/div&gt;</code></pre>
+    
+    <h3>Typographie responsive</h3>
+    
+    <pre><code>&lt;!-- Taille de texte responsive --&gt;
+&lt;h1 class="fs-4 fs-md-3 fs-lg-1"&gt;
+  Titre adaptatif
+&lt;/h1&gt;
+
+&lt;!-- Alignement responsive --&gt;
+&lt;p class="text-center text-md-start"&gt;
+  Centré mobile, aligné gauche tablette+
+&lt;/p&gt;</code></pre>
+    
+    <h2>Media queries CSS custom</h2>
+    
+    <h3>Organisation dans responsive.css</h3>
+    
+    <p>Le fichier <code>responsive.css</code> contient <strong>18 media queries</strong> organisées de la plus large à la plus petite.</p>
+    
+    <p><strong>Structure type</strong> :</p>
+    <pre><code>/* ==========================================================
+   DESKTOP XL - Min-width: 1400px
+   ========================================================== */
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  
+  /* Autres ajustements */
+}
+
+/* ==========================================================
+   DESKTOP - Min-width: 1200px
+   ========================================================== */
+
+@media (min-width: 1200px) {
+  /* Ajustements desktop */
+}
+
+/* ... */</code></pre>
+    
+    <h3>Adaptations par composant</h3>
+    
+    <h4>Header principal</h4>
+    
+    <p><strong>Desktop (≥992px)</strong> :</p>
+    <pre><code>@media (min-width: 992px) {
+  .header_logo img {
+    max-width: 280px;
+  }
+  
+  .header_contact {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}</code></pre>
+    
+    <p><strong>Mobile (&lt; 768px)</strong> :</p>
+    <pre><code>@media (max-width: 767px) {
+  .header_logo {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .header_logo img {
+    max-width: 200px;
+  }
+  
+  .header_contact,
+  .header_search {
+    justify-content: center;
+  }
+}</code></pre>
+    
+    <h4>Navigation</h4>
+    
+    <p><strong>Desktop</strong> :</p>
+    <pre><code>@media (min-width: 992px) {
+  .navbar-nav {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  
+  .navbar-toggler {
+    display: none;
+  }
+}</code></pre>
+    
+    <p><strong>Mobile</strong> :</p>
+    <pre><code>@media (max-width: 991px) {
+  .navbar-nav {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  
+  .navbar-collapse {
+    background: var(--blanc);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+}</code></pre>
+    
+    <h4>Carrousel index</h4>
+    
+    <p><strong>Desktop</strong> :</p>
+    <pre><code>@media (min-width: 992px) {
+  .hotel-slide {
+    height: 600px;
+  }
+  
+  .hotel-slide img {
+    object-fit: cover;
+    height: 100%;
+  }
+}</code></pre>
+    
+    <p><strong>Mobile</strong> :</p>
+    <pre><code>@media (max-width: 767px) {
+  .hotel-slide {
+    height: 400px;
+  }
+  
+  .carousel-caption {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}</code></pre>
+    
+    <h4>Formulaire de recherche</h4>
+    
+    <p><strong>Desktop</strong> :</p>
+    <pre><code>@media (min-width: 992px) {
+  .search-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}</code></pre>
+    
+    <p><strong>Mobile</strong> :</p>
+    <pre><code>@media (max-width: 991px) {
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .search-form .form-group {
+    width: 100%;
+  }
+}</code></pre>
+    
+    <h4>Galerie room.html</h4>
+    
+    <p><strong>Desktop</strong> :</p>
+    <pre><code>@media (min-width: 992px) {
+  .room-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}</code></pre>
+    
+    <p><strong>Mobile</strong> :</p>
+    <pre><code>@media (max-width: 991px) {
+  .room-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}</code></pre>
+    
+    <h4>Footer</h4>
+    
+    <p><strong>Desktop</strong> :</p>
+    <pre><code>@media (min-width: 992px) {
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}</code></pre>
+    
+    <p><strong>Mobile</strong> :</p>
+    <pre><code>@media (max-width: 991px) {
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+}</code></pre>
+    
+    <h2>MatchMedia JavaScript</h2>
+    
+    <h3>Problématique</h3>
+    
+    <p>Certaines réorganisations nécessitent une modification de l'ordre des éléments dans le DOM, impossible en CSS pur.</p>
+    
+    <p><strong>Exemples</strong> :</p>
+    <ul>
+      <li><strong>room.html</strong> : Widgets sidebar doivent apparaître entre galerie et onglets sur mobile</li>
+      <li><strong>booking.html</strong> : Récapitulatif doit apparaître avant section paiement sur mobile</li>
+    </ul>
+    
+    <h3>Solution : API MatchMedia</h3>
+    
+    <p><strong>Avantages</strong> :</p>
+    <ul>
+      <li>Callbacks uniquement au franchissement de breakpoint</li>
+      <li>Pas d'écoute continue (resize events)</li>
+      <li>Performance optimale</li>
+      <li>API native du navigateur</li>
+    </ul>
+    
+    <h3>Implémentation room.html</h3>
+    
+    <p><strong>Fichier</strong> : <code>room-responsive-matchmedia.js</code></p>
+    
+    <pre><code>document.addEventListener('DOMContentLoaded', function () {
+  const mediaQuery = window.matchMedia("(max-width: 991px)");
+  
+  const originalPositions = {
+    hotelHeaderBox: null,
+    pourquoiReserver: null,
+    hotelsPopulaires: null,
+    offreDuJour: null
+  };
+  
+  function getElements() {
+    const colLg9 = document.querySelector('.container &gt; .row &gt; .col-lg-9');
+    const colLg3 = document.querySelector('.container &gt; .row &gt; .col-lg-3');
+    const roomDetailsRow = document.querySelector('.col-lg-9 &gt; .row');
+    
+    const hotelHeaderBox = document.querySelector('.hotel-header-box');
+    const allAsides = document.querySelectorAll('aside.ordre');
+    
+    // Identifier les asides par leur titre...
+    
+    return {
+      colLg9,
+      colLg3,
+      roomDetailsRow,
+      hotelHeaderBox,
+      pourquoiReserver,
+      hotelsPopulaires,
+      offreDuJour
+    };
+  }
+  
+  function saveOriginalPositions(elements) {
+    if (!originalPositions.hotelHeaderBox &amp;&amp; elements.hotelHeaderBox) {
+      originalPositions.hotelHeaderBox = {
+        parent: elements.hotelHeaderBox.parentElement,
+        nextSibling: elements.hotelHeaderBox.nextSibling
+      };
+    }
+  }
+  
+  function reorganizeForMobile(elements) {
+    const { colLg9, roomDetailsRow, hotelHeaderBox, 
+            pourquoiReserver, hotelsPopulaires, offreDuJour } = elements;
+    
+    if (!colLg9 || !roomDetailsRow) return;
+    
+    saveOriginalPositions(elements);
+    
+    // Déplacer header box en haut de col-lg-9
+    if (hotelHeaderBox &amp;&amp; hotelHeaderBox.parentElement !== colLg9) {
+      colLg9.insertBefore(hotelHeaderBox, roomDetailsRow);
+    }
+    
+    // Déplacer widgets à la fin de col-lg-9
+    if (pourquoiReserver &amp;&amp; pourquoiReserver.parentElement !== colLg9) {
+      colLg9.appendChild(pourquoiReserver);
+    }
+    
+    if (hotelsPopulaires &amp;&amp; hotelsPopulaires.parentElement !== colLg9) {
+      colLg9.appendChild(hotelsPopulaires);
+    }
+    
+    if (offreDuJour &amp;&amp; offreDuJour.parentElement !== colLg9) {
+      colLg9.appendChild(offreDuJour);
+    }
+  }
+  
+  function restoreDesktopLayout(elements) {
+    const { hotelHeaderBox, pourquoiReserver, 
+            hotelsPopulaires, offreDuJour } = elements;
+    
+    function restoreElement(element, positionKey) {
+      if (element &amp;&amp; originalPositions[positionKey]) {
+        const origPos = originalPositions[positionKey];
+        if (element.parentElement !== origPos.parent) {
+          if (origPos.nextSibling) {
+            origPos.parent.insertBefore(element, origPos.nextSibling);
+          } else {
+            origPos.parent.appendChild(element);
+          }
+        }
+      }
+    }
+    
+    restoreElement(hotelHeaderBox, 'hotelHeaderBox');
+    restoreElement(pourquoiReserver, 'pourquoiReserver');
+    restoreElement(hotelsPopulaires, 'hotelsPopulaires');
+    restoreElement(offreDuJour, 'offreDuJour');
+  }
+  
+  function handleMediaQueryChange(e) {
+    const elements = getElements();
+    
+    if (e.matches) {
+      // Mobile : &lt; 992px
+      reorganizeForMobile(elements);
+    } else {
+      // Desktop : &gt;= 992px
+      restoreDesktopLayout(elements);
+    }
+  }
+  
+  // Exécution au chargement
+  handleMediaQueryChange(mediaQuery);
+  
+  // Écoute des changements
+  if (mediaQuery.addEventListener) {
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+  } else {
+    // Fallback anciens navigateurs
+    mediaQuery.addListener(handleMediaQueryChange);
+  }
+});</code></pre>
+    
+    <p><strong>Fonctionnement</strong> :</p>
+    <ul>
+      <li>Sauvegarde des positions originales au premier passage</li>
+      <li>Mobile (&lt; 992px) : Déplace éléments dans col-lg-9</li>
+      <li>Desktop (≥ 992px) : Restaure positions originales</li>
+      <li>Callback uniquement au franchissement de 991px/992px</li>
+    </ul>
+    
+    <h3>Implémentation booking.html</h3>
+    
+    <p><strong>Fichier</strong> : <code>booking-responsive-matchmedia.js</code></p>
+    
+    <p><strong>Même principe</strong> pour déplacer le récapitulatif (col-lg-4) avant la section paiement sur mobile.</p>
+    
+    <h2>Images responsives</h2>
+    
+    <h3>Technique de base</h3>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}</code></pre>
+    
+    <p><strong>Résultat</strong> :</p>
+    <ul>
+      <li>Image ne dépasse jamais son conteneur</li>
+      <li>Ratio d'aspect préservé</li>
+      <li>Pas de déformation</li>
+    </ul>
+    
+    <h3>Attributs width et height</h3>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>&lt;img src="image.jpg" 
+     alt="Description" 
+     width="1200" 
+     height="800"
+     style="max-width: 100%; height: auto;"&gt;</code></pre>
+    
+    <p><strong>Avantages</strong> :</p>
+    <ul>
+      <li>Évite CLS (Cumulative Layout Shift)</li>
+      <li>Améliore performance Lighthouse</li>
+      <li>Réserve l'espace avant chargement</li>
+    </ul>
+    
+    <h3>Object-fit pour contrôle</h3>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>.carousel-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 767px) {
+  .carousel-image {
+    height: 400px;
+  }
+}</code></pre>
+    
+    <p><strong>Valeurs object-fit</strong> :</p>
+    <ul>
+      <li><code>cover</code> : Couvre tout l'espace (peut rogner)</li>
+      <li><code>contain</code> : Contient entièrement (peut laisser espaces vides)</li>
+      <li><code>fill</code> : Remplit (peut déformer)</li>
+    </ul>
+    
+    <h2>Typographie responsive</h2>
+    
+    <h3>Unités relatives</h3>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>html {
+  font-size: 16px; /* Base */
+}
+
+body {
+  font-size: 1rem; /* = 16px */
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 2.5rem; /* = 40px */
+}
+
+h2 {
+  font-size: 2rem; /* = 32px */
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 2rem; /* = 32px sur mobile */
+  }
+  
+  h2 {
+    font-size: 1.5rem; /* = 24px sur mobile */
+  }
+}</code></pre>
+    
+    <p><strong>Avantages rem</strong> :</p>
+    <ul>
+      <li>Relatif à la taille de base (html)</li>
+      <li>Zoom texte respecté</li>
+      <li>Cohérence entre éléments</li>
+    </ul>
+    
+    <h3>Classes Bootstrap responsive</h3>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>&lt;!-- Taille adaptative --&gt;
+&lt;h1 class="fs-4 fs-md-3 fs-lg-1"&gt;Titre responsive&lt;/h1&gt;
+
+&lt;!-- fs-1 = 2.5rem, fs-4 = 1.5rem sur mobile --&gt;</code></pre>
+    
+    <h2>Espacements responsive</h2>
+    
+    <h3>Système d'espacements Bootstrap</h3>
+    
+    <p><strong>Classes disponibles</strong> :</p>
+    <ul>
+      <li><code>m-*</code> : Margin</li>
+      <li><code>p-*</code> : Padding</li>
+      <li><code>mt-*</code>, <code>mb-*</code>, <code>ms-*</code>, <code>me-*</code> : Margin top, bottom, start, end</li>
+      <li><code>pt-*</code>, <code>pb-*</code>, <code>ps-*</code>, <code>pe-*</code> : Padding top, bottom, start, end</li>
+    </ul>
+    
+    <p><strong>Échelle</strong> :</p>
+    <ul>
+      <li><code>0</code> : 0</li>
+      <li><code>1</code> : 0.25rem (4px)</li>
+      <li><code>2</code> : 0.5rem (8px)</li>
+      <li><code>3</code> : 1rem (16px)</li>
+      <li><code>4</code> : 1.5rem (24px)</li>
+      <li><code>5</code> : 3rem (48px)</li>
+    </ul>
+    
+    <p><strong>Responsive</strong> :</p>
+    <pre><code>&lt;!-- Margin adaptative --&gt;
+&lt;div class="mb-2 mb-md-3 mb-lg-5"&gt;
+  Margin bottom : 8px (mobile), 16px (tablette), 48px (desktop)
+&lt;/div&gt;</code></pre>
+    
+    <h3>Espacements custom</h3>
+    
+    <p><strong>Implémentation dans responsive.css</strong> :</p>
+    <pre><code>@media (max-width: 767px) {
+  .section-padding {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 4rem 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .section-padding {
+    padding: 6rem 3rem;
+  }
+}</code></pre>
+    
+    <h2>Composants responsive spécifiques</h2>
+    
+    <h3>Calendrier Flatpickr</h3>
+    
+    <p><strong>Desktop (≥ 400px)</strong> :</p>
+    <ul>
+      <li>Calendrier inline toujours visible</li>
+      <li>Sélection range avec survol</li>
+    </ul>
+    
+    <p><strong>Mobile (&lt; 400px)</strong> :</p>
+    <ul>
+      <li>Calendrier inline masqué</li>
+      <li>Inputs date natifs HTML5 alternatifs</li>
+      <li>Sélection séparée check-in / check-out</li>
+    </ul>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>&lt;!-- Calendrier inline (desktop) --&gt;
+&lt;div id="flatpickr-calendar" class="d-none d-sm-block"&gt;&lt;/div&gt;
+
+&lt;!-- Inputs natifs (mobile) --&gt;
+&lt;div class="d-block d-sm-none"&gt;
+  &lt;input type="date" id="mobileCheckIn"&gt;
+  &lt;input type="date" id="mobileCheckOut"&gt;
+&lt;/div&gt;</code></pre>
+    
+    <h3>Miniatures carrousel room.html</h3>
+    
+    <p><strong>Desktop</strong> :</p>
+    <ul>
+      <li>Miniatures horizontales avec scroll</li>
+      <li>Boutons prev/next pour navigation</li>
+      <li>5-6 miniatures visibles</li>
+    </ul>
+    
+    <p><strong>Mobile</strong> :</p>
+    <ul>
+      <li>Miniatures masquées (d-none d-md-flex)</li>
+      <li>Navigation par dots uniquement</li>
+      <li>Économie d'espace vertical</li>
+    </ul>
+    
+    <p><strong>Implémentation</strong> :</p>
+    <pre><code>&lt;div class="carousel-thumbnails d-none d-md-flex"&gt;
+  &lt;!-- Miniatures --&gt;
+&lt;/div&gt;</code></pre>
+    
+    <h3>Modales</h3>
+    
+    <p><strong>Bootstrap gère automatiquement</strong> :</p>
+    <ul>
+      <li>Plein écran sur très petits mobiles (&lt; 576px)</li>
+      <li>Centrées avec marges sur tablettes et desktop</li>
+      <li>Scroll vertical si contenu trop long</li>
+    </ul>
+    
+    <h2>Performance responsive</h2>
+    
+    <h3>Optimisations appliquées</h3>
+    
+    <p><strong>Chargement progressif</strong> :</p>
+    <pre><code>&lt;!-- Scripts avec defer --&gt;
+&lt;script src="js/main.js" defer&gt;&lt;/script&gt;
+&lt;script src="js/responsive.js" defer&gt;&lt;/script&gt;</code></pre>
+    
+    <p><strong>CSS critique inline</strong> (non implémenté, possible amélioration) :</p>
+    <ul>
+      <li>CSS minimal dans <code>&lt;head&gt;</code> pour first paint</li>
+      <li>CSS complet chargé en defer</li>
+    </ul>
+    
+    <p><strong>Images optimisées</strong> :</p>
+    <ul>
+      <li>Compression JPEG adaptée</li>
+      <li>Format PNG pour logos</li>
+      <li>Pas de lazy loading (projet taille moyenne)</li>
+    </ul>
+    
+    <h3>Métriques cibles</h3>
+    
+    <p><strong>Core Web Vitals</strong> :</p>
+    <ul>
+      <li>LCP (Largest Contentful Paint) : &lt; 2.5s</li>
+      <li>FID (First Input Delay) : &lt; 100ms</li>
+      <li>CLS (Cumulative Layout Shift) : &lt; 0.1</li>
+    </ul>
+    
+    <p><strong>Lighthouse scores cibles</strong> :</p>
+    <ul>
+      <li>Performance : ≥ 85</li>
+      <li>Accessibility : ≥ 90</li>
+      <li>Best Practices : ≥ 90</li>
+      <li>SEO : ≥ 95</li>
+    </ul>
+    
+    <h2>Tests responsive</h2>
+    
+    <h3>Méthodologie de test</h3>
+    
+    <p>Les tests responsive seront effectués sur des appareils réels et des émulateurs pour garantir la compatibilité multi-devices. Les outils de test seront sélectionnés au moment de la phase de validation.</p>
+    
+    <h3>Appareils à tester</h3>
+    
+    <p><strong>Mobiles</strong> :</p>
+    <ul>
+      <li>iPhone SE (375px)</li>
+      <li>iPhone 12/13/14 (390px)</li>
+      <li>Samsung Galaxy S21 (360px)</li>
+      <li>Google Pixel 5 (393px)</li>
+    </ul>
+    
+    <p><strong>Tablettes</strong> :</p>
+    <ul>
+      <li>iPad Mini (768px)</li>
+      <li>iPad (810px)</li>
+      <li>iPad Air (820px)</li>
+      <li>iPad Pro 11" (834px)</li>
+    </ul>
+    
+    <p><strong>Desktop</strong> :</p>
+    <ul>
+      <li>1366×768 (laptop standard)</li>
+      <li>1920×1080 (Full HD)</li>
+      <li>2560×1440 (2K)</li>
+      <li>3840×2160 (4K)</li>
+    </ul>
+    
+    <h3>Points de contrôle</h3>
+    
+    <p><strong>Navigation</strong> :</p>
+    <ul>
+      <li>Menu hamburger fonctionnel mobile</li>
+      <li>Navigation horizontale desktop</li>
+      <li>Dropdowns accessibles</li>
+    </ul>
+    
+    <p><strong>Images</strong> :</p>
+    <ul>
+      <li>Pas de débordement</li>
+      <li>Ratio préservé</li>
+      <li>Chargement correct</li>
+    </ul>
+    
+    <p><strong>Formulaires</strong> :</p>
+    <ul>
+      <li>Champs de taille appropriée</li>
+      <li>Labels visibles</li>
+      <li>Validation claire</li>
+    </ul>
+    
+    <p><strong>Typographie</strong> :</p>
+    <ul>
+      <li>Lisibilité sur tous écrans</li>
+      <li>Taille adaptée</li>
+      <li>Line-height confortable</li>
+    </ul>
+    
+    <p><strong>Espacements</strong> :</p>
+    <ul>
+      <li>Marges cohérentes</li>
+      <li>Padding adapté</li>
+      <li>Pas de chevauchement</li>
+    </ul>
+    
+    <h2>Conclusion</h2>
+    
+    <p>Le projet Hôtel Booking implémente une approche responsive complète combinant :</p>
+    <ul>
+      <li>Stratégie mobile-first</li>
+      <li>Grille Bootstrap 12 colonnes</li>
+      <li>Media queries CSS custom (18 breakpoints)</li>
+      <li>Classes utilitaires Bootstrap</li>
+      <li>MatchMedia JavaScript pour réorganisation DOM</li>
+      <li>Images et typographie responsive</li>
+      <li>Support multi-appareils (mobile, tablette, desktop)</li>
+    </ul>
+    
+    <p>Cette approche garantit une expérience utilisateur optimale sur tous les types d'appareils, conformément aux exigences du référentiel RNCP Bloc 1 (Critère C1.b).</p>
+    
+    <h2>Liens et ressources</h2>
+    
+    <h3>Bootstrap responsive</h3>
+    
+    <ul>
+      <li><strong>Bootstrap Grid</strong> : <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank">https://getbootstrap.com/docs/5.3/layout/grid/</a></li>
+      <li><strong>Bootstrap Breakpoints</strong> : <a href="https://getbootstrap.com/docs/5.3/layout/breakpoints/" target="_blank">https://getbootstrap.com/docs/5.3/layout/breakpoints/</a></li>
+      <li><strong>Bootstrap Utilities</strong> : <a href="https://getbootstrap.com/docs/5.3/utilities/display/" target="_blank">https://getbootstrap.com/docs/5.3/utilities/display/</a></li>
+    </ul>
+    
+    <h3>Techniques responsive</h3>
+    
+    <ul>
+      <li><strong>MDN Responsive Design</strong> : <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank">https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design</a></li>
+      <li><strong>CSS Tricks Responsive</strong> : <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">https://css-tricks.com/snippets/css/complete-guide-grid/</a></li>
+      <li><strong>MatchMedia API</strong> : <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia</a></li>
+    </ul>
+
+    </div>
+</body>
+</html>
