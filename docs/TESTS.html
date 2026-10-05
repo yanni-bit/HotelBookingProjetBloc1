@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TESTS - Hôtel Booking</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+
+  <style>
+    body {
+      font-family: var(--font-principale, "Open Sans", Arial, sans-serif);
+      line-height: 1.8;
+      color: var(--gris-fonce, #333333);
+      background-color: var(--blanc, #ffffff);
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: var(--turquoise, #5fc8c2);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--turquoise, #5fc8c2);
+    }
+
+    h2 {
+      color: var(--gris-fonce, #333333);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--gris-clair, #f7f7f7);
+    }
+
+    h3 {
+      color: var(--turquoise, #5fc8c2);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      color: var(--gris-fonce, #333333);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    code {
+      background-color: var(--gris-clair, #f7f7f7);
+      color: var(--turquoise-hover, #3db3aa);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    pre {
+      background-color: var(--gris-clair, #f7f7f7);
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--turquoise, #5fc8c2);
+    }
+
+    pre code {
+      background-color: transparent;
+      padding: 0;
+      color: var(--gris-fonce, #333333);
+    }
+
+    strong {
+      font-weight: 600;
+      color: var(--gris-fonce, #333333);
+    }
+
+    a {
+      color: var(--turquoise, #5fc8c2);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--turquoise-hover, #3db3aa);
+      text-decoration: underline;
+    }
+
+    hr {
+      margin: 3rem 0;
+      border: 0;
+      border-top: 2px solid var(--gris-clair, #f7f7f7);
+    }
+
+    /* Tableaux de résultats de tests */
+    .table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    thead th {
+      background-color: var(--turquoise, #5fc8c2);
+      color: var(--blanc, #ffffff);
+      font-weight: 600;
+      text-align: left;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--turquoise, #5fc8c2);
+    }
+
+    tbody td {
+      padding: 0.55rem 0.8rem;
+      border: 1px solid #e0e0e0;
+      vertical-align: top;
+      font-variant-numeric: tabular-nums;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: var(--gris-clair, #f7f7f7);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>Tests et validation - Hôtel Booking</h1>
+    <h2>Introduction</h2>
+    <p>Ce document consigne la campagne de tests menée sur l'application web de réservation
+    Book Your Travel, dans le cadre du Bloc 1 du référentiel RNCP Développeur Web.</p>
+    <p>Il décrit ce qui a été testé, avec quel outil, selon quelle méthode, et quels résultats
+    ont été obtenus. Il rend compte de l'état du site <strong>au moment des tests</strong>, sans correction.
+    Les corrections apportées ensuite et leurs preuves font l'objet d'un document distinct,
+    <code>RAPPORT_D_AMELIORATION.md</code>.</p>
+    <h3>Périmètre</h3>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Élément</th>
+    <th>Valeur</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Application testée</td>
+    <td>Book Your Travel, front-end HTML5 / CSS3 / JavaScript</td>
+    </tr>
+    <tr>
+    <td>Adresse testée</td>
+    <td>https://yanni-bit.github.io/HotelBookingProjetBloc1/</td>
+    </tr>
+    <tr>
+    <td>Environnement</td>
+    <td>version déployée sur GitHub Pages, et non copie locale</td>
+    </tr>
+    <tr>
+    <td>Pages couvertes</td>
+    <td>index.html, room.html, booking.html, contact.html, documentations.html</td>
+    </tr>
+    <tr>
+    <td>Date de la campagne</td>
+    <td>5 octobre 2026</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Le choix de tester la version déployée plutôt qu'une copie locale est délibéré : les
+    rapports produits portent l'adresse publique, ce qui les rend vérifiables par un tiers.</p>
+    <h3>Exigences couvertes</h3>
+    <p>Le cahier des charges du projet définit trois familles de tests pour le Bloc 1 :</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Exigence du cahier des charges</th>
+    <th>Section de ce document</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Tests de responsivité, affichage sur différentes tailles d'écran et navigateurs</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>Tests d'accessibilité, Lighthouse et d'autres outils, normes WCAG et RGAA</td>
+    <td>2</td>
+    </tr>
+    <tr>
+    <td>Tests de performance, vitesse de chargement et optimisation des ressources</td>
+    <td>3</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>La section 4, validation du code par les validateurs W3C, dépasse ce que le cahier des
+    charges demande. Elle a été menée parce que le référentiel exige que le code respecte
+    les normes du W3C et que le validateur s'exécute avec succès.</p>
+    <hr />
+    <h2>Méthodologie</h2>
+    <h3>Outils retenus</h3>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Outil</th>
+    <th>Version</th>
+    <th>Axe testé</th>
+    <th>Production</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Google Lighthouse</td>
+    <td>intégré à Chrome</td>
+    <td>performance, accessibilité, bonnes pratiques, SEO</td>
+    <td>rapport HTML par page et par profil</td>
+    </tr>
+    <tr>
+    <td>Responsively App</td>
+    <td>1.18.0</td>
+    <td>tailles d'écran, paliers CSS</td>
+    <td>captures d'écran par profil</td>
+    </tr>
+    <tr>
+    <td>Outils de développement Chrome</td>
+    <td>Chrome 141</td>
+    <td>arborescence d'accessibilité, contrastes, problèmes de page</td>
+    <td>captures d'écran</td>
+    </tr>
+    <tr>
+    <td>Outils de développement Firefox</td>
+    <td>Firefox 143</td>
+    <td>ordre de tabulation</td>
+    <td>captures d'écran</td>
+    </tr>
+    <tr>
+    <td>Samsung Galaxy S24+</td>
+    <td>Chrome Android</td>
+    <td>rendu sur appareil mobile réel</td>
+    <td>navigation directe</td>
+    </tr>
+    <tr>
+    <td>Audit Lighthouse multi-pages en ligne</td>
+    <td>moteur Lighthouse 7.0.0, exécution Node</td>
+    <td>accessibilité seule, sur 12 URL</td>
+    <td>rapport HTML par page et export CSV</td>
+    </tr>
+    <tr>
+    <td>Nu Html Checker, validator.w3.org/nu</td>
+    <td>moteur vnu 26.10.2</td>
+    <td>conformité HTML5</td>
+    <td>page de résultats par page</td>
+    </tr>
+    <tr>
+    <td>W3C CSS Validation Service, jigsaw.w3.org</td>
+    <td>profil CSS niveau 3 + SVG</td>
+    <td>conformité CSS</td>
+    <td>page de résultats par feuille</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Chaque outil couvre un axe que les autres ne couvrent pas. Les sections qui suivent
+    indiquent, pour chacun, ce qu'il mesure et ce qu'il a donné.</p>
+    <h3>Conservation des preuves</h3>
+    <p>Chaque test a produit un artefact conservé : rapport HTML, export CSV ou capture d'écran.
+    L'ensemble est rangé dans <code>docs/tests/</code>, organisé par axe puis par page.</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Dossier</th>
+    <th>Contenu</th>
+    <th>Volume</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><code>docs/tests/responsive/</code></td>
+    <td>captures Responsively, un sous-dossier par page</td>
+    <td>40 fichiers</td>
+    </tr>
+    <tr>
+    <td><code>docs/tests/w3c-html/</code></td>
+    <td>pages de résultats du Nu Html Checker et leurs ressources</td>
+    <td>5 rapports</td>
+    </tr>
+    <tr>
+    <td><code>docs/tests/w3c-css/</code></td>
+    <td>pages de résultats du validateur CSS et leurs ressources</td>
+    <td>4 rapports</td>
+    </tr>
+    <tr>
+    <td><code>docs/tests/lighthouse/</code></td>
+    <td>rapports Lighthouse, mobile et desktop</td>
+    <td>10 fichiers</td>
+    </tr>
+    <tr>
+    <td><code>docs/tests/accessibilite/</code></td>
+    <td>rapports de l'audit multi-pages, exports CSV, captures d'inspection Chrome</td>
+    <td>4 rapports, 2 CSV, 3 captures</td>
+    </tr>
+    <tr>
+    <td><code>docs/tests/clavier/</code></td>
+    <td>captures de l'ordre de tabulation, 5 pages</td>
+    <td>11 fichiers</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Les captures responsive suivent la convention <code>responsive/&lt;page&gt;/&lt;profil&gt;-&lt;largeur&gt;.jpg</code>.
+    La largeur du nom correspond à la largeur réelle de l'image, elle-même égale à la largeur
+    du palier testé. Les images ont été recompressées pour tenir dans le dépôt, sans aucun
+    redimensionnement : réduire les dimensions aurait détruit leur valeur probante.</p>
+    <p>L'audit multi-pages a parcouru douze adresses mais produit quatre rapports distincts,
+    la page d'accueil étant atteinte par deux URL qui renvoient le même document.</p>
+    <hr />
+    <h2>1. Tests de responsivité</h2>
+    <h3>1.1 Deux axes</h3>
+    <p>La responsivité se vérifie sur deux axes distincts : la taille d'écran, traitée en 1.2
+    et 1.3, et le moteur de rendu, traité en 1.4.</p>
+    <h3>1.2 Méthode pour les tailles d'écran</h3>
+    <p>Les tailles ont été couvertes avec Responsively App, en créant huit profils
+    d'appareils sur mesure, chacun calé sur un palier réel du CSS du projet. Cette méthode
+    a un avantage que les profils génériques n'ont pas : <strong>chaque capture correspond à une
+    media query identifiable dans le code</strong>, et non à un appareil choisi au hasard.</p>
+    <p>Le rapport de pixels est fixé à 1 sur les huit profils. La largeur en pixels de chaque
+    image correspond donc exactement à la largeur du palier testé, ce qui rend la preuve
+    lisible sans mesure supplémentaire.</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Profil</th>
+    <th>Largeur</th>
+    <th>Hauteur</th>
+    <th>Type déclaré</th>
+    <th>Palier CSS couvert</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>P1 Desktop XL</td>
+    <td>1440</td>
+    <td>900</td>
+    <td>ordinateur</td>
+    <td><code>min-width: 1200px</code></td>
+    </tr>
+    <tr>
+    <td>P2 Desktop</td>
+    <td>1100</td>
+    <td>800</td>
+    <td>ordinateur</td>
+    <td>992 à 1199px</td>
+    </tr>
+    <tr>
+    <td>P3 Tablette</td>
+    <td>900</td>
+    <td>1000</td>
+    <td>tablette tactile</td>
+    <td>768 à 991px</td>
+    </tr>
+    <tr>
+    <td>P4 Grand mobile</td>
+    <td>650</td>
+    <td>900</td>
+    <td>tablette tactile</td>
+    <td>576 à 767px</td>
+    </tr>
+    <tr>
+    <td>P5 Mobile moyen</td>
+    <td>480</td>
+    <td>850</td>
+    <td>mobile tactile</td>
+    <td>391 à 575px</td>
+    </tr>
+    <tr>
+    <td>P6 Petit mobile</td>
+    <td>375</td>
+    <td>812</td>
+    <td>mobile tactile</td>
+    <td>360 à 390px</td>
+    </tr>
+    <tr>
+    <td>P7 Très petit mobile</td>
+    <td>320</td>
+    <td>568</td>
+    <td>mobile tactile</td>
+    <td><code>max-width: 359px</code></td>
+    </tr>
+    <tr>
+    <td>P8 Minimum</td>
+    <td>280</td>
+    <td>600</td>
+    <td>mobile tactile</td>
+    <td><code>max-width: 280px</code></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Les profils P3 à P8 sont déclarés tactiles, ce qui active la media query
+    <code>(hover: none) and (pointer: coarse)</code> et permet de vérifier que les zones tactiles
+    respectent le minimum de 44 pixels. Les profils P1 et P2 ne le sont pas, ce qui vérifie
+    par contraste que cette règle reste inactive sur écran de bureau.</p>
+    <p>Chacune des cinq pages a été chargée successivement dans les huit profils, avec capture
+    simultanée. Quarante captures au total.</p>
+    <p>Le dépouillement privilégie le palier le plus contraint. Une mise en page qui tient à 280
+    pixels tient au-dessus : les débordements horizontaux, les textes tronqués et les
+    chevauchements apparaissent d'abord à la largeur la plus faible. L'examen a donc porté sur
+    les huit captures du profil P8 pour les cinq pages, complété par un contrôle du seuil au
+    profil P7 sur la page en défaut, et par un contrôle de cohérence au profil P3 sur la page
+    la plus dense.</p>
+    <h3>1.3 Résultats par page</h3>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Page</th>
+    <th>Verdict</th>
+    <th>Observation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>index.html</td>
+    <td>conforme</td>
+    <td>mise en page en colonne unique à partir du profil P4, aucun débordement jusqu'à 280 pixels</td>
+    </tr>
+    <tr>
+    <td>room.html</td>
+    <td>conforme</td>
+    <td>galerie, onglets et barre latérale s'empilent correctement, aucun débordement</td>
+    </tr>
+    <tr>
+    <td>booking.html</td>
+    <td>conforme</td>
+    <td>le formulaire en cinq étapes et le récapitulatif s'empilent, aucun débordement</td>
+    </tr>
+    <tr>
+    <td>contact.html</td>
+    <td>conforme</td>
+    <td>voir la réserve technique ci-dessous</td>
+    </tr>
+    <tr>
+    <td>documentations.html</td>
+    <td><strong>anomalie à 280 pixels</strong></td>
+    <td>titre principal tronqué et libellés de fichiers débordant de leurs cartes</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <h3>1.3.1 Anomalie sur documentations.html</h3>
+    <p>Au profil P8, largeur 280 pixels, deux débordements horizontaux apparaissent :</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Élément</th>
+    <th>Comportement constaté</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Titre <code>Documentation Technique du Projet</code></td>
+    <td>le mot « Documentation » dépasse la largeur disponible et se trouve amputé de sa dernière lettre</td>
+    </tr>
+    <tr>
+    <td>Libellés <code>ANNEXE_TESTS_VALIDATION</code> et <code>RAPPORT_D_AMELIORATION</code></td>
+    <td>le texte sort de sa carte et pousse l'icône de lien externe hors du cadre</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>La cause est la même dans les deux cas : des chaînes longues sans espace, que le navigateur
+    ne peut pas couper. Les noms de fichiers en majuscules reliés par des tirets bas forment un
+    mot unique du point de vue du moteur de rendu.</p>
+    <p>Le seuil a été vérifié : au profil P7, largeur 320 pixels, la page s'affiche correctement.
+    Le titre se répartit sur trois lignes et les libellés tiennent dans leurs cartes.
+    L'anomalie ne concerne donc que le palier <code>max-width: 280px</code>.</p>
+    <h3>1.3.2 Réserve technique sur contact.html</h3>
+    <p>Les captures de contact.html se terminent par une zone vide suivie d'aucun pied de page,
+    alors que celui-ci est bien présent et accessible au clavier, comme le montre le relevé
+    de la section 2.6 qui y numérote vingt éléments.</p>
+    <p>L'explication tient à une règle de <code>style.css</code> :</p>
+    <pre><code class="language-css">.contact-main {
+      min-height: calc(100vh - 200px);
+    }
+    </code></pre>
+    <p>L'outil de capture pleine page porte temporairement la hauteur de la fenêtre à celle du
+    document entier pour photographier la page d'un seul tenant. L'unité <code>vh</code> suit cette
+    hauteur, <code>.contact-main</code> s'étire d'autant, et le pied de page se retrouve repoussé hors
+    du cadre photographié.</p>
+    <p>Il s'agit donc d'un effet de l'instrument de mesure, et non d'un défaut d'affichage pour
+    l'utilisateur. La règle elle-même mérite cependant d'être réexaminée : l'unité <code>vh</code> est
+    connue pour être instable sur mobile, où la barre d'adresse des navigateurs modifie la
+    hauteur de fenêtre pendant le défilement.</p>
+    <h3>1.4 Compatibilité entre navigateurs</h3>
+    <p>Chaque environnement testé représente un moteur de rendu différent.</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Environnement</th>
+    <th>Moteur de rendu</th>
+    <th>Méthode</th>
+    <th>Résultat</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Google Chrome 141, Windows</td>
+    <td>Blink</td>
+    <td>navigation et inspection des outils de développement</td>
+    <td>rendu conforme</td>
+    </tr>
+    <tr>
+    <td>Mozilla Firefox 143, Windows</td>
+    <td>Gecko</td>
+    <td>navigation et relevé de l'ordre de tabulation</td>
+    <td>rendu conforme</td>
+    </tr>
+    <tr>
+    <td>Samsung Galaxy S24+, Chrome Android</td>
+    <td>Blink mobile</td>
+    <td>navigation réelle sur appareil personnel</td>
+    <td>rendu conforme</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Les relevés des sections 2.4 et 2.6 constituent une vérification croisée sur les mêmes
+    pages : l'arborescence d'accessibilité est inspectée sous Chrome, l'ordre de tabulation
+    sous Firefox, et les deux moteurs exposent la même structure.</p>
+    <hr />
+    <h2>2. Tests d'accessibilité</h2>
+    <p>Le cahier des charges demande « Google Lighthouse <strong>et d'autres outils</strong> d'accessibilité ».
+    Quatre outils ont donc été employés, chacun pour ce que les autres ne voient pas.</p>
+    <h3>2.1 Pourquoi quatre outils</h3>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Outil</th>
+    <th>Ce qu'il voit</th>
+    <th>Ce qu'il ne voit pas</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Lighthouse</td>
+    <td>un sous-ensemble automatisable des critères WCAG</td>
+    <td>tout ce qui demande un jugement humain</td>
+    </tr>
+    <tr>
+    <td>Audit multi-pages</td>
+    <td>les mêmes critères, mais sur tout le site d'un coup</td>
+    <td>idem</td>
+    </tr>
+    <tr>
+    <td>Arborescence d'accessibilité Chrome</td>
+    <td>ce qu'un lecteur d'écran reçoit réellement</td>
+    <td>la qualité de l'expérience</td>
+    </tr>
+    <tr>
+    <td>Ordre de tabulation Firefox</td>
+    <td>le parcours clavier réel et son ordre</td>
+    <td>le reste</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Un audit automatisé ne couvre qu'une partie des critères WCAG. Les deux derniers outils
+    sont une vérification manuelle, c'est ce qui fait la différence entre un score et une
+    véritable vérification d'accessibilité.</p>
+    <h3>2.2 Lighthouse, par page</h3>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Page</th>
+    <th>Score accessibilité</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>index.html</td>
+    <td>95</td>
+    </tr>
+    <tr>
+    <td>room.html</td>
+    <td>93</td>
+    </tr>
+    <tr>
+    <td>booking.html</td>
+    <td>95</td>
+    </tr>
+    <tr>
+    <td>contact.html</td>
+    <td>92</td>
+    </tr>
+    <tr>
+    <td>documentations.html</td>
+    <td>96</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <h3>2.3 Audit multi-pages</h3>
+    <p>Outil : service en ligne exécutant le moteur Lighthouse 7.0.0 en mode Node, restreint à la
+    seule catégorie accessibilité, avec export CSV des scores et des défauts.</p>
+    <p>L'intérêt par rapport au Lighthouse de la section 2.2 n'est pas le moteur, qui est le même,
+    mais le périmètre : l'audit parcourt le site entier d'un seul lancement, pages de
+    documentation publiées comprises, soit douze adresses au lieu de cinq.</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Page</th>
+    <th>Score</th>
+    <th>Critères réussis</th>
+    <th>Critères échoués</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>index.html</td>
+    <td>98</td>
+    <td>23</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>room.html</td>
+    <td>98</td>
+    <td>24</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>booking.html</td>
+    <td>97</td>
+    <td>22</td>
+    <td>2</td>
+    </tr>
+    <tr>
+    <td>contact.html</td>
+    <td>95</td>
+    <td>22</td>
+    <td>3</td>
+    </tr>
+    <tr>
+    <td>documentations.html</td>
+    <td>98</td>
+    <td>23</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>docs/README.html</td>
+    <td>93</td>
+    <td>10</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>docs/CHOIX_TECHNIQUES.html</td>
+    <td>93</td>
+    <td>8</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>docs/RESPONSIVE.html</td>
+    <td>94</td>
+    <td>12</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>docs/ACCESSIBILITE.html</td>
+    <td>93</td>
+    <td>10</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>docs/ANNEXE_MATCHMEDIA.html</td>
+    <td>93</td>
+    <td>10</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>docs/ARCHITECTURE.html</td>
+    <td>mesure incohérente</td>
+    <td>8</td>
+    <td>0</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Sur l'ensemble du périmètre, deux défauts seulement sont remontés :</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Défaut</th>
+    <th>Pages concernées</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Contraste insuffisant entre le texte et son fond</td>
+    <td>index, room, documentations et les cinq pages de documentation</td>
+    </tr>
+    <tr>
+    <td>Titres non ordonnés séquentiellement</td>
+    <td>contact, booking</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>La ligne <code>docs/ARCHITECTURE.html</code> affiche un score nul pour huit critères réussis et
+    aucun critère échoué. Un score nul sans critère en échec n'est pas cohérent : il s'agit
+    d'un défaut de mesure de l'outil sur cette page, et non d'un résultat exploitable.</p>
+    <h3>2.4 Inspection de l'arborescence d'accessibilité</h3>
+    <p>Outil : panneau Accessibilité des outils de développement Chrome, sur index.html.</p>
+    <p>L'arborescence expose correctement la structure attendue par un lecteur d'écran :
+    le lien d'évitement vers le contenu principal, la bannière, la navigation principale,
+    les libellés de champs et les noms accessibles des contrôles.</p>
+    <p>Vérification ponctuelle, bouton d'activation de la police dyslexie :</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Propriété</th>
+    <th>Valeur exposée</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Rôle</td>
+    <td><code>button</code></td>
+    </tr>
+    <tr>
+    <td>Nom accessible</td>
+    <td>« Activer la police adaptée aux personnes dyslexiques »</td>
+    </tr>
+    <tr>
+    <td>État <code>aria-pressed</code></td>
+    <td><code>false</code></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Le nom accessible est complet et explicite, et non le simple texte visible « Dyslexie ».
+    C'est le comportement recherché pour le critère Cr 1.c.1.</p>
+    <p>Le panneau Problèmes de la même page remonte par ailleurs :</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Type</th>
+    <th>Message</th>
+    <th>Source</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Erreur</td>
+    <td>une règle <code>@import</code> a été ignorée car elle n'est pas déclarée en tête de feuille de style</td>
+    <td><code>css/base.css:71</code></td>
+    </tr>
+    <tr>
+    <td>Amélioration</td>
+    <td>un champ de formulaire n'a ni attribut <code>id</code> ni attribut <code>name</code></td>
+    <td>index.html</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>La règle <code>@import</code> ignorée est un défaut réel et non un avertissement de confort :
+    la feuille concernée n'est pas chargée du tout.</p>
+    <h3>2.5 Contrastes de couleurs</h3>
+    <p>Outil : panneau Présentation du CSS des outils de développement Chrome, sur index.html.</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Mesure</th>
+    <th>Valeur</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Couleurs d'arrière-plan distinctes</td>
+    <td>7</td>
+    </tr>
+    <tr>
+    <td>Couleurs de texte distinctes</td>
+    <td>7</td>
+    </tr>
+    <tr>
+    <td>Couleurs de bordure distinctes</td>
+    <td>11</td>
+    </tr>
+    <tr>
+    <td>Problèmes de contraste détectés</td>
+    <td>5</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Ces cinq problèmes sont la contrepartie chiffrée du défaut de contraste remonté par
+    l'audit automatisé en 2.3. Deux outils indépendants pointent le même défaut.</p>
+    <h3>2.6 Navigation au clavier</h3>
+    <p>Outil : option « Afficher l'ordre de tabulation » du panneau Accessibilité de Firefox.
+    Cette option numérote directement sur la page chaque élément atteignable au clavier,
+    dans son ordre de tabulation réel.</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Page</th>
+    <th>Éléments atteignables au clavier</th>
+    <th>Ordre conforme à la lecture visuelle</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>index.html</td>
+    <td>62</td>
+    <td>oui</td>
+    </tr>
+    <tr>
+    <td>room.html</td>
+    <td>53</td>
+    <td>oui</td>
+    </tr>
+    <tr>
+    <td>booking.html</td>
+    <td>64</td>
+    <td>oui</td>
+    </tr>
+    <tr>
+    <td>contact.html</td>
+    <td>50</td>
+    <td>oui</td>
+    </tr>
+    <tr>
+    <td>documentations.html</td>
+    <td>40</td>
+    <td>oui</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Les cinq pages sont relevées. Sur chacune, le parcours suit l'ordre visuel de lecture :
+    en-tête, navigation principale, fil d'Ariane, contenu principal, pied de page. Aucun saut
+    d'ordre n'est constaté, et aucun piège au clavier n'a été rencontré.</p>
+    <p>Le volume varie de 40 à 64 éléments selon la densité de la page, ce qui est cohérent :
+    documentations.html n'offre que des liens, booking.html ajoute un formulaire de cinq étapes.</p>
+    <h3>2.6.1 Éléments non atteignables au clavier</h3>
+    <p>Le relevé met en évidence une absence sur index.html. Les deux flèches du carrousel
+    principal, visibles de part et d'autre de la bannière, ne portent <strong>aucun numéro</strong>. Elles
+    sont donc hors du parcours clavier.</p>
+    <p>L'arborescence d'accessibilité confirme le diagnostic. Les deux éléments y apparaissent
+    ainsi :</p>
+    <pre><code>link &quot;Précédent&quot;
+      StaticText &quot;&lt;&quot;
+    link &quot;Suivant&quot;
+      StaticText &quot;&gt;&quot;
+    </code></pre>
+    <p>Aucun des deux ne porte la mention <code>focusable: true</code>, contrairement à tous les autres liens
+    de la page. Ce sont des éléments <code>&lt;a&gt;</code> dépourvus d'attribut <code>href</code>, ce qui les exclut de
+    l'ordre de tabulation naturel.</p>
+    <p>Trois sources convergent sur ce même point : le validateur W3C le signale comme erreur de
+    balisage en section 4.1, le relevé clavier montre l'absence de numéro, et l'arborescence
+    d'accessibilité montre l'absence de focalisation. Un utilisateur au clavier ne peut pas
+    faire défiler le carrousel.</p>
+    <h3>2.7 Défaut confirmé par recoupement</h3>
+    <p>Les sauts de niveaux de titre sur booking.html et contact.html sont remontés à la fois
+    par l'audit d'accessibilité en 2.3 et par le validateur HTML du W3C en 4.1. Deux outils
+    sans rapport entre eux signalent le même défaut au même endroit : il est confirmé.</p>
+    <hr />
+    <h2>3. Tests de performance</h2>
+    <p>Outil : Google Lighthouse. Une passe en profil mobile et une passe en profil desktop
+    par page, soit dix mesures.</p>
+    <p>Le double profil est nécessaire : Lighthouse simule en mobile un réseau et un processeur
+    volontairement dégradés. Un écart important entre les deux colonnes désigne le poids des
+    ressources, un score bas dans les deux désigne autre chose.</p>
+    <h3>3.1 Résultats</h3>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Page</th>
+    <th>Performance mobile</th>
+    <th>Performance desktop</th>
+    <th>Bonnes pratiques mobile</th>
+    <th>Bonnes pratiques desktop</th>
+    <th>SEO</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>index.html</td>
+    <td>71</td>
+    <td>76</td>
+    <td>96</td>
+    <td>100</td>
+    <td>92</td>
+    </tr>
+    <tr>
+    <td>room.html</td>
+    <td>75</td>
+    <td>97</td>
+    <td>92</td>
+    <td>96</td>
+    <td>100</td>
+    </tr>
+    <tr>
+    <td>booking.html</td>
+    <td>88</td>
+    <td>100</td>
+    <td>92</td>
+    <td>100</td>
+    <td>100</td>
+    </tr>
+    <tr>
+    <td>contact.html</td>
+    <td>92</td>
+    <td>100</td>
+    <td>92</td>
+    <td>96</td>
+    <td>100</td>
+    </tr>
+    <tr>
+    <td>documentations.html</td>
+    <td>93</td>
+    <td>100</td>
+    <td>96</td>
+    <td>100</td>
+    <td>100</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <h3>3.2 Lecture des résultats</h3>
+    <p>Quatre pages sur cinq atteignent ou approchent 100 en desktop et restent au-dessus de 75
+    en mobile.</p>
+    <p>La page d'accueil se distingue sur deux points :</p>
+    <ul>
+    <li>elle est la plus basse des deux côtés, 71 en mobile et 76 en desktop</li>
+    <li>elle est la seule dont le score desktop ne décolle pas</li>
+    </ul>
+    <p>Ce second point est le plus parlant. Sur room.html, l'écart de 75 à 97 entre mobile et
+    desktop indique un poids de ressources que le réseau simulé pénalise. Sur index.html,
+    l'absence d'écart indique que le frein ne vient pas du réseau simulé mais de la page
+    elle-même.</p>
+    <p>La page d'accueil est également la seule à ne pas atteindre 100 en SEO, avec 92.</p>
+    <hr />
+    <h2>4. Validation du code</h2>
+    <p>Cette section dépasse les tests demandés par le cahier des charges. Elle est menée parce
+    que le référentiel exige le respect des normes du W3C et l'exécution du validateur
+    avec succès.</p>
+    <h3>4.1 Validation HTML</h3>
+    <p>Outil : Nu Html Checker, validator.w3.org/nu, moteur vnu 26.10.2.
+    C'est le moteur officiel du W3C, invoqué en validation par adresse sur les pages déployées.</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Page</th>
+    <th>Erreurs</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>index.html</td>
+    <td>8</td>
+    </tr>
+    <tr>
+    <td>room.html</td>
+    <td>10</td>
+    </tr>
+    <tr>
+    <td>booking.html</td>
+    <td>8</td>
+    </tr>
+    <tr>
+    <td>contact.html</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>documentations.html</td>
+    <td>0</td>
+    </tr>
+    <tr>
+    <td><strong>Total</strong></td>
+    <td><strong>27</strong></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Les vingt-sept erreurs se répartissent en six familles seulement. Le nombre d'erreurs
+    est élevé, mais le nombre de causes est faible : chaque famille se corrige par un seul
+    geste répété.</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Famille</th>
+    <th>Occurrences</th>
+    <th>Pages et lignes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Élément <code>h5</code> ou <code>div</code> interdit comme enfant de <code>label</code></td>
+    <td>11</td>
+    <td>index l.305, 324, 332, 353, 361, 369 et booking l.440, 460, 479, 499, 519</td>
+    </tr>
+    <tr>
+    <td>Valeur <code>type="button"</code> invalide sur un élément <code>a</code></td>
+    <td>5</td>
+    <td>room l.459, 466, 473, 479, 485</td>
+    </tr>
+    <tr>
+    <td>Attribut <code>aria-label</code> interdit sans rôle explicite</td>
+    <td>5</td>
+    <td>index l.233, 234 et room l.692, 693, 694</td>
+    </tr>
+    <tr>
+    <td>Saut de niveaux de titre</td>
+    <td>4</td>
+    <td>booking l.358, 651, 715 et contact l.301</td>
+    </tr>
+    <tr>
+    <td>Attribut <code>aria-labelledby</code> interdit sur un <code>div</code> sans rôle</td>
+    <td>1</td>
+    <td>room l.1506</td>
+    </tr>
+    <tr>
+    <td>Attribut <code>src</code> vide sur un élément <code>img</code></td>
+    <td>1</td>
+    <td>room l.1519</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Deux observations méritent d'être relevées.</p>
+    <p>Les deux occurrences de la troisième famille sur index.html concernent les flèches du
+    carrousel. Ces éléments sont des <code>&lt;a&gt;</code> sans attribut <code>href</code> : ils ne sont donc pas
+    atteignables au clavier. Une erreur de validation et un défaut d'accessibilité réel se
+    superposent au même endroit.</p>
+    <p>La quatrième famille, les sauts de niveaux de titre, est le défaut déjà remonté par
+    l'audit d'accessibilité en 2.3.</p>
+    <h3>4.2 Validation CSS</h3>
+    <p>Outil : W3C CSS Validation Service, jigsaw.w3.org, profil CSS niveau 3 avec SVG.
+    Les quatre feuilles de style du projet ont été validées séparément.</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Feuille</th>
+    <th>Erreurs</th>
+    <th>Avertissements</th>
+    <th>Verdict</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>base.css</td>
+    <td>0</td>
+    <td>0</td>
+    <td>conforme</td>
+    </tr>
+    <tr>
+    <td>accessibilite.css</td>
+    <td>0</td>
+    <td>2</td>
+    <td>conforme</td>
+    </tr>
+    <tr>
+    <td>responsive.css</td>
+    <td>0</td>
+    <td>1</td>
+    <td>conforme</td>
+    </tr>
+    <tr>
+    <td>style.css</td>
+    <td>3</td>
+    <td>28</td>
+    <td>non conforme</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Les trois erreurs sont une seule et même erreur répétée : la propriété <code>border-color</code>
+    déclarée avec une variable CSS, que le validateur n'analyse pas statiquement.</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Ligne</th>
+    <th>Sélecteur</th>
+    <th>Valeur déclarée</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>374</td>
+    <td><code>.ribbon::before</code></td>
+    <td><code>var(--turquoise) transparent transparent transparent</code></td>
+    </tr>
+    <tr>
+    <td>388</td>
+    <td><code>.ribbon::after</code></td>
+    <td><code>var(--turquoise) transparent transparent transparent</code></td>
+    </tr>
+    <tr>
+    <td>1490</td>
+    <td><code>.sidebar-nav a.nav-link.active::after</code></td>
+    <td><code>transparent transparent transparent var(--turquoise)</code></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>La grande majorité des avertissements de style.css porte la mention « En raison de leur
+    nature dynamique, les variables CSS ne sont pas vérifiées statiquement ». C'est une limite
+    du validateur face aux variables CSS, et non un défaut du code.</p>
+    <p>Les avertissements qui relèvent effectivement du code :</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Feuille</th>
+    <th>Ligne</th>
+    <th>Message</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>accessibilite.css</td>
+    <td>13</td>
+    <td>la propriété <code>clip</code> est déconseillée</td>
+    </tr>
+    <tr>
+    <td>accessibilite.css</td>
+    <td>138</td>
+    <td><code>#toggle-dyslexie.active</code> : <code>background-color</code> et <code>border-color</code> identiques</td>
+    </tr>
+    <tr>
+    <td>style.css</td>
+    <td>1245</td>
+    <td><code>.flatpickr-day.endRange</code> : <code>background-color</code> et <code>border-color</code> identiques</td>
+    </tr>
+    <tr>
+    <td>style.css</td>
+    <td>1738</td>
+    <td><code>-ms-overflow-style</code> est une extension propriétaire</td>
+    </tr>
+    <tr>
+    <td>style.css</td>
+    <td>1741</td>
+    <td>le pseudo-élément <code>::-webkit-scrollbar</code> est une extension propriétaire</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Les deux dernières lignes sont des préfixes propriétaires employés volontairement pour
+    styliser les barres de défilement. Elles sont signalées pour information et ne constituent
+    pas des erreurs.</p>
+    <hr />
+    <h2>5. Synthèse</h2>
+    <h3>5.1 Verdict par axe</h3>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Axe</th>
+    <th>Outil principal</th>
+    <th>Verdict</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Responsivité, tailles d'écran</td>
+    <td>Responsively App</td>
+    <td>8 paliers sur 5 pages, 1 anomalie à 280 pixels</td>
+    </tr>
+    <tr>
+    <td>Responsivité, navigateurs</td>
+    <td>Chrome, Firefox, appareil mobile réel</td>
+    <td>rendu conforme sur Blink et Gecko</td>
+    </tr>
+    <tr>
+    <td>Accessibilité automatisée</td>
+    <td>Lighthouse et audit multi-pages</td>
+    <td>92 à 98 selon les pages</td>
+    </tr>
+    <tr>
+    <td>Accessibilité manuelle</td>
+    <td>outils de développement Chrome et Firefox</td>
+    <td>structure conforme, 2 éléments hors du parcours clavier</td>
+    </tr>
+    <tr>
+    <td>Performance</td>
+    <td>Lighthouse</td>
+    <td>conforme, sauf la page d'accueil</td>
+    </tr>
+    <tr>
+    <td>Validation HTML</td>
+    <td>Nu Html Checker</td>
+    <td>27 erreurs, non conforme</td>
+    </tr>
+    <tr>
+    <td>Validation CSS</td>
+    <td>W3C CSS Validator</td>
+    <td>3 erreurs sur une feuille, non conforme</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <h3>5.2 Anomalies relevées</h3>
+    <p>Liste complète des défauts constatés, classés par priorité de correction.</p>
+    <div class="table-wrapper">
+    <table>
+    <thead>
+    <tr>
+    <th>Priorité</th>
+    <th>Anomalie</th>
+    <th>Volume</th>
+    <th>Section</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>1</td>
+    <td>Erreurs de validation HTML</td>
+    <td>27, en 6 familles</td>
+    <td>4.1</td>
+    </tr>
+    <tr>
+    <td>2</td>
+    <td>Erreurs de validation CSS</td>
+    <td>3, toutes identiques</td>
+    <td>4.2</td>
+    </tr>
+    <tr>
+    <td>3</td>
+    <td>Règle <code>@import</code> mal placée, la feuille n'est pas chargée</td>
+    <td>1</td>
+    <td>2.4</td>
+    </tr>
+    <tr>
+    <td>4</td>
+    <td>Flèches du carrousel non atteignables au clavier</td>
+    <td>2</td>
+    <td>2.6.1 et 4.1</td>
+    </tr>
+    <tr>
+    <td>5</td>
+    <td>Contraste insuffisant</td>
+    <td>5 occurrences sur index.html</td>
+    <td>2.5</td>
+    </tr>
+    <tr>
+    <td>6</td>
+    <td>Débordement horizontal sur documentations.html à 280 pixels</td>
+    <td>3 éléments</td>
+    <td>1.3.1</td>
+    </tr>
+    <tr>
+    <td>7</td>
+    <td>Performance de la page d'accueil</td>
+    <td>mobile 71, desktop 76</td>
+    <td>3.2</td>
+    </tr>
+    <tr>
+    <td>8</td>
+    <td>Champ de formulaire sans <code>id</code> ni <code>name</code></td>
+    <td>1</td>
+    <td>2.4</td>
+    </tr>
+    <tr>
+    <td>9</td>
+    <td>Hauteur en <code>vh</code> sur contact.html, unité instable sur mobile</td>
+    <td>1 règle</td>
+    <td>1.3.2</td>
+    </tr>
+    <tr>
+    <td>10</td>
+    <td>Score SEO de la page d'accueil</td>
+    <td>92</td>
+    <td>3.1</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Les anomalies 1, 2 et 4 conditionnent directement la conformité attendue par le
+    référentiel. Elles sont traitées en priorité.</p>
+    <h3>5.3 Conclusion de la campagne</h3>
+    <p>La campagne couvre les trois familles de tests demandées par le cahier des charges et y
+    ajoute la validation du code par les validateurs officiels du W3C.</p>
+    <p>Les tests d'accessibilité, de responsivité et de performance donnent des résultats
+    satisfaisants dans l'ensemble. Trois réserves : la performance de la page d'accueil,
+    un débordement horizontal sur documentations.html au palier le plus étroit, et deux
+    éléments du carrousel hors du parcours clavier.</p>
+    <p>Ce dernier point est le plus instructif de la campagne. Il n'apparaît dans aucun score :
+    Lighthouse donne 95 à index.html et l'audit multi-pages 98. Il n'a été mis en évidence que
+    par la vérification manuelle du parcours clavier, recoupée avec l'arborescence
+    d'accessibilité et le validateur W3C. C'est la justification concrète du choix d'employer
+    quatre outils d'accessibilité plutôt qu'un seul.</p>
+    <p>La validation du code révèle en revanche des non-conformités qui doivent être corrigées :
+    vingt-sept erreurs HTML et trois erreurs CSS. Ces erreurs n'affectent pas le rendu visuel
+    du site, ce qui explique qu'elles n'aient pas été détectées pendant le développement,
+    mais elles empêchent le validateur de s'exécuter avec succès.</p>
+    <p>Les corrections apportées à la suite de cette campagne, et les contrôles qui les valident,
+    sont consignés dans <code>RAPPORT_D_AMELIORATION.md</code>.</p>
+
+  </div>
+</body>
+</html>

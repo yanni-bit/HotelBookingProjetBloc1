@@ -1,11 +1,14 @@
 ---------------------------------------------------------------------------
 # ⚠️ NOTE IMPORTANTE SUR L'ÉTAT DU PROJET
 
-Ce document reflète les choix de conception et l'architecture du projet à la fin de la phase de développement initial.
+Ce document décrit le projet à l'issue de la phase de développement initial.
 
-Les optimisations de performance (CSS critique, Lazy Loading, etc.), les corrections de robustesse (Sécurité XSS) et les ajustements finaux d'accessibilité identifiés lors des audits de validation (Lighthouse, WAVE) ne sont **pas encore intégrés** dans le code ou la description détaillée de ce fichier.
+La campagne de tests a été menée le 5 octobre 2026. Ses résultats, les outils employés
+et les anomalies relevées sont consignés dans **docs/TESTS.md**, avec les preuves dans
+**docs/tests/**.
 
-Le plan d'actions pour l'amélioration continue est documenté séparément dans le fichier **RAPPORT_D_AMELIORATION.md**.
+Les corrections qui en découlent ne sont **pas encore intégrées** au code. Elles feront
+l'objet du fichier **docs/RAPPORT_D_AMELIORATION.md**.
 ---------------------------------------------------------------------------
 
 # Hôtel Booking - Application Web de Réservation
@@ -166,10 +169,9 @@ Le projet respecte les critères d'accessibilité suivants :
 - Liens avec attribut `title` descriptif
 
 #### Performance
-- Images optimisées
-- CSS et JavaScript minifiés
 - Favicon intégré
 - Navigation entre pages fluide
+- Mesures Lighthouse par page : voir docs/TESTS.md section 3
 
 ### Responsive Design
 
@@ -193,9 +195,13 @@ Le projet respecte les critères d'accessibilité suivants :
 - Images responsive (`max-width: 100%`, `height: auto`)
 
 ### Validation W3C
-- HTML5 : Validation W3C en cours
-- CSS3 : Validation W3C en cours
-- Accessibilité : Tests Google Lighthouse en cours
+
+Validations effectuées le 5 octobre 2026 sur les pages déployées. Détail et rapports
+complets dans docs/TESTS.md section 4.
+
+- HTML5, Nu Html Checker : 27 erreurs réparties en 6 familles
+- CSS3, W3C CSS Validator : 3 erreurs sur style.css, les 3 autres feuilles sont conformes
+- Accessibilité, Lighthouse : de 92 à 96 selon les pages
 
 ## Organisation du code
 
@@ -227,29 +233,32 @@ Le projet respecte les critères d'accessibilité suivants :
 
 ## Tests et validation
 
-### Tests à réaliser
+### Tests réalisés
+
+Campagne du 5 octobre 2026. Le détail, les chiffres et les anomalies relevées sont dans
+**docs/TESTS.md**. Les preuves sont dans **docs/tests/**.
 
 #### Tests de responsivité
-- BrowserStack : Tests multi-navigateurs et multi-appareils
-- Chrome DevTools : Tests des breakpoints
-- Validation visuelle sur smartphones, tablettes, desktop
+- Responsively App : 8 profils calés sur les points de rupture du projet, sur les 5 pages
+- Chrome DevTools : inspection des contrastes et de l'arborescence d'accessibilité
 
 #### Tests d'accessibilité
-- Google Lighthouse : Audit accessibilité (score cible ≥ 90)
-- WAVE : Évaluation des critères WCAG
-- Tests navigation clavier
-- Tests lecteurs d'écran (NVDA, JAWS)
+- Google Lighthouse : audit par page, en profil mobile et desktop
+- Audit Lighthouse multi-pages : accessibilité sur 12 adresses, export CSV
+- Panneau Accessibilité de Chrome : arborescence exposée aux lecteurs d'écran
+- Panneau Accessibilité de Firefox : relevé de l'ordre de tabulation sur les 5 pages
 
 #### Tests de performance
-- Google Lighthouse : Performance (score cible ≥ 85)
-- PageSpeed Insights : Optimisation des ressources
-- Temps de chargement < 3s
+- Google Lighthouse : une passe mobile et une passe desktop par page
 
 #### Tests de compatibilité navigateurs
-- Chrome (dernière version)
-- Firefox (dernière version)
-- Safari (dernière version)
-- Edge (dernière version)
+- Google Chrome 141, Windows, moteur Blink
+- Mozilla Firefox 143, Windows, moteur Gecko
+- Samsung Galaxy S24+, Chrome Android
+
+#### Validation du code
+- Nu Html Checker, validator.w3.org/nu : les 5 pages
+- W3C CSS Validation Service, jigsaw.w3.org : les 4 feuilles de style
 
 ### Tests fonctionnels à valider
 - Calendrier : Sélection de dates, calcul du prix, redirection vers booking
@@ -334,8 +343,9 @@ La documentation complète du projet comprend :
 - ACCESSIBILITE.md : Conformité WCAG et tests
 - RESPONSIVE.md : Approche responsive et breakpoints
 - ANNEXE_MATCHMEDIA.md : Guide technique window.matchMedia()
-- TESTS.md : Résultats des tests et validation
+- TESTS.md : Résultats de la campagne de tests et validation
 - RAPPORT_D_AMELIORATION.md : Modifications apportées suite aux tests
+- tests/ : Preuves de la campagne, rapports et captures
 
 ## Licence
 
