@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Documentation technique complète du projet Hôtel Booking : Architecture, Choix techniques, Responsive Design (MatchMedia) et rapports d'audit Qualité (XSS, Performance, Accessibilité WCAG).">
+  <meta name="description"
+    content="Documentation technique complète du projet Hôtel Booking : Architecture, Choix techniques, Responsive Design (MatchMedia) et rapports d'audit Qualité (XSS, Performance, Accessibilité WCAG).">
   <meta name="author" content="Book Your Travel">
 
   <title>Documentation technique et rapports d'audit du projet Hôtel Booking (RNCP Bloc 1).</title>
@@ -44,7 +45,8 @@
     }
 
     .docs-header {
-      background-color: var(--marron, #d6c8c0); /* Couleur marron du thème */
+      background-color: var(--marron, #d6c8c0);
+      /* Couleur marron du thème */
       color: var(--gris-fonce, #333333);
       padding: 3rem 0;
       margin-bottom: 2rem;
@@ -96,47 +98,56 @@
       color: var(--turquoise-hover, #3db3aa);
       text-decoration: none;
     }
-    
+
     .doc-link-item .bi-box-arrow-up-right {
-        color: var(--turquoise, #5fc8c2);
+      color: var(--turquoise, #5fc8c2);
     }
 
     /* Style pour les fichiers qui n'existent pas encore (futurs rapports) */
     .doc-link-item.future {
-        background-color: var(--marron-clair, #E9E6E0);
-        opacity: 0.7;
+      background-color: var(--marron-clair, #E9E6E0);
+      opacity: 0.7;
     }
 
-    .doc-link-item.future a {
-        color: var(--gris-moyen, #858585);
-        cursor: not-allowed;
+    .doc-link-item.future a,
+    .doc-link-item.future>span:first-child {
+      color: var(--gris-moyen, #858585);
+      font-weight: 600;
+      cursor: not-allowed;
+    }
+
+    .doc-link-item.future .doc-etat {
+      color: var(--gris-moyen, #858585);
+      font-size: 0.85rem;
+      font-style: italic;
     }
 
     .doc-link-item.future .bi-box-arrow-up-right {
-        color: var(--gris-moyen, #858585);
+      color: var(--gris-moyen, #858585);
     }
 
     /* Style pour la NOTE D'ATTENTION - Ajouté ici */
     .note-attention {
-        background-color: var(--marron-clair, #E9E6E0); 
-        border-left: 5px solid var(--turquoise, #5fc8c2); 
-        padding: 15px;
-        margin-top: 15px;
-        margin-bottom: 25px; /* Espace après la note */
-        border-radius: 4px;
-        font-size: 0.95rem;
-        line-height: 1.5;
-        color: var(--gris-fonce, #333333);
+      background-color: var(--marron-clair, #E9E6E0);
+      border-left: 5px solid var(--turquoise, #5fc8c2);
+      padding: 15px;
+      margin-top: 15px;
+      margin-bottom: 25px;
+      /* Espace après la note */
+      border-radius: 4px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--gris-fonce, #333333);
     }
 
     .note-attention strong {
-        font-weight: 700;
+      font-weight: 700;
     }
 
     .note-attention .note-icon {
-        font-size: 1.2rem;
-        margin-right: 8px;
-        color: var(--turquoise, #5fc8c2); 
+      font-size: 1.2rem;
+      margin-right: 8px;
+      color: var(--turquoise, #5fc8c2);
     }
   </style>
 </head>
@@ -231,8 +242,8 @@
 
         </nav>
       </div>
-      </div>
-    </header>
+    </div>
+  </header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-brown" role="navigation" aria-label="Navigation principale">
     <span class="navbar-brand d-lg-none" data-i18n="nav.menu">Menu</span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
@@ -262,113 +273,120 @@
   </nav>
   <main id="main-content" role="main" class="docs-section">
     <div class="docs-header text-center">
-        <div class="container">
-            <h1>Documentation Technique du Projet</h1>
-            <p class="lead">Accédez aux fichiers d'architecture, de conception et aux rapports de validation du Bloc 1 RNCP.</p>
-        </div>
+      <div class="container">
+        <h1>Documentation Technique du Projet</h1>
+        <p class="lead">Accédez aux fichiers d'architecture, de conception et aux rapports de validation du Bloc 1 RNCP.
+        </p>
+      </div>
     </div>
     <div class="container">
-      
+
       <div class="row">
         <div class="col-12">
-            <h2 class="docs-list-group-title">1. Documentation de Conception et Annexes Techniques</h2>
-            <p>Ces documents décrivent l'architecture et les choix techniques et d'accessibilité du projet à la fin de la phase de développement initial.</p>
-            
-            <div class="note-attention">
-                <span class="note-icon"><i class="bi bi-exclamation-triangle-fill"></i></span>
-                Les optimisations de performance (CSS critique, Lazy Loading, etc.), les corrections de robustesse (Sécurité XSS) et les ajustements finaux d'accessibilité identifiés lors des audits de validation (Lighthouse, WAVE) ne sont <strong>pas encore intégrés</strong> dans le code ou la description détaillée de ces fichiers.
-                <br>
-                Le plan d'actions pour l'amélioration continue est documenté séparément dans le fichier <strong>RAPPORT_D_AMELIORATION.md</strong>.
-            </div>
-            </div>
+          <h2 class="docs-list-group-title">1. Documentation de Conception et Annexes Techniques</h2>
+          <p>Ces documents décrivent l'architecture et les choix techniques et d'accessibilité du projet à la fin de la
+            phase de développement initial.</p>
+
+          <div class="note-attention">
+            <span class="note-icon"><i class="bi bi-exclamation-triangle-fill"></i></span>
+            Ces documents décrivent le projet à la fin de la phase de développement initial. Les corrections issues de
+            la campagne de tests du 5 octobre 2026 ne sont <strong>pas encore intégrées</strong> au code.
+            <br>
+            Les résultats de la campagne sont consignés dans <strong>TESTS</strong>, ci-dessous. Les corrections
+            apportées feront l'objet de <strong>RAPPORT_D_AMELIORATION</strong>.
+          </div>
+        </div>
       </div>
 
       <div class="row g-3">
-        
+
         <div class="col-12 col-md-6">
-            <div class="doc-link-item">
-                <a href="docs/README.html" target="_blank" title="Vue d'ensemble et guide d'installation">
-                    <i class="bi bi-file-text"></i> README
-                </a>
-                <i class="bi bi-box-arrow-up-right"></i>
-            </div>
+          <div class="doc-link-item">
+            <a href="docs/README.html" target="_blank" title="Vue d'ensemble et guide d'installation">
+              <i class="bi bi-file-text"></i> README
+            </a>
+            <i class="bi bi-box-arrow-up-right"></i>
+          </div>
         </div>
 
         <div class="col-12 col-md-6">
-            <div class="doc-link-item">
-                <a href="docs/CHOIX_TECHNIQUES.html" target="_blank" title="Justification des choix technologiques">
-                    <i class="bi bi-file-code"></i> CHOIX_TECHNIQUES
-                </a>
-                <i class="bi bi-box-arrow-up-right"></i>
-            </div>
+          <div class="doc-link-item">
+            <a href="docs/CHOIX_TECHNIQUES.html" target="_blank" title="Justification des choix technologiques">
+              <i class="bi bi-file-code"></i> CHOIX_TECHNIQUES
+            </a>
+            <i class="bi bi-box-arrow-up-right"></i>
+          </div>
         </div>
 
         <div class="col-12 col-md-6">
-            <div class="doc-link-item">
-                <a href="docs/ARCHITECTURE.html" target="_blank" title="Structure détaillée du code">
-                    <i class="bi bi-columns-gap"></i> ARCHITECTURE
-                </a>
-                <i class="bi bi-box-arrow-up-right"></i>
-            </div>
+          <div class="doc-link-item">
+            <a href="docs/ARCHITECTURE.html" target="_blank" title="Structure détaillée du code">
+              <i class="bi bi-columns-gap"></i> ARCHITECTURE
+            </a>
+            <i class="bi bi-box-arrow-up-right"></i>
+          </div>
         </div>
 
         <div class="col-12 col-md-6">
-            <div class="doc-link-item">
-                <a href="docs/RESPONSIVE.html" target="_blank" title="Approche mobile-first et media queries">
-                    <i class="bi bi-phone"></i> RESPONSIVE
-                </a>
-                <i class="bi bi-box-arrow-up-right"></i>
-            </div>
+          <div class="doc-link-item">
+            <a href="docs/RESPONSIVE.html" target="_blank" title="Approche mobile-first et media queries">
+              <i class="bi bi-phone"></i> RESPONSIVE
+            </a>
+            <i class="bi bi-box-arrow-up-right"></i>
+          </div>
         </div>
 
         <div class="col-12 col-md-6">
-            <div class="doc-link-item">
-                <a href="docs/ACCESSIBILITE.html" target="_blank" title="Conformité WCAG 2.1 AA et implémentation ARIA">
-                    <i class="bi bi-universal-access"></i> ACCESSIBILITE
-                </a>
-                <i class="bi bi-box-arrow-up-right"></i>
-            </div>
+          <div class="doc-link-item">
+            <a href="docs/ACCESSIBILITE.html" target="_blank" title="Conformité WCAG 2.1 AA et implémentation ARIA">
+              <i class="bi bi-universal-access"></i> ACCESSIBILITE
+            </a>
+            <i class="bi bi-box-arrow-up-right"></i>
+          </div>
         </div>
 
         <div class="col-12 col-md-6">
-            <div class="doc-link-item">
-                <a href="docs/ANNEXE_MATCHMEDIA.html" target="_blank" title="Guide technique window.matchMedia()">
-                    <i class="bi bi-file-earmark-code"></i> ANNEXE_MATCHMEDIA
-                </a>
-                <i class="bi bi-box-arrow-up-right"></i>
-            </div>
+          <div class="doc-link-item">
+            <a href="docs/ANNEXE_MATCHMEDIA.html" target="_blank" title="Guide technique window.matchMedia()">
+              <i class="bi bi-file-earmark-code"></i> ANNEXE_MATCHMEDIA
+            </a>
+            <i class="bi bi-box-arrow-up-right"></i>
+          </div>
         </div>
 
       </div>
       <div class="row mt-5">
         <div class="col-12">
-            <h2 class="docs-list-group-title">2. Audits, Tests et Plan d'Amélioration (Post-Validation)</h2>
-            <p>Ces rapports seront générés suite aux audits de validation pour documenter les résultats et les modifications apportées (voir <strong>RAPPORT_D_AMELIORATION.md</strong>).</p>
+          <h2 class="docs-list-group-title">2. Audits, Tests et Plan d'Amélioration (Post-Validation)</h2>
+          <p>La campagne de tests a été menée le 5 octobre 2026. Le rapport détaille les outils employés, les résultats
+            par page et les anomalies relevées. Les preuves, captures et rapports de validation, sont publiées dans le
+            dossier <code>docs/tests/</code> du dépôt.</p>
         </div>
       </div>
 
       <div class="row g-3">
-        
+
         <div class="col-12 col-md-6">
-            <div class="doc-link-item">
-                <a href="#" target="_blank" title="Rapport synthétique et résultats des audits Lighthouse, WAVE, W3C">
-                    <i class="bi bi-clipboard-check"></i> ANNEXE_TESTS_VALIDATION
-                </a>
-                <i class="bi bi-box-arrow-up-right"></i>
-            </div>
+          <div class="doc-link-item">
+            <a href="docs/TESTS.html" target="_blank"
+              title="Rapport de la campagne de tests : responsivité, accessibilité, performance, validation W3C">
+              <i class="bi bi-clipboard-check"></i> TESTS
+            </a>
+            <i class="bi bi-box-arrow-up-right"></i>
+          </div>
         </div>
 
         <div class="col-12 col-md-6">
-            <div class="doc-link-item">
-                <a href="#" target="_blank" title="Modifications apportées suite aux audits de performance et de robustesse">
-                    <i class="bi bi-pencil-square"></i> RAPPORT_D_AMELIORATION
-                </a>
-                <i class="bi bi-box-arrow-up-right"></i>
-            </div>
+          <div class="doc-link-item future">
+            <span>
+              <i class="bi bi-pencil-square" aria-hidden="true"></i> RAPPORT_D_AMELIORATION
+            </span>
+            <span class="doc-etat">à venir</span>
+          </div>
         </div>
 
       </div>
-      </div>
+    </div>
   </main>
 
   <footer class="container-fluid mt-1" role="contentinfo">
@@ -432,9 +450,9 @@
             </form>
           </div>
         </div>
-        </div>
       </div>
-    </footer>
+    </div>
+  </footer>
   <div class="bottom w-100 p-3">
     <p class="copy" data-i18n="footer.copyright">Copyright 2025 Réservation d'hôtel Formation Ilaria</p>
 
@@ -452,5 +470,6 @@
       </ul>
     </nav>
   </div>
-  </body>
+</body>
+
 </html>
