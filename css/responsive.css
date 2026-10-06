@@ -580,7 +580,7 @@
     padding: 5px 10px;
     width: auto;
     background-color: var(--turquoise);
-    color: #fff;
+    color: var(--gris-fonce);
     border-radius: 0;
   }
 
@@ -1012,7 +1012,7 @@
     /* 2. Insérer le mot "Contact" via un pseudo-élément */
     .js-replace-email::after {
         content: "Contact"; /* Le nouveau texte COURT */
-        color: var(--turquoise); /* Rétablit la couleur d'origine */
+        color: var(--turquoise-texte); /* Rétablit la couleur d'origine */
         font-size: 0.9rem; /* Rétablit la taille de police */
     }
 }

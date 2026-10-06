@@ -1,11 +1,9 @@
 ---------------------------------------------------------------------------
-# ⚠️ NOTE IMPORTANTE SUR L'ÉTAT DU PROJET
+# NOTE SUR L'ÉTAT DU PROJET
 
-Ce document reflète les choix de conception et l'architecture du projet à la fin de la phase de développement initial.
+Ce document fait partie de la documentation de conception du projet.
 
-Les optimisations de performance (CSS critique, Lazy Loading, etc.), les corrections de robustesse (Sécurité XSS) et les ajustements finaux d'accessibilité identifiés lors des audits de validation (Lighthouse, WAVE) ne sont **pas encore intégrés** dans le code ou la description détaillée de ce fichier.
-
-Le plan d'actions pour l'amélioration continue est documenté séparément dans le fichier **RAPPORT_D_AMELIORATION.md**.
+Les anomalies relevées lors de la campagne de tests ont été corrigées dans le code. Le détail des constats, des corrections et des contrôles qui les valident est consigné dans **RAPPORT_D_AMELIORATION.md**.
 ---------------------------------------------------------------------------
 
 # Accessibilité - Hôtel Booking
@@ -18,10 +16,8 @@ Ce document détaille l'ensemble des mesures d'accessibilité mises en œuvre da
 
 ### Normes respectées
 
-- **WCAG 2.1** : Web Content Accessibility Guidelines niveau AA
-- **RGAA** : Référentiel Général d'Amélioration de l'Accessibilité (France)
-- **Section 508** : Standard américain d'accessibilité
-- **EN 301 549** : Norme européenne d'accessibilité
+- **WCAG 2.1 niveau AA** : Web Content Accessibility Guidelines, référence appliquée dans tout le projet
+- **RGAA** : Référentiel Général d'Amélioration de l'Accessibilité, transposition française des WCAG
 
 ### Niveau de conformité visé
 
@@ -159,20 +155,20 @@ body.dyslexie-mode * {
 #toggle-dyslexie {
   transition: all 0.3s ease;
   border-color: var(--turquoise, #5fc8c2);
-  color: var(--turquoise, #5fc8c2);
+  color: var(--turquoise-texte, #266e6a);
   background-color: transparent;
 }
 
 #toggle-dyslexie:hover {
   background-color: var(--turquoise-light, rgba(95, 200, 194, 0.1));
   border-color: var(--turquoise-hover, #3db3aa);
-  color: var(--turquoise-hover, #3db3aa);
+  color: var(--turquoise-texte-hover, #1d5451);
 }
 
 #toggle-dyslexie.active {
   background-color: var(--turquoise, #5fc8c2);
   border-color: var(--turquoise, #5fc8c2);
-  color: var(--blanc, #ffffff);
+  color: var(--gris-fonce, #333333);
 }
 
 #toggle-dyslexie:focus-visible {
@@ -678,66 +674,79 @@ function setupAccessibleDropdowns() {
 
 ## Contrastes de couleurs
 
-### Palette de couleurs principale
+L'audit Lighthouse de la première version signalait le critère `color-contrast` en échec sur les cinq pages. Les textes gris et turquoise étaient trop clairs sur fond blanc, et les libellés blancs posés sur les aplats turquoise et marron manquaient de lisibilité.
+
+La palette a été revue selon un principe simple : les couleurs pastel de la maquette servent aux fonds, aux bordures et aux pastilles, jamais au texte.
+
+- Deux couleurs de texte dédiées ont été ajoutées, `--turquoise-texte` et `--marron-texte`, pour les cas où le turquoise et le marron servaient de couleur de texte.
+- Le gris des textes secondaires a été assombri.
+- Sur les boutons et les pastilles de couleur, le libellé blanc a été remplacé par le gris foncé du corps de texte.
+- Les deux pastilles d'état de l'onglet Équipements, verte et rouge, ont été assombries afin de garder leur symbole blanc lisible.
+
+Les aplats de la maquette n'ont pas été modifiés. Seules les couleurs de texte posées dessus ont changé, de façon à corriger la lisibilité sans dénaturer la charte graphique.
+
+### Palette de couleurs
 
 ```css
 :root {
-  --turquoise: #5fc8c2;        /* Couleur principale */
-  --turquoise-hover: #3db3aa;  /* Hover */
-  --gris-fonce: #333333;       /* Texte principal */
-  --gris-moyen: #858585;       /* Texte secondaire */
-  --blanc: #ffffff;            /* Fond clair */
+  /* Couleurs d'aplat : fonds, bordures, pastilles */
+  --turquoise: #5fc8c2;
+  --turquoise-hover: #3db3aa;
+  --turquoise-badge: #90cfd6;
+  --marron: #d6c8c0;
+  --marron-clair: #E9E6E0;
+  --marron-fonce: #AB9A8F;
+
+  /* Couleurs de texte */
+  --gris-fonce: #333333;              /* corps de texte, et libellés sur aplat coloré */
+  --gris-moyen: #646464;              /* textes secondaires */
+  --turquoise-texte: #266e6a;         /* liens et accents turquoise */
+  --turquoise-texte-hover: #1d5451;   /* survol des mêmes éléments */
+  --marron-texte: #726156;
+  --blanc: #ffffff;
 }
 ```
 
-### Ratios de contraste
+### Quatre déclarations de texte clair conservées
 
-**Texte normal (16px+)** : Ratio minimum 4.5:1
-- Texte noir (#333333) sur fond blanc (#ffffff) : ✓ 12.6:1
-- Texte gris moyen (#858585) sur fond blanc : ✓ 4.9:1
+Elles ne sont pas en échec, parce qu'elles ne sont pas posées sur un aplat clair :
 
-**Texte large (18px+ ou 14px+ gras)** : Ratio minimum 3:1
-- Turquoise (#5fc8c2) sur fond blanc : ✓ 3.1:1
-- Texte blanc sur turquoise : ✓ 3.4:1
+- les flèches du carrousel de l'accueil, superposées aux photographies ;
+- le bloc d'information et le nom des cartes destination, posés sur un dégradé noir ;
+- le libellé des boutons de comptage désactivés, que WCAG 2.1 exempte explicitement au titre du critère 1.4.3.
 
-**Éléments interactifs** :
-- Bordures de focus (#005fcc) sur fond blanc : ✓ 8.2:1
-- Boutons avec fond turquoise et texte blanc : ✓ 3.4:1
+### Vérification
+
+Les ratios ont été relevés dans l'onglet Éléments des DevTools de Chrome, qui affiche le contraste et le seuil AA directement sur l'élément inspecté, puis confirmés au WebAIM Contrast Checker. Les rapports Lighthouse avant et après correction sont dans `docs/tests/lighthouse/`.
 
 ## Tests d'accessibilité
 
-### Outils de test
+### Outils utilisés
 
-Les tests d'accessibilité seront effectués avec :
-- **Google Lighthouse** : Audit accessibilité automatisé
-- **WAVE** : Web Accessibility Evaluation Tool
-- **axe DevTools** : Extension navigateur
-- **NVDA** : Lecteur d'écran (Windows)
-- **JAWS** : Lecteur d'écran professionnel
-- **VoiceOver** : Lecteur d'écran (macOS/iOS)
-- **Validateur W3C** : Validation HTML
+- **Google Lighthouse**, onglet Accessibilité des DevTools de Chrome : audit automatisé des cinq pages, en profil mobile et en profil ordinateur. Ses contrôles d'accessibilité s'appuient sur le moteur axe-core.
+- **DevTools de Chrome**, onglet Éléments : inspection de l'arborescence d'accessibilité, et relevé des ratios de contraste élément par élément.
+- **WebAIM Contrast Checker** : vérification des couples de couleurs retenus.
+- **Validateur HTML du W3C** et **validateur CSS du W3C** : conformité du balisage, dont le critère 4.1.1.
+- **Responsively App** : affichage simultané de huit largeurs calibrées sur les points de rupture du projet, de 1440 px à 280 px.
+- **Navigation au clavier** sans souris, dans Chrome et dans Firefox.
 
-### Tests manuels
+Les rapports et les captures correspondants sont rangés dans `docs/tests/`.
+
+### Tests manuels réalisés
 
 **Navigation clavier** :
-- Tab pour avancer entre éléments
-- Shift+Tab pour reculer
-- Entrée pour activer boutons/liens
-- Espace pour cocher cases/boutons
-- Échap pour fermer modales
-- Flèches pour naviguer dans listes
+- Tab pour avancer entre les éléments, Shift+Tab pour reculer
+- Entrée pour activer les boutons et les liens
+- Espace pour cocher les cases et les boutons radio
+- Échap pour fermer les modales
+- Flèches pour naviguer dans les listes déroulantes
+- Contrôle du focus visible à chaque étape, et de l'absence de piège au clavier
 
-**Lecteurs d'écran** :
-- Annonce correcte des titres
-- Lecture des labels de formulaires
-- Annonce des messages d'erreur
-- Navigation par landmarks (header, nav, main, footer)
-- Annonce des états (actif, sélectionné, déplié)
+L'ordre de tabulation a été relevé page par page. Captures dans `docs/tests/clavier/`.
 
-**Zoom** :
-- Zoom texte 200% sans perte d'information
-- Zoom page 200% sans scroll horizontal
-- Pas de chevauchement de contenu
+**Arborescence d'accessibilité** :
+- Lecture de l'arbre d'accessibilité dans les DevTools, pour contrôler les rôles, les noms accessibles et les landmarks exposés aux technologies d'assistance
+- Captures dans `docs/tests/accessibilite/`
 
 ## Résumé des critères WCAG couverts
 
@@ -797,8 +806,6 @@ Cette approche garantit que le site est utilisable par le plus grand nombre, con
 
 - **WCAG 2.1** : https://www.w3.org/WAI/WCAG21/quickref/
 - **RGAA 4.1** : https://accessibilite.numerique.gouv.fr/
-- **Section 508** : https://www.section508.gov/
-- **EN 301 549** : https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf
 
 ### Technologies d'accessibilité
 
@@ -809,11 +816,11 @@ Cette approche garantit que le site est utilisable par le plus grand nombre, con
 ### Outils de test
 
 - **Google Lighthouse** : https://developers.google.com/web/tools/lighthouse
-- **WAVE** : https://wave.webaim.org/
+- **WebAIM Contrast Checker** : https://webaim.org/resources/contrastchecker/
 - **axe DevTools** : https://www.deque.com/axe/devtools/
 - **Validateur W3C** : https://validator.w3.org/
 
-### Lecteurs d'écran
+### Lecteurs d'écran (références, non utilisés dans cette campagne de tests)
 
 - **NVDA** (gratuit) : https://www.nvaccess.org/
 - **JAWS** : https://www.freedomscientific.com/products/software/jaws/

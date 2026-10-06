@@ -1,11 +1,9 @@
 ---------------------------------------------------------------------------
-# ⚠️ NOTE IMPORTANTE SUR L'ÉTAT DU PROJET
+# NOTE SUR L'ÉTAT DU PROJET
 
-Ce document reflète les choix de conception et l'architecture du projet à la fin de la phase de développement initial.
+Ce document fait partie de la documentation de conception du projet.
 
-Les optimisations de performance (CSS critique, Lazy Loading, etc.), les corrections de robustesse (Sécurité XSS) et les ajustements finaux d'accessibilité identifiés lors des audits de validation (Lighthouse, WAVE) ne sont **pas encore intégrés** dans le code ou la description détaillée de ce fichier.
-
-Le plan d'actions pour l'amélioration continue est documenté séparément dans le fichier **RAPPORT_D_AMELIORATION.md**.
+Les anomalies relevées lors de la campagne de tests ont été corrigées dans le code. Le détail des constats, des corrections et des contrôles qui les valident est consigné dans **RAPPORT_D_AMELIORATION.md**.
 ---------------------------------------------------------------------------
 
 # Architecture - Hôtel Booking

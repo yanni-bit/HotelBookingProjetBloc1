@@ -57,6 +57,9 @@
       color: var(--gris-fonce, #333333);
       font-size: 2.5rem;
       font-weight: 700;
+      /* « Documentation » est un mot unique plus large que l'ecran sous 320px.
+         Sans cette regle, le navigateur le laisse deborder et le tronque. */
+      overflow-wrap: break-word;
     }
 
     .docs-list-group-title {
@@ -87,11 +90,18 @@
       transform: translateY(-2px);
     }
 
-    .doc-link-item a {
+    .doc-link-item a,
+    .doc-link-item>span:first-child {
       color: var(--gris-fonce, #333333);
       text-decoration: none;
       font-weight: 600;
       transition: color 0.2s;
+      /* Les noms de fichiers en majuscules relies par des tirets bas forment
+         un mot unique pour le moteur de rendu. min-width autorise l'element
+         flex a retrecir sous la largeur de son contenu, overflow-wrap coupe
+         le mot plutot que de le laisser sortir de la carte. */
+      min-width: 0;
+      overflow-wrap: break-word;
     }
 
     .doc-link-item a:hover {
@@ -111,19 +121,19 @@
 
     .doc-link-item.future a,
     .doc-link-item.future>span:first-child {
-      color: var(--gris-moyen, #858585);
+      color: var(--gris-moyen, #646464);
       font-weight: 600;
       cursor: not-allowed;
     }
 
     .doc-link-item.future .doc-etat {
-      color: var(--gris-moyen, #858585);
+      color: var(--gris-moyen, #646464);
       font-size: 0.85rem;
       font-style: italic;
     }
 
     .doc-link-item.future .bi-box-arrow-up-right {
-      color: var(--gris-moyen, #858585);
+      color: var(--gris-moyen, #646464);
     }
 
     /* Style pour la NOTE D'ATTENTION - Ajouté ici */

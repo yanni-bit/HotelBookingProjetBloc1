@@ -20,162 +20,162 @@
         - Boutons du ruban ............................. ligne 345
         - Dropdown du ruban ............................ ligne 363
         - Triangles décoratifs (::before, ::after) ..... ligne 379
-   1.5. Navigation principale .......................... ligne 410
-   1.6. Footer ......................................... ligne 1010
-        - Sections du footer ........................... ligne 1027
-        - Puces turquoise du support ................... ligne 1056
-        - Réseaux sociaux .............................. ligne 1069
-        - Newsletter ................................... ligne 1112
-        - Copyright & liens légaux ..................... ligne 1135
-        - Séparateur entre les liens ................... ligne 1148
-   1.7. Contenu principal générique .................... ligne 1167
-   1.8. Calendrier Flatpickr ........................... ligne 1176
-        - Conteneur principal .......................... ligne 1182
-        - En-tête du calendrier ........................ ligne 1192
-        - Flèches de navigation ........................ ligne 1223
-        - Jours de la semaine .......................... ligne 1235
-        - Grille des jours ............................. ligne 1247
-        - Cellules des jours ........................... ligne 1258
-        - Jour sélectionné ............................. ligne 1270
-        - Jours dans la plage .......................... ligne 1279
-        - Hover sur les jours .......................... ligne 1285
-        - Jour actuel .................................. ligne 1291
-        - Conteneur du calendrier ...................... ligne 1297
-   1.9. Formulaire mobile alternatif au calendrier ..... ligne 1308
-        - Champs date mobile ........................... ligne 1318
-   1.10. Modal global .................................. ligne 1345
-        - Flèches du carrousel en modal ................ ligne 1378
+   1.5. Footer ......................................... ligne 1022
+        - Sections du footer ........................... ligne 1039
+        - Puces turquoise du support ................... ligne 1068
+        - Réseaux sociaux .............................. ligne 1081
+        - Newsletter ................................... ligne 1124
+        - Copyright & liens légaux ..................... ligne 1147
+        - Séparateur entre les liens ................... ligne 1160
+   1.6. Contenu principal générique .................... ligne 1179
+   1.7. Calendrier Flatpickr ........................... ligne 1188
+        - Conteneur principal .......................... ligne 1194
+        - En-tête du calendrier ........................ ligne 1204
+        - Flèches de navigation ........................ ligne 1235
+        - Jours de la semaine .......................... ligne 1247
+        - Grille des jours ............................. ligne 1259
+        - Cellules des jours ........................... ligne 1270
+        - Jour sélectionné ............................. ligne 1282
+        - Jours dans la plage .......................... ligne 1291
+        - Hover sur les jours .......................... ligne 1297
+        - Jour actuel .................................. ligne 1303
+        - Conteneur du calendrier ...................... ligne 1309
+   1.8. Formulaire mobile alternatif au calendrier ..... ligne 1320
+        - Champs date mobile ........................... ligne 1330
+   1.9. Modal global ................................... ligne 1357
    
    ══════════════════════════════════════════════════════════
    2. PAGE INDEX (index.html)
    ══════════════════════════════════════════════════════════
    
-   2.1. Carrousel index ................................ ligne 436
-        - Boutons flèches .............................. ligne 457
-        - Points indicateurs ........................... ligne 493
-        - Animation fondu .............................. ligne 520
-   2.2. Bloc recherche superposé sur le carrousel ...... ligne 529
-        - Colonnes de hauteur égale .................... ligne 550
-        - Chaque colonne est un conteneur vertical ..... ligne 556
-        - Boîtes de champs ............................. ligne 562
-        - Titre des champs ............................. ligne 579
-        - Champs de formulaire ......................... ligne 606
-        - Colonnes dates et personnes .................. ligne 619
-        - Bordure de séparation ........................ ligne 635
-        - Colonnes de boutons radio .................... ligne 640
-        - Bouton de validation ......................... ligne 660
-   2.3. Section offres spéciales ....................... ligne 685
-        - Ligne de séparation .......................... ligne 693
-        - Titres de section ............................ ligne 700
-        - Cards des offres ............................. ligne 715
-        - Image de la card ............................. ligne 733
-        - Badge promotionnel ........................... ligne 751
-        - Corps de la card ............................. ligne 766
-        - Bouton de la card ............................ ligne 789
-   2.4. Section destinations ........................... ligne 816
-        - Cards destinations ........................... ligne 824
-        - Image avec overlay ........................... ligne 842
-        - Overlay avec dégradé ......................... ligne 860
-        - Informations destination ..................... ligne 885
-        - Footer de la card ............................ ligne 922
-   2.5. Section critères de sélection .................. ligne 957
-        - Cards d'information (.info-card) ............. ligne 970
+   2.1. Navigation principale .......................... ligne 422
+   2.2. Carrousel index ................................ ligne 448
+        - Boutons flèches .............................. ligne 469
+        - Points indicateurs ........................... ligne 505
+        - Animation fondu .............................. ligne 532
+   2.3. Bloc recherche superposé sur le carrousel ...... ligne 541
+        - Colonnes de hauteur égale .................... ligne 562
+        - Chaque colonne est un conteneur vertical ..... ligne 568
+        - Boîtes de champs ............................. ligne 574
+        - Titre des champs ............................. ligne 591
+        - Champs de formulaire ......................... ligne 618
+        - Colonnes dates et personnes .................. ligne 631
+        - Bordure de séparation ........................ ligne 647
+        - Colonnes de boutons radio .................... ligne 652
+        - Bouton de validation ......................... ligne 672
+   2.4. Section offres spéciales ....................... ligne 697
+        - Ligne de séparation .......................... ligne 705
+        - Titres de section ............................ ligne 712
+        - Cards des offres ............................. ligne 727
+        - Image de la card ............................. ligne 745
+        - Badge promotionnel ........................... ligne 763
+        - Corps de la card ............................. ligne 778
+        - Bouton de la card ............................ ligne 801
+   2.5. Section destinations ........................... ligne 828
+        - Cards destinations ........................... ligne 836
+        - Image avec overlay ........................... ligne 854
+        - Overlay avec dégradé ......................... ligne 872
+        - Informations destination ..................... ligne 897
+        - Footer de la card ............................ ligne 934
+   2.6. Section critères de sélection .................. ligne 969
+        - Cards d'information (.info-card) ............. ligne 982
    
    ══════════════════════════════════════════════════════════
    3. PAGE ROOM (room.html)
    ══════════════════════════════════════════════════════════
    
-        - Flèche gauche ................................ ligne 1388
-        - Flèche droite ................................ ligne 1393
-   3.1. PAGE ROOM - Styles spécifiques ................. ligne 1400
-        - Surcharges Flatpickr ......................... ligne 1412
-        - Intégration au design de la page ............. ligne 1413
-        - Lignes du récapitulatif dynamique ............ ligne 1452
-        - Bouton de confirmation (Réservation) ......... ligne 1462
-        - Menu latéral avec onglets .................... ligne 1471
-        - Liens du menu ................................ ligne 1479
-        - Onglet actif ................................. ligne 1501
-        - Flèche de l'onglet actif ..................... ligne 1509
-        - Contenu des onglets .......................... ligne 1523
-        - Z-index de superposition ..................... ligne 1530
-        - Bordure marron ............................... ligne 1541
-        - Lignes d'information avec icône .............. ligne 1546
-   3.2. Fiche hôtel, en-tête sidebar ................... ligne 1570
-        - Variables de largeur des sous-colonnes ....... ligne 1573
-        - Largeurs personnalisées ...................... ligne 1579
-        - Taille des étoiles ........................... ligne 1593
-   3.3. Hôtel populaire / Offre du jour ................ ligne 1623
-        - Nom de l'hôtel et étoiles .................... ligne 1626
-        - Prix et note ................................. ligne 1651
-   3.4. Carrousel room, galerie d'images ............... ligne 1684
-        - Images principales ........................... ligne 1687
-        - Miniatures ................................... ligne 1699
-        - Contrôles du carrousel ....................... ligne 1719
-        - Indicateurs du carrousel ..................... ligne 1731
-        - Miniatures scrollables ....................... ligne 1743
-        - Boutons de navigation ........................ ligne 1785
-   3.5. Card offre de chambre .......................... ligne 1812
-        - Largeurs personnalisées ...................... ligne 1821
-        - Card principale .............................. ligne 1833
-        - Mini carrousel de la card .................... ligne 1844
-        - Badges de la card ............................ ligne 1866
-        - Bouton BOOK NOW .............................. ligne 1879
-        - Smooth scroll & animation .................... ligne 1897
-   3.6. Équipements .................................... ligne 1917
-   3.7. Onglet avis clients ............................ ligne 1946
-   3.8. Localisation ................................... ligne 2042
+        - Flèches du carrousel en modal ................ ligne 1390
+        - Flèche gauche ................................ ligne 1400
+        - Flèche droite ................................ ligne 1405
+   3.1. PAGE ROOM - Styles spécifiques ................. ligne 1412
+        - Surcharges Flatpickr ......................... ligne 1424
+        - Intégration au design de la page ............. ligne 1425
+        - Lignes du récapitulatif dynamique ............ ligne 1464
+        - Bouton de confirmation (Réservation) ......... ligne 1474
+        - Menu latéral avec onglets .................... ligne 1483
+        - Liens du menu ................................ ligne 1491
+        - Onglet actif ................................. ligne 1513
+        - Flèche de l'onglet actif ..................... ligne 1521
+        - Contenu des onglets .......................... ligne 1541
+        - Z-index de superposition ..................... ligne 1548
+        - Bordure marron ............................... ligne 1559
+        - Lignes d'information avec icône .............. ligne 1564
+   3.2. Fiche hôtel, en-tête sidebar ................... ligne 1588
+        - Variables de largeur des sous-colonnes ....... ligne 1591
+        - Largeurs personnalisées ...................... ligne 1597
+        - Taille des étoiles ........................... ligne 1611
+   3.3. Hôtel populaire / Offre du jour ................ ligne 1641
+        - Nom de l'hôtel et étoiles .................... ligne 1644
+        - Prix et note ................................. ligne 1669
+   3.4. Carrousel room, galerie d'images ............... ligne 1702
+        - Images principales ........................... ligne 1705
+        - Miniatures ................................... ligne 1717
+        - Contrôles du carrousel ....................... ligne 1737
+        - Indicateurs du carrousel ..................... ligne 1749
+        - Miniatures scrollables ....................... ligne 1761
+        - Boutons de navigation ........................ ligne 1803
+   3.5. Card offre de chambre .......................... ligne 1830
+        - Largeurs personnalisées ...................... ligne 1839
+        - Card principale .............................. ligne 1851
+        - Mini carrousel de la card .................... ligne 1862
+        - Badges de la card ............................ ligne 1884
+        - Bouton BOOK NOW .............................. ligne 1897
+        - Smooth scroll & animation .................... ligne 1915
+   3.6. Équipements .................................... ligne 1935
+   3.7. Onglet avis clients ............................ ligne 1964
    
    ══════════════════════════════════════════════════════════
    4. PAGE BOOKING (booking.html)
    ══════════════════════════════════════════════════════════
    
-   4.1. Entrée de la feuille booking ................... ligne 2067
-   4.2. Layout général ................................. ligne 2071
-        - Fil d'Ariane ................................. ligne 2078
-   4.3. En-tête de la page ............................. ligne 2100
-   4.4. Formulaire de réservation ...................... ligne 2124
-        - Section du formulaire ........................ ligne 2134
-        - En-tête de section ........................... ligne 2147
-        - Champs de formulaire ......................... ligne 2176
-   4.5. Section nombre de voyageurs .................... ligne 2205
-        - Boutons +/- .................................. ligne 2242
-        - Champ numérique .............................. ligne 2264
-        - Alertes ...................................... ligne 2273
-        - Total voyageurs .............................. ligne 2292
-   4.6. Services additionnels .......................... ligne 2300
-   4.7. Informations de paiement ....................... ligne 2382
-   4.8. Conditions de réservation ...................... ligne 2407
-        - Titres passes de h6 a h3, apparence conservee par la classe utilitaire. ... ligne 2417
-   4.9. Récapitulatif (sidebar) ........................ ligne 2458
-   4.10. Résumé nom de l'hôtel ......................... ligne 2479
-        - Titre passe de h6 a h4, apparence conservee par la classe utilitaire. ... ligne 2497
-   4.11. Résumé chambre ................................ ligne 2511
-   4.12. Résumé dates du séjour ........................ ligne 2545
-   4.13. Résumé prix ................................... ligne 2592
-   4.14. Résumé avantages .............................. ligne 2631
-   4.15. Résumé contact ................................ ligne 2658
-   4.16. Bouton de soumission .......................... ligne 2681
+   4.1. Localisation ................................... ligne 2060
+   4.2. Entrée de la feuille booking ................... ligne 2085
+   4.3. Layout général ................................. ligne 2089
+        - Fil d'Ariane ................................. ligne 2096
+   4.4. En-tête de la page ............................. ligne 2118
+   4.5. Formulaire de réservation ...................... ligne 2142
+        - Section du formulaire ........................ ligne 2152
+        - En-tête de section ........................... ligne 2165
+        - Champs de formulaire ......................... ligne 2194
+   4.6. Section nombre de voyageurs .................... ligne 2223
+        - Boutons +/- .................................. ligne 2260
+        - Champ numérique .............................. ligne 2282
+        - Alertes ...................................... ligne 2291
+        - Total voyageurs .............................. ligne 2310
+   4.7. Services additionnels .......................... ligne 2318
+   4.8. Informations de paiement ....................... ligne 2400
+   4.9. Conditions de réservation ...................... ligne 2425
+        - Titres passes de h6 a h3, apparence conservee par la classe utilitaire. ... ligne 2435
+   4.10. Récapitulatif (sidebar) ....................... ligne 2476
+   4.11. Résumé nom de l'hôtel ......................... ligne 2497
+        - Titre passe de h6 a h4, apparence conservee par la classe utilitaire. ... ligne 2515
+   4.12. Résumé chambre ................................ ligne 2529
+   4.13. Résumé dates du séjour ........................ ligne 2563
+   4.14. Résumé prix ................................... ligne 2610
+   4.15. Résumé avantages .............................. ligne 2649
+   4.16. Résumé contact ................................ ligne 2676
    
    ══════════════════════════════════════════════════════════
    5. PAGE CONTACT (contact.html)
    ══════════════════════════════════════════════════════════
    
-   5.1. Entrée de la feuille contact ................... ligne 2704
-   5.2. Layout général ................................. ligne 2708
-   5.3. En-tête de la page ............................. ligne 2718
-   5.4. Carte google maps .............................. ligne 2734
-   5.5. Cartes d'informations .......................... ligne 2784
-        - Style de base des cartes ..................... ligne 2794
-        - Conteneurs de structure ...................... ligne 2811
-        - Ligne d'en-tête (icône + titre) .............. ligne 2817
-        - Titres passes de h6 a h2, apparence conservee par la classe utilitaire. ... ligne 2827
-        - Icone (cercle) ............................... ligne 2835
-   5.6. Formulaire de contact .......................... ligne 2892
-   5.7. Modal de confirmation .......................... ligne 2962
+   5.1. Bouton de soumission ........................... ligne 2699
+   5.2. Entrée de la feuille contact ................... ligne 2722
+   5.3. Layout général ................................. ligne 2726
+   5.4. En-tête de la page ............................. ligne 2736
+   5.5. Carte google maps .............................. ligne 2752
+   5.6. Cartes d'informations .......................... ligne 2802
+        - Style de base des cartes ..................... ligne 2812
+        - Conteneurs de structure ...................... ligne 2829
+        - Ligne d'en-tête (icône + titre) .............. ligne 2835
+        - Titres passes de h6 a h2, apparence conservee par la classe utilitaire. ... ligne 2845
+        - Icone (cercle) ............................... ligne 2853
+   5.7. Formulaire de contact .......................... ligne 2910
+   5.8. Modal de confirmation .......................... ligne 2980
    
    ══════════════════════════════════════════════════════════
    
-   TOTAL : 3033 lignes
+   TOTAL : 3051 lignes
    SECTIONS PRINCIPALES : 5 grandes parties
    REPÈRES INDEXÉS : 144
    
@@ -251,7 +251,7 @@
   min-height: 46px;
   border-radius: 50%;
   background-color: var(--turquoise);
-  color: #fff;
+  color: var(--gris-fonce);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -301,7 +301,7 @@
   right: 14px;
   top: 50%;
   transform: translateY(-50%);
-  color: #999;
+  color: var(--gris-moyen);
   font-size: 18px;
   pointer-events: none; /* Permet de cliquer sur l'input sous l'icône */
 }
@@ -336,7 +336,7 @@
 
 .ribbon ul li a {
   background-color: var(--turquoise);
-  color: white;
+  color: var(--gris-fonce);
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
@@ -344,7 +344,7 @@
 
 /* Boutons du ruban */
 .ribbon-btn {
-  color: #fff;
+  color: var(--gris-fonce);
   font-size: 12px;
   font-weight: 600;
   padding: 5px 0;
@@ -386,7 +386,13 @@
   height: 0;
   border-style: solid;
   border-width: 20px 65px 0 0; /* hauteur / largeur du triangle */
-  border-color: var(--turquoise) transparent transparent transparent;
+  /* Les quatre couleurs sont declarees separement : le validateur W3C
+     n'analyse pas une variable CSS placee dans une valeur multiple et
+     rejette la forme raccourcie. Le rendu est identique. */
+  border-top-color: var(--turquoise);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   z-index: 2;
   box-shadow: -1px 0 0 rgba(0, 0, 0, .1);
 }
@@ -400,7 +406,13 @@
   height: 0;
   border-style: solid;
   border-width: 20px 0 0 65px; /* inverse les côtés du triangle */
-  border-color: var(--turquoise) transparent transparent transparent;
+  /* Les quatre couleurs sont declarees separement : le validateur W3C
+     n'analyse pas une variable CSS placee dans une valeur multiple et
+     rejette la forme raccourcie. Le rendu est identique. */
+  border-top-color: var(--turquoise);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
   z-index: 2;
   box-shadow: 1px 0 0 rgba(0, 0, 0, .1);
 }
@@ -423,7 +435,7 @@
 }
 
 .navbar-brand {
-  color: var(--blanc);
+  color: var(--gris-fonce);
 }
 
 .nav-link {
@@ -600,7 +612,7 @@
 }
 
 .search-field-box-title em {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
 }
 
 /* Champs de formulaire (Input/Select) */
@@ -672,7 +684,7 @@
   background-color: var(--turquoise);
   font-size: 12px;
   font-weight: 600;
-  color: var(--blanc);
+  color: var(--gris-fonce);
   text-transform: uppercase;
 }
 
@@ -754,7 +766,7 @@
   top: 15px;
   right: 15px;
   background-color: var(--turquoise);
-  color: var(--blanc);
+  color: var(--gris-fonce);
   padding: 5px 15px;
   border-radius: 20px;
   font-size: 12px;
@@ -789,7 +801,7 @@
 /* Bouton de la card */
 .btn-offre {
   background-color: var(--turquoise);
-  color: var(--blanc);
+  color: var(--gris-fonce);
   border: 2px solid var(--turquoise);
   border-radius: 25px;
   padding: 8px 25px;
@@ -805,7 +817,7 @@
 .btn-offre:hover {
   /* Pas besoin de redéfinir background/color, mais conservé pour clarté */
   background-color: var(--turquoise); 
-  color: var(--blanc);
+  color: var(--gris-fonce);
   text-decoration: none;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(95, 200, 194, 0.3);
@@ -927,7 +939,7 @@
 }
 
 .btn-destination {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -938,7 +950,7 @@
 }
 
 .btn-destination:hover {
-  color: var(--turquoise-hover);
+  color: var(--turquoise-texte-hover);
   gap: 10px;
   text-decoration: none;
 }
@@ -993,7 +1005,7 @@
 .info-card-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   margin-bottom: 10px;
   border-bottom: 1px solid #ddd;
 }
@@ -1056,7 +1068,7 @@ footer.container-fluid ul li {
 /* Puces turquoise pour le support */
 footer.container-fluid .footer_support ul li::before {
   content: "•";
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   font-weight: bold;
   display: inline-block;
   width: 1em;
@@ -1091,7 +1103,7 @@ footer.container-fluid .footer_support ul li::before {
   height: 35px;
   border-radius: 50%;
   background-color: var(--marron);
-  color: var(--blanc);
+  color: var(--gris-fonce);
   font-size: 1.2rem;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -1100,7 +1112,7 @@ footer.container-fluid .footer_support ul li::before {
 .footer_follow a:hover {
   background-color: #d1c6bc;
   transform: scale(1.1);
-  color: var(--turquoise);
+  color: var(--turquoise-texte-hover);
   border-color: var(--marron);
 }
 
@@ -1112,7 +1124,7 @@ footer.container-fluid .footer_support ul li::before {
 /* === Newsletter === */
 
 .footer.container-fluid em {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   font-weight: bold;
 }
 
@@ -1128,7 +1140,7 @@ footer.container-fluid .footer_support ul li::before {
 .btn-dark:hover {
   background-color: #d1c6bc;
   transform: scale(1.1);
-  color: var(--turquoise);
+  color: var(--turquoise-texte-hover);
   border-color: var(--marron);
 }
 
@@ -1142,7 +1154,7 @@ footer .bottom a {
 }
 
 footer .bottom a:hover {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
 }
 
 /* Séparateur vertical entre les liens */
@@ -1337,7 +1349,7 @@ footer .bottom nav li {
 }
 
 .mobile-date-form .form-label i {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
 }
 
 
@@ -1431,7 +1443,7 @@ footer .bottom nav li {
 
 .flatpickr-day.today:hover {
   background-color: var(--turquoise-hover) !important;
-  color: #fff !important;
+  color: var(--gris-fonce) !important;
 }
 
 .flatpickr-day:hover {
@@ -1463,7 +1475,7 @@ footer .bottom nav li {
 #confirmBtn:not(:disabled) {
   background-color: var(--turquoise) !important;
   border-color: var(--turquoise) !important;
-  color: #fff !important;
+  color: var(--gris-fonce) !important;
   opacity: 1 !important;
 }
 
@@ -1503,7 +1515,7 @@ footer .bottom nav li {
   background-color: var(--turquoise);
   border-radius: 4px 0 0 4px;
   position: relative;
-  color: #fff; /* Couleur du texte actif (ajouté pour clarté, non spécifié dans style.css original) */
+  color: var(--gris-fonce); /* Couleur du texte actif (ajouté pour clarté, non spécifié dans style.css original) */
 }
 
 /* Flèche de l'onglet actif (triangle décoratif) */
@@ -1516,7 +1528,13 @@ footer .bottom nav li {
   height: 100%;
   border-style: solid;
   border-width: 29px 0px 29px 32px;
-  border-color: transparent transparent transparent var(--turquoise);
+  /* Les quatre couleurs sont declarees separement : le validateur W3C
+     n'analyse pas une variable CSS placee dans une valeur multiple et
+     rejette la forme raccourcie. Le rendu est identique. */
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: var(--turquoise);
   z-index: 5;
 }
 
@@ -1598,7 +1616,7 @@ footer .bottom nav li {
 
 /* Tag */
 .hotel-tag {
-  color: var(--blanc);
+  color: var(--gris-fonce);
   font-size: 0.8rem;
   font-weight: 700;
   border: solid 1px var(--marron);
@@ -1633,7 +1651,7 @@ footer .bottom nav li {
   row-gap: 0;
   line-height: 1.3;
   margin-bottom: -0.20rem;
-  color: var(--marron-fonce);
+  color: var(--marron-texte);
 }
 
 .stars {
@@ -1668,7 +1686,7 @@ footer .bottom nav li {
   align-items: center;
   gap: 2px;
   font-size: 0.8rem;
-  color: #bdbdbd;
+  color: var(--gris-moyen);
 }
 
 .pouce-note {
@@ -1800,7 +1818,7 @@ footer .bottom nav li {
 .thumbnail-nav:hover {
   background-color: var(--turquoise);
   border-color: var(--turquoise);
-  color: white;
+  color: var(--gris-fonce);
 }
 
 .thumbnail-nav i {
@@ -1860,7 +1878,7 @@ footer .bottom nav li {
 }
 
 .room-title, .text-prix {
-  color: var(--turquoise-hover);
+  color: var(--turquoise-texte-hover);
 }
 
 /* Badges de la card */
@@ -1868,7 +1886,7 @@ footer .bottom nav li {
   font-size: 0.75rem;
   padding: 0.35em 0.65em;
   font-weight: 600;
-  color: var(--blanc);
+  color: var(--gris-fonce);
   background-color: var(--turquoise-badge);
 }
 
@@ -1880,7 +1898,7 @@ footer .bottom nav li {
 .btn-book-now {
   background-color: var(--turquoise);
   border-color: var(--turquoise);
-  color: white;
+  color: var(--gris-fonce);
   font-weight: 700;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
@@ -1889,7 +1907,7 @@ footer .bottom nav li {
 .btn-book-now:hover {
   background-color: var(--turquoise-hover);
   border-color: var(--turquoise-hover);
-  color: white;
+  color: var(--gris-fonce);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(95, 200, 194, 0.3);
 }
@@ -2030,11 +2048,11 @@ html {
 }
 
 .icon-positive {
-  background-color: #4CAF50;
+  background-color: #2e7d32;
 }
 
 .icon-negative {
-  background-color: #f44336;
+  background-color: #c62828;
 }
 
 
@@ -2088,12 +2106,12 @@ html {
 }
 
 .breadcrumb-item a {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   text-decoration: none;
 }
 
 .breadcrumb-item a:hover {
-  color: var(--turquoise-hover);
+  color: var(--turquoise-texte-hover);
 }
 
 /* ==========================================================
@@ -2156,7 +2174,7 @@ html {
   width: 40px;
   height: 40px;
   background: var(--turquoise);
-  color: var(--blanc);
+  color: var(--gris-fonce);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2223,7 +2241,7 @@ textarea.form-control {
 }
 
 .guests-section h3 i {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   margin-right: 0.5rem;
 }
 
@@ -2242,14 +2260,14 @@ textarea.form-control {
 /* Boutons +/- */
 .guests-section .btn-outline-secondary {
   border-color: var(--turquoise);
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   transition: all 0.2s;
   padding: 0.5rem 1rem;
 }
 
 .guests-section .btn-outline-secondary:hover:not(:disabled) {
   background-color: var(--turquoise);
-  color: var(--blanc);
+  color: var(--gris-fonce);
   border-color: var(--turquoise);
 }
 
@@ -2351,7 +2369,7 @@ textarea.form-control {
 
 .service-info i {
   font-size: 1.8rem;
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
 }
 
 /* Conteneur du titre et de la description d'un service.
@@ -2373,7 +2391,7 @@ textarea.form-control {
 
 .service-price {
   font-weight: 700;
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   font-size: 1.1rem;
   white-space: nowrap;
 }
@@ -2395,7 +2413,7 @@ textarea.form-control {
 
 .payment-info-box i {
   font-size: 2rem;
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
 }
 
 .payment-info-box p {
@@ -2446,12 +2464,12 @@ textarea.form-control {
 }
 
 .form-check-label a {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   text-decoration: underline;
 }
 
 .form-check-label a:hover {
-  color: var(--turquoise-hover);
+  color: var(--turquoise-texte-hover);
 }
 
 /* ==========================================================
@@ -2503,7 +2521,7 @@ textarea.form-control {
 }
 
 .summary-hotel-name i {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   margin-right: 0.25rem;
 }
 
@@ -2577,7 +2595,7 @@ textarea.form-control {
 }
 
 .summary-separator i {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   font-size: 1.2rem;
 }
 
@@ -2624,7 +2642,7 @@ textarea.form-control {
   padding-top: 1rem;
   border-top: 2px solid var(--turquoise);
   font-size: 1.3rem;
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
 }
 
 /* ==========================================================
@@ -2646,7 +2664,7 @@ textarea.form-control {
 
 .benefit-item i {
   font-size: 1.2rem;
-  color: var(--turquoise); /* Ajouté pour les icônes de coche */
+  color: var(--turquoise-texte); /* Ajouté pour les icônes de coche */
 }
 
 .benefit-item span {
@@ -2674,7 +2692,7 @@ textarea.form-control {
 }
 
 .summary-contact i {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
 }
 
 /* ==========================================================
@@ -2684,7 +2702,7 @@ textarea.form-control {
 .btn-primary {
   background-color: var(--turquoise);
   border-color: var(--turquoise);
-  color: var(--blanc);
+  color: var(--gris-fonce);
   font-weight: 600;
   font-size: 1.1rem;
   padding: 0.75rem 2rem;
@@ -2764,7 +2782,7 @@ textarea.form-control {
 }
 
 .map-info-box h5 {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
@@ -2847,7 +2865,7 @@ textarea.form-control {
 
 .info-icon i {
   font-size: 1.5rem;
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
 }
 
 .info-content h6,
@@ -2872,7 +2890,7 @@ textarea.form-control {
 .info-content a,
 .info-content-phone a,
 .info-content-email a {
-  color: var(--turquoise);
+  color: var(--turquoise-texte);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s;
@@ -2884,7 +2902,7 @@ textarea.form-control {
 .info-content a:hover,
 .info-content-phone a:hover,
 .info-content-email a:hover {
-  color: var(--turquoise-hover);
+  color: var(--turquoise-texte-hover);
   text-decoration: underline;
 }
 
@@ -2936,7 +2954,7 @@ textarea.form-control {
 .contact-form .btn-primary {
   background-color: var(--turquoise);
   border-color: var(--turquoise);
-  color: var(--blanc);
+  color: var(--gris-fonce);
   font-weight: 600;
   font-size: 1.1rem;
   padding: 0.75rem 2rem;
@@ -2976,7 +2994,7 @@ textarea.form-control {
 .confirmation-details .info-row i {
   font-size: 1.5rem;
   margin-top: 0.25rem;
-  color: var(--turquoise); /* Ajouté pour les icônes de coche */
+  color: var(--turquoise-texte); /* Ajouté pour les icônes de coche */
 }
 
 .confirmation-details .info-row div {

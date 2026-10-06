@@ -170,7 +170,7 @@ input[type="reset"] {
 #toggle-dyslexie {
   transition: all 0.3s ease;
   border-color: var(--turquoise, #5fc8c2);
-  color: var(--turquoise, #5fc8c2);
+  color: var(--turquoise-texte, #266e6a);
   background-color: transparent;
 }
 
@@ -178,14 +178,14 @@ input[type="reset"] {
 #toggle-dyslexie:hover {
   background-color: var(--turquoise-light, rgba(95, 200, 194, 0.1));
   border-color: var(--turquoise-hover, #3db3aa);
-  color: var(--turquoise-hover, #3db3aa);
+  color: var(--turquoise-texte-hover, #1d5451);
 }
 
 /* État actif : police dyslexie activée */
 #toggle-dyslexie.active {
   background-color: var(--turquoise, #5fc8c2);
   border-color: var(--turquoise, #5fc8c2);
-  color: var(--blanc, #ffffff);
+  color: var(--gris-fonce, #333333);
 }
 
 /* Icône du bouton légèrement plus grande */
