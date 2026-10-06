@@ -456,6 +456,7 @@
 
 .hotel-carousel {
   position: relative;
+  aspect-ratio: 3 / 2;
   max-height: 640px;
   overflow: hidden;
 }
