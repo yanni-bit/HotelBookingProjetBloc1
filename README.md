@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------
-# ⚠️ NOTE IMPORTANTE SUR L'ÉTAT DU PROJET
+# NOTE SUR L'ÉTAT DU PROJET
 
 Ce document décrit le projet à l'issue de la phase de développement initial.
 
@@ -7,8 +7,8 @@ La campagne de tests a été menée le 5 octobre 2026. Ses résultats, les outil
 et les anomalies relevées sont consignés dans **docs/TESTS.md**, avec les preuves dans
 **docs/tests/**.
 
-Les corrections qui en découlent ne sont **pas encore intégrées** au code. Elles feront
-l'objet du fichier **docs/RAPPORT_D_AMELIORATION.md**.
+Les anomalies relevées ont été corrigées dans le code. Le détail des corrections et des
+contrôles qui les valident figure dans **docs/RAPPORT_D_AMELIORATION.md**.
 ---------------------------------------------------------------------------
 
 # Hôtel Booking - Application Web de Réservation

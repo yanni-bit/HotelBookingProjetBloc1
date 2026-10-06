@@ -963,7 +963,8 @@ function escapeHtml(text) {
 
 ### Points d'amélioration futurs
 
-Documentation en cours de rédaction (tests et optimisations à définir après validation).
+La campagne de tests du 5 octobre 2026 et les corrections qui en découlent sont documentées
+dans `TESTS.md` et `RAPPORT_D_AMELIORATION.md`.
 
 ## Conclusion
 

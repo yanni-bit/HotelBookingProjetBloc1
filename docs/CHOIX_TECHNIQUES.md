@@ -399,11 +399,13 @@ Extensions utilisées :
 
 ### Outils de test
 
-**Prévus pour validation** :
-- W3C Validator (HTML/CSS)
-- Google Lighthouse (performance, accessibilité)
-- BrowserStack (tests multi-navigateurs)
-- WAVE (accessibilité)
+**Utilisés lors de la campagne de validation** :
+- Validateur HTML et validateur CSS du W3C
+- Google Lighthouse (performance, accessibilité, bonnes pratiques, SEO)
+- DevTools de Chrome (arborescence d'accessibilité, relevé des contrastes)
+- WebAIM Contrast Checker
+- Responsively App (huit largeurs simultanées)
+- Navigation au clavier, sans souris
 
 ## Conclusion
 
