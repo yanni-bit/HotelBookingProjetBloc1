@@ -65,6 +65,8 @@ const translations = {
       // Carrousel de la banniere
       previousSlide: "Image précédente",
       nextSlide: "Image suivante",
+      // Titre de niveau 1 de la page
+      pageTitle: "Book Your Travel, réservation d'hôtels en ligne",
       whatTitle: "Quoi?",
       whereTitle: "Où?", 
       whenTitle: "Quand?", 
@@ -246,6 +248,7 @@ const translations = {
         contactUsLink: "<i class='bi bi-at me-1'></i>Contactez nous",
 
         // Sidebar - Hotel Info
+        pageTitle: "Conrad Maldives Rangali Island, présentation et réservation",
         hotelName: "Conrad Maldives Rangali Island",
         hotelLocation: "Rangali Island, Maldives",
         hotelRating: " 10/10",
@@ -555,6 +558,8 @@ const translations = {
       // Carrousel de la banniere
       previousSlide: "Previous image",
       nextSlide: "Next image",
+      // Titre de niveau 1 de la page
+      pageTitle: "Book Your Travel, online hotel booking",
       whatTitle: "What?",
       whereTitle: "Where?", 
       whenTitle: "When?", 
@@ -736,6 +741,7 @@ const translations = {
         contactUsLink: "<i class='bi bi-at me-1'></i>Contact us",
 
         // Sidebar - Hotel Info
+        pageTitle: "Conrad Maldives Rangali Island, overview and booking",
         hotelName: "Conrad Maldives Rangali Island",
         hotelLocation: "Rangali Island, Maldives",
         hotelRating: " 10/10",
@@ -1038,6 +1044,8 @@ const translations = {
       // Carrousel de la banniere
       previousSlide: "Immagine precedente",
       nextSlide: "Immagine successiva",
+      // Titre de niveau 1 de la page
+      pageTitle: "Book Your Travel, prenotazione hotel online",
       whatTitle: "Cosa?",
       whereTitle: "Dove?", 
       whenTitle: "Quando?", 
@@ -1219,6 +1227,7 @@ const translations = {
         contactUsLink: "<i class='bi bi-at me-1'></i>Contattaci",
 
         // Sidebar - Hotel Info
+        pageTitle: "Conrad Maldives Rangali Island, presentazione e prenotazione",
         hotelName: "Conrad Maldives Rangali Island",
         hotelLocation: "Rangali Island, Maldive",
         hotelRating: " 10/10",
