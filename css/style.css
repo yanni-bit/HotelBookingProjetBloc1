@@ -2761,7 +2761,13 @@ textarea.form-control {
 .contact-main {
   padding: 2rem 0 4rem;
   background-color: var(--marron-clair);
-  min-height: calc(100vh - 200px); /* Assure une hauteur minimale */
+  /* dvh plutot que vh : sur mobile, vh vaut la hauteur de la fenetre
+     barres de navigation masquees, valeur que le navigateur n'atteint
+     qu'apres defilement. La page se retrouvait plus haute que l'ecran
+     des le chargement. dvh suit la hauteur reellement visible. La ligne
+     vh reste en repli pour les navigateurs qui ignorent dvh. */
+  min-height: calc(100vh - 200px);
+  min-height: calc(100dvh - 200px);
 }
 
 /* ==========================================================
