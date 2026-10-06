@@ -24,7 +24,7 @@
     }
 
     h1 {
-      color: var(--turquoise, #5fc8c2);
+      color: var(--turquoise-texte, #266e6a);
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
@@ -43,7 +43,7 @@
     }
 
     h3 {
-      color: var(--turquoise, #5fc8c2);
+      color: var(--turquoise-texte, #266e6a);
       font-size: 1.5rem;
       font-weight: 600;
       margin-top: 2rem;
@@ -75,7 +75,7 @@
 
     code {
       background-color: var(--gris-clair, #f7f7f7);
-      color: var(--turquoise-hover, #3db3aa);
+      color: #b02a6b;
       padding: 0.2rem 0.4rem;
       border-radius: 3px;
       font-family: 'Courier New', monospace;
@@ -103,13 +103,13 @@
     }
 
     a {
-      color: var(--turquoise, #5fc8c2);
+      color: var(--turquoise-texte, #266e6a);
       text-decoration: none;
       transition: color 0.2s ease;
     }
 
     a:hover {
-      color: var(--turquoise-hover, #3db3aa);
+      color: var(--turquoise-texte-hover, #1d5451);
       text-decoration: underline;
     }
 
@@ -133,7 +133,7 @@
 
     thead th {
       background-color: var(--turquoise, #5fc8c2);
-      color: var(--blanc, #ffffff);
+      color: var(--gris-fonce, #333333);
       font-weight: 600;
       text-align: left;
       padding: 0.6rem 0.8rem;
@@ -346,7 +346,8 @@
       <code>responsive/&lt;page&gt;/&lt;profil&gt;-&lt;largeur&gt;.jpg</code>.
       La largeur du nom correspond à la largeur réelle de l'image, elle-même égale à la largeur
       du palier testé. Les images ont été recompressées pour tenir dans le dépôt, sans aucun
-      redimensionnement : réduire les dimensions aurait détruit leur valeur probante.</p>
+      redimensionnement : réduire les dimensions aurait détruit leur valeur probante.
+    </p>
     <p>L'audit multi-pages a parcouru douze adresses mais produit quatre rapports distincts,
       la page d'accueil étant atteinte par deux URL qui renvoient le même document.</p>
     <hr />
@@ -1122,7 +1123,7 @@
             <td>style.css</td>
             <td>3</td>
             <td>28</td>
-            <td>non conforme</td>
+            <td>non conforme au moment des tests</td>
           </tr>
         </tbody>
       </table>
@@ -1245,12 +1246,12 @@
           <tr>
             <td>Validation HTML</td>
             <td>Nu Html Checker</td>
-            <td>27 erreurs, non conforme</td>
+            <td>27 erreurs, non conforme au moment des tests</td>
           </tr>
           <tr>
             <td>Validation CSS</td>
             <td>W3C CSS Validator</td>
-            <td>3 erreurs sur une feuille, non conforme</td>
+            <td>3 erreurs sur une feuille, non conforme au moment des tests</td>
           </tr>
         </tbody>
       </table>

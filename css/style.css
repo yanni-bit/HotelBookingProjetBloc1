@@ -20,162 +20,162 @@
         - Boutons du ruban ............................. ligne 345
         - Dropdown du ruban ............................ ligne 363
         - Triangles décoratifs (::before, ::after) ..... ligne 379
-   1.5. Footer ......................................... ligne 1022
-        - Sections du footer ........................... ligne 1039
-        - Puces turquoise du support ................... ligne 1068
-        - Réseaux sociaux .............................. ligne 1081
-        - Newsletter ................................... ligne 1124
-        - Copyright & liens légaux ..................... ligne 1147
-        - Séparateur entre les liens ................... ligne 1160
-   1.6. Contenu principal générique .................... ligne 1179
-   1.7. Calendrier Flatpickr ........................... ligne 1188
-        - Conteneur principal .......................... ligne 1194
-        - En-tête du calendrier ........................ ligne 1204
-        - Flèches de navigation ........................ ligne 1235
-        - Jours de la semaine .......................... ligne 1247
-        - Grille des jours ............................. ligne 1259
-        - Cellules des jours ........................... ligne 1270
-        - Jour sélectionné ............................. ligne 1282
-        - Jours dans la plage .......................... ligne 1291
-        - Hover sur les jours .......................... ligne 1297
-        - Jour actuel .................................. ligne 1303
-        - Conteneur du calendrier ...................... ligne 1309
-   1.8. Formulaire mobile alternatif au calendrier ..... ligne 1320
-        - Champs date mobile ........................... ligne 1330
-   1.9. Modal global ................................... ligne 1357
+   1.5. Footer ......................................... ligne 1042
+        - Sections du footer ........................... ligne 1059
+        - Puces turquoise du support ................... ligne 1088
+        - Réseaux sociaux .............................. ligne 1101
+        - Newsletter ................................... ligne 1144
+        - Copyright & liens légaux ..................... ligne 1168
+        - Séparateur entre les liens ................... ligne 1181
+   1.6. Contenu principal générique .................... ligne 1200
+   1.7. Calendrier Flatpickr ........................... ligne 1209
+        - Conteneur principal .......................... ligne 1215
+        - En-tête du calendrier ........................ ligne 1225
+        - Flèches de navigation ........................ ligne 1256
+        - Jours de la semaine .......................... ligne 1268
+        - Grille des jours ............................. ligne 1280
+        - Cellules des jours ........................... ligne 1291
+        - Jour sélectionné ............................. ligne 1303
+        - Jours dans la plage .......................... ligne 1312
+        - Hover sur les jours .......................... ligne 1318
+        - Jour actuel .................................. ligne 1324
+        - Conteneur du calendrier ...................... ligne 1330
+   1.8. Formulaire mobile alternatif au calendrier ..... ligne 1341
+        - Champs date mobile ........................... ligne 1351
+   1.9. Modal global ................................... ligne 1378
    
    ══════════════════════════════════════════════════════════
    2. PAGE INDEX (index.html)
    ══════════════════════════════════════════════════════════
    
    2.1. Navigation principale .......................... ligne 422
-   2.2. Carrousel index ................................ ligne 448
-        - Boutons flèches .............................. ligne 469
-        - Points indicateurs ........................... ligne 505
-        - Animation fondu .............................. ligne 532
-   2.3. Bloc recherche superposé sur le carrousel ...... ligne 541
-        - Colonnes de hauteur égale .................... ligne 562
-        - Chaque colonne est un conteneur vertical ..... ligne 568
-        - Boîtes de champs ............................. ligne 574
-        - Titre des champs ............................. ligne 591
-        - Champs de formulaire ......................... ligne 618
-        - Colonnes dates et personnes .................. ligne 631
-        - Bordure de séparation ........................ ligne 647
-        - Colonnes de boutons radio .................... ligne 652
-        - Bouton de validation ......................... ligne 672
-   2.4. Section offres spéciales ....................... ligne 697
-        - Ligne de séparation .......................... ligne 705
-        - Titres de section ............................ ligne 712
-        - Cards des offres ............................. ligne 727
-        - Image de la card ............................. ligne 745
-        - Badge promotionnel ........................... ligne 763
-        - Corps de la card ............................. ligne 778
-        - Bouton de la card ............................ ligne 801
-   2.5. Section destinations ........................... ligne 828
-        - Cards destinations ........................... ligne 836
-        - Image avec overlay ........................... ligne 854
-        - Overlay avec dégradé ......................... ligne 872
-        - Informations destination ..................... ligne 897
-        - Footer de la card ............................ ligne 934
-   2.6. Section critères de sélection .................. ligne 969
-        - Cards d'information (.info-card) ............. ligne 982
+   2.2. Carrousel index ................................ ligne 454
+        - Boutons flèches .............................. ligne 489
+        - Points indicateurs ........................... ligne 525
+        - Animation fondu .............................. ligne 552
+   2.3. Bloc recherche superposé sur le carrousel ...... ligne 561
+        - Colonnes de hauteur égale .................... ligne 582
+        - Chaque colonne est un conteneur vertical ..... ligne 588
+        - Boîtes de champs ............................. ligne 594
+        - Titre des champs ............................. ligne 611
+        - Champs de formulaire ......................... ligne 638
+        - Colonnes dates et personnes .................. ligne 651
+        - Bordure de séparation ........................ ligne 667
+        - Colonnes de boutons radio .................... ligne 672
+        - Bouton de validation ......................... ligne 692
+   2.4. Section offres spéciales ....................... ligne 717
+        - Ligne de séparation .......................... ligne 725
+        - Titres de section ............................ ligne 732
+        - Cards des offres ............................. ligne 747
+        - Image de la card ............................. ligne 765
+        - Badge promotionnel ........................... ligne 783
+        - Corps de la card ............................. ligne 798
+        - Bouton de la card ............................ ligne 821
+   2.5. Section destinations ........................... ligne 848
+        - Cards destinations ........................... ligne 856
+        - Image avec overlay ........................... ligne 874
+        - Overlay avec dégradé ......................... ligne 892
+        - Informations destination ..................... ligne 917
+        - Footer de la card ............................ ligne 954
+   2.6. Section critères de sélection .................. ligne 989
+        - Cards d'information (.info-card) ............ ligne 1002
    
    ══════════════════════════════════════════════════════════
    3. PAGE ROOM (room.html)
    ══════════════════════════════════════════════════════════
    
-        - Flèches du carrousel en modal ................ ligne 1390
-        - Flèche gauche ................................ ligne 1400
-        - Flèche droite ................................ ligne 1405
-   3.1. PAGE ROOM - Styles spécifiques ................. ligne 1412
-        - Surcharges Flatpickr ......................... ligne 1424
-        - Intégration au design de la page ............. ligne 1425
-        - Lignes du récapitulatif dynamique ............ ligne 1464
-        - Bouton de confirmation (Réservation) ......... ligne 1474
-        - Menu latéral avec onglets .................... ligne 1483
-        - Liens du menu ................................ ligne 1491
-        - Onglet actif ................................. ligne 1513
-        - Flèche de l'onglet actif ..................... ligne 1521
-        - Contenu des onglets .......................... ligne 1541
-        - Z-index de superposition ..................... ligne 1548
-        - Bordure marron ............................... ligne 1559
-        - Lignes d'information avec icône .............. ligne 1564
-   3.2. Fiche hôtel, en-tête sidebar ................... ligne 1588
-        - Variables de largeur des sous-colonnes ....... ligne 1591
-        - Largeurs personnalisées ...................... ligne 1597
-        - Taille des étoiles ........................... ligne 1611
-   3.3. Hôtel populaire / Offre du jour ................ ligne 1641
-        - Nom de l'hôtel et étoiles .................... ligne 1644
-        - Prix et note ................................. ligne 1669
-   3.4. Carrousel room, galerie d'images ............... ligne 1702
-        - Images principales ........................... ligne 1705
-        - Miniatures ................................... ligne 1717
-        - Contrôles du carrousel ....................... ligne 1737
-        - Indicateurs du carrousel ..................... ligne 1749
-        - Miniatures scrollables ....................... ligne 1761
-        - Boutons de navigation ........................ ligne 1803
-   3.5. Card offre de chambre .......................... ligne 1830
-        - Largeurs personnalisées ...................... ligne 1839
-        - Card principale .............................. ligne 1851
-        - Mini carrousel de la card .................... ligne 1862
-        - Badges de la card ............................ ligne 1884
-        - Bouton BOOK NOW .............................. ligne 1897
-        - Smooth scroll & animation .................... ligne 1915
-   3.6. Équipements .................................... ligne 1935
-   3.7. Onglet avis clients ............................ ligne 1964
+        - Flèches du carrousel en modal ................ ligne 1411
+        - Flèche gauche ................................ ligne 1421
+        - Flèche droite ................................ ligne 1426
+   3.1. PAGE ROOM - Styles spécifiques ................. ligne 1433
+        - Surcharges Flatpickr ......................... ligne 1445
+        - Intégration au design de la page ............. ligne 1446
+        - Lignes du récapitulatif dynamique ............ ligne 1485
+        - Bouton de confirmation (Réservation) ......... ligne 1495
+        - Menu latéral avec onglets .................... ligne 1504
+        - Liens du menu ................................ ligne 1512
+        - Onglet actif ................................. ligne 1534
+        - Flèche de l'onglet actif ..................... ligne 1542
+        - Contenu des onglets .......................... ligne 1562
+        - Z-index de superposition ..................... ligne 1569
+        - Bordure marron ............................... ligne 1580
+        - Lignes d'information avec icône .............. ligne 1585
+   3.2. Fiche hôtel, en-tête sidebar ................... ligne 1609
+        - Variables de largeur des sous-colonnes ....... ligne 1612
+        - Largeurs personnalisées ...................... ligne 1618
+        - Taille des étoiles ........................... ligne 1632
+   3.3. Hôtel populaire / Offre du jour ................ ligne 1662
+        - Nom de l'hôtel et étoiles .................... ligne 1665
+        - Prix et note ................................. ligne 1690
+   3.4. Carrousel room, galerie d'images ............... ligne 1723
+        - Images principales ........................... ligne 1726
+        - Miniatures ................................... ligne 1738
+        - Contrôles du carrousel ....................... ligne 1758
+        - Indicateurs du carrousel ..................... ligne 1770
+        - Miniatures scrollables ....................... ligne 1793
+        - Boutons de navigation ........................ ligne 1835
+   3.5. Card offre de chambre .......................... ligne 1862
+        - Largeurs personnalisées ...................... ligne 1871
+        - Card principale .............................. ligne 1883
+        - Mini carrousel de la card .................... ligne 1894
+        - Badges de la card ............................ ligne 1916
+        - Bouton BOOK NOW .............................. ligne 1929
+        - Smooth scroll & animation .................... ligne 1947
+   3.6. Équipements .................................... ligne 1967
+   3.7. Onglet avis clients ............................ ligne 1996
    
    ══════════════════════════════════════════════════════════
    4. PAGE BOOKING (booking.html)
    ══════════════════════════════════════════════════════════
    
-   4.1. Localisation ................................... ligne 2060
-   4.2. Entrée de la feuille booking ................... ligne 2085
-   4.3. Layout général ................................. ligne 2089
-        - Fil d'Ariane ................................. ligne 2096
-   4.4. En-tête de la page ............................. ligne 2118
-   4.5. Formulaire de réservation ...................... ligne 2142
-        - Section du formulaire ........................ ligne 2152
-        - En-tête de section ........................... ligne 2165
-        - Champs de formulaire ......................... ligne 2194
-   4.6. Section nombre de voyageurs .................... ligne 2223
-        - Boutons +/- .................................. ligne 2260
-        - Champ numérique .............................. ligne 2282
-        - Alertes ...................................... ligne 2291
-        - Total voyageurs .............................. ligne 2310
-   4.7. Services additionnels .......................... ligne 2318
-   4.8. Informations de paiement ....................... ligne 2400
-   4.9. Conditions de réservation ...................... ligne 2425
-        - Titres passes de h6 a h3, apparence conservee par la classe utilitaire. ... ligne 2435
-   4.10. Récapitulatif (sidebar) ....................... ligne 2476
-   4.11. Résumé nom de l'hôtel ......................... ligne 2497
-        - Titre passe de h6 a h4, apparence conservee par la classe utilitaire. ... ligne 2515
-   4.12. Résumé chambre ................................ ligne 2529
-   4.13. Résumé dates du séjour ........................ ligne 2563
-   4.14. Résumé prix ................................... ligne 2610
-   4.15. Résumé avantages .............................. ligne 2649
-   4.16. Résumé contact ................................ ligne 2676
+   4.1. Localisation ................................... ligne 2092
+   4.2. Entrée de la feuille booking ................... ligne 2117
+   4.3. Layout général ................................. ligne 2121
+        - Fil d'Ariane ................................. ligne 2128
+   4.4. En-tête de la page ............................. ligne 2150
+   4.5. Formulaire de réservation ...................... ligne 2174
+        - Section du formulaire ........................ ligne 2184
+        - En-tête de section ........................... ligne 2197
+        - Champs de formulaire ......................... ligne 2226
+   4.6. Section nombre de voyageurs .................... ligne 2255
+        - Boutons +/- .................................. ligne 2292
+        - Champ numérique .............................. ligne 2314
+        - Alertes ...................................... ligne 2323
+        - Total voyageurs .............................. ligne 2342
+   4.7. Services additionnels .......................... ligne 2350
+   4.8. Informations de paiement ....................... ligne 2432
+   4.9. Conditions de réservation ...................... ligne 2457
+        - Titres passes de h6 a h3, apparence conservee par la classe utilitaire. ... ligne 2467
+   4.10. Récapitulatif (sidebar) ....................... ligne 2508
+   4.11. Résumé nom de l'hôtel ......................... ligne 2529
+        - Titre passe de h6 a h4, apparence conservee par la classe utilitaire. ... ligne 2547
+   4.12. Résumé chambre ................................ ligne 2561
+   4.13. Résumé dates du séjour ........................ ligne 2595
+   4.14. Résumé prix ................................... ligne 2642
+   4.15. Résumé avantages .............................. ligne 2681
+   4.16. Résumé contact ................................ ligne 2708
    
    ══════════════════════════════════════════════════════════
    5. PAGE CONTACT (contact.html)
    ══════════════════════════════════════════════════════════
    
-   5.1. Bouton de soumission ........................... ligne 2699
-   5.2. Entrée de la feuille contact ................... ligne 2722
-   5.3. Layout général ................................. ligne 2726
-   5.4. En-tête de la page ............................. ligne 2736
-   5.5. Carte google maps .............................. ligne 2752
-   5.6. Cartes d'informations .......................... ligne 2802
-        - Style de base des cartes ..................... ligne 2812
-        - Conteneurs de structure ...................... ligne 2829
-        - Ligne d'en-tête (icône + titre) .............. ligne 2835
-        - Titres passes de h6 a h2, apparence conservee par la classe utilitaire. ... ligne 2845
-        - Icone (cercle) ............................... ligne 2853
-   5.7. Formulaire de contact .......................... ligne 2910
-   5.8. Modal de confirmation .......................... ligne 2980
+   5.1. Bouton de soumission ........................... ligne 2731
+   5.2. Entrée de la feuille contact ................... ligne 2754
+   5.3. Layout général ................................. ligne 2758
+   5.4. En-tête de la page ............................. ligne 2774
+   5.5. Carte google maps .............................. ligne 2790
+   5.6. Cartes d'informations .......................... ligne 2840
+        - Style de base des cartes ..................... ligne 2850
+        - Conteneurs de structure ...................... ligne 2867
+        - Ligne d'en-tête (icône + titre) .............. ligne 2873
+        - Titres passes de h6 a h2, apparence conservee par la classe utilitaire. ... ligne 2883
+        - Icone (cercle) ............................... ligne 2891
+   5.7. Formulaire de contact .......................... ligne 2948
+   5.8. Modal de confirmation .......................... ligne 3018
    
    ══════════════════════════════════════════════════════════
    
-   TOTAL : 3051 lignes
+   TOTAL : 3089 lignes
    SECTIONS PRINCIPALES : 5 grandes parties
    REPÈRES INDEXÉS : 144
    

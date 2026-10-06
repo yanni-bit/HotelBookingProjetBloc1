@@ -443,7 +443,7 @@ Les quatre feuilles de style du projet ont été validées séparément.
 | base.css | 0 | 0 | conforme |
 | accessibilite.css | 0 | 2 | conforme |
 | responsive.css | 0 | 1 | conforme |
-| style.css | 3 | 28 | non conforme |
+| style.css | 3 | 28 | non conforme au moment des tests |
 
 Les trois erreurs sont une seule et même erreur répétée : la propriété `border-color`
 déclarée avec une variable CSS, que le validateur n'analyse pas statiquement.
@@ -485,8 +485,8 @@ pas des erreurs.
 | Accessibilité automatisée | Lighthouse et audit multi-pages | 92 à 98 selon les pages |
 | Accessibilité manuelle | outils de développement Chrome et Firefox | structure conforme, 2 éléments hors du parcours clavier |
 | Performance | Lighthouse | conforme, sauf la page d'accueil |
-| Validation HTML | Nu Html Checker | 27 erreurs, non conforme |
-| Validation CSS | W3C CSS Validator | 3 erreurs sur une feuille, non conforme |
+| Validation HTML | Nu Html Checker | 27 erreurs, non conforme au moment des tests |
+| Validation CSS | W3C CSS Validator | 3 erreurs sur une feuille, non conforme au moment des tests |
 
 ### 5.2 Anomalies relevées
 

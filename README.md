@@ -72,8 +72,8 @@ HOTELBOOKINGPROJETBLOC1/
 │   └── images/             # Images du site
 ├── css/
 │   ├── base.css           # Variables, reset, utilitaires
-│   ├── style.css          # Styles principaux (2991 lignes)
-│   ├── responsive.css     # Media queries (1042 lignes)
+│   ├── style.css          # Styles principaux (3089 lignes)
+│   ├── responsive.css     # Media queries (1031 lignes)
 │   └── accessibilite.css  # Styles d'accessibilité WCAG
 ├── js/
 │   ├── main.js                           # Fonctionnalités principales
@@ -197,19 +197,22 @@ Le projet respecte les critères d'accessibilité suivants :
 ### Validation W3C
 
 Validations effectuées le 5 octobre 2026 sur les pages déployées. Détail et rapports
-complets dans docs/TESTS.md section 4.
+complets dans docs/TESTS.md section 4. Les corrections apportées ensuite et les
+contrôles qui les valident figurent dans docs/RAPPORT_D_AMELIORATION.md.
 
-- HTML5, Nu Html Checker : 27 erreurs réparties en 6 familles
-- CSS3, W3C CSS Validator : 3 erreurs sur style.css, les 3 autres feuilles sont conformes
-- Accessibilité, Lighthouse : de 92 à 96 selon les pages
+- HTML5, Nu Html Checker : 27 erreurs réparties en 6 familles, corrigées depuis
+- CSS3, W3C CSS Validator : 3 erreurs sur style.css, corrigées depuis, les 3 autres
+  feuilles sont conformes
+- Accessibilité, Lighthouse : de 92 à 96 selon les pages lors de la campagne, 100 après
+  corrections
 
 ## Organisation du code
 
 ### CSS
-- **base.css** : 283 lignes - Variables globales, reset CSS, utilitaires
-- **style.css** : 2991 lignes - Styles principaux organisés par composants
-- **responsive.css** : 1042 lignes - 18 media queries pour adaptation multi-écrans
-- **accessibilite.css** : 109 lignes - Styles WCAG (focus, dyslexie, zones tactiles)
+- **base.css** : 369 lignes - Variables globales, reset CSS, utilitaires
+- **style.css** : 3089 lignes - Styles principaux organisés par composants
+- **responsive.css** : 1031 lignes - 18 media queries pour adaptation multi-écrans
+- **accessibilite.css** : 222 lignes - Styles WCAG (focus, dyslexie, zones tactiles)
 
 ### JavaScript
 - **Architecture modulaire** : Chaque fichier JS a une responsabilité unique

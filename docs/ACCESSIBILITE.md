@@ -128,8 +128,17 @@ Ce document détaille l'ensemble des mesures d'accessibilité mises en œuvre da
 
 **Implémentation dans base.css** :
 ```css
-/* Import depuis CDN */
-@import url('https://cdn.jsdelivr.net/npm/opendyslexic@1.0.3/opendyslexic-regular.css');
+/* Police hebergee dans le projet, declaree en tete de feuille.
+   Une regle @import placee apres une autre regle est ignoree par le
+   navigateur : la police est donc declaree en @font-face. */
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/opendyslexic-latin-400-normal.woff2') format('woff2'),
+       url('../assets/fonts/opendyslexic-latin-400-normal.woff') format('woff');
+}
 
 /* Variable CSS */
 :root {

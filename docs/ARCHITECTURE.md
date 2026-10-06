@@ -75,7 +75,7 @@ HOTELBOOKINGPROJETBLOC1/
 
 ## Architecture des fichiers CSS
 
-### base.css (283 lignes)
+### base.css (369 lignes)
 
 **Rôle** : Fondations CSS du projet.
 
@@ -113,7 +113,7 @@ HOTELBOOKINGPROJETBLOC1/
 - Reset CSS pour uniformiser les navigateurs
 - Utilitaires réutilisables dans tout le projet
 
-### style.css (2991 lignes)
+### style.css (3089 lignes)
 
 **Rôle** : Styles spécifiques de tous les composants et pages.
 
@@ -153,7 +153,7 @@ HOTELBOOKINGPROJETBLOC1/
 - `.block__element` : Élément du composant
 - `.block--modifier` : Variante du composant
 
-### responsive.css (1042 lignes)
+### responsive.css (1031 lignes)
 
 **Rôle** : Adaptations responsive pour tous les breakpoints.
 
@@ -191,7 +191,7 @@ HOTELBOOKINGPROJETBLOC1/
 - Media queries progressives pour enrichir sur desktop
 - Réorganisation DOM via JavaScript (matchMedia) quand nécessaire
 
-### accessibilite.css (169 lignes)
+### accessibilite.css (222 lignes)
 
 **Rôle** : Styles dédiés à l'accessibilité WCAG 2.1 AA.
 
@@ -598,13 +598,13 @@ mediaQuery.addEventListener('change', handleMediaQueryChange);
 
 ```html
 <!-- Bootstrap (framework) -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+<link href="assets/vendor/bootstrap/bootstrap.min.css">
 
 <!-- Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
 
 <!-- Flatpickr (si page avec calendrier) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="assets/vendor/flatpickr/flatpickr.min.css">
 
 <!-- CSS customs (ordre important) -->
 <link rel="stylesheet" href="css/base.css">
@@ -619,11 +619,11 @@ mediaQuery.addEventListener('change', handleMediaQueryChange);
 
 ```html
 <!-- Bootstrap Bundle (Popper inclus) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
 
 <!-- Flatpickr (si page avec calendrier) -->
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+<script src="assets/vendor/flatpickr/flatpickr.min.js"></script>
+<script src="assets/vendor/flatpickr/l10n/fr.js"></script>
 
 <!-- Scripts customs (ordre important, chargement avec defer) -->
 <script src="js/main.js" defer></script>
