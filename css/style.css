@@ -439,7 +439,7 @@
 }
 
 .nav-link {
-  color: var(--blanc);
+  color: var(--gris-fonce);
   font-family: var(--font-principale);
 }
 
@@ -1135,6 +1135,7 @@ footer.container-fluid .footer_support ul li::before {
 .btn-dark {
   background-color: var(--marron);
   border-color: var(--marron);
+  color: var(--gris-fonce);
 }
 
 .btn-dark:hover {
