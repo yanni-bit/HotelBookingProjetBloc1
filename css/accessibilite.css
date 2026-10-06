@@ -1,7 +1,30 @@
-/* ============================================
-   ACCESSIBILITE.CSS
-   Feuille de style pour l'accessibilité WCAG 2.1 AA
-   ============================================ */
+/* ==========================================================
+   ACCESSIBILITE.CSS - Conformité WCAG 2.1 AA
+   Projet : Hôtel Booking (Bloc 1)
+   ----------------------------------------------------------
+   TABLE DES MATIÈRES
+   
+   Feuille dédiée aux critères d'accessibilité : focus clavier, contenu
+   masqué pour lecteurs d'écran, zones tactiles, mouvement réduit.
+   
+   1. Contenu masqué visuellement .................. ligne 26
+   2. Lien d'évitement ............................. ligne 45
+   3. Focus visible au clavier ..................... ligne 67
+   4. Validation des formulaires ................... ligne 102
+   5. Mouvement réduit ............................. ligne 126
+   6. Zones tactiles minimales ..................... ligne 146
+   7. Bouton dyslexie (critère Cr 1.c.2) ........... ligne 160
+   
+   ══════════════════════════════════════════════════════════
+   
+   TOTAL : 222 lignes
+   REPÈRES INDEXÉS : 7
+   
+   ========================================================== */
+
+/* ==========================================================
+   1. CONTENU MASQUÉ VISUELLEMENT
+   ---------------------------------------------------------- */
 
 .visually-hidden {
   position: absolute !important;
@@ -10,10 +33,17 @@
   padding: 0 !important;
   margin: -1px !important;
   overflow: hidden !important;
+  /* clip est deconseille mais conserve en repli pour les navigateurs
+     anciens ; clip-path est la propriete a jour, les deux coexistent. */
   clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
   white-space: nowrap !important;
   border: 0 !important;
 }
+
+/* ==========================================================
+   2. LIEN D'ÉVITEMENT
+   ---------------------------------------------------------- */
 
 .skip-link {
   position: absolute;
@@ -32,6 +62,10 @@
 .skip-link:focus {
   top: 0;
 }
+
+/* ==========================================================
+   3. FOCUS VISIBLE AU CLAVIER
+   ---------------------------------------------------------- */
 
 *:focus {
   outline: none;
@@ -64,6 +98,10 @@ textarea:focus-visible {
   box-shadow: 0 0 0 3px rgba(0, 95, 204, 0.25);
 }
 
+/* ==========================================================
+   4. VALIDATION DES FORMULAIRES
+   ---------------------------------------------------------- */
+
 .invalid-feedback {
   display: none;
   font-size: 0.875rem;
@@ -84,6 +122,10 @@ textarea:focus-visible {
   border-color: #198754;
 }
 
+/* ==========================================================
+   5. MOUVEMENT RÉDUIT
+   ---------------------------------------------------------- */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -100,6 +142,10 @@ textarea:focus-visible {
   }
 }
 
+/* ==========================================================
+   6. ZONES TACTILES MINIMALES
+   ---------------------------------------------------------- */
+
 button,
 .btn,
 a.btn,
@@ -110,10 +156,12 @@ input[type="reset"] {
 }
 
 
-/* ============================================
-   BOUTON DYSLEXIE - Critère WCAG Cr 1.c.2
-   Style pour le bouton d'activation de la police dyslexie
-   ============================================ */
+/* ==========================================================
+   7. BOUTON DYSLEXIE - Critère WCAG Cr 1.c.2
+   ----------------------------------------------------------
+   Bouton d'activation de la police adaptée, présent dans le
+   header de chaque page.
+   ========================================================== */
 
 /* 
  * Bouton toggle pour activer/désactiver la police dyslexie

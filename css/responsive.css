@@ -4,92 +4,66 @@
    ----------------------------------------------------------
    TABLE DES MATIÈRES
    
-   Structure des Média-Requêtes :
+   Structure des média-requêtes. Chaque numéro renvoie à la ligne du
+   commentaire de section, placé juste avant la règle @media.
    
-   1. DESKTOP XL (≥ 1200px) ...................... ligne 100
-      - Room: Modals, Sidebar
+   1. RÈGLES GÉNÉRALES - Masquage par défaut ....... ligne 69
    
-   2. DESKTOP/GRANDES TABLETTES (≥ 992px) ........ ligne 127
-      - Room: Calendrier Flatpickr
+   2. DESKTOP XL (largeur ≥ 1200px) ................ ligne 80
    
-   3. TABLETTES/MOBILES (≤ 991px) ................ ligne 154
-      - Header global, Carrousel, Recherche
-      - Destinations, Footer
+   3. DESKTOP ET GRANDES TABLETTES (largeur ≥ 992px) ... ligne 107
+      - Room : Calendrier flatpickr ................ ligne 114
    
-   4. TABLETTES MOYENNES (768px - 991px) ......... ligne 306
-      - Room: Calendrier, Avis clients
+   4. TABLETTES ET MOBILES (largeur ≤ 991px) ....... ligne 134
+      - Header global .............................. ligne 141
+      - Ruban ...................................... ligne 185
+      - Bloc de recherche principal ................ ligne 193
+      - Bloc contact header ........................ ligne 231
+      - Bloc recherche header ...................... ligne 248
+      - Carrousel index ............................ ligne 256
+      - Section destinations ....................... ligne 265
+      - Footer ..................................... ligne 279
    
-   5. PETITES TABLETTES/GRANDS MOBILES (576px - 767px) ... ligne 348
-      - Room: Sidebar, Calendrier, Avis
+   5. TABLETTES MOYENNES (largeur 768px - 991px) ... ligne 288
+      - Room : Calendrier flatpickr ................ ligne 300
    
-   6. MOBILES MOYENS (391px - 575px) ............. ligne 427
-      - Room: Sidebar, Calendrier, Avis
-      - Header: Bloc recherche réduit
+   6. PETITES TABLETTES ET GRANDS MOBILES (576px - 767px) ... ligne 330
+      - Room : Sidebar GAUCHE (Onglets) ............ ligne 337
+      - Room : Calendrier flatpickr ................ ligne 356
    
-   7. PETITS MOBILES (≤ 390px) ................... ligne 519
-      - Interface mobile : Formulaire au lieu calendrier
-      - Header : Réorganisation ruban
-      - Carrousel, Recherche, Destinations
-      - Footer, Avis clients, Flatpickr compact
+   7. MOBILES MOYENS (391px - 575px) ............... ligne 409
+      - Room : Sidebar GAUCHE (Onglets) ............ ligne 416
+      - Room : Calendrier flatpickr ................ ligne 434
    
-   8. TRÈS PETITS MOBILES (< 360px) .............. ligne 770
-      - Room: En-tête sidebar, Avis
-      - Flatpickr : Version ultra-compacte
+   8. PETITS MOBILES (largeur ≤ 390px) ............. ligne 500
+      - Room : Sidebar GAUCHE (Onglets) ............ ligne 508
+      - Room : Interface mobile : formulaire au lieu du calendrier ... ligne 525
+      - HEADER - Réorganisation pour très petit écran ... ligne 537
+      - Carrousel index ............................ ligne 601
+      - Formulaire de recherche principal .......... ligne 608
+      - Section destinations ....................... ligne 644
+      - Footer ..................................... ligne 668
    
-   9. CARROUSEL ROOM (≤ 768px) ................... ligne 828
-      - Galerie d'images responsive
+   9. TRÈS PETITS MOBILES (largeur < 360px) ........ ligne 752
    
-   10. AMÉLIORATIONS TACTILES (touch devices) .... ligne 856
-       - Zones tactiles 44px minimum (WCAG AAA)
+   10. RESPONSIVE CARROUSEL ROOM (largeur ≤ 768px) ... ligne 810
    
-   11. RESPONSIVE PAGES SPÉCIFIQUES .............. ligne 878
-       
-       A. PAGE BOOKING (booking.html)
-          - ≤ 991px : Récapitulatif non sticky ... ligne 878
-          - ≤ 767px : Formulaire, Services ....... ligne 886
-          - ≤ 575px : Pads réduits ............... ligne 926
-       
-       B. PAGE CONTACT (contact.html)
-          - ≤ 991px : Formulaire non sticky ...... ligne 950
-          - ≤ 767px : Map, Cartes info ........... ligne 965
-          - ≤ 575px : Pads réduits ............... ligne 1000
-       
-       C. EDGE CASE (≤ 280px)
-          - Email long → "Contact" ............... ligne 1015
-       
-       D. MODAL CONFIRMATION (≤ 576px)
-          - Détails verticaux .................... ligne 1033
+   11. AMÉLIORATIONS TACTILES (touch devices) ...... ligne 838
+   
+   12. Responsive pages spécifiques ................ ligne 860
+      - Page booking ............................... ligne 863
+      - Page contact ............................... ligne 936
+      - Modal de confirmation ...................... ligne 1020
    
    ══════════════════════════════════════════════════════════
    
-   TOTAL : 1042 lignes
-   MEDIA QUERIES : 18 breakpoints
-   !IMPORTANT : 104 occurrences (plugins/Bootstrap override)
-   COMMENTAIRES : 71 annotations
+   TOTAL : 1031 lignes
+   MÉDIA-REQUÊTES : 18
+   REPÈRES INDEXÉS : 36
+   !IMPORTANT : 104 occurrences (surcharge Bootstrap et Flatpickr)
    
    ========================================================== */
 
-
-/* ==========================================================
-   RÈGLES GÉNÉRALES - Masquage par défaut
-   (Appliqué à tous les appareils)
-   ---------------------------------------------------------- */
-
-/* [room.html] Le formulaire mobile est masqué par défaut (affiché uniquement ≤ 390px) */
-.mobile-date-form {
-  display: none;
-}
-
-
-/* ==========================================================
-   RÈGLES GÉNÉRALES - Masquage par défaut
-   (Appliqué à tous les appareils)
-   ---------------------------------------------------------- */
-
-/* [room.html] Le formulaire mobile est masqué par défaut (affiché uniquement ≤ 390px) */
-.mobile-date-form {
-  display: none;
-}
 
 /* ==========================================================
    RÈGLES GÉNÉRALES - Masquage par défaut
@@ -238,7 +212,9 @@
     margin-bottom: 15px;
   }
 
-  .search-field-box h5 {
+  /* Le libelle du champ etait un h5 imbrique dans le label, invalide.
+     Devenu un label portant la classe search-field-label. */
+  .search-field-box .search-field-label {
     font-size: 13px;
   }
 
@@ -929,7 +905,8 @@
     max-width: 100%;
   }
 
-  .guests-section h6 {
+  /* Titre passe de h6 a h3, apparence conservee par la classe utilitaire. */
+  .guests-section h3 {
     font-size: 1rem;
   }
 }

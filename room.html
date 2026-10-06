@@ -457,33 +457,33 @@
 
                   <!-- Onglet 1 : Description (actif par défaut) -->
                   <a class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description"
-                    type="button" role="tab" aria-controls="description" aria-selected="true"
-                    data-i18n="room.tabDescription" href="#">
+                    role="tab" aria-controls="description" aria-selected="true" data-i18n="room.tabDescription"
+                    href="#">
                     <i class="bi bi-file-text me-2"></i> Description
                   </a>
 
                   <!-- Onglet 2 : Disponibilité & Réservation -->
                   <a class="nav-link" id="availability-tab" data-bs-toggle="tab" data-bs-target="#availability"
-                    type="button" role="tab" aria-controls="availability" aria-selected="false"
-                    data-i18n="room.tabAvailability" href="#">
+                    role="tab" aria-controls="availability" aria-selected="false" data-i18n="room.tabAvailability"
+                    href="#">
                     <i class="bi bi-calendar-check me-2"></i> Disponibilité
                   </a>
 
                   <!-- Onglet 3 : Équipements -->
-                  <a class="nav-link" id="amenities-tab" data-bs-toggle="tab" data-bs-target="#amenities" type="button"
-                    role="tab" aria-controls="amenities" aria-selected="false" data-i18n="room.tabAmenities" href="#">
+                  <a class="nav-link" id="amenities-tab" data-bs-toggle="tab" data-bs-target="#amenities" role="tab"
+                    aria-controls="amenities" aria-selected="false" data-i18n="room.tabAmenities" href="#">
                     <i class="bi bi-star me-2"></i> Équipements
                   </a>
 
                   <!-- Onglet 4 : Avis clients -->
-                  <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button"
-                    role="tab" aria-controls="reviews" aria-selected="false" data-i18n="room.tabReviews" href="#">
+                  <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" role="tab"
+                    aria-controls="reviews" aria-selected="false" data-i18n="room.tabReviews" href="#">
                     <i class="bi bi-chat-left-text me-2"></i> Avis
                   </a>
 
                   <!-- Onglet 5 : Localisation -->
-                  <a class="nav-link" id="location-tab" data-bs-toggle="tab" data-bs-target="#location" type="button"
-                    role="tab" aria-controls="location" aria-selected="false" data-i18n="room.tabLocation" href="#">
+                  <a class="nav-link" id="location-tab" data-bs-toggle="tab" data-bs-target="#location" role="tab"
+                    aria-controls="location" aria-selected="false" data-i18n="room.tabLocation" href="#">
                     <i class="bi bi-geo-alt me-2"></i> Localisation
                   </a>
                 </nav>
@@ -687,11 +687,13 @@
 
                                   <!-- Bloc capacité et prix -->
                                   <div class="col-price-info text-end">
-                                    <p class="text-muted small mb-0" data-i18n="room.maxCapacity">
-                                      Max :
-                                      <i class="bi bi-person-fill" aria-label="Personne"></i>
-                                      <i class="bi bi-person-fill" aria-label="Personne"></i>
-                                      <i class="bi bi-person-fill" aria-label="Personne"></i>
+                                    <p class="text-muted small mb-0">
+                                      <span data-i18n="room.maxCapacity">Max :</span>
+                                      <i class="bi bi-person-fill" aria-hidden="true"></i>
+                                      <i class="bi bi-person-fill" aria-hidden="true"></i>
+                                      <i class="bi bi-person-fill" aria-hidden="true"></i>
+                                      <span class="visually-hidden" data-i18n="room.maxCapacityValue">3 personnes
+                                        maximum</span>
                                     </p>
                                     <p class="h4 fw-bold text-prix mb-0" data-i18n-html="room.priceValue">Prix: 770 €
                                     </p>
@@ -1503,21 +1505,26 @@
      Affichage plein écran des photos de chambre
      Navigation précédent/suivant entre les images
      ======================================== -->
-  <div class="modal fade modal-custom" id="offerModalLightbox" tabindex="-1" aria-labelledby="offerModalLightboxLabel"
-    aria-hidden="true">
+  <div class="modal fade modal-custom" id="offerModalLightbox" tabindex="-1" role="dialog" aria-modal="true"
+    aria-labelledby="offerModalLightboxLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content bg-transparent border-0">
 
         <!-- En-tête modal : bouton fermeture uniquement -->
         <div class="modal-header border-0 p-3">
+          <h2 class="visually-hidden" id="offerModalLightboxLabel" data-i18n="room.lightboxAlt">Image agrandie de la
+            chambre</h2>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"
             data-i18n-aria-label="room.modalClose"></button>
         </div>
 
         <!-- Corps du modal : image affichée en grand format -->
         <div class="modal-body text-center p-0">
-          <img src="" id="lightboxImage" class="img-fluid rounded" alt="Image agrandie de la chambre"
-            data-i18n="room.lightboxAlt">
+          <!-- Pixel transparent en attendant que room-gallery.js renseigne la source
+               au moment de l'ouverture. Un attribut src vide est invalide et provoque
+               une requete vers la page elle-meme sur certains navigateurs. -->
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="lightboxImage"
+            class="img-fluid rounded" alt="Image agrandie de la chambre">
         </div>
 
         <!-- Bouton navigation : image précédente -->

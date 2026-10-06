@@ -1,17 +1,72 @@
 /* ==========================================================
-   BASE.CSS - Hôtel Booking (Bloc 1)
+   BASE.CSS - Fondations du projet
+   Projet : Hôtel Booking (Bloc 1)
    ----------------------------------------------------------
-   Contient :
-   1. Variables globales (couleurs, typographies, espacements)
-   2. Police dyslexie (OpenDyslexic - Critère WCAG Cr 1.c.2)
-   3. Reset CSS (Eric Meyer)
-   4. Styles généraux (body, titres, textes, liens)
-   5. Utilitaires CSS (flexbox, overflow, alignements)
+   TABLE DES MATIÈRES
+   
+   Variables globales, police dyslexie, reset, styles généraux et
+   utilitaires. Cette feuille est chargée en premier dans les cinq pages.
+   
+   1. Declaration de la police dyslexie ............ ligne 33
+   2. Variables globales ........................... ligne 69
+   3. Police dyslexie (critère Cr 1.c.2) ........... ligne 119
+   4. Reset CSS (Eric Meyer) ....................... ligne 145
+   5. Styles généraux .............................. ligne 196
+   6. Utilitaires CSS .............................. ligne 242
+      - Alignements flexbox ........................ ligne 245
+      - Overflow et gestion du texte ............... ligne 287
+      - Espacements rapides ........................ ligne 307
+      - Centrage complet ........................... ligne 321
+      - Largeur pleine ............................. ligne 330
+      - Hauteur pleine ............................. ligne 336
+      - Utilitaires texte .......................... ligne 342
+   
+   ══════════════════════════════════════════════════════════
+   
+   TOTAL : 366 lignes
+   REPÈRES INDEXÉS : 13
+   
    ========================================================== */
 
 
 /* ==========================================================
-   1. VARIABLES GLOBALES
+   1. DECLARATION DE LA POLICE DYSLEXIE
+   ----------------------------------------------------------
+   Les regles @font-face sont declarees en tete de feuille, avant
+   toute autre regle. La version precedente utilisait un @import
+   place apres le bloc :root : un @import situe apres une regle est
+   ignore par le navigateur, et la police n'etait jamais chargee.
+   ========================================================== */
+
+/* Police OpenDyslexic - Critere WCAG Cr 1.c.2
+   Hebergee dans le projet plutot que chargee depuis un CDN :
+   - l'adresse utilisee auparavant pointait vers un paquet npm inexistant,
+     le nom correct portant un tiret (open-dyslexic) ;
+   - un fichier local fonctionne hors connexion et depuis file://,
+     ce qui n'est pas garanti avec un CDN.
+   Source : paquet @fontsource/opendyslexic 5.3.0, licence SIL OFL 1.1. */
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/opendyslexic-latin-400-normal.woff2') format('woff2'),
+       url('../assets/fonts/opendyslexic-latin-400-normal.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/opendyslexic-latin-700-normal.woff2') format('woff2'),
+       url('../assets/fonts/opendyslexic-latin-700-normal.woff') format('woff');
+}
+
+
+/* ==========================================================
+   2. VARIABLES GLOBALES
    ---------------------------------------------------------- */
 
 :root {
@@ -61,14 +116,11 @@
 
 
 /* ==========================================================
-   2. POLICE DYSLEXIE - OpenDyslexic (Critère WCAG Cr 1.c.2)
+   3. POLICE DYSLEXIE (critère Cr 1.c.2)
    ----------------------------------------------------------
    Police adaptée pour personnes dyslexiques
    Activable via bouton dans le header
    ========================================================== */
-
-/* Import de la police OpenDyslexic depuis CDN */
-@import url('https://cdn.jsdelivr.net/npm/opendyslexic@1.0.3/opendyslexic-regular.css');
 
 /* 
  * Mode dyslexie : applique la police OpenDyslexic sur tout le body
@@ -90,7 +142,7 @@ body.dyslexie-mode * {
 
 
 /* ==========================================================
-   3. RESET CSS (Eric Meyer)
+   4. RESET CSS (Eric Meyer)
    ---------------------------------------------------------- */
 
 html, body, div, span, applet, object, iframe,
@@ -141,7 +193,7 @@ table {
 
 
 /* ==========================================================
-   4. STYLES GÉNÉRAUX
+   5. STYLES GÉNÉRAUX
    ---------------------------------------------------------- */
 
    /* BASE TYPOGRAPHIQUE */
@@ -187,7 +239,7 @@ ul {
 
 
 /* ==========================================================
-   5. UTILITAIRES CSS - Flexbox, Alignement & Overflow
+   6. UTILITAIRES CSS
    ---------------------------------------------------------- */
 
 /* === Alignements flexbox === */

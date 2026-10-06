@@ -229,9 +229,14 @@
       <img src="assets/images/slide-3.jpg" alt="Hotel 3" style="width:100%">
     </div>
 
-    <!-- Boutons de navigation -->
-    <a class="prev" onclick="plusSlides(-1)" aria-label="Précédent">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)" aria-label="Suivant">&#10095;</a>
+    <!-- Boutons de navigation.
+         Ce sont des commandes et non des liens : un bouton est atteignable au clavier
+         par nature, expose le role attendu par les lecteurs d'ecran, et accepte
+         l'attribut aria-label, ce qu'un <a> sans href ne fait pas. -->
+    <button type="button" class="prev" onclick="plusSlides(-1)" aria-label="Image précédente"
+      data-i18n-aria-label="home.previousSlide">&#10094;</button>
+    <button type="button" class="next" onclick="plusSlides(1)" aria-label="Image suivante"
+      data-i18n-aria-label="home.nextSlide">&#10095;</button>
 
     <!-- Indicateurs de slides (points) -->
     <div class="dots">
@@ -301,9 +306,8 @@
           <div class="col-12 col-lg-3 d-flex flex-column">
             <h5 class="search-field-box-title" data-i18n="home.whereTitle"><em>02</em> Où?</h5>
             <div class="search-field-box">
-              <label for="hotelDestination">
-                <h5 data-i18n="home.destination">Votre destination</h5>
-              </label>
+              <label class="search-field-label" for="hotelDestination" data-i18n="home.destination">Votre
+                destination</label>
               <input type="text" class="form-control" placeholder="Ville, région, district ou hôtel spécifique"
                 id="hotelDestination" name="hotelDestination" data-i18n="home.destinationPlaceholder"
                 aria-label="Ville, région, district ou hôtel spécifique">
@@ -320,17 +324,13 @@
 
                 <!-- Date d'arrivée -->
                 <div class="mb-3">
-                  <label for="checkin">
-                    <h5 data-i18n="home.checkin">Check-in</h5>
-                  </label>
+                  <label class="search-field-label" for="checkin" data-i18n="home.checkin">Check-in</label>
                   <input type="date" class="form-control" id="checkin" name="checkin">
                 </div>
 
                 <!-- Date de départ -->
                 <div class="mb-3">
-                  <label for="checkout">
-                    <h5 data-i18n="home.checkout">Check-out</h5>
-                  </label>
+                  <label class="search-field-label" for="checkout" data-i18n="home.checkout">Check-out</label>
                   <input type="date" class="form-control" id="checkout" name="checkout">
                 </div>
 
@@ -349,25 +349,19 @@
 
                 <!-- Nombre de chambres -->
                 <div class="mb-3">
-                  <label for="rooms">
-                    <h5 data-i18n="home.rooms">Chambres</h5>
-                  </label>
+                  <label class="search-field-label" for="rooms" data-i18n="home.rooms">Chambres</label>
                   <input type="number" class="form-control" id="rooms" name="rooms" min="1" value="1">
                 </div>
 
                 <!-- Nombre d'adultes -->
                 <div class="mb-3">
-                  <label for="adults">
-                    <h5 data-i18n="home.adults">Adultes</h5>
-                  </label>
+                  <label class="search-field-label" for="adults" data-i18n="home.adults">Adultes</label>
                   <input type="number" class="form-control" id="adults" name="adults" min="1" value="2">
                 </div>
 
                 <!-- Nombre d'enfants -->
                 <div class="mb-3">
-                  <label for="children">
-                    <h5 data-i18n="home.children">Enfants</h5>
-                  </label>
+                  <label class="search-field-label" for="children" data-i18n="home.children">Enfants</label>
                   <input type="number" class="form-control" id="children" name="children" min="0" value="0">
                 </div>
 
