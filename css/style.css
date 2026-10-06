@@ -1767,16 +1767,27 @@ footer .bottom nav li {
   opacity: 1;
 }
 
-/* Indicateurs (points sous le carrousel) */
+/* Indicateurs (points sous le carrousel).
+   La zone cliquable fait 24 px minimum, seuil du critere WCAG 2.5.8, alors
+   que le point visible reste a 10 px : background-clip limite le fond a la
+   boite de contenu, et le padding de 7 px devient une marge de clic
+   invisible. Les bordures transparentes de 10 px posees par Bootstrap sont
+   retirees, elles etiraient la cible a 64 px de haut pour 10 px de large. */
 .carousel-indicators [data-bs-target] {
-  width: 10px;
-  height: 10px;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  padding: 7px;
+  border: 0;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);
+  background-clip: content-box;
+  opacity: 1;
 }
 
 .carousel-indicators .active {
   background-color: var(--turquoise);
+  background-clip: content-box;
 }
 
 /* === Miniatures scrollables === */

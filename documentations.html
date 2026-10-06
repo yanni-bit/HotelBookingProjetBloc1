@@ -113,10 +113,20 @@
       color: var(--turquoise-texte, #266e6a);
     }
 
-    /* Style pour les fichiers qui n'existent pas encore (futurs rapports) */
+    /* Style pour les fichiers qui n'existent pas encore (futurs rapports).
+       L'opacite de 0.7 a ete retiree : elle melangeait le texte avec son
+       fond et ramenait le contraste de 4.75:1 a 2.68:1. L'etat "a venir"
+       reste signale par la couleur de fond, le libelle en italique et le
+       curseur not-allowed, donc par trois indices et non par la seule
+       couleur, ce qu'exige le critere 1.c.3. */
     .doc-link-item.future {
       background-color: var(--marron-clair, #E9E6E0);
-      opacity: 0.7;
+    }
+
+    /* Le rose que Bootstrap applique aux elements code plafonne a 4.20:1
+       sur le fond gris clair de cette page. Assombri pour atteindre AA. */
+    code {
+      color: #d12a7d;
     }
 
     .doc-link-item.future a,
@@ -226,7 +236,7 @@
 
           <div class="dropdown">
             <button class="btn btn-outline-dark w-100 pb-2 ribbon-btn" type="button" id="langue"
-              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-i18n="header.country">
+              data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
               PAYS
             </button>
             <ul class="dropdown-menu">
