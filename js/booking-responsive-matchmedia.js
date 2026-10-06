@@ -67,29 +67,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     saveOriginalPosition(elements);
 
-    // Déplacer le récapitulatif AVANT la section Paiement (#4)
-    // NOTE: Le recapitulatif (col-lg-4) doit être inséré dans le formulaire (col-lg-8)
-    // La structure HTML doit être revue si le recapitulatif est un voisin du formulaire.
-    // En se basant sur le HTML fourni, le récapitulatif est dans .row et doit être déplacé
-    // pour apparaître DANS le formulaire *avant* la section 4.
+    /* Le recapitulatif doit se placer juste avant la section Paiement.
+       insertBefore s'appelle sur le parent reel de cette section, soit le
+       formulaire. L'appeler sur .col-lg-8 levait une NotFoundError : la
+       section n'en est pas un enfant direct, elle se trouve un niveau plus
+       bas, a l'interieur de .booking-form. */
+    const conteneurCible = paymentSection.parentElement;
 
-    // Simplification : nous déplaçons l'élément col-lg-4.ordre avant le formulaire dans le .row.
-    // Si l'élément est trouvé, nous le déplaçons avant la section 4 du formulaire.
-    // Cependant, le JS fourni déplace le récapitulatif DANS le formulaire, ce qui est une erreur structurelle,
-    // mais je respecte la logique originale en la simplifiant pour cibler le parent correct pour la restauration.
-
-    const formContainer = document.querySelector(".col-lg-8");
-
-    if (recapitulatif.parentElement !== formContainer) {
-      // Insérer l'élément recapitulatif dans le conteneur du formulaire avant le paiement
-      // Cela suppose que le récapitulatif (col-lg-4) est inséré dans le col-lg-8, ce qui est étrange en Bootstrap
-      // mais correspond à la logique du JS fourni.
-      // Correction: nous devons insérer la *colonne* du récapitulatif avant la colonne du formulaire.
-      // Étant donné que le JS original n'est pas fourni, je vais m'en tenir à la logique du fichier d'exemple:
-      // déplacer le récapitulatif (col-lg-4.ordre) DANS le formulaire (col-lg-8) avant la section 4.
-
-      // Déplacer le récapitulatif DANS le conteneur du formulaire principal
-      formContainer.insertBefore(recapitulatif, paymentSection);
+    if (recapitulatif.nextElementSibling !== paymentSection) {
+      conteneurCible.insertBefore(recapitulatif, paymentSection);
     }
   }
 

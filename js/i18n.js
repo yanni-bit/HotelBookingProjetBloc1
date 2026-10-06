@@ -148,7 +148,7 @@ class I18n {
 
     // Traduire les aria-label spécifiques
     document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
-      const key = element.dataset.i18nAreaLabel;
+      const key = element.dataset.i18nAriaLabel;
       const translation = this.getTranslation(key);
       if (translation) {
         element.setAttribute("aria-label", translation);
@@ -162,6 +162,13 @@ class I18n {
    * @returns {string|null} - Traduction ou null si non trouvée.
    */
   getTranslation(key) {
+    /* Une cle absente ou mal orthographiee ne doit pas interrompre la
+       traduction du reste de la page : on sort proprement. */
+    if (typeof key !== "string" || key === "") {
+      console.warn("Cle de traduction absente ou invalide");
+      return null;
+    }
+    
     const keys = key.split(".");
     let translation = translations[this.currentLang];
 
