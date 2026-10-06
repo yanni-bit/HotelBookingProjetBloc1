@@ -458,6 +458,7 @@
   position: relative;
   aspect-ratio: 3 / 2;
   max-height: 640px;
+  width: 100%;
   overflow: hidden;
 }
 
