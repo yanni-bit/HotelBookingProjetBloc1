@@ -443,6 +443,12 @@
   font-family: var(--font-principale);
 }
 
+.navbar-nav .nav-link.active {
+  color: var(--gris-fonce);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 
 /* ==========================================================
    CARROUSEL INDEX (index.html)
