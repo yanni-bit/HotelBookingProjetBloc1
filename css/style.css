@@ -467,6 +467,18 @@
   max-height: 640px;
 }
 
+/* La premiere diapositive est affichee des le rendu initial, sans attendre
+   main.js. Sans cette regle le carrousel ne contient que le bloc de recherche
+   au premier affichage, et tout ce qui le suit se decale de 275 px des que
+   showSlides() passe la diapositive en display:block. Lighthouse comptait ce
+   saut comme un decalage de mise en page de 0,218, soit 11 points de moins.
+   Le script continue de piloter l'affichage ensuite : ses styles en ligne
+   l'emportent sur cette regle. */
+#hotelCarousel .hotel-slide:first-of-type {
+  display: block;
+  opacity: 1;
+}
+
 .hotel-slide img {
   width: 100%;
   height: 100%;

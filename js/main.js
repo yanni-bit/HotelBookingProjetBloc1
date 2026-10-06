@@ -83,8 +83,11 @@ function showSlides(n) {
   if (n >= slides.length) slideIndex = 0;
   if (n < 0) slideIndex = slides.length - 1;
 
-  /* Masque toutes les slides */
+  /* Masque toutes les diapositives sauf celle qui va etre affichee.
+     La premiere est deja visible via le CSS : la remettre a opacity 0
+     provoquerait un clignotement au chargement. */
   for (let i = 0; i < slides.length; i++) {
+    if (i === slideIndex) continue;
     slides[i].style.display = "none";
     slides[i].style.opacity = "0";
   }
