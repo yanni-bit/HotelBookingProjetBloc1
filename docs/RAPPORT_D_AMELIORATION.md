@@ -113,6 +113,11 @@ border-left-color: transparent;
 
 Le rendu est identique, la variable n'apparaît plus que seule dans sa valeur.
 
+Contrôle : W3C CSS Validation Service, profil CSS niveau 3 avec SVG, sur les quatre
+feuilles déployées. Zéro erreur. Les avertissements restants portent sur les variables
+CSS, que le validateur n'analyse pas statiquement, et sur deux préfixes propriétaires
+employés volontairement.
+
 ### 2.3 Règle `@import` mal placée
 
 La police OpenDyslexic était chargée par un `@import` placé après le bloc `:root` de

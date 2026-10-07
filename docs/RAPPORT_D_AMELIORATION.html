@@ -369,6 +369,9 @@ border-right-color: transparent;
 border-bottom-color: transparent;
 border-left-color: transparent;</code></pre>
     <p>Le rendu est identique, la variable n'apparaît plus que seule dans sa valeur.</p>
+    <p>Contrôle : W3C CSS Validation Service, profil CSS niveau 3 avec SVG, sur les quatre feuilles déployées. Zéro
+      erreur. Les avertissements restants portent sur les variables CSS, que le validateur n'analyse pas
+      statiquement, et sur deux préfixes propriétaires employés volontairement.</p>
     <h3>2.3 Règle <code>@import</code> mal placée</h3>
     <p>La police OpenDyslexic était chargée par un <code>@import</code> placé après le bloc <code>:root</code> de
       <code>base.css</code>. Une règle <code>@import</code> située après une autre règle est ignorée par le navigateur :
