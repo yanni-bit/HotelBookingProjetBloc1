@@ -276,7 +276,7 @@
       <li>Intégration native avec Bootstrap</li>
       <li>Grande variété d'icônes (1800+)</li>
       <li>Facile à utiliser (classes CSS simples)</li>
-      <li>Chargement via CDN (pas de gestion de fichiers)</li>
+      <li>Fichiers hébergés dans le projet (assets/vendor/bootstrap-icons/)</li>
       <li>Performance optimisée (font-based)</li>
     </ul>
 
@@ -323,13 +323,13 @@
       <li>Exigence WCAG Cr 1.c.2 : Police spécifique pour personnes dyslexiques</li>
       <li>Police open-source spécialement conçue pour faciliter la lecture</li>
       <li>Caractéristiques visuelles distinctives (lettres alourdies à la base)</li>
-      <li>Chargement via CDN</li>
+      <li>Fichiers de police hébergés dans le projet</li>
       <li>Facile à intégrer avec CSS</li>
     </ul>
 
     <p><strong>Implémentation</strong> :</p>
     <ul>
-      <li>Import via CDN dans base.css</li>
+      <li>Deux règles @font-face en tête de base.css, fichiers dans assets/fonts/</li>
       <li>Classe CSS .dyslexie-mode pour activation globale</li>
       <li>Bouton toggle dans le header</li>
       <li>Sauvegarde préférence en localStorage</li>

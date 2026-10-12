@@ -81,7 +81,7 @@ HOTELBOOKINGPROJETBLOC1/
 
 **Contenu** :
 1. Variables CSS globales (couleurs, typographies, espacements)
-2. Police dyslexie OpenDyslexic (import CDN + classes)
+2. Police dyslexie OpenDyslexic (@font-face local + classes)
 3. Reset CSS (Eric Meyer)
 4. Styles généraux (body, titres, liens, images)
 5. Utilitaires CSS (flexbox, overflow, alignements)

@@ -103,7 +103,7 @@ Ce document présente et justifie l'ensemble des choix techniques effectués pou
 - Intégration native avec Bootstrap
 - Grande variété d'icônes (1800+)
 - Facile à utiliser (classes CSS simples)
-- Chargement via CDN (pas de gestion de fichiers)
+- Fichiers hébergés dans le projet (assets/vendor/bootstrap-icons/)
 - Performance optimisée (font-based)
 
 **Alternative envisagée** : Font Awesome
@@ -142,11 +142,11 @@ Ce document présente et justifie l'ensemble des choix techniques effectués pou
 - Exigence WCAG Cr 1.c.2 : Police spécifique pour personnes dyslexiques
 - Police open-source spécialement conçue pour faciliter la lecture
 - Caractéristiques visuelles distinctives (lettres alourdies à la base)
-- Chargement via CDN
+- Fichiers de police hébergés dans le projet
 - Facile à intégrer avec CSS
 
 **Implémentation** :
-- Import via CDN dans base.css
+- Deux règles @font-face en tête de base.css, fichiers dans assets/fonts/
 - Classe CSS .dyslexie-mode pour activation globale
 - Bouton toggle dans le header
 - Sauvegarde préférence en localStorage

@@ -126,7 +126,7 @@ Le projet respecte les critères d'accessibilité suivants :
 - Rôles ARIA (`role="search"`, `role="alert"`, `role="status"`)
 
 #### Critère Cr 1.c.2 : Police dyslexie
-- Police OpenDyslexic intégrée via CDN
+- Police OpenDyslexic hébergée dans le projet (assets/fonts/, deux règles @font-face en tête de base.css)
 - Bouton d'activation dans le header de chaque page
 - Sauvegarde de la préférence utilisateur en localStorage
 - Classes CSS `.dyslexie-mode` et `.font-dyslexie`
