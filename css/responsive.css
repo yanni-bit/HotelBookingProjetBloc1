@@ -601,8 +601,8 @@
   /* === CARROUSEL INDEX (index.html) === */
 
   .dot {
-    height: 8px;
-    width: 8px;
+    /* point visible de 8 px, cible de 24 px */
+    padding: 8px;
   }
 
   /* === FORMULAIRE DE RECHERCHE PRINCIPAL (index.html) === */

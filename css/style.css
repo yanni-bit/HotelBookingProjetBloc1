@@ -535,10 +535,10 @@
 
 .dot {
   cursor: pointer;
-  height: 12px;
-  width: 12px;
-  margin: 0 4px;
-  background-color: #bbb;
+  height: 24px;
+  width: 24px;
+  padding: 6px;
+  background: #bbb content-box;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.3s;
