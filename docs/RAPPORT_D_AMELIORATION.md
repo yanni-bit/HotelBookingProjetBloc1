@@ -335,22 +335,30 @@ Sans `aria-label`, il traduisait le texte, et écrasait le libellé que
 
 ### 3.5 Zone tactile des points indicateurs
 
-Les points indicateurs du carrousel mesuraient moins de 24 pixels de côté, en dessous du
-seuil du critère WCAG 2.5.8.
+Le site porte deux carrousels, chacun avec sa propre série de points indicateurs : les
+indicateurs Bootstrap de `room.html`, et ceux du carrousel de la page d'accueil, qui est
+un composant écrit pour le projet. Les deux séries mesuraient moins de 24 pixels de côté,
+en dessous du seuil du critère WCAG 2.5.8.
 
-La zone est portée à 24 pixels par 44 sans grossir le point visible, au moyen d'une
+La zone est portée à 24 pixels de côté sans grossir le point visible, au moyen d'une
 marge intérieure et de `background-clip` :
 
 ```css
-box-sizing: border-box;
 width: 24px;
 height: 24px;
-padding: 7px;
+padding: 6px;
 background-clip: content-box;
 ```
 
-Le fond est dessiné dans la seule boîte de contenu, soit un point visible de 10 pixels,
-tandis que la boîte cliquable en fait 24.
+Le fond n'est dessiné que dans la boîte de contenu : le point garde sa taille, la boîte
+cliquable fait 24 pixels. `box-sizing: border-box` est posé globalement, lignes 207 à 209
+de `base.css`, donc la largeur déclarée inclut déjà la marge intérieure.
+
+Les deux séries ne diffèrent que par le padding : 7 pixels pour les indicateurs de
+`room.html`, soit un point visible de 10 ; 6 pixels pour ceux de la page d'accueil, soit
+un point visible de 12, la taille qu'ils avaient avant la correction. Sous 390 pixels de
+large, `responsive.css` porte ce padding à 8 et le point visible à 8, la boîte cliquable
+restant à 24.
 
 ### 3.6 Décalage de mise en page du carrousel
 

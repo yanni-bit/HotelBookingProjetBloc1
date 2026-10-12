@@ -619,18 +619,25 @@ min-height: calc(100dvh - 200px);</code></pre>
       texte, et écrasait le libellé que <code>updateLanguageButton</code> venait d'écrire : le ruban affichait « PAYS »
       au lieu de « FRANÇAIS (FR) ». L'attribut <code>data-i18n</code> a été retiré de ce bouton.</p>
     <h3>3.5 Zone tactile des points indicateurs</h3>
-    <p>Les points indicateurs du carrousel mesuraient moins de 24 pixels de côté, en dessous du seuil du critère WCAG
-      2.5.8.</p>
-    <p>La zone est portée à 24 pixels par 44 sans grossir le point visible, au moyen d'une marge intérieure et de
+    <p>Le site porte deux carrousels, chacun avec sa propre série de points indicateurs : les indicateurs Bootstrap de
+      <code>room.html</code>, et ceux du carrousel de la page d'accueil, qui est un composant écrit pour le projet. Les
+      deux séries mesuraient moins de 24 pixels de côté, en dessous du seuil du critère WCAG 2.5.8.
+    </p>
+    <p>La zone est portée à 24 pixels de côté sans grossir le point visible, au moyen d'une marge intérieure et de
       <code>background-clip</code> :
     </p>
-    <pre><code>box-sizing: border-box;
-width: 24px;
+    <pre><code>width: 24px;
 height: 24px;
-padding: 7px;
+padding: 6px;
 background-clip: content-box;</code></pre>
-    <p>Le fond est dessiné dans la seule boîte de contenu, soit un point visible de 10 pixels, tandis que la boîte
-      cliquable en fait 24.</p>
+    <p>Le fond n'est dessiné que dans la boîte de contenu : le point garde sa taille, la boîte cliquable fait 24 pixels.
+      <code>box-sizing: border-box</code> est posé globalement, lignes 207 à 209 de <code>base.css</code>, donc la
+      largeur déclarée inclut déjà la marge intérieure.
+    </p>
+    <p>Les deux séries ne diffèrent que par le padding : 7 pixels pour les indicateurs de <code>room.html</code>, soit
+      un point visible de 10 ; 6 pixels pour ceux de la page d'accueil, soit un point visible de 12, la taille qu'ils
+      avaient avant la correction. Sous 390 pixels de large, <code>responsive.css</code> porte ce padding à 8 et le
+      point visible à 8, la boîte cliquable restant à 24.</p>
     <h3>3.6 Décalage de mise en page du carrousel</h3>
     <p>Le score de performance de la page d'accueil oscillait entre deux valeurs d'une passe à l'autre, avec un décalage
       cumulé soit nul, soit égal à 0,218.</p>
